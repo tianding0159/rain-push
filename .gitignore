@@ -2,3 +2,13 @@ node_modules/
 .wrangler/
 .dev.vars
 *.log
+assets/kangel_src.png
+assets/view_*.png
+assets/crop_*.png
+assets/c_*.png
+assets/plan_*.png
+assets/tune_*.png
+assets/try_*.jpg
+assets/try_*.png
+assets/final_check.png
+assets/icon_full_*.png

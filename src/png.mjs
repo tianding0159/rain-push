@@ -51,6 +51,19 @@ export class Canvas {
       this.set(x + i, y + j, c);
     }
   }
+  ellipse(cx, cy, rx, ry, c) {
+    for (let j = -ry; j <= ry; j++) for (let i = -rx; i <= rx; i++)
+      if ((i * i) / (rx * rx) + (j * j) / (ry * ry) <= 1) this.set(cx + i, cy + j, c);
+  }
+  // 椭圆环（光环用）：外椭圆内、内椭圆外
+  ring(cx, cy, rx, ry, th, c) {
+    const irx = rx - th, iry = ry - th;
+    for (let j = -ry; j <= ry; j++) for (let i = -rx; i <= rx; i++) {
+      const o = (i * i) / (rx * rx) + (j * j) / (ry * ry);
+      const inn = irx > 0 && iry > 0 ? (i * i) / (irx * irx) + (j * j) / (iry * iry) : 2;
+      if (o <= 1 && inn > 1) this.set(cx + i, cy + j, c);
+    }
+  }
   disc(cx, cy, rad, c) {
     for (let j = -rad; j <= rad; j++) for (let i = -rad; i <= rad; i++)
       if (i * i + j * j <= rad * rad) this.set(cx + i, cy + j, c);

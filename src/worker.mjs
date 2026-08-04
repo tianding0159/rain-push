@@ -3,8 +3,9 @@
 //  双地点(住处/公司) · 不下雨则完全静默
 //  数据 和风1km 或 Open-Meteo7km · 图标Worker内生成(零依赖PNG编码)
 // ═══════════════════════════════════════════════════════════════
-import { Canvas } from './png.mjs';
 import { getForecast as qwForecast } from './qweather.mjs';
+import { ICON_B64, ICON_MIME } from './icon_data.mjs';
+import { compose as kcompose, rainShape } from './voice.mjs';
 
 // 地点从 SITES secret 读取，不写进代码——精确住址/公司坐标 + 通勤时段
 // 合起来是一份完整行踪画像，不该进版本库（即使仓库是 private，fork/泄露也带着走）
@@ -138,7 +139,7 @@ function analyze(locs, day, provider, siteDefs) {
            hitAmRush: inSpan(CFG.amRush), hitPmRush: inSpan(CFG.pmRush), sites };
 }
 
-function compose(r, day) {
+function composeFallback(r, day) {
   const p = n => String(n).padStart(2, '0');
   const { face, cat } = pickKao(day, r.maxMm, r.thunder);
   let advice;
@@ -167,36 +168,14 @@ function compose(r, day) {
   };
 }
 
-// ── 图标：固定07-21轴 + 音乐日报BPM四档配色移植 ──
-const INK = [22,24,28], GRID = [255,255,255,22], EMPTY = [255,255,255,38];
-const TIERS = [{max:1,c:[79,171,240]},{max:3,c:[96,196,110]},{max:8,c:[250,180,19]},{max:1e9,c:[240,90,36]}];
-const SS = 4, D = 180, W = D * SS, H0 = 7, H1 = 21;
-
-export function renderIcon(hourPairs) {
-  const c = new Canvas(W, W);
-  c.rect(0, 0, W, W, INK);
-  for (let x = 0; x < W; x += W/9) c.rect(x, 0, SS/2, W, GRID);
-  for (let y = 0; y < W; y += W/9) c.rect(0, y, W, SS/2, GRID);
-  const byHour = new Map(hourPairs);
-  const n = H1 - H0 + 1, span = W*0.74, x0 = (W-span)/2, slot = span/n, bw = slot*0.66;
-  const base = W*0.725, maxH = W*0.44;
-  c.rect(x0, base + SS*1.5, span, SS, [255,255,255,55]);
-  const xNoon = x0 + (12 - H0 + 0.5) * slot;
-  c.rect(xNoon - SS/2, base + SS*1.5, SS, W*0.045, [255,255,255,90]);   // 12点锚
-  const mx = Math.max(...hourPairs.map(h => h[1]), 1);
-  for (let i = 0; i < n; i++) {
-    const hh = H0 + i, mm = byHour.get(hh) || 0;
-    const x = x0 + i*slot + (slot-bw)/2;
-    if (mm <= 0) { c.rect(x, base - SS*1.5, bw, SS*1.5, EMPTY); continue; }
-    const h = Math.max(SS*3, Math.min(1, mm/mx) * maxH);
-    c.rect(x, base - h, bw, h, TIERS.find(t => mm < t.max).c);
-  }
-  const R = c.w/2;   // iOS头像位会裁圆，先自己裁好保证边缘干净
-  for (let y = 0; y < c.h; y++) for (let x = 0; x < c.w; x++) {
-    const d = Math.hypot(x-R+.5, y-R+.5), i = (y*c.w+x)*4;
-    if (d > R) c.px[i+3] = 0; else if (d > R-SS) c.px[i+3] *= (R-d)/SS;
-  }
-  return c.downsample(SS);
+// ── 图标：位图（用户原图整体缩放，未裁剪）──
+// 不再按当天数据现画：几何柱图在真机40pt下就是一团黑，已废弃
+function iconResponse() {
+  const bin = Uint8Array.from(atob(ICON_B64), c => c.charCodeAt(0));
+  return new Response(bin, { headers: {
+    'Content-Type': ICON_MIME,
+    // 图标是静态的 → 可长缓存；Bark 侧本身也永不过期缓存同 URL
+    'Cache-Control': 'public, max-age=604800, s-maxage=604800, immutable' } });
 }
 
 async function bark(env, payload) {
@@ -228,11 +207,18 @@ async function run(env, { dry = false, revokeIfClear = false, providerOverride }
       gate: `累计>=${CFG.dayMinMm}mm 且 峰值>=${CFG.peakMinMm}mm/h（或有雷）`,
     };
   }
-  // 图标取降水更明显的那个点，且URL带指纹——Bark图标缓存永不过期，同URL不会重下
-  const lead = r.sites.reduce((a, b) => (b.maxMm > a.maxMm ? b : a));
-  const fp = `${day}-${r.start}${r.end}-${Math.round(r.maxMm*10)}`;
+  // 图标取降水更明显的那个点。
+  // 关键：把绘图数据直接编进 URL（07-21 每小时 0.1mm 为单位），让图标「自描述」。
+  // 否则 Bark 取图时端点会独立重新取数——provider 可能不同、滚动窗口也可能已滑动，
+  // 画出来的和推送内容对不上（实测过：推送有雨、图标全空）。
+  // 数据变则 URL 变，也天然适配 Bark「图标缓存永不过期」的行为。
+  // 图标固定不变 → URL 只带版本号。改图必须改这个号，否则 Bark 永久缓存不会重下
+  const fp = 'v2';
   const payload = {
-    ...compose(r, day),
+    ...kcompose(r, day, r.sites, CFG, {
+      shape: rainShape(r.sites.reduce((a, b) => (b.maxMm > a.maxMm ? b : a)).hours),
+      noon: revokeIfClear ? 'worse' : null,      // 中午那趟才用「情况有变」开头
+    }),
     group: '天气',
     level: 'timeSensitive',
     id: `rain-${day}`,
@@ -241,9 +227,9 @@ async function run(env, { dry = false, revokeIfClear = false, providerOverride }
   // 未配 PUBLIC_BASE（如首次部署前）就不带 icon——发一个必定 404 的 URL 只会让
   // NSE 白等一次下载超时。Bark 图标缓存永不过期，故 URL 带指纹保证换图能生效。
   if (env.PUBLIC_BASE && /^https?:\/\/[^/]+\./.test(env.PUBLIC_BASE)) {
-    payload.icon = `${env.PUBLIC_BASE}/icon.png?fp=${fp}`;
+    payload.icon = `${env.PUBLIC_BASE}/icon.png?v=${fp}`;
   }
-  if (dry) return { sent: false, day, dryRun: true, payload, iconHours: lead.hours };
+  if (dry) return { sent: false, day, dryRun: true, provider, payload };
   const res = await bark(env, payload);
   return { sent: res.ok, day, status: res.status, payload };
 }
@@ -254,17 +240,7 @@ export default {
   },
   async fetch(req, env) {
     const { pathname, searchParams } = new URL(req.url);
-    if (pathname === '/icon.png') {
-      const { locs, day, provider, sites } = await fetchAll(env, searchParams.get('provider') || undefined);
-      const r = analyze(locs, day, provider, sites);
-      const hours = r.rain
-        ? r.sites.reduce((a, b) => (b.maxMm > a.maxMm ? b : a)).hours : [];
-      const png = await renderIcon(hours).png();
-      // 边缘缓存 1 小时：图标一天内只变一次，且能挡住被刷时对天气 API 的放大
-      return new Response(png, { headers: {
-        'Content-Type': 'image/png',
-        'Cache-Control': 'public, max-age=3600, s-maxage=3600' } });
-    }
+    if (pathname === '/icon.png') return iconResponse();
     if (pathname === '/run') {
       // Worker URL 是公开可达的 → 不设闸的话任何人拿到 URL 都能触发真实推送骚扰手机。
       // dry=1 只返回 payload 不发送，可以放开；真发必须带 TRIGGER_TOKEN。
