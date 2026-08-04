@@ -4,8 +4,10 @@
 //  数据 和风1km 或 Open-Meteo7km · 图标Worker内生成(零依赖PNG编码)
 // ═══════════════════════════════════════════════════════════════
 import { getForecast as qwForecast } from './qweather.mjs';
-import { ICON_B64, ICON_MIME } from './icon_data.mjs';
+import { ICON_POOL, ICON_MIME } from './icon_pool.mjs';
 import { compose as kcompose, rainShape } from './voice.mjs';
+import { buildChat, sendChat } from './chat.mjs';
+import { buildDaily } from './daily.mjs';
 
 // 地点从 SITES secret 读取，不写进代码——精确住址/公司坐标 + 通勤时段
 // 合起来是一份完整行踪画像，不该进版本库（即使仓库是 private，fork/泄露也带着走）
@@ -168,10 +170,20 @@ function composeFallback(r, day) {
   };
 }
 
-// ── 图标：位图（用户原图整体缩放，未裁剪）──
-// 不再按当天数据现画：几何柱图在真机40pt下就是一团黑，已废弃
-function iconResponse() {
-  const bin = Uint8Array.from(atob(ICON_B64), c => c.charCodeAt(0));
+// ── 图标：14 张池子，按日期轮换 ──
+// 用「日期做种」而非随机：中午复查会更新早上那条通知（同 group），头像若换掉会像换了个人。
+// 轮换步长取 5（与 14 互质）→ 14 天走遍全池不重复，之后才回头。
+export function iconIndexFor(day) {
+  // 用「距基准日的天数」而非字符串哈希：哈希会碰撞，实测14天只覆盖9张。
+  // 天数序列是严格连续的整数 → 与池大小取模必然走遍全池，14天一轮不重复。
+  const t = Date.UTC(+day.slice(0, 4), +day.slice(5, 7) - 1, +day.slice(8, 10));
+  const days = Math.floor(t / 86400000);
+  const n = ICON_POOL.length;
+  return ((days % n) + n) % n;
+}
+function iconResponse(idx = 0) {
+  const b64 = ICON_POOL[((idx % ICON_POOL.length) + ICON_POOL.length) % ICON_POOL.length];
+  const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
   return new Response(bin, { headers: {
     'Content-Type': ICON_MIME,
     // 图标是静态的 → 可长缓存；Bark 侧本身也永不过期缓存同 URL
@@ -185,10 +197,11 @@ async function bark(env, payload) {
   });
 }
 
-async function run(env, { dry = false, revokeIfClear = false, providerOverride } = {}) {
+async function run(env, { dry = false, revokeIfClear = false, providerOverride, slot = 'manual' } = {}) {
   const { locs, day, provider, sites } = await fetchAll(env, providerOverride);
   const r = analyze(locs, day, provider, sites);
-  if (!r.rain) {
+  // 每日播报模式：没雨也要说话，跳过静默分支（静默只属于「仅下雨提醒」模式）
+  if (!r.rain && (env.MODE || 'daily') !== 'daily') {
     // revoked 必须反映「真的撤回了吗」，不是「允不允许撤回」——
     // 直接回传入参会在 dry-run 或撤回失败时谎报成功
     let revoked = false;
@@ -212,12 +225,97 @@ async function run(env, { dry = false, revokeIfClear = false, providerOverride }
   // 否则 Bark 取图时端点会独立重新取数——provider 可能不同、滚动窗口也可能已滑动，
   // 画出来的和推送内容对不上（实测过：推送有雨、图标全空）。
   // 数据变则 URL 变，也天然适配 Bark「图标缓存永不过期」的行为。
+  // ── 每日播报模式（MODE=daily，默认）：不只下雨才响，每天都播报 ──
+  if ((env.MODE || 'daily') === 'daily') {
+    // ⚠ 评分必须看**所有地点**，不能只用 locs[0]。
+    // 只看家会漏掉「公司暴雨、家里晴」——那正是双地点存在的意义（实测被判静默）。
+    // 做法：逐小时取各地点的**最不利值**（雨量/风/紫外线取最大，能见度取最小），
+    // 保证任一地点的坏天气都能触发；具体哪边下得大交给 contrastPhrases 说。
+    const worst = (arrs, f = Math.max) => (i) => {
+      const vs = arrs.map(a => a?.[i]).filter(v => typeof v === 'number' && !Number.isNaN(v));
+      return vs.length ? f(...vs) : undefined;
+    };
+    const hs = locs.map(l => l.hourly);
+    const h0 = { time: hs[0].time,
+      precipitation:             hs[0].time.map((_, i) => worst(hs.map(h => h.precipitation))(i)),
+      precipitation_probability: hs[0].time.map((_, i) => worst(hs.map(h => h.precipitation_probability))(i)),
+      temperature:  hs[0].time.map((_, i) => worst(hs.map(h => h.temperature))(i)),
+      apparent:     hs[0].time.map((_, i) => worst(hs.map(h => h.apparent))(i)),
+      humidity:     hs[0].time.map((_, i) => worst(hs.map(h => h.humidity))(i)),
+      wind:         hs[0].time.map((_, i) => worst(hs.map(h => h.wind))(i)),
+      gust:         hs[0].time.map((_, i) => worst(hs.map(h => h.gust))(i)),
+      uv:           hs[0].time.map((_, i) => worst(hs.map(h => h.uv))(i)),
+      visibility:   hs[0].time.map((_, i) => worst(hs.map(h => h.visibility), Math.min)(i)),
+      cloud:        hs[0].time.map((_, i) => worst(hs.map(h => h.cloud))(i)),
+      condText:     hs[0].time.map((_, i) => hs.map(h => h.condText?.[i]).find(t => t && t.includes('雷'))
+                                          || hs[0].condText?.[i] || ''),
+    };
+    // ⚠ 必须在这里就按 day 过滤：和风返回的是**跨次日**的滚动 24 小时窗口。
+    // salience.scoreTopics 只按小时过滤、不看日期 → 会把明天 14 点的雨算成今天的，
+    // 而 siteStats 按 day 过滤只算今天 → 出现「rain 得分 82 但两地累计 0mm」的自相矛盾。
+    // 根因不是「两个数据源」，是**同一数据源被两套不同的过滤条件切**。统一在此处切。
+    const w = {
+      hours: h0.time.map((t, i) => ({
+        day: t.slice(0, 10),
+        hh: +t.slice(11, 13), mm: h0.precipitation[i] ?? 0,
+        prob: h0.precipitation_probability[i] ?? 0,
+        temp: h0.temperature?.[i], feels: h0.apparent?.[i], humid: h0.humidity?.[i],
+        wind: h0.wind?.[i], gust: h0.gust?.[i], uv: h0.uv?.[i],
+        vis: h0.visibility?.[i], cloud: h0.cloud?.[i], text: h0.condText?.[i] || '',
+      })).filter(x => x.day === day && !Number.isNaN(x.hh)),
+      daily: { tmax: Math.max(...locs.map(l => l.daily?.tmax).filter(v => v != null)),
+               tmin: Math.min(...locs.map(l => l.daily?.tmin).filter(v => v != null)) },
+    };
+    // 今天已经过完（傍晚手动触发）时窗口内可能一条不剩 → 明确说明而非静默出错
+    if (!w.hours.length) return { sent: false, day, reason: 'today-window-empty', provider,
+      note: '和风滚动窗口已滑出今日 07-22 时段，非故障；定时在早上跑时窗口完整' };
+    // 周末判定用北京时区的星期几（Worker 运行时是 UTC，直接 getDay 会在早推时段错一天）
+    const bjDow = new Date(day + 'T12:00:00+08:00').getUTCDay();
+    const isWeekend = bjDow === 0 || bjDow === 6;
+    // 每地各自的当日累计必须从原始数据算 —— 不能用 r.sites（那是「达标才填」的），
+    // 也不能填 0：会说出「家0mm、公司0mm，跑哪儿都躲不掉」这种自相矛盾的话
+    const siteStats = locs.map((loc, i) => {
+      const hh = loc.hourly;
+      let sum = 0;
+      hh.time.forEach((t, k) => {
+        const H = +t.slice(11, 13);
+        if (t.slice(0, 10) === day && H >= CFG.windowStart && H <= CFG.windowEnd)
+          sum += hh.precipitation[k] || 0;
+      });
+      return { name: sites[i]?.name || `点${i + 1}`, totalMm: +sum.toFixed(1),
+               spark: r.rain ? (r.sites[i]?.spark || '') : '' };
+    });
+    const built = buildDaily(w, siteStats, { day, isWeekend, noon: revokeIfClear });
+    if (!built) return { sent: false, day, reason: 'nothing-worth-saying', provider };
+    const iconIdx = iconIndexFor(day);
+    const slot = revokeIfClear ? 'noon' : (dry ? 'dry' : (isWeekend ? 'we' : 'wd'));
+    const res = await sendChat(env, built.msgs, day, slot, { dry, iconIdx });
+    return dry
+      ? { sent: false, day, dryRun: true, provider, mode: 'daily', isWeekend,
+          topics: built.topics.map(t => `${t.key}(${t.score})`), messages: res }
+      : { sent: res.every(x => x.ok), day, provider, mode: 'daily', isWeekend,
+          topics: built.topics.map(t => `${t.key}(${t.score})`), count: res.length, res };
+  }
+
+  // ── 聊天流模式：拆成多条「她发来的消息」──
+  // MODE=chat 走剧本；MODE=single 回到单条播报。默认 chat。
+  if ((env.MODE || 'chat') === 'chat') {
+    const { tier, msgs } = buildChat(r, r.sites, { noon: revokeIfClear });
+    const slot = revokeIfClear ? 'noon' : (dry ? 'dry' : 'am');
+    const iconIdx = iconIndexFor(day);
+    const res = await sendChat(env, msgs, day, slot, { dry, iconIdx });
+    return dry
+      ? { sent: false, day, dryRun: true, provider, mode: 'chat', tier, messages: res }
+      : { sent: res.every(x => x.ok), day, provider, mode: 'chat', tier, count: res.length, res };
+  }
+
   // 图标固定不变 → URL 只带版本号。改图必须改这个号，否则 Bark 永久缓存不会重下
   const fp = 'v2';
   const payload = {
     ...kcompose(r, day, r.sites, CFG, {
       shape: rainShape(r.sites.reduce((a, b) => (b.maxMm > a.maxMm ? b : a)).hours),
       noon: revokeIfClear ? 'worse' : null,      // 中午那趟才用「情况有变」开头
+      slot,                                       // morning/noon 各自固定；manual 每次不同
     }),
     group: '天气',
     level: 'timeSensitive',
@@ -236,11 +334,15 @@ async function run(env, { dry = false, revokeIfClear = false, providerOverride }
 
 export default {
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(run(env, { revokeIfClear: event.cron === '47 4 * * *' }));
+    const noon = event.cron === '47 4 * * *';
+    ctx.waitUntil(run(env, { revokeIfClear: noon, slot: noon ? 'noon' : 'morning' }));
   },
   async fetch(req, env) {
     const { pathname, searchParams } = new URL(req.url);
-    if (pathname === '/icon.png') return iconResponse();
+    if (pathname === '/icon.png') {
+      const q = searchParams.get('i');
+      return iconResponse(q !== null ? parseInt(q, 10) || 0 : iconIndexFor(new Date().toISOString().slice(0, 10)));
+    }
     if (pathname === '/run') {
       // Worker URL 是公开可达的 → 不设闸的话任何人拿到 URL 都能触发真实推送骚扰手机。
       // dry=1 只返回 payload 不发送，可以放开；真发必须带 TRIGGER_TOKEN。

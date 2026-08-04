@@ -50,7 +50,9 @@ async function dryRun(locs){
     const res = await mod.default.fetch(new Request('https://x/run?dry=1'),
       {BARK_KEY:'F', PUBLIC_BASE:'https://e', PROVIDER:'open-meteo', SITES:TEST_SITES});
     const j = await res.json();
-    if(!j.payload) return null;
-    return [j.payload.title, j.payload.subtitle, ...j.payload.body.split('\n')].join('\n');
+    // 两种模式都要认：chat 模式返回 messages[]，single 模式返回 payload
+    if (j.messages) return j.messages.map(m => m.body.replace(/\n/g, ' / ')).join('\n');
+    if (j.payload)  return [j.payload.title, j.payload.subtitle, ...j.payload.body.split('\n')].join('\n');
+    return null;
   } finally { globalThis.fetch = orig; }
 }

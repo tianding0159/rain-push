@@ -3,11 +3,20 @@ main = "src/worker.mjs"
 compatibility_date = "2026-01-01"
 
 [triggers]
-crons = ["28 23 * * *", "47 4 * * *"]   # UTC → 北京 07:28 早推 / 12:47 复查
+# ⚠ Cloudflare cron 全按 UTC，day-of-week 也是。北京 07:38 在 UTC 是【前一天】23:38，
+# 所以「北京周一~周五」在 UTC 里必须写 0-4（周日~周四）。写成 1-5 会周一漏推、周六误推。
+# ⚠ 第二个坑：Cloudflare **不接受数字形式的 dow**。实测 "0-4" / "6,0" / "0,6" 全部返回
+# 10100 invalid cron string，必须写 SUN/MON/... 缩写。文档未载，只有打 API 才知道。
+crons = [
+  "38 23 * * SUN-THU",   # UTC 周日~周四 23:38 = 北京 周一~周五 07:38  工作日早推
+  "26 3 * * SAT,SUN",    # UTC 周六/周日 03:26 = 北京 周六/周日 11:26  周末晚推
+  "47 4 * * *",          # UTC 每天 04:47 = 北京 12:47  午间复查（预报变了才更新）
+]
 
 [vars]
 PUBLIC_BASE = "https://rain-push.sh-rain.workers.dev"
-PROVIDER = "qweather"                                      # qweather | open-meteo
+PROVIDER = "qweather"
+MODE = "daily"                   # daily=每日播报(默认) | chat=仅下雨时聊天流 | single=单条播报
 
 # secrets（不写这里，用 wrangler secret put）：
 #   BARK_KEY  QW_HOST  QW_KEY  SITES  TRIGGER_TOKEN

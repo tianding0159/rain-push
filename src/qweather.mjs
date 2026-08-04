@@ -17,6 +17,20 @@ function isThunder(cond) {
  * @param sites [{name, lat, lon}]  和风只支持单点，双地点发两次请求
  * @returns Open-Meteo 形状的数组，供 analyze() 直接消费
  */
+// daily 接口只为拿当日最高/最低温——hourly 的24小时滚动窗口算不出「今天」的极值
+async function fetchDaily(lat, lon, env) {
+  try {
+    const r = await fetch(`https://${env.QW_HOST}/weather/v1/daily/${lat}/${lon}?days=2`,
+      { headers: { 'X-QW-Api-Key': env.QW_KEY }, cf: { cacheTtl: 900 } });
+    if (!r.ok) return null;
+    const d = (await r.json()).days?.[0];
+    if (!d) return null;
+    const num = v => (typeof v === 'object' && v !== null ? v.value : v);
+    return { tmax: num(d.temperatureMax), tmin: num(d.temperatureMin), uvMax: num(d.uvIndexMax),
+             sunrise: d.astro?.sunrise, sunset: d.astro?.sunset };
+  } catch { return null; }        // 拿不到就退化用 hourly 极值，不让整条链挂掉
+}
+
 export async function getForecast(sites, env) {
   const out = [];
   for (const s of sites) {
@@ -32,23 +46,38 @@ export async function getForecast(sites, env) {
     const j = await r.json();
 
     const time = [], precipitation = [], precipitation_probability = [], weather_code = [];
+    // 每日播报需要的宽字段：温度/体感/湿度/风/阵风/紫外线/能见度/云量/现象文本
+    const temperature = [], apparent = [], humidity = [], wind = [], gust = [],
+          uv = [], visibility = [], cloud = [], condText = [];
+    const num = v => (typeof v === 'object' && v !== null ? v.value : v);
     for (const x of j.hours) {
       time.push(x.forecastTime.slice(0, 16));                       // 2026-08-04T16:00
       precipitation.push(x.precipitation?.intensity?.value ?? 0);   // mm/h
       // probability 是 0-1 小数（实测 0~0.37），×100 归一成 Open-Meteo 的 0-100
       precipitation_probability.push(Math.round((x.precipitation?.probability ?? 0) * 100));
       weather_code.push(isThunder(x.condition) ? 95 : 0);           // 归一成 WMO 语义
+      temperature.push(num(x.temperature));
+      apparent.push(num(x.feelsLike));
+      humidity.push(x.humidity);                                    // 0-1 小数，与 probability 同坑
+      wind.push(num(x.wind?.speed));                                // m/s
+      gust.push(num(x.windGust));
+      uv.push(num(x.uvIndex));
+      visibility.push(num(x.visibility));                           // m
+      cloud.push(x.cloudCover);                                     // 0-1 小数
+      condText.push(x.condition?.text || '');
     }
     // 和风 hourly 不返回 daily —— 顶层只有 metadata / hours，自己按当天累加
     const day = time[0].slice(0, 10);
+    const dailyExtra = await fetchDaily(lat, lon, env);
     const sum = +j.hours.reduce((a, x) =>
       a + (x.forecastTime.startsWith(day) ? (x.precipitation?.amount?.value ?? 0) : 0), 0
     ).toFixed(1);
 
     out.push({
       latitude: +lat, longitude: +lon, timezone: 'Asia/Shanghai',
-      daily: { time: [day], precipitation_sum: [sum] },
-      hourly: { time, precipitation, precipitation_probability, weather_code },
+      daily: { time: [day], precipitation_sum: [sum], ...(dailyExtra || {}) },
+      hourly: { time, precipitation, precipitation_probability, weather_code,
+                temperature, apparent, humidity, wind, gust, uv, visibility, cloud, condText },
     });
   }
   return out;
