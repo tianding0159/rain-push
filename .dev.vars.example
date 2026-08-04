@@ -1,0 +1,7 @@
+# 本地调试用；真实值放 .dev.vars（已 gitignore），线上用 wrangler secret put
+BARK_KEY=your_bark_key
+QW_HOST=xxxxxxx.re.qweatherapi.com
+QW_KEY=your_qweather_key
+
+# 地点：1~N 个，坐标不进版本库
+SITES=[{"name":"住处","lat":00.00,"lon":000.00},{"name":"公司","lat":00.00,"lon":000.00}]
