@@ -55,9 +55,10 @@ function pickKao(day, maxMm, thunder) {
 }
 
 // ── 数据源分发 ──
-async function fetchAll(env) {
+async function fetchAll(env, override) {
   const sites = loadSites(env);
-  const provider = env.PROVIDER === 'qweather' ? 'qweather' : 'open-meteo';
+  const want = override || env.PROVIDER;
+  const provider = want === 'qweather' ? 'qweather' : 'open-meteo';
   const locs = provider === 'qweather' ? await qwForecast(sites, env) : await omForecast(sites);
   // 「今天」一律取数据自带的本地日期，不在 Worker 里从 UTC 推（Worker 运行时是 UTC）
   const day = locs[0].daily.time[0];
@@ -205,12 +206,27 @@ async function bark(env, payload) {
   });
 }
 
-async function run(env, { dry = false, revokeIfClear = false } = {}) {
-  const { locs, day, provider, sites } = await fetchAll(env);
+async function run(env, { dry = false, revokeIfClear = false, providerOverride } = {}) {
+  const { locs, day, provider, sites } = await fetchAll(env, providerOverride);
   const r = analyze(locs, day, provider, sites);
   if (!r.rain) {
-    if (revokeIfClear && !dry) await bark(env, { id: `rain-${day}`, delete: '1', body: ' ' });
-    return { sent: false, day, reason: 'no-rain', revoked: revokeIfClear };
+    // revoked 必须反映「真的撤回了吗」，不是「允不允许撤回」——
+    // 直接回传入参会在 dry-run 或撤回失败时谎报成功
+    let revoked = false;
+    if (revokeIfClear && !dry) {
+      const res = await bark(env, { id: `rain-${day}`, delete: '1', body: ' ' });
+      revoked = res.ok;
+    }
+    // 静默时给出判据实测值，否则「no-rain」看不出是「差一点」还是「完全没雨」
+    const detail = r.per.map(p => ({
+      name: p.site.name,
+      totalMm: p.totalMm, maxMm: +p.maxMm.toFixed(1),
+      thunder: p.thunder, wetHours: p.hit.length,
+    }));
+    return {
+      sent: false, day, reason: 'no-rain', revoked, provider, detail,
+      gate: `累计>=${CFG.dayMinMm}mm 且 峰值>=${CFG.peakMinMm}mm/h（或有雷）`,
+    };
   }
   // 图标取降水更明显的那个点，且URL带指纹——Bark图标缓存永不过期，同URL不会重下
   const lead = r.sites.reduce((a, b) => (b.maxMm > a.maxMm ? b : a));
@@ -220,9 +236,13 @@ async function run(env, { dry = false, revokeIfClear = false } = {}) {
     group: '天气',
     level: 'timeSensitive',
     id: `rain-${day}`,
-    icon: `${env.PUBLIC_BASE}/icon.png?fp=${fp}`,
     isArchive: '1',
   };
+  // 未配 PUBLIC_BASE（如首次部署前）就不带 icon——发一个必定 404 的 URL 只会让
+  // NSE 白等一次下载超时。Bark 图标缓存永不过期，故 URL 带指纹保证换图能生效。
+  if (env.PUBLIC_BASE && /^https?:\/\/[^/]+\./.test(env.PUBLIC_BASE)) {
+    payload.icon = `${env.PUBLIC_BASE}/icon.png?fp=${fp}`;
+  }
   if (dry) return { sent: false, day, dryRun: true, payload, iconHours: lead.hours };
   const res = await bark(env, payload);
   return { sent: res.ok, day, status: res.status, payload };
@@ -235,15 +255,31 @@ export default {
   async fetch(req, env) {
     const { pathname, searchParams } = new URL(req.url);
     if (pathname === '/icon.png') {
-      const { locs, day, provider, sites } = await fetchAll(env);
+      const { locs, day, provider, sites } = await fetchAll(env, searchParams.get('provider') || undefined);
       const r = analyze(locs, day, provider, sites);
       const hours = r.rain
         ? r.sites.reduce((a, b) => (b.maxMm > a.maxMm ? b : a)).hours : [];
       const png = await renderIcon(hours).png();
+      // 边缘缓存 1 小时：图标一天内只变一次，且能挡住被刷时对天气 API 的放大
       return new Response(png, { headers: {
-        'Content-Type': 'image/png', 'Cache-Control': 'public, max-age=86400' } });
+        'Content-Type': 'image/png',
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600' } });
     }
-    if (pathname === '/run') return Response.json(await run(env, { dry: searchParams.get('dry') === '1' }));
+    if (pathname === '/run') {
+      // Worker URL 是公开可达的 → 不设闸的话任何人拿到 URL 都能触发真实推送骚扰手机。
+      // dry=1 只返回 payload 不发送，可以放开；真发必须带 TRIGGER_TOKEN。
+      const dry = searchParams.get('dry') === '1';
+      if (!dry) {
+        const t = searchParams.get('t') || '';
+        const want = env.TRIGGER_TOKEN || '';
+        // 长度先比，再逐字符累积异或——避免短路比较泄露前缀信息
+        let ok = want.length > 0 && t.length === want.length;
+        if (ok) { let x = 0; for (let i = 0; i < want.length; i++) x |= t.charCodeAt(i) ^ want.charCodeAt(i); ok = x === 0; }
+        if (!ok) return new Response('forbidden', { status: 403 });
+      }
+      const providerOverride = searchParams.get('provider') || undefined;
+      return Response.json(await run(env, { dry, providerOverride }));
+    }
     return new Response('ok');
   },
 };

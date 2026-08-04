@@ -6,8 +6,8 @@ compatibility_date = "2026-01-01"
 crons = ["28 23 * * *", "47 4 * * *"]   # UTC → 北京 07:28 早推 / 12:47 复查
 
 [vars]
-PUBLIC_BASE = "https://rain-push.<你的子域>.workers.dev"   # 首次部署后回填
+PUBLIC_BASE = "https://rain-push.sh-rain.workers.dev"
 PROVIDER = "qweather"                                      # qweather | open-meteo
 
 # secrets（不写这里，用 wrangler secret put）：
-#   BARK_KEY  QW_HOST  QW_KEY  SITES
+#   BARK_KEY  QW_HOST  QW_KEY  SITES  TRIGGER_TOKEN
