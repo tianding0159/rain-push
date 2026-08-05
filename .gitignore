@@ -2,13 +2,10 @@ node_modules/
 .wrangler/
 .dev.vars
 *.log
-assets/kangel_src.png
-assets/view_*.png
-assets/crop_*.png
-assets/c_*.png
-assets/plan_*.png
-assets/tune_*.png
-assets/try_*.jpg
-assets/try_*.png
-assets/final_check.png
-assets/icon_full_*.png
+
+# 素材与设计中间产物,不入库(运行时用的图标已内嵌进 src/icon_*.mjs)
+assets/
+
+# 备份打包产物,不入库
+rain-push-full.bundle
+rain-push-worktree.tar.gz

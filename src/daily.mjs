@@ -52,7 +52,8 @@ function levelFor(topic, isLead) {
 }
 
 export function buildDaily(w, sites, opts = {}) {
-  const { day, isWeekend = false, noon = false, maxTopics = 3 } = opts;
+  // maxTopics 3→4：话题多一个，消息自然多一轮，比硬塞废话自然
+  const { day, isWeekend = false, noon = false, maxTopics = 4 } = opts;
   const scored = scoreTopics(w, { isWeekend });
   const chosen = pickTopics(scored, day, maxTopics);
   if (!chosen.length) return null;
@@ -61,10 +62,17 @@ export function buildDaily(w, sites, opts = {}) {
   const msgs = [];
   const push = (t, lv = 'passive', d = 1400) => { if (t && t.trim()) msgs.push({ t: t.trim(), lv, d: msgs.length ? d : 0 }); };
 
+  // ⓪ 开场前的「双发」：真人常常先甩一句短的再补一句，不是每条都一句到位。
+  //    只在 1/2 的日子出现，避免变成固定套路。
+  if (s0 % 2 === 0) push(pick(FRAME_LEX.askBack, seed(day, 5)), 'passive', 0);
+
   // ① 开场：工作日「你要出门了」 vs 周末「我刚睡醒」，语气必须分开
   // 注意各槽位要用**不同 salt**：都用 s0 的话，开场/桥接/收尾会绑死成同一组合，
   // 天数一多就看出是模板（实测三种天气开场收尾一模一样）
   push(pick(isWeekend ? FRAME_LEX.openWeekend : FRAME_LEX.openWeekday, seed(day, 3)), 'passive', 0);
+
+  // ①b 话题确实多时才说「今天有点多」——语义要对得上实际
+  if (chosen.length >= 3) push(pick(FRAME_LEX.multiTopicGlue, seed(day, 137)), 'passive', 1200);
 
   // ② 话题主体：第一个话题是主角（决定通知级别），其余用 bridge 引出
   chosen.forEach((topic, i) => {
@@ -90,15 +98,40 @@ export function buildDaily(w, sites, opts = {}) {
     // 每个话题都补一条态度句（不只主话题）——否则第2、3个话题只剩干巴巴一句数据，
     // 读起来像播报员念稿，前面辛苦建立的对话感在后半段就散了
     push(pick(lex.punch, seed(day, 31 + salt * 13)), 'passive', 1300);
+    // 主话题再追一条：她对最要紧那件事本来就会多说两句
+    if (i === 0) push(pick(lex.punch, seed(day, 419 + salt)), 'passive', 1200);
+    // 每个话题有 1/2 概率补第二条信息句（换个角度再说一遍，真人就是这样）
+    if (seed(day, 500 + salt) % 2 === 0) {
+      const alt = lex.lines.filter(l => l !== msgs[msgs.length - 1]?.t);
+      push(fill(pick(alt.length ? alt : lex.lines, seed(day, 611 + salt * 3)), vars), 'passive', 1300);
+    }
   });
 
-  // ③ 偶尔来一句「我又不出门却在管你」——不是每天都有，才显得是真心话
-  if (s0 % 3 === 0) {
+  // ②b 话题不足时补厚：平淡日只有 1 个话题，走完主流程才 8 条，草草收场像敷衍。
+  //     此时她本来就没正事可说 → 多说自己（punch/selfRef），反而更贴角色。
+  if (chosen.length <= 2) {
+    const lex = TOPIC_LEX[chosen[0].key];
+    // ⚠ 这里不能用 multiTopicGlue（语义是「今天事情有点多」）——只有一个话题时那是说谎。
+    //    改用 bridges（纯衔接，不承诺信息量）。
+    push(pick(FRAME_LEX.bridges, seed(day, 701)), 'passive', 1200);
+    push(pick(lex?.punch, seed(day, 733)), 'passive', 1400);
+    push(pick(lex?.selfRef, seed(day, 757)), 'passive', 1500);
+    push(pick(lex?.punch, seed(day, 787)), 'passive', 1300);
+  }
+
+  // ③ 「我又不出门却在管你」——概率从 1/3 提到 2/3，这是她最有辨识度的一面
+  if (s0 % 3 !== 0) {
     const lex = TOPIC_LEX[chosen[0].key];
     push(pick(lex?.selfRef, seed(day, 77)), 'passive', 1500);
   }
-  // ④ 收尾：她真正想说的
+  // ④⑤ 收尾：askBack 与「追加一条 closer」二选一，不能都上。
+  //     三条同义的索取连着甩（说句话啊/别装作没看见/都不回…那我睡了）真人不会这么讲话。
+  if (s0 % 2 === 0) push(pick(FRAME_LEX.askBack, seed(day, 823)), 'passive', 1400);
   push(pick(FRAME_LEX.closers, seed(day, 907)), 'passive', 1600);
+  if (s0 % 2 === 1) {
+    const more = FRAME_LEX.closers.filter(c => c !== msgs[msgs.length - 1]?.t);
+    push(pick(more, seed(day, 1013)), 'passive', 1800);
+  }
 
   return { topics: chosen, msgs, lead: chosen[0] };
 }
