@@ -57,6 +57,12 @@ export function scoreTopics(w, ctx = {}) {
     if (hitAm || hitPm) s += 18;
     if (hitAm && hitPm) s += 8;
     if (thunder) s = Math.max(s, 82);
+    // 保底入场：真该报的雨（口径对齐 worker.analyze 的 dayMinMm/peakMinMm）即便计分偏低
+    // 也至少进池——否则 2mm 这种小雨评分 ~22 < MENTION 会被踢掉，导致「下着雨却说没雨」
+    // （daily 用 salience 评分、analyze 用双下限，两套口径曾在此打架）。纯概率高但雨量为 0、
+    // 或毛毛雨（峰值 <0.5）不达标 → 不保底，维持「实际量级≠概率」的静默设计。
+    const worthReporting = (rainSum >= 0.8 && rainMax >= 0.5) || thunder;
+    if (worthReporting) s = Math.max(s, MENTION);
     push('rain', clamp(s, 0, 100), { rainMax, rainSum, thunder, hitAm, hitPm,
       start: rainHrs[0].hh, end: Math.min(rainHrs[rainHrs.length - 1].hh + 1, 23) });
   }
