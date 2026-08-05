@@ -17,9 +17,25 @@ const pick = (a, s) => (a && a.length) ? a[s % a.length] : null;
 function fill(tpl, vars) {
   return tpl.replace(/\{(\w+)\}/g, (m, k) => {
     const v = vars[k];
-    if (v === undefined || v === null || Number.isNaN(v)) return '';
+    // 挡 undefined/null/NaN，也挡 ±Infinity —— (-Infinity).toFixed(1) 会渲染成 "-Infinity"
+    if (v === undefined || v === null || (typeof v === 'number' && !Number.isFinite(v))) return '';
     return typeof v === 'number' ? (Number.isInteger(v) ? String(v) : v.toFixed(1)) : String(v);
   });
+}
+
+// 一条模板里的占位符是否都有可用值（防线③配套）：
+// 温度缺失时若仍选中 "{tmax}度啦" 会渲染成孤零零 "度啦"，不如避开、优先选不依赖它的句子
+function hasAllVars(tpl, vars) {
+  for (const m of tpl.matchAll(/\{(\w+)\}/g)) {
+    const v = vars[m[1]];
+    if (v === undefined || v === null || (typeof v === 'number' && !Number.isFinite(v))) return false;
+  }
+  return true;
+}
+// 优先返回"占位符都有值"的句子；若全都缺值则退回原集（至少还能说话，fill 会清掉空洞）
+function renderable(lines, vars) {
+  const ok = (lines || []).filter(l => hasAllVars(l, vars));
+  return ok.length ? ok : (lines || []);
 }
 
 /** 把归一化数据摊平成占位符可用的变量表 */
@@ -82,9 +98,11 @@ export function buildDaily(w, sites, opts = {}) {
     const salt = i * 17;
     if (i > 0) push(pick(FRAME_LEX.bridges, seed(day, 211 + salt * 29)), 'passive', 1100);
     // 主话题给短句（一眼能看见结论），次话题允许长句（展开讲）——长短交替才有节奏
+    // renderable：先滤掉"占位符缺值"的句子（如温度缺失时避开 {tmax} 句），避免渲染出空洞
     const wantShort = i === 0;
-    const pool = lex.lines.filter(l => wantShort ? l.length <= 14 : true);
-    push(fill(pick(pool.length ? pool : lex.lines, seed(day, 11 + salt * 7)), vars),
+    const usable = renderable(lex.lines, vars);
+    const pool = usable.filter(l => wantShort ? l.length <= 14 : true);
+    push(fill(pick(pool.length ? pool : usable, seed(day, 11 + salt * 7)), vars),
          levelFor(topic, i === 0), 1500);
     // 降水且两地有别 → 补一条对比（这是双地点的核心价值，不能省）
     if (topic.key === 'rain' && sites.length > 1) {
@@ -102,8 +120,9 @@ export function buildDaily(w, sites, opts = {}) {
     if (i === 0) push(pick(lex.punch, seed(day, 419 + salt)), 'passive', 1200);
     // 每个话题有 1/2 概率补第二条信息句（换个角度再说一遍，真人就是这样）
     if (seed(day, 500 + salt) % 2 === 0) {
-      const alt = lex.lines.filter(l => l !== msgs[msgs.length - 1]?.t);
-      push(fill(pick(alt.length ? alt : lex.lines, seed(day, 611 + salt * 3)), vars), 'passive', 1300);
+      const usable2 = renderable(lex.lines, vars);
+      const alt = usable2.filter(l => l !== msgs[msgs.length - 1]?.t);
+      push(fill(pick(alt.length ? alt : usable2, seed(day, 611 + salt * 3)), vars), 'passive', 1300);
     }
   });
 

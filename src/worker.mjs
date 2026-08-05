@@ -263,8 +263,14 @@ async function run(env, { dry = false, revokeIfClear = false, providerOverride, 
         wind: h0.wind?.[i], gust: h0.gust?.[i], uv: h0.uv?.[i],
         vis: h0.visibility?.[i], cloud: h0.cloud?.[i], text: h0.condText?.[i] || '',
       })).filter(x => x.day === day && !Number.isNaN(x.hh)),
-      daily: { tmax: Math.max(...locs.map(l => l.daily?.tmax).filter(v => v != null)),
-               tmin: Math.min(...locs.map(l => l.daily?.tmin).filter(v => v != null)) },
+      // 全缺温度时 Math.max(...[]) = -Infinity（且非 null，下游 ?? 兜底不会接管）→ 会流窜进
+      // salience 的 tmax。此处空数组显式归 undefined，让缺温度成为"没有"而非假的 ±Infinity。
+      daily: (() => {
+        const mx = locs.map(l => l.daily?.tmax).filter(v => v != null);
+        const mn = locs.map(l => l.daily?.tmin).filter(v => v != null);
+        return { tmax: mx.length ? Math.max(...mx) : undefined,
+                 tmin: mn.length ? Math.min(...mn) : undefined };
+      })(),
     };
     // 今天已经过完（傍晚手动触发）时窗口内可能一条不剩 → 明确说明而非静默出错
     if (!w.hours.length) return { sent: false, day, reason: 'today-window-empty', provider,

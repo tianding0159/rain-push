@@ -24,8 +24,10 @@ export function scoreTopics(w, ctx = {}) {
   if (days.size > 1) throw new Error(`scoreTopics 收到跨天数据（${[...days].join(',')}）——上游必须先按当天过滤`);
   const day = H.filter(x => x.hh >= 7 && x.hh <= 22);      // 醒着的时段
   const S = arr => arr.filter(v => typeof v === 'number' && !Number.isNaN(v));
-  const max = (f) => Math.max(...S(day.map(f)), -Infinity);
-  const min = (f) => Math.min(...S(day.map(f)), Infinity);
+  // 空数组返回 undefined 而非 ±Infinity —— 否则 (-Infinity).toFixed(1) 会把
+  // "-Infinity度" 漏进文案（实测：假数据无温度时满屏 Infinity度）。数据真空就明说"没有"。
+  const max = (f) => { const a = S(day.map(f)); return a.length ? Math.max(...a) : undefined; };
+  const min = (f) => { const a = S(day.map(f)); return a.length ? Math.min(...a) : undefined; };
   const avg = (f) => { const a = S(day.map(f)); return a.length ? a.reduce((x, y) => x + y, 0) / a.length : NaN; };
 
   const rainHrs = day.filter(x => x.mm >= 0.2 || x.prob >= 35);
