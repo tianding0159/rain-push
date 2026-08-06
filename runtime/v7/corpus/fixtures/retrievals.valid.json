@@ -1,0 +1,27 @@
+[
+  {
+    "recordFormatVersion": 1,
+    "id": "ret_feedback_behavior",
+    "producedForEventId": "evt_canon_low_feedback",
+    "references": [
+      { "eventId": "evt_canon_low_feedback", "usage": "behavior" },
+      { "eventId": "evt_canon_low_feedback", "usage": "wording" }
+    ]
+  },
+  {
+    "recordFormatVersion": 1,
+    "id": "ret_guide_mechanics",
+    "producedForEventId": "evt_canon_severe_route",
+    "references": [
+      { "eventId": "evt_guide_threshold", "usage": "mechanics" }
+    ]
+  },
+  {
+    "recordFormatVersion": 1,
+    "id": "ret_community_wording",
+    "producedForEventId": "evt_canon_low_feedback",
+    "references": [
+      { "eventId": "evt_community_wording", "usage": "wording" }
+    ]
+  }
+]

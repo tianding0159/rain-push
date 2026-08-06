@@ -1,0 +1,35 @@
+{
+  "registryFormatVersion": 1,
+  "sources": [
+    {
+      "copyrightScope": "summary",
+      "evidenceLevel": "A",
+      "id": "src_synthetic_canon_scene_001",
+      "notes": "legacyConfidence=CANON_TEXT",
+      "reference": "synthetic-canon-scene-001",
+      "sourceLayer": "C1",
+      "sourceType": "dialogue",
+      "trustLevel": "unverified"
+    },
+    {
+      "copyrightScope": "summary",
+      "evidenceLevel": "B",
+      "id": "src_synthetic_guide_thresholds",
+      "notes": "legacyConfidence=GUIDE_CONFIRMED",
+      "reference": "synthetic-guide-thresholds",
+      "sourceLayer": "C2",
+      "sourceType": "guide",
+      "trustLevel": "unverified"
+    },
+    {
+      "copyrightScope": "summary",
+      "evidenceLevel": "D",
+      "id": "src_synthetic_unknown",
+      "notes": "legacyConfidence=TOTALLY_UNKNOWN_LEVEL",
+      "reference": "synthetic-unknown",
+      "sourceLayer": "C4",
+      "sourceType": "user_note",
+      "trustLevel": "unverified"
+    }
+  ]
+}

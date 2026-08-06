@@ -1,0 +1,198 @@
+{
+  "_note": "Each case is a self-contained corpus (registry + events + optional retrievals) crafted to trigger exactly one contract violation code. Tests assert the expected code appears. All text is SYNTHETIC — no official copyrighted lines.",
+  "cases": [
+    {
+      "name": "unknown_source",
+      "expectCode": "UNKNOWN_SOURCE",
+      "registry": { "registryFormatVersion": 1, "sources": [] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_orphan", "sourceId": "src_missing", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "quarantined_source",
+      "expectCode": "QUARANTINED_SOURCE",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_ai", "sourceType": "user_note", "sourceLayer": "C3", "evidenceLevel": "C", "trustLevel": "suspected_ai", "reference": "synthetic-ai", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_ai", "sourceId": "src_ai", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "self_authorize_behavior",
+      "expectCode": "SELF_AUTHORIZE_BEHAVIOR",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c2b", "sourceType": "guide", "sourceLayer": "C2", "evidenceLevel": "B", "trustLevel": "verified", "reference": "synthetic-guide", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_c2_behavior", "sourceId": "src_c2b", "channel": "app_notification", "mode": "living", "eventTrigger": "t", "behaviorPrimitives": ["do_thing"], "messages": [ { "order": 1, "role": "system", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "self_authorize_wording",
+      "expectCode": "SELF_AUTHORIZE_WORDING",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1d", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "D", "trustLevel": "verified", "reference": "synthetic-canon-frag", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_c1d_wording", "sourceId": "src_c1d", "channel": "jine", "mode": "living", "eventTrigger": "t", "expectedReplyClass": "concrete", "syntheticOnly": false, "messages": [ { "order": 1, "role": "ame", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "community_behavior",
+      "expectCode": "COMMUNITY_BEHAVIOR",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c3c", "sourceType": "community", "sourceLayer": "C3", "evidenceLevel": "C", "trustLevel": "unverified", "reference": "synthetic-community", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_c3_behavior", "sourceId": "src_c3c", "channel": "public_stream", "mode": "living", "eventTrigger": "t", "behaviorPrimitives": ["escalate"], "messages": [ { "order": 1, "role": "kangel", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "guide_wording",
+      "expectCode": "GUIDE_WORDING",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c2w", "sourceType": "guide", "sourceLayer": "C2", "evidenceLevel": "B", "trustLevel": "verified", "reference": "synthetic-guide", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_c2_wording", "sourceId": "src_c2w", "channel": "app_notification", "mode": "living", "eventTrigger": "t", "expectedReplyClass": "playful", "messages": [ { "order": 1, "role": "system", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "canon_severe_mode",
+      "expectCode": "CANON_SEVERE_MODE",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_severe_living", "sourceId": "src_c1a", "channel": "private_dm", "mode": "living", "eventTrigger": "t", "routeSeverity": "canon_severe", "routeId": "route_x", "messages": [ { "order": 1, "role": "kangel", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "canon_severe_route_id",
+      "expectCode": "CANON_SEVERE_ROUTE_ID",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_severe_noroute", "sourceId": "src_c1a", "channel": "private_dm", "mode": "canon", "eventTrigger": "t", "routeSeverity": "canon_severe", "messages": [ { "order": 1, "role": "kangel", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "canon_severe_source",
+      "expectCode": "CANON_SEVERE_SOURCE",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c2b", "sourceType": "guide", "sourceLayer": "C2", "evidenceLevel": "B", "trustLevel": "verified", "reference": "synthetic-guide", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_severe_c2", "sourceId": "src_c2b", "channel": "private_dm", "mode": "canon", "eventTrigger": "t", "routeSeverity": "canon_severe", "routeId": "route_x", "messages": [ { "order": 1, "role": "system", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "synthetic_leak",
+      "expectCode": "SYNTHETIC_LEAK",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c4d", "sourceType": "simulator_extension", "sourceLayer": "C4", "evidenceLevel": "D", "trustLevel": "unverified", "reference": "synthetic-ext", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_c4_public", "sourceId": "src_c4d", "channel": "in_person", "mode": "living", "eventTrigger": "t", "syntheticOnly": false, "messages": [ { "order": 1, "role": "narration", "text": "x" } ] }
+      ]
+    },
+    {
+      "name": "dup_id",
+      "expectCode": "DUP_ID",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_dup", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "a" } ] },
+        { "recordFormatVersion": 1, "id": "evt_dup", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "b" } ] }
+      ]
+    },
+    {
+      "name": "dup_hash",
+      "expectCode": "DUP_HASH",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_h1", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "identical line" } ] },
+        { "recordFormatVersion": 1, "id": "evt_h2", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "identical line" } ] }
+      ]
+    },
+    {
+      "name": "msg_order_duplicate",
+      "expectCode": "MSG_ORDER_DUPLICATE",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_ord_dup", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "a" }, { "order": 1, "role": "p", "text": "b" } ] }
+      ]
+    },
+    {
+      "name": "msg_order_not_contiguous",
+      "expectCode": "MSG_ORDER_NOT_CONTIGUOUS",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_ord_gap", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "a" }, { "order": 3, "role": "p", "text": "b" } ] }
+      ]
+    },
+    {
+      "name": "retrieval_unknown_event",
+      "expectCode": "RETRIEVAL_UNKNOWN_EVENT",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_ok", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "a" } ] }
+      ],
+      "retrievals": [
+        { "recordFormatVersion": 1, "id": "ret_bad", "references": [ { "eventId": "evt_nope", "usage": "wording" } ] }
+      ]
+    },
+    {
+      "name": "retrieval_usage_not_permitted",
+      "expectCode": "RETRIEVAL_USAGE_NOT_PERMITTED",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c3c", "sourceType": "community", "sourceLayer": "C3", "evidenceLevel": "C", "trustLevel": "unverified", "reference": "synthetic-community", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_c3", "sourceId": "src_c3c", "channel": "public_stream", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "kangel", "text": "a" } ] }
+      ],
+      "retrievals": [
+        { "recordFormatVersion": 1, "id": "ret_c3_behavior", "references": [ { "eventId": "evt_c3", "usage": "behavior" } ] }
+      ]
+    },
+    {
+      "name": "schema_bad_enum",
+      "expectCode": "SCHEMA",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_badchan", "sourceId": "src_c1a", "channel": "telepathy", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "a" } ] }
+      ]
+    },
+    {
+      "name": "schema_additional_property",
+      "expectCode": "SCHEMA",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_extra", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "bogusField": 1, "messages": [ { "order": 1, "role": "ame", "text": "a" } ] }
+      ]
+    },
+    {
+      "name": "schema_missing_required",
+      "expectCode": "SCHEMA",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_no_trigger", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "messages": [ { "order": 1, "role": "ame", "text": "a" } ] }
+      ]
+    },
+    {
+      "name": "schema_bad_id_pattern",
+      "expectCode": "SCHEMA",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "BAD-ID", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "a" } ] }
+      ]
+    },
+    {
+      "name": "schema_bad_record_version",
+      "expectCode": "SCHEMA",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 2, "id": "evt_wrongver", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "a" } ] }
+      ]
+    },
+    {
+      "name": "schema_bad_source_layer",
+      "expectCode": "SCHEMA",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_bad", "sourceType": "dialogue", "sourceLayer": "C9", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": []
+    },
+    {
+      "name": "retrieval_schema_bad_hash",
+      "expectCode": "SCHEMA",
+      "registry": { "registryFormatVersion": 1, "sources": [ { "id": "src_c1a", "sourceType": "dialogue", "sourceLayer": "C1", "evidenceLevel": "A", "trustLevel": "verified", "reference": "synthetic-canon", "copyrightScope": "summary" } ] },
+      "events": [
+        { "recordFormatVersion": 1, "id": "evt_ok", "sourceId": "src_c1a", "channel": "jine", "mode": "living", "eventTrigger": "t", "messages": [ { "order": 1, "role": "ame", "text": "a" } ] }
+      ],
+      "retrievals": [
+        { "recordFormatVersion": 1, "id": "ret_badhash", "references": [ { "eventId": "evt_ok", "usage": "wording", "messageHashes": ["NOT_A_SHA"] } ] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "policyFormatVersion": 1,
+  "description": "Canonical source-policy definitions for the rain-push v7 corpus contract. Single source of truth for all corpus enums and per-layer / per-evidence-level capabilities. Code MUST read enums and capabilities from this file (see lib/source-policy.mjs) and MUST NOT hardcode them, so the vocabulary and the policy stay code-as-documentation and cannot drift between validator, migrator, exporter and scanner.",
+
+  "sourceLayers": {
+    "C1": {
+      "label": "canon",
+      "meaning": "Official primary text (in-app dialogue, official script). Authoritative for character behavior, wording and mechanics.",
+      "capabilities": { "behavior": true, "wording": true, "mechanics": true, "canonSevere": true, "publicExport": true }
+    },
+    "C2": {
+      "label": "guide",
+      "meaning": "Strategy guide / walkthrough. Mechanics only — thresholds, routes, triggers. Must NOT drive persona wording or behavior primitives.",
+      "capabilities": { "behavior": false, "wording": false, "mechanics": true, "canonSevere": false, "publicExport": true }
+    },
+    "C3": {
+      "label": "community",
+      "meaning": "Community / fan material. Language fingerprint context only. Must NOT influence behavior or mechanics.",
+      "capabilities": { "behavior": false, "wording": true, "mechanics": false, "canonSevere": false, "publicExport": true }
+    },
+    "C4": {
+      "label": "extension",
+      "meaning": "Simulator / synthetic extension. Test-only. Excluded from generation and from public export.",
+      "capabilities": { "behavior": false, "wording": false, "mechanics": false, "canonSevere": false, "publicExport": false }
+    }
+  },
+
+  "evidenceLevels": {
+    "A": {
+      "meaning": "Channel, event, state and surrounding context are clear.",
+      "capabilities": { "behavior": true, "wording": true }
+    },
+    "B": {
+      "meaning": "The sentence itself reveals the main trigger and function.",
+      "capabilities": { "behavior": true, "wording": true }
+    },
+    "C": {
+      "meaning": "Language fingerprint only.",
+      "capabilities": { "behavior": false, "wording": true }
+    },
+    "D": {
+      "meaning": "Fragment, transcription, placeholder, duplicate or context-insufficient. Excluded — must not directly drive generation.",
+      "capabilities": { "behavior": false, "wording": false }
+    }
+  },
+
+  "trustLevels": {
+    "verified": { "meaning": "Human-verified provenance.", "quarantined": false },
+    "unverified": { "meaning": "Provenance not yet verified. Usable but flagged.", "quarantined": false },
+    "suspected_ai": { "meaning": "Suspected AI-generated / contaminated. Quarantined — must not influence anything.", "quarantined": true }
+  },
+
+  "sourceTypes": [
+    "dialogue", "guide", "official", "wiki", "community",
+    "interview", "code", "asset", "screenshot", "user_note", "simulator_extension"
+  ],
+
+  "channels": [
+    "jine", "public_stream", "public_post", "private_dm", "app_notification", "in_person", "phone_call"
+  ],
+
+  "personaSurfaces": [
+    "ame_private", "kangel_stage", "ame_public_shadow",
+    "kangel_private_echo", "mixed_transition", "neutral_practical"
+  ],
+
+  "modes": ["canon", "living"],
+
+  "routeSeverities": {
+    "none":         { "rank": 0, "requiresRouteId": false, "requiresCanonMode": false },
+    "minor":        { "rank": 1, "requiresRouteId": false, "requiresCanonMode": false },
+    "major":        { "rank": 2, "requiresRouteId": false, "requiresCanonMode": false },
+    "canon_severe": { "rank": 3, "requiresRouteId": true,  "requiresCanonMode": true }
+  },
+
+  "messageRoles": ["ame", "kangel", "p", "system", "narration"],
+
+  "copyrightScopes": ["summary", "short_excerpt", "user_provided_raw"],
+
+  "lengthBuckets": [
+    { "name": "empty",  "maxChars": 0 },
+    { "name": "short",  "maxChars": 20 },
+    { "name": "medium", "maxChars": 80 },
+    { "name": "long",   "maxChars": 400 },
+    { "name": "xlong",  "maxChars": null }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "$schemaDialect": "rain-push-corpus/mini-schema/1",
+  "$id": "public-derived-event",
+  "title": "Public derived event",
+  "description": "The public (shareable) projection of a private corpus event. It preserves the ANNOTATION (structure, capabilities, evidence framing) but carries NO private verbatim text — only a content hash and a derived summary. This is the only corpus shape that may be committed / published. Produced deterministically by bin/export-public.mjs and guarded by the privacy scanner.",
+  "type": "object",
+  "required": [
+    "recordFormatVersion", "id", "sourceId", "sourceLayer", "evidenceLevel",
+    "channel", "mode", "eventTrigger", "messageHashes", "derivedFrom"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "recordFormatVersion": { "type": "integer", "const": 1 },
+    "id":            { "type": "string", "pattern": "^evt_[a-z0-9_]+$" },
+    "sourceId":      { "type": "string", "pattern": "^src_[a-z0-9_]+$" },
+    "sourceLayer":   { "type": "string", "enumFrom": "sourceLayers" },
+    "evidenceLevel": { "type": "string", "enumFrom": "evidenceLevels" },
+    "channel":       { "type": "string", "enumFrom": "channels" },
+    "personaSurface":{ "type": "string", "enumFrom": "personaSurfaces" },
+    "mode":          { "type": "string", "enumFrom": "modes" },
+    "canonState":    { "type": "string" },
+    "eventTrigger":  { "type": "string", "minLength": 1 },
+    "functionalNeed":{ "type": "string" },
+    "pRole":         { "type": "string" },
+    "behaviorPrimitives": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "expectedReplyClass": { "type": "string" },
+    "replyTimingSensitivity": { "type": "string", "enum": ["none", "low", "medium", "high"] },
+    "routeSeverity": { "type": "string", "enumFrom": "routeSeverities" },
+    "routeId":       { "type": "string", "pattern": "^route_[a-z0-9_]+$" },
+    "contextRequired": { "type": "boolean" },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["behavior", "wording", "mechanics", "canonSevere"],
+      "properties": {
+        "behavior":    { "type": "boolean" },
+        "wording":     { "type": "boolean" },
+        "mechanics":   { "type": "boolean" },
+        "canonSevere": { "type": "boolean" }
+      }
+    },
+    "messageHashes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/messageHash" }
+    },
+    "derivedFrom": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["privateEventId", "exportToolVersion"],
+      "properties": {
+        "privateEventId":    { "type": "string", "pattern": "^evt_[a-z0-9_]+$" },
+        "exportToolVersion": { "type": "integer", "minimum": 1 }
+      }
+    }
+  },
+  "$defs": {
+    "messageHash": {
+      "type": "object",
+      "required": ["order", "role", "sha256", "lengthBucket"],
+      "additionalProperties": false,
+      "properties": {
+        "order":  { "type": "integer", "minimum": 1 },
+        "role":   { "type": "string", "enumFrom": "messageRoles" },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "lengthBucket": { "type": "string", "enum": ["empty", "short", "medium", "long", "xlong"] }
+      }
+    }
+  }
+}

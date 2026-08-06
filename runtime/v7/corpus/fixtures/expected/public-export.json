@@ -1,0 +1,152 @@
+[
+  {
+    "behaviorPrimitives": [
+      "ask_once",
+      "request_specificity"
+    ],
+    "canonState": "ordinary",
+    "capabilities": {
+      "behavior": true,
+      "canonSevere": true,
+      "mechanics": true,
+      "wording": true
+    },
+    "channel": "jine",
+    "contextRequired": true,
+    "derivedFrom": {
+      "exportToolVersion": 1,
+      "privateEventId": "evt_canon_low_feedback"
+    },
+    "eventTrigger": "partner replies with a low-information acknowledgement",
+    "evidenceLevel": "A",
+    "expectedReplyClass": "concrete_feedback",
+    "functionalNeed": "obtain a concrete evaluation",
+    "id": "evt_canon_low_feedback",
+    "messageHashes": [
+      {
+        "lengthBucket": "medium",
+        "order": 1,
+        "role": "p",
+        "sha256": "af8b48746186f82fb8d7d4033e572c229cee2a1c99c9756cbcb02fbc8de228bd"
+      },
+      {
+        "lengthBucket": "medium",
+        "order": 2,
+        "role": "ame",
+        "sha256": "6b4675ebebb1cd15137be5ac8aba4a40a2c90569255f5ec28ee181c3ffcfe1bc"
+      }
+    ],
+    "mode": "living",
+    "pRole": "audience_of_one",
+    "personaSurface": "ame_private",
+    "recordFormatVersion": 1,
+    "replyTimingSensitivity": "medium",
+    "routeSeverity": "minor",
+    "sourceId": "src_canon_scene_001",
+    "sourceLayer": "C1"
+  },
+  {
+    "behaviorPrimitives": [
+      "escalate_once"
+    ],
+    "canonState": "route_active",
+    "capabilities": {
+      "behavior": true,
+      "canonSevere": true,
+      "mechanics": true,
+      "wording": true
+    },
+    "channel": "private_dm",
+    "contextRequired": true,
+    "derivedFrom": {
+      "exportToolVersion": 1,
+      "privateEventId": "evt_canon_severe_route"
+    },
+    "eventTrigger": "route milestone reached",
+    "evidenceLevel": "A",
+    "expectedReplyClass": "route_commitment",
+    "functionalNeed": "confront the route stakes directly",
+    "id": "evt_canon_severe_route",
+    "messageHashes": [
+      {
+        "lengthBucket": "medium",
+        "order": 1,
+        "role": "kangel",
+        "sha256": "d607101afc76b072b3a0b0db513c7c381b1ec95db522782c8441499b202d9f21"
+      }
+    ],
+    "mode": "canon",
+    "pRole": "route_participant",
+    "personaSurface": "mixed_transition",
+    "recordFormatVersion": 1,
+    "replyTimingSensitivity": "high",
+    "routeId": "route_true_end",
+    "routeSeverity": "canon_severe",
+    "sourceId": "src_canon_scene_001",
+    "sourceLayer": "C1"
+  },
+  {
+    "capabilities": {
+      "behavior": false,
+      "canonSevere": false,
+      "mechanics": false,
+      "wording": true
+    },
+    "channel": "public_stream",
+    "contextRequired": false,
+    "derivedFrom": {
+      "exportToolVersion": 1,
+      "privateEventId": "evt_community_wording"
+    },
+    "eventTrigger": "fans describe a recurring speech tic",
+    "evidenceLevel": "C",
+    "expectedReplyClass": "playful_deflection",
+    "id": "evt_community_wording",
+    "messageHashes": [
+      {
+        "lengthBucket": "medium",
+        "order": 1,
+        "role": "kangel",
+        "sha256": "5c1a71d7ecfbbfc7689494d555673c5e974ec951d2eb3ce126f6652ec8a22b01"
+      }
+    ],
+    "mode": "living",
+    "personaSurface": "kangel_stage",
+    "recordFormatVersion": 1,
+    "replyTimingSensitivity": "low",
+    "routeSeverity": "none",
+    "sourceId": "src_community_fingerprint",
+    "sourceLayer": "C3"
+  },
+  {
+    "capabilities": {
+      "behavior": false,
+      "canonSevere": false,
+      "mechanics": true,
+      "wording": false
+    },
+    "channel": "app_notification",
+    "contextRequired": false,
+    "derivedFrom": {
+      "exportToolVersion": 1,
+      "privateEventId": "evt_guide_threshold"
+    },
+    "eventTrigger": "affection threshold crossed at value T",
+    "evidenceLevel": "B",
+    "functionalNeed": "record a mechanic threshold",
+    "id": "evt_guide_threshold",
+    "messageHashes": [
+      {
+        "lengthBucket": "medium",
+        "order": 1,
+        "role": "system",
+        "sha256": "b6910be8656040738c50217ca5a08e6459f4ab19cab372f782f93f3aca871314"
+      }
+    ],
+    "mode": "living",
+    "recordFormatVersion": 1,
+    "routeSeverity": "none",
+    "sourceId": "src_guide_thresholds",
+    "sourceLayer": "C2"
+  }
+]

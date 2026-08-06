@@ -1,0 +1,95 @@
+[
+  {
+    "recordFormatVersion": 1,
+    "id": "evt_canon_low_feedback",
+    "sourceId": "src_canon_scene_001",
+    "channel": "jine",
+    "personaSurface": "ame_private",
+    "mode": "living",
+    "canonState": "ordinary",
+    "eventTrigger": "partner replies with a low-information acknowledgement",
+    "functionalNeed": "obtain a concrete evaluation",
+    "pRole": "audience_of_one",
+    "behaviorPrimitives": ["ask_once", "request_specificity"],
+    "expectedReplyClass": "concrete_feedback",
+    "replyTimingSensitivity": "medium",
+    "stateEffect": ["relationship.attentiveness+"],
+    "routeSeverity": "minor",
+    "contextRequired": true,
+    "uncertainty": [],
+    "messages": [
+      { "order": 1, "role": "p", "text": "SYN-A1: brief acknowledgement placeholder", "delayMs": 0, "verbatim": true },
+      { "order": 2, "role": "ame", "text": "SYN-A2: ask which part specifically, once", "delayMs": 4000, "verbatim": true }
+    ],
+    "notes": "SYNTHETIC C1/A event; behavior + wording both permitted."
+  },
+  {
+    "recordFormatVersion": 1,
+    "id": "evt_canon_severe_route",
+    "sourceId": "src_canon_scene_001",
+    "channel": "private_dm",
+    "personaSurface": "mixed_transition",
+    "mode": "canon",
+    "canonState": "route_active",
+    "eventTrigger": "route milestone reached",
+    "functionalNeed": "confront the route stakes directly",
+    "pRole": "route_participant",
+    "behaviorPrimitives": ["escalate_once"],
+    "expectedReplyClass": "route_commitment",
+    "replyTimingSensitivity": "high",
+    "routeSeverity": "canon_severe",
+    "routeId": "route_true_end",
+    "contextRequired": true,
+    "messages": [
+      { "order": 1, "role": "kangel", "text": "SYN-B1: route-severe line placeholder", "verbatim": true }
+    ],
+    "notes": "SYNTHETIC C1/A canon_severe event: canon mode + routeId present."
+  },
+  {
+    "recordFormatVersion": 1,
+    "id": "evt_guide_threshold",
+    "sourceId": "src_guide_thresholds",
+    "channel": "app_notification",
+    "mode": "living",
+    "eventTrigger": "affection threshold crossed at value T",
+    "functionalNeed": "record a mechanic threshold",
+    "routeSeverity": "none",
+    "contextRequired": false,
+    "messages": [
+      { "order": 1, "role": "system", "text": "SYN-C1: threshold T mechanic note placeholder", "verbatim": true }
+    ],
+    "notes": "SYNTHETIC C2/B guide event: mechanics only, NO expectedReplyClass, NO behaviorPrimitives."
+  },
+  {
+    "recordFormatVersion": 1,
+    "id": "evt_community_wording",
+    "sourceId": "src_community_fingerprint",
+    "channel": "public_stream",
+    "personaSurface": "kangel_stage",
+    "mode": "living",
+    "eventTrigger": "fans describe a recurring speech tic",
+    "expectedReplyClass": "playful_deflection",
+    "replyTimingSensitivity": "low",
+    "routeSeverity": "none",
+    "contextRequired": false,
+    "messages": [
+      { "order": 1, "role": "kangel", "text": "SYN-D1: community-observed wording placeholder", "verbatim": true }
+    ],
+    "notes": "SYNTHETIC C3/C community event: wording only, NO behaviorPrimitives."
+  },
+  {
+    "recordFormatVersion": 1,
+    "id": "evt_simulator_only",
+    "sourceId": "src_simulator_ext",
+    "channel": "in_person",
+    "mode": "living",
+    "eventTrigger": "simulator-injected hypothetical",
+    "routeSeverity": "none",
+    "syntheticOnly": true,
+    "contextRequired": false,
+    "messages": [
+      { "order": 1, "role": "narration", "text": "SYN-E1: simulator extension placeholder", "verbatim": true }
+    ],
+    "notes": "SYNTHETIC C4/D event: syntheticOnly, never exported, drives nothing."
+  }
+]

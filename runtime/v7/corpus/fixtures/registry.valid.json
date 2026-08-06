@@ -1,0 +1,50 @@
+{
+  "registryFormatVersion": 1,
+  "sources": [
+    {
+      "id": "src_canon_scene_001",
+      "sourceType": "dialogue",
+      "sourceLayer": "C1",
+      "evidenceLevel": "A",
+      "trustLevel": "verified",
+      "reference": "synthetic-canon-scene-001",
+      "location": "fixture://canon/001",
+      "language": "zh",
+      "copyrightScope": "summary",
+      "notes": "SYNTHETIC fixture — no official copyrighted lines. Stands in for a C1 canon dialogue source."
+    },
+    {
+      "id": "src_guide_thresholds",
+      "sourceType": "guide",
+      "sourceLayer": "C2",
+      "evidenceLevel": "B",
+      "trustLevel": "verified",
+      "reference": "synthetic-guide-thresholds",
+      "location": "fixture://guide/thresholds",
+      "language": "zh",
+      "copyrightScope": "summary",
+      "notes": "SYNTHETIC — mechanics-only guide source (C2)."
+    },
+    {
+      "id": "src_community_fingerprint",
+      "sourceType": "community",
+      "sourceLayer": "C3",
+      "evidenceLevel": "C",
+      "trustLevel": "unverified",
+      "reference": "synthetic-community-fingerprint",
+      "language": "zh",
+      "copyrightScope": "summary",
+      "notes": "SYNTHETIC — community language fingerprint (C3), wording-only."
+    },
+    {
+      "id": "src_simulator_ext",
+      "sourceType": "simulator_extension",
+      "sourceLayer": "C4",
+      "evidenceLevel": "D",
+      "trustLevel": "unverified",
+      "reference": "synthetic-simulator-extension",
+      "copyrightScope": "summary",
+      "notes": "SYNTHETIC — C4 extension, test-only, never exported."
+    }
+  ]
+}

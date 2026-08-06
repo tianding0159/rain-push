@@ -1,0 +1,35 @@
+{
+  "$schemaDialect": "rain-push-corpus/mini-schema/1",
+  "$id": "source-registry",
+  "title": "Source registry",
+  "description": "The registry of provenance sources. A corpus record's influence (behavior/wording/mechanics/canon-severe/export) is DERIVED from the source it references here — records can never self-authorize a capability the source lacks. Each source's layer (C1..C4), evidence level (A..D) and trust level are looked up in policy/source-policy.json.",
+  "type": "object",
+  "required": ["registryFormatVersion", "sources"],
+  "additionalProperties": false,
+  "properties": {
+    "registryFormatVersion": { "type": "integer", "const": 1 },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["id", "sourceType", "sourceLayer", "evidenceLevel", "trustLevel", "reference", "copyrightScope"],
+      "additionalProperties": false,
+      "properties": {
+        "id":            { "type": "string", "pattern": "^src_[a-z0-9_]+$" },
+        "sourceType":    { "type": "string", "enumFrom": "sourceTypes" },
+        "sourceLayer":   { "type": "string", "enumFrom": "sourceLayers" },
+        "evidenceLevel": { "type": "string", "enumFrom": "evidenceLevels" },
+        "trustLevel":    { "type": "string", "enumFrom": "trustLevels" },
+        "reference":     { "type": "string", "minLength": 1 },
+        "location":      { "type": "string" },
+        "language":      { "type": "string" },
+        "copyrightScope":{ "type": "string", "enumFrom": "copyrightScopes" },
+        "notes":         { "type": "string" }
+      }
+    }
+  }
+}
