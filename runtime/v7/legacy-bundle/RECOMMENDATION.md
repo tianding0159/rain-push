@@ -78,23 +78,26 @@
 
 将 root ZIP 正式标记为 **frozen legacy artifact**：
 
-1. **记录固定身份**：engine revision + 完整 ZIP SHA-256（见下），作为冻结锚点。
-2. **解除 SSOT 跟随**：CI 不再要求 bundle 内嵌 engine 与**当前** `engine.manifest.json` 同步。理由：P0-0A 的 `engine-tests` job 已让 bundle 内嵌 engine 跟随 SSOT，但既然现 source + 现 builder 无法确定性重建 bundle、且 264/333 成员在 base ref 无 tracked path，长期"跟随"只能靠**手工改二进制 ZIP**——正是评审要禁止的。
-3. **CI 改为防篡改**：验证 bundle **自身**未被改动（钉住 `badca169…` 整包 SHA-256），而非与活动 engine 对比。
-4. **迁移说明**：把"当前权威 engine archive"明确指向 P0-0A 的 `runtime/v7/engine/`（源）+ `build-engine-archive.mjs`（`dist/rain-push-v7-engine.zip`，sha `f838c617…`）。新消费者用这条，不用 legacy bundle。
+1. **记录固定身份**：完整 ZIP SHA-256 + git blob SHA-1 + size + entry counts + frozen commit + 内嵌 engine promoted-from commit，写入 [`legacy-bundle.lock.json`](legacy-bundle.lock.json)（机器可读，`lifecycle=frozen_legacy_artifact`）。
+2. **解除 SSOT 跟随**：CI 不再要求 bundle 内嵌 engine 与**当前** `engine.manifest.json` 同步。理由：既然现 source + 现 builder 无法确定性重建 bundle、且 264/333 成员在 base ref 无 tracked path，长期"跟随"只能靠**手工改二进制 ZIP**——正是评审要禁止的。
+3. **CI 改为防篡改**：`verify-legacy-bundle.mjs` 验证 bundle **自身**未被改动（对 lock 校验 size/SHA-256/blob-sha1/entry counts/lock 版本），而非与活动 engine 对比。旧 `engine-tests` job 已删除，替换为 `legacy-bundle-frozen` job。
+4. **迁移说明**：见 [`MIGRATION.md`](MIGRATION.md)——"当前权威 engine archive"指向 `runtime/v7/engine/`（源）+ `build-engine-archive.mjs`（`dist/rain-push-v7-engine.zip`）。新消费者用这条，不用 legacy bundle。
 5. **不删除 ZIP**：除非有证据证明无消费者依赖。当前无此证据 → 保留。
 
-### 冻结锚点（B 实施时写入）
+### 冻结锚点（已写入 `legacy-bundle.lock.json`）
 - 整包 SHA-256：`badca1696482dd4aef6ebe8bdc9465d6bc9f0e82609aa04e1a97bef7a542f6c9`
 - git blob sha1：`b2c74c3b79055a741f40a7041ee3bca44efb526d`
-- 内嵌 engine revision：与 P0-0A engine SSOT 一致（68/68，promotedFromCommit `4f168556`）
+- 内嵌 engine revision：与 engine SSOT 一致（68/68，promotedFromCommit `4f168556cc8991d2ce21121dfc7465d3212c0546`）
 - 大小：528,131 B / 398 成员（333 文件 + 65 目录）
 
 ---
 
 ## 5. B 的取舍（诚实标注）
 
-- **P0-0A 的 `engine-tests` 68/68 guard 会转义**：从"bundle 内嵌 engine ↔ 活动 manifest 同步"变为"整包 SHA-256 未被篡改"。P0-0A 装的 `verify-engine-bundle-parity.mjs` + 4 组测试**不浪费**——它们保护的是**权威链路**（`runtime/v7/engine/` 源 → `dist` archive），迁移后继续对权威 archive 生效；只是不再套在 legacy bundle 上。
+- **旧 `engine-tests` 68/68 guard 已转义并落地**：从"bundle 内嵌 engine ↔ 活动 manifest 同步"变为两条独立守卫——
+  1. **frozen ZIP → lock 防篡改**（`verify-legacy-bundle.mjs` 对 `legacy-bundle.lock.json`：存在/size/SHA-256/git blob SHA-1/entry counts/lock 版本）；
+  2. **权威链 round-trip**（`verify-engine-bundle-parity.mjs` 现**实际**跑在生成的 `dist/rain-push-v7-engine.zip` 解包树上，见 CI `engine-source-ssot` job 的 "round-trip parity" 步骤）。
+- `verify-engine-bundle-parity.mjs` + 其 4 组测试**不浪费**：它保护的是**权威链路**（`runtime/v7/engine/` 源 → `engine.manifest.json` → `dist` archive），本 PR 已把它从"套在 legacy bundle 上"改为"套在生成 archive 的 round-trip 上"——**这条声明现在为真**（req8 走 option A：generalize + 实际使用，而非只是声称）。
 - **代价**：bundle 内嵌 engine 与未来 engine 改动会"名义上"分叉，但这正是 frozen artifact 的定义——它是历史快照，不该跟随。
 
-**下一步需你决策**：是否批准按 **B** 实施（另起 commit / 后续 PR）。本次仅清点 + 推荐，未实施、未开 PR。
+迁移细节见 [`MIGRATION.md`](MIGRATION.md)。本 PR 已按 **B** 实施：lock + verifier + 测试 + CI 改造 + 迁移文档，未改 root ZIP 字节、未改 runtime 行为、未开始 R-DARK-01。

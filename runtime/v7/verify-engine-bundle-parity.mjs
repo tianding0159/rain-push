@@ -1,18 +1,25 @@
-// Engine bundle parity verifier.
+// Engine archive parity verifier.
 //
 // The reviewable engine source at runtime/v7/engine/ is the single source of truth,
-// inventoried by runtime/v7/engine.manifest.json. The root legacy handoff bundle
-// (rain-push-v7-claude-handoff.zip) carries an embedded copy of that engine subtree.
-// This module asserts the embedded copy has not drifted from the manifest:
+// inventoried by runtime/v7/engine.manifest.json and packaged by
+// runtime/v7/build-engine-archive.mjs into the deterministic engine archive
+// (runtime/v7/dist/rain-push-v7-engine.zip). This module asserts an EXTRACTED engine
+// tree matches the manifest exactly:
 //
-//   - every file the manifest lists exists in the bundle with an identical SHA-256
+//   - every file the manifest lists exists in the tree with an identical SHA-256
 //     (no MISSING, no SHA MISMATCH), and
-//   - the bundle carries no engine file the manifest does not know about (no EXTRA).
+//   - the tree carries no engine file the manifest does not know about (no EXTRA).
 //
-// This closes the silent-divergence gap: editing runtime/v7/engine/ (and regenerating
-// the manifest) without repacking the bundle now fails here. Extracted as an
-// importable + CLI module so the guard is unit-tested (valid / missing / extra /
-// mismatch) rather than living only as an inline node -e in the workflow.
+// AUTHORITY CHAIN it protects (see MIGRATION.md / RECOMMENDATION.md §5):
+//   runtime/v7/engine/ (source) -> engine.manifest.json -> deterministic engine archive.
+// CI builds the archive, extracts it, and runs this verifier over the extraction, so the
+// generated archive is proven to round-trip the manifest 68/68. It is unit-tested (valid
+// / missing / extra / mismatch) rather than living only as an inline node -e.
+//
+// NOTE: this verifier is intentionally decoupled from the FROZEN legacy bundle
+// (rain-push-v7-claude-handoff.zip). That artifact is frozen (Option B) and no longer
+// tracks the live engine; its tamper guard is legacy-bundle/verify-legacy-bundle.mjs,
+// which pins identity against legacy-bundle/legacy-bundle.lock.json.
 
 import { createHash } from "node:crypto";
 import { readFileSync, readdirSync, lstatSync, existsSync } from "node:fs";
@@ -87,10 +94,10 @@ function main(argv) {
   );
   for (const p of problems) console.log(`${p.kind}: ${p.path}`);
   if (!ok) {
-    console.log(`root-ZIP engine parity FAILED: ${problems.length}`);
+    console.log(`engine archive parity FAILED: ${problems.length}`);
     process.exit(1);
   }
-  console.log(`root-ZIP engine parity OK: ${manifest.files.length} files 68/68`);
+  console.log(`engine archive parity OK: ${manifest.files.length}/${manifest.files.length} files`);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

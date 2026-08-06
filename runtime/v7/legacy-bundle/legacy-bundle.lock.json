@@ -1,0 +1,15 @@
+{
+  "lockFormatVersion": 1,
+  "lifecycle": "frozen_legacy_artifact",
+  "artifactPath": "rain-push-v7-claude-handoff.zip",
+  "sha256": "badca1696482dd4aef6ebe8bdc9465d6bc9f0e82609aa04e1a97bef7a542f6c9",
+  "gitBlobSha1": "b2c74c3b79055a741f40a7041ee3bca44efb526d",
+  "sizeBytes": 528131,
+  "entryCounts": {
+    "central": 398,
+    "file": 333,
+    "directory": 65
+  },
+  "frozenRepoCommit": "a33c66577ed072a021f4b3ec8713baf12a4239af",
+  "embeddedEnginePromotedFromCommit": "4f168556cc8991d2ce21121dfc7465d3212c0546"
+}
