@@ -30,35 +30,42 @@ All "current state" claims below were confirmed by executing the engine (not by 
 
 ## The one genuinely open high-risk residual
 
-### R-DARK-01 — dark humor / sexual joke / drug reference restraint (severity: high, status: partial)
+### R-DARK-01 — sensitive-input bidirectional gate (severity: high, status: partial, substatus: bidirectional-gate-missing)
 
-**Spec (PROJECT_CONCEPT.md §8, emotion V14, behavior V18):** dark humor must not auto-become
-crisis; a sexual joke must not auto-become intimacy; a drug reference must not auto-become severe
-state or operational instruction.
+**Spec (PROJECT_CONCEPT.md §8, emotion V14, behavior V18):** sensitive input (dark humor /
+sexual joke / drug reference) must pass a **bidirectional** gate — it must not auto-*escalate*
+(dark→crisis, sexual→intimacy, drug→severe state / operational instruction), **and** it must not
+be silently *under-handled* (the content should be marked by a first-class restraint block, not
+merely fall through to generic non-engagement).
 
-**Current engine reality (verified via probe + existing property-conformance suite):**
+**Why the framing matters (correction to the earlier write-up):** the previous version described
+this as "drug reference has no explicit block" — a one-directional read that invites the wrong fix,
+namely a blanket block that suppresses the input. The real invariant is a gate with **two
+directions**, and only one direction is currently enforced:
 
-- `dark_humor` → `meaning.blockedMeanings = [automatic_crisis]`, `emotion.blocked = [forced_crisis]`,
-  then `non_engagement` / `no_action` / no rendered text. **Implemented and tested.**
-- `sexual_joke` → `meaning.blockedMeanings = [automatic_intimacy]`, `emotion.blocked = [forced_intimacy]`,
-  then `non_engagement` / `no_action` / no rendered text. **Implemented and tested.**
-- `drug_reference` → **no** explicit `blockedMeanings` / `emotion.blocked`; it only falls through to
-  `non_engagement` / `no_action`. The outcome is harmless (no public-safety escalation, no rendered
-  text), but there is **no first-class "no severe state / no operational instruction" block** the
-  way dark and sexual have.
+- **Over-escalation direction (enforced for dark & sexual):**
+  - `dark_humor` → `meaning.blockedMeanings = [automatic_crisis]`, `emotion.blocked = [forced_crisis]`, then `non_engagement` / `no_action` / no rendered text. **Implemented and tested.**
+  - `sexual_joke` → `meaning.blockedMeanings = [automatic_intimacy]`, `emotion.blocked = [forced_intimacy]`, then `non_engagement` / `no_action` / no rendered text. **Implemented and tested.**
+- **Under-handling direction (missing):**
+  - `drug_reference` → **no** first-class `blockedMeanings` / `emotion.blocked`; it only falls through to `non_engagement` / `no_action`. The outcome is harmless, but nothing *marks* the content the way dark and sexual are marked. The gate does not close in this direction.
 
-So the earlier assumption that all three were spec-only was wrong: two of three are real and tested.
-The residual is **drug_reference specifically**.
+So the gap is not "add a drug block". It is: **the gate is one-directional** — it catches
+over-escalation but has no first-class handling for the under-handling direction (drug is the
+clearest instance; the same second direction is absent for all three). Fixing it means adding the
+missing gate direction, not blanket-blocking sensitive input.
 
-**Why not "fixed" in Sprint 1:** adding a first-class drug-restraint block is new *behavior*
-modelling. `NEXT_ACTIONS.md` is explicit — Sprint 1 adds validators and tests, not new dialogue or
-undocumented engine behavior. The drug path belongs in a later sprint alongside the corpus/evidence
-work, mirroring the existing dark/sexual blocks.
+**Why not "fixed" in Sprint 1:** closing the second gate direction is new *behavior* modelling.
+`NEXT_ACTIONS.md` is explicit — Sprint 1 adds validators and tests, not new dialogue or undocumented
+engine behavior. The under-handling direction belongs in a later sprint alongside the corpus/evidence
+work, mirroring the existing over-escalation blocks.
 
-**Sprint 1 action:** the parity matrix marks R-DARK-01 `partial`. Contract tests assert the *verified*
-truth — dark & sexual are restrained; drug stays non-engaged **and** its missing block is asserted as
-still-empty (`blockedMeanings == []`) so the test documents the gap instead of pretending it's closed.
-When a future sprint adds the drug block, that last assertion will flip and force the test to be updated.
+**Sprint 1 action:** the parity matrix marks R-DARK-01 `partial` with substatus
+`bidirectional-gate-missing`. Contract tests assert the *verified* truth — the over-escalation
+direction is locked for dark & sexual; the under-handling direction is documented as missing by
+asserting drug `blockedMeanings == []` (a **temporary** assertion that pins the current one-directional
+reality). When a future sprint adds the missing gate direction, that assertion will flip and force the
+test to be updated — see the inline `TEMPORARY (R-DARK-01 bidirectional gate)` comment in
+`tests/parity-contract.test.js`.
 
 ## Deferred (correctly out of Sprint 1 scope)
 

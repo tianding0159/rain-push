@@ -372,9 +372,15 @@ test("R-FACT-01 generic feedback yields a specific request and blocks global acc
 });
 
 // ---------------------------------------------------------------------------
-// R-DARK-01 — dark humor / sexual joke / drug reference restraint
-// Verified behavior: dark & sexual are actively blocked at the meaning + emotion
-// layers; drug currently only falls through to non-engagement (residual gap).
+// R-DARK-01 — sensitive-input BIDIRECTIONAL gate
+// The invariant has two directions: (a) over-escalation must be blocked
+// (dark->crisis, sexual->intimacy, drug->severe state), and (b) the content must
+// not be silently under-handled — it should be marked by a first-class restraint
+// block rather than merely falling through to generic non-engagement.
+// Verified reality: direction (a) is enforced for dark & sexual at the meaning +
+// emotion layers; direction (b) is NOT implemented for drug (blockedMeanings stays
+// empty). These tests lock direction (a) and pin the missing direction (b) with a
+// TEMPORARY assertion. See parity/high-risk-gaps.md R-DARK-01.
 // ---------------------------------------------------------------------------
 test("R-DARK-01 dark humor is not auto-escalated into crisis", () => {
   const result = run({ eventId: "dark1", actor: "character", text: "又卡了个 bug，我要死了", context: { scenario: "dark_humor" } });
@@ -390,13 +396,19 @@ test("R-DARK-01 a sexual joke is not auto-escalated into intimacy", () => {
   assert.equal(result.language.data.renderedText, null);
 });
 
-test("R-DARK-01 a drug reference does not create a public-safety escalation (residual: no explicit block)", () => {
+test("R-DARK-01 a drug reference is not over-escalated (gate direction a) but is under-handled (gate direction b missing)", () => {
   const result = run({ eventId: "drug1", actor: "character", text: "药物梗而已", context: { scenario: "drug_reference" } });
-  // it does NOT escalate to public safety / severe state ...
+  // Direction (a) — over-escalation is prevented: no public-safety/severe state,
+  // no rendered operational instruction.
   assert.ok(!result.packets.need.data.dominant.includes("public_safety"));
   assert.equal(result.packets.decision.data.selectedStrategyFamilies[0], "non_engagement");
   assert.equal(result.language.data.renderedText, null);
-  // ... but it also has no first-class restraint block yet — documented gap, not asserted as present.
+  // Direction (b) — the SECOND gate direction is MISSING: unlike dark/sexual, the
+  // content is not marked by a first-class restraint block; it only falls through.
+  // TEMPORARY (R-DARK-01 bidirectional gate): this pins the current one-directional
+  // reality. When a later sprint adds the missing gate direction, blockedMeanings
+  // will become non-empty and this assertion will fail, forcing this test — and the
+  // matrix substatus 'bidirectional-gate-missing' — to be updated together.
   assert.deepEqual(result.packets.meaning.data.blockedMeanings, []);
 });
 

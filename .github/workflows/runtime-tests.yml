@@ -1,0 +1,82 @@
+name: runtime-v7-tests
+
+# The v7 character-runtime engine ships as a zip blob at the repo root
+# (rain-push-v7-claude-handoff.zip). It is zero-dependency and runs on node --test.
+# This workflow unzips it and runs the full suite so the engine's contract tests
+# (including the Hardening Sprint 1 parity tests) gate every change that touches the
+# engine, its reviewable surface, or the zip itself.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "rain-push-v7-claude-handoff.zip"
+      - "runtime/v7/engine/**"
+      - ".github/workflows/runtime-tests.yml"
+  pull_request:
+    paths:
+      - "rain-push-v7-claude-handoff.zip"
+      - "runtime/v7/engine/**"
+      - ".github/workflows/runtime-tests.yml"
+  workflow_dispatch:
+
+jobs:
+  engine-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Unzip the v7 engine deliverable
+        run: |
+          unzip -q rain-push-v7-claude-handoff.zip -d _engine
+          test -f _engine/runtime/v7/engine/package.json
+
+      - name: Run the engine test suite (zero-dependency, node --test)
+        working-directory: _engine/runtime/v7/engine
+        run: npm test
+
+      - name: Regenerate ground truth + parity maps and assert the committed copies are current
+        working-directory: _engine/runtime/v7/engine
+        run: |
+          # _engine is a fresh unzip (not a git tree), so we compare regenerated
+          # output against the copies that shipped inside the zip.
+          set -e
+          cp parity/actual-packet-fields.json /tmp/orig-actual.json
+          cp parity/schema-field-map.json /tmp/orig-schema.json
+          cp parity/runtime-contract-map.json /tmp/orig-contract.json
+          node tests/gen-actual-fields.mjs
+          node parity/build-schema-field-map.mjs
+          node parity/build-runtime-contract-map.mjs
+          diff -u /tmp/orig-actual.json parity/actual-packet-fields.json \
+            || (echo "actual-packet-fields.json is stale — run node tests/gen-actual-fields.mjs and commit" && exit 1)
+          diff -u /tmp/orig-schema.json parity/schema-field-map.json \
+            || (echo "schema-field-map.json is stale — run node parity/build-schema-field-map.mjs and commit" && exit 1)
+          diff -u /tmp/orig-contract.json parity/runtime-contract-map.json \
+            || (echo "runtime-contract-map.json is stale — run node parity/build-runtime-contract-map.mjs and commit" && exit 1)
+
+      - name: Verify the reviewable surface matches the zip
+        run: |
+          # The tracked runtime/v7/engine/ mirror must match the files inside the zip
+          # so reviewers reading the PR see exactly what ships. Compare the overlapping
+          # reviewable files (parity artifacts + Sprint 1 tests + README).
+          set -e
+          for rel in \
+            parity/parity-matrix.json \
+            parity/parity-matrix.md \
+            parity/high-risk-gaps.md \
+            parity/schema-field-map.json \
+            parity/runtime-contract-map.json \
+            tests/parity-contract.test.js \
+            tests/packet-contract.test.js \
+            tests/spec-coverage.test.js ; do
+            if [ -f "runtime/v7/engine/$rel" ]; then
+              diff -u "runtime/v7/engine/$rel" "_engine/runtime/v7/engine/$rel" \
+                || (echo "reviewable surface diverges from zip: $rel" && exit 1)
+            fi
+          done

@@ -12,9 +12,19 @@
 - **test.status** — whether an executable test locks it: `tested` / `untested`
 - A requirement can be `implemented` yet `untested`; Sprint 1 moves high-risk ones to `tested`.
 
+## Scope
+
+This matrix covers **26 high-risk requirements selected across Phases 1–11 (plus cross-cutting
+orchestrator / update-queue / execution-boundary owners)** — not an exhaustive audit of every
+spec field in every phase. Selection criterion: invariants whose violation is safety-, privacy-,
+or correctness-critical. Field-level parity for all packets lives in `schema-field-map.json`;
+per-runtime enforcement status lives in `runtime-contract-map.json`. Four phases (continuity,
+relationship, thought, decision) have **no dedicated** requirement here and are covered only by
+cross-cutting requirements — see the phase-coverage partition in `tests/spec-coverage.test.js`.
+
 ## Summary
 
-Total requirements: **26**
+Total requirements: **26** (high-risk, cross-phase selection — see Scope above)
 
 | implementation.status | count | % |
 |---|---|---|
@@ -58,7 +68,7 @@ Total requirements: **26**
 | R-PKT-02 | 5 | emotion | high | partial | tested | Emotion Packet may not contain need/goal/action/decision/reply_text/final_message/persona_output; Behavior may not contain final wording; Expression may not contain final text/emoji. |
 | R-ESC-01 | 5 | emotion | critical | partial | tested | Local/ordinary events must not escalate to severe emotion or global relationship claims (anti-escalation); severe emotions require gate/evidence. |
 | R-FACT-01 | 4 | meaning | high | partial | tested | Hypothesis/candidate meaning must not collapse into asserted fact in final output (fact vs hypothesis separation). |
-| R-DARK-01 | 5 | emotion/behavior | high | partial | tested | Dark humor must not auto-become crisis; sexual joke must not auto-become intimacy; drug reference must not auto-become severe state or operational instruction. |
+| R-DARK-01 | 5 | emotion/behavior | high | partial (bidirectional-gate-missing) | tested | Sensitive input must pass a bidirectional gate: no auto-escalation (dark→crisis, sexual→intimacy, drug→severe state) AND no silent under-handling (content marked by a first-class restraint block, not merely non-engagement). |
 | R-ORD-01 | 3 | need/behavior | medium | implemented | tested | Ordinary life is first-class: a forgotten pudding may remain a forgotten pudding; rest/food behaviors are legitimate and not career abandonment. |
 | R-DUAL-01 | 10 | expression | medium | partial | tested | Ame and KAngel are two surfaces of one person sharing one substrate; stage energy must not delete fatigue; performance is not automatically fake. |
 | R-SCHEMA-01 | 1-11 | all | medium | specification_only | untested | Every YAML schema field and enum should be enforced at runtime with a generated JSON Schema pipeline. |
@@ -249,15 +259,16 @@ Total requirements: **26**
 - **Validator:** none dedicated  
 - **Test (tested):** generic feedback yields specific request, blocks global accusation, and never renders relationship-rupture text _(tests/parity-contract.test.js)_
 
-### R-DARK-01 — Dark humor must not auto-become crisis; sexual joke must not auto-become intimacy; drug reference must not auto-become severe state or operational instruction.
+### R-DARK-01 — Sensitive-input bidirectional gate (substatus: bidirectional-gate-missing)
 
 - **Phase / Runtime:** 5 / emotion/behavior  
 - **Severity:** high  
 - **Source:** PROJECT_CONCEPT.md 8; emotion V14.7/13/14; behavior V18.9-11  
 - **Expected packet field:** `meaning.data.blockedMeanings + emotion.data.blocked + behavior.data.actionType`  
-- **Implementation (partial):** Verified via probe: dark_humor -> meaning.blockedMeanings=[automatic_crisis], emotion.blocked=[forced_crisis]; sexual_joke -> blockedMeanings=[automatic_intimacy], emotion.blocked=[forced_intimacy]; both then non_engagement / no_action / no rendered text. drug_reference is WEAKER: no explicit blockedMeanings/emotion.blocked, it only falls through to non_engagement/no_action (harmless outcome but no first-class 'no operational instruction / no severe state' block). Dark & sexual restraint are implemented + tested (property-conformance); drug restraint is the residual gap. _(src/runtimes/meaning.js, emotion.js, decision.js, behavior.js)_  
-- **Validator:** meaning/emotion scenario blocks (dark, sexual); none for drug  
-- **Test (tested):** dark humor / sexual joke are restrained; drug reference stays non-engaged (residual gap: no explicit drug block) _(tests/parity-contract.test.js + tests/property-conformance.test.js)_
+- **Requirement:** Sensitive input (dark humor / sexual joke / drug reference) must pass a **bidirectional** gate — it must not auto-*escalate* (dark→crisis, sexual→intimacy, drug→severe state / operational instruction) **and** it must not be silently *under-handled* (the content should be marked by a first-class restraint block, not merely fall through to non-engagement).  
+- **Implementation (partial, bidirectional-gate-missing):** Over-escalation direction is enforced for dark & sexual — dark_humor → meaning.blockedMeanings=[automatic_crisis], emotion.blocked=[forced_crisis]; sexual_joke → blockedMeanings=[automatic_intimacy], emotion.blocked=[forced_intimacy]; both then non_engagement / no_action / no rendered text. The under-handling direction is MISSING: drug_reference has no first-class block (blockedMeanings stays []), it only falls through to non_engagement. The gap is the missing second gate direction, not merely "no drug block". _(src/runtimes/meaning.js, emotion.js, decision.js, behavior.js)_  
+- **Validator:** over-escalation direction via meaning/emotion scenario blocks (dark, sexual); under-handling direction has no first-class block for any of the three (drug is the clearest case)  
+- **Test (tested):** over-escalation direction locked for dark & sexual; under-handling direction documented as missing (drug blockedMeanings asserted still-empty as a temporary pin) _(tests/parity-contract.test.js + tests/property-conformance.test.js)_
 
 ### R-ORD-01 — Ordinary life is first-class: a forgotten pudding may remain a forgotten pudding; rest/food behaviors are legitimate and not career abandonment.
 

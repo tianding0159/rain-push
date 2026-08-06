@@ -14,6 +14,7 @@
       "blocked"
     ],
     "note": "status = implementation depth; tested = whether an executable test locks it. A requirement can be e.g. implemented + untested. High-risk requirements should move to implemented + tested via Sprint 1 contract tests.",
+  "scope": "26 high-risk requirements selected across Phases 1-11 plus cross-cutting owners (orchestrator, update-queue, execution-boundary). NOT an exhaustive per-field audit of every phase. Selection criterion: invariants whose violation is safety/privacy/correctness-critical. Field-level parity lives in schema-field-map.json; per-runtime enforcement status in runtime-contract-map.json. Four phases (continuity, relationship, thought, decision) have no dedicated requirement and are covered only by cross-cutting requirements (see tests/spec-coverage.test.js phase partition).",
     "severityVocabulary": ["critical", "high", "medium", "low"]
   },
   "requirements": [
@@ -310,16 +311,17 @@
       "phase": 5,
       "runtime": "emotion/behavior",
       "source": "PROJECT_CONCEPT.md 8; emotion V14.7/13/14; behavior V18.9-11",
-      "requirement": "Dark humor must not auto-become crisis; sexual joke must not auto-become intimacy; drug reference must not auto-become severe state or operational instruction.",
+      "requirement": "Sensitive input (dark humor / sexual joke / drug reference) must pass a BIDIRECTIONAL gate: it must not auto-escalate (dark->crisis, sexual->intimacy, drug->severe state) AND it must not be silently under-handled (a first-class restraint block should mark the content, not merely fall through to non-engagement).",
       "severity": "high",
+      "substatus": "bidirectional-gate-missing",
       "expectedPacketField": "meaning.data.blockedMeanings + emotion.data.blocked + behavior.data.actionType",
       "implementation": {
         "status": "partial",
         "file": "src/runtimes/meaning.js, emotion.js, decision.js, behavior.js",
-        "detail": "Verified via probe: dark_humor -> meaning.blockedMeanings=[automatic_crisis], emotion.blocked=[forced_crisis]; sexual_joke -> blockedMeanings=[automatic_intimacy], emotion.blocked=[forced_intimacy]; both then non_engagement / no_action / no rendered text. drug_reference is WEAKER: no explicit blockedMeanings/emotion.blocked, it only falls through to non_engagement/no_action (harmless outcome but no first-class 'no operational instruction / no severe state' block). Dark & sexual restraint are implemented + tested (property-conformance); drug restraint is the residual gap."
+        "detail": "Gate framed as two directions. Over-escalation direction: dark_humor -> meaning.blockedMeanings=[automatic_crisis], emotion.blocked=[forced_crisis]; sexual_joke -> blockedMeanings=[automatic_intimacy], emotion.blocked=[forced_intimacy]; both then non_engagement/no_action/no rendered text — this direction is implemented + tested for dark & sexual. Under-handling direction: drug_reference has NO first-class restraint block (blockedMeanings stays []), it only falls through to non_engagement. The outcome is harmless but the gate is one-directional: it catches over-escalation, not under-handling. The gap is the MISSING second direction of the gate, not merely 'no drug block'."
       },
-      "validator": "meaning/emotion scenario blocks (dark, sexual); none for drug",
-      "test": { "status": "tested", "file": "tests/parity-contract.test.js + tests/property-conformance.test.js", "name": "dark humor / sexual joke are restrained; drug reference stays non-engaged (residual gap: no explicit drug block)" }
+      "validator": "meaning/emotion scenario blocks enforce the over-escalation direction (dark, sexual); the under-handling direction has no first-class block for any of the three (drug is the clearest case).",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js + tests/property-conformance.test.js", "name": "bidirectional gate: over-escalation direction locked for dark & sexual; under-handling direction documented as missing (drug blockedMeanings asserted still-empty)" }
     },
     {
       "id": "R-ORD-01",

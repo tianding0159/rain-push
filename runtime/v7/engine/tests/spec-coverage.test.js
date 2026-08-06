@@ -62,11 +62,90 @@ test("every requirement claiming a test file points at a file that exists", () =
   }
 });
 
-test("every Phase 1-11 folder is represented in the parity matrix", () => {
-  // runtime owner values that map to a phase folder
-  const runtimeCoverage = new Set(
-    matrix.requirements.flatMap((r) => String(r.runtime).split("/"))
+// Phase coverage is intentionally split into "dedicated" vs "cross-only".
+// A dedicated requirement names the phase directly in its runtime owner
+// (e.g. runtime "meaning" or a combined "emotion/behavior"). A cross-only phase
+// has NO dedicated requirement and is covered solely by cross-cutting owners
+// (all / orchestrator / update-queue / ...). The earlier version of this test
+// short-circuited on runtimeCoverage.has("all"), so it stayed green even if every
+// dedicated requirement were deleted. That masked which phases actually own a
+// requirement. These two tests assert the true partition and fail on mutation.
+const PHASE_RUNTIME_MAP = {
+  knowledge: "dedicated",
+  continuity: "cross-only",
+  relationship: "cross-only",
+  meaning: "dedicated",
+  emotion: "dedicated",
+  need: "dedicated",
+  thought: "cross-only",
+  decision: "cross-only",
+  behavior: "dedicated",
+  expression: "dedicated",
+  language: "dedicated"
+};
+
+// Owners that are cross-cutting rather than a single phase folder.
+const CROSS_OWNERS = new Set([
+  "all",
+  "orchestrator",
+  "update-queue",
+  "execution-boundary",
+  "weather-adapter",
+  "renderer"
+]);
+
+function dedicatedRequirementIds(phase) {
+  // A requirement is "dedicated" to a phase when the phase name appears as a
+  // slash-separated token in its runtime owner (handles "emotion/behavior").
+  return matrix.requirements
+    .filter((r) => String(r.runtime).split("/").includes(phase))
+    .map((r) => r.id);
+}
+
+test("phase-runtime map lists all eleven phases exactly once", () => {
+  const phases = Object.keys(PHASE_RUNTIME_MAP);
+  assert.equal(phases.length, 11);
+  assert.equal(new Set(phases).size, 11);
+});
+
+test("each phase with dedicated coverage actually owns at least one requirement (mutation-sensitive)", () => {
+  const dedicatedPhases = Object.entries(PHASE_RUNTIME_MAP)
+    .filter(([, kind]) => kind === "dedicated")
+    .map(([phase]) => phase);
+  // No 'all' short-circuit: coverage must come from a requirement that names
+  // this phase. Deleting that requirement makes this assertion fail.
+  for (const phase of dedicatedPhases) {
+    const ids = dedicatedRequirementIds(phase);
+    assert.ok(
+      ids.length > 0,
+      `phase '${phase}' is marked dedicated but no requirement names it`
+    );
+  }
+});
+
+test("each cross-only phase has no dedicated requirement and is covered by a real cross-cutting requirement", () => {
+  const crossOnlyPhases = Object.entries(PHASE_RUNTIME_MAP)
+    .filter(([, kind]) => kind === "cross-only")
+    .map(([phase]) => phase);
+  const crossRequirements = matrix.requirements.filter((r) =>
+    CROSS_OWNERS.has(String(r.runtime))
   );
+  assert.ok(
+    crossRequirements.length > 0,
+    "expected at least one cross-cutting requirement to cover cross-only phases"
+  );
+  for (const phase of crossOnlyPhases) {
+    // If a cross-only phase gains a dedicated requirement later, the map is stale
+    // and must be updated — surface that instead of silently passing.
+    assert.equal(
+      dedicatedRequirementIds(phase).length,
+      0,
+      `phase '${phase}' is marked cross-only but now owns a dedicated requirement — update PHASE_RUNTIME_MAP`
+    );
+  }
+});
+
+test("the phase-runtime map covers exactly the eleven pipeline phases", () => {
   const expected = [
     "knowledge",
     "continuity",
@@ -80,15 +159,7 @@ test("every Phase 1-11 folder is represented in the parity matrix", () => {
     "expression",
     "language"
   ];
-  // 'all' is an acceptable stand-in for cross-cutting requirements
-  for (const runtime of expected) {
-    const covered =
-      runtimeCoverage.has(runtime) ||
-      runtimeCoverage.has("all") ||
-      // some phases are covered via a combined owner such as 'emotion/behavior'
-      matrix.requirements.some((r) => String(r.runtime).includes(runtime));
-    assert.ok(covered, `no parity requirement covers runtime/phase: ${runtime}`);
-  }
+  assert.deepEqual(Object.keys(PHASE_RUNTIME_MAP).sort(), [...expected].sort());
 });
 
 test("the companion parity artifacts exist and are valid JSON", () => {
@@ -112,7 +183,10 @@ test("schema-field-map covers all eleven runtime packets", () => {
   ];
   for (const kind of expected) {
     assert.ok(map.packets[kind], `schema-field-map missing packet: ${kind}`);
-    assert.ok(Array.isArray(map.packets[kind].emittedFields));
+    assert.ok(Array.isArray(map.packets[kind].actualFields));
+    assert.ok(Array.isArray(map.packets[kind].specFields));
+    assert.ok(Array.isArray(map.packets[kind].mappedFields));
+    assert.ok(Array.isArray(map.packets[kind].specOnlyFields));
   }
 });
 
