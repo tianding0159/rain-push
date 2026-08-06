@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "artifact": "runtime-contract-map",
+    "purpose": "Map each runtime stage to its input packets, exported entry function, output packet, and the enforced cross-packet contracts it participates in.",
+    "pipelineOrder": ["knowledge", "continuity", "relationship", "meaning", "emotion", "need", "thought", "decision", "behavior", "expression", "language"]
+  },
+  "runtimes": [
+    {
+      "kind": "knowledge",
+      "entry": "src/runtimes/knowledge.js#runKnowledge",
+      "inputs": ["event", "state", "signals"],
+      "output": "knowledge packet (data.scenario)",
+      "contracts": ["must not contain relationship/emotion/action conclusions (spec, by-construction)"]
+    },
+    {
+      "kind": "continuity",
+      "entry": "src/runtimes/continuity.js#runContinuity",
+      "inputs": ["knowledge", "state.history"],
+      "output": "continuity packet (pendingThreads, callbacks)",
+      "contracts": ["must not pass whole model downstream (spec, by-construction)", "callbacks/pending threads preserved"]
+    },
+    {
+      "kind": "relationship",
+      "entry": "src/runtimes/relationship.js#runRelationship",
+      "inputs": ["knowledge", "continuity"],
+      "output": "relationship packet (activeDomains, candidate + blocked interpretations)",
+      "contracts": ["interpretation != fact (R-FACT-01)", "local, evidence-bounded (R-ESC-01)", "partner naming 豆豆 (R-NAME-01)"]
+    },
+    {
+      "kind": "meaning",
+      "entry": "src/runtimes/meaning.js#runMeaning",
+      "inputs": ["knowledge", "continuity", "relationship"],
+      "output": "meaning packet (candidateMeanings, blocked)",
+      "contracts": ["possible meaning separated from fact (R-FACT-01)"]
+    },
+    {
+      "kind": "emotion",
+      "entry": "src/runtimes/emotion.js#runEmotion",
+      "inputs": ["meaning", "relationship"],
+      "output": "emotion packet (emotions, dominant, blocked, ameKangelSharedState)",
+      "contracts": ["packet purity: no need/goal/action/decision/text (R-PKT-02)", "severity gate: ordinary events do not escalate (R-ESC-01)", "multiple simultaneous emotions allowed", "Ame/KAngel shared substrate (R-DUAL-01)"]
+    },
+    {
+      "kind": "need",
+      "entry": "src/runtimes/need.js#runNeed",
+      "inputs": ["emotion", "meaning"],
+      "output": "need packet (needs, priority, blocked)",
+      "contracts": ["needs distinct from emotions and satisfiers", "ordinary-life needs first-class (R-ORD-01)"]
+    },
+    {
+      "kind": "thought",
+      "entry": "src/runtimes/thought.js#runThought",
+      "inputs": ["meaning", "emotion", "need"],
+      "output": "thought packet (observations, questions, hypotheses, rebuttals)",
+      "contracts": ["separates observation/question/hypothesis/rebuttal"]
+    },
+    {
+      "kind": "decision",
+      "entry": "src/runtimes/decision.js#runDecision",
+      "inputs": ["need", "thought"],
+      "output": "decision packet (selectedStrategyFamilies, primaryOutcome, blocked)",
+      "contracts": ["selects strategy families not exact wording", "blocks relationship_rupture on ordinary/generic events (R-FACT-01, R-ESC-01)"]
+    },
+    {
+      "kind": "behavior",
+      "entry": "src/runtimes/behavior.js#runBehavior",
+      "inputs": ["decision"],
+      "output": "behavior packet (actionType, channel, messageOrActionCount, timing, stopConditions, externalActionRequests)",
+      "contracts": ["no final wording (R-PKT-02)", "external actions stay not_executed (R-EXEC-03)", "message budget defined (R-BUDGET-01)", "no-surface action types (R-SURF-01)", "timing/stop conditions present"]
+    },
+    {
+      "kind": "expression",
+      "entry": "src/runtimes/expression.js#runExpression",
+      "inputs": ["behavior", "emotion"],
+      "output": "expression packet (primarySurface, register, disclosure, rhetoricalPlan.blockedActs)",
+      "contracts": ["no final text/emoji (R-PKT-02)", "no_surface -> no active rhetorical acts (R-SURF-01)", "public channel -> low disclosure + blocked private detail (R-PRIV-02)"]
+    },
+    {
+      "kind": "language",
+      "entry": "src/runtimes/language.js#runLanguage",
+      "inputs": ["expression", "behavior", "decision"],
+      "output": "language packet (renderedText, renderStatus, messageUnits, redactions, executionStatus)",
+      "contracts": [
+        "executionStatus stays not_executed (R-EXEC-01)",
+        "no_surface -> renderStatus no_output (R-SURF-01)",
+        "messageUnits <= behavior.messageOrActionCount (R-BUDGET-01)",
+        "private referents redacted on public channels (R-PRIV-01)",
+        "partner naming 豆豆, never 阿P (R-NAME-01)",
+        "no hypothesis-as-fact / global accusation (R-FACT-01)"
+      ]
+    }
+  ],
+  "orchestratorContracts": {
+    "entry": "src/orchestrator.js#RuntimeOrchestrator.run",
+    "enforced": [
+      "validateEvent before pipeline (R-EVENT-01)",
+      "validatePacketShape per packet + event_id match (R-PKT-01)",
+      "validatePipeline cross-packet checks (R-EXEC-01, R-SURF-01, R-BUDGET-01)",
+      "commitUpdateQueues with validateUpdate gating (R-UPD-01/02/03, R-CANON-01)",
+      "deterministic pipelineHash (R-DET-01)",
+      "result.executionStatus = not_executed (R-EXEC-02)"
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "artifact": "schema-field-map",
+    "purpose": "Map each pipeline Packet's spec schema fields to the fields the engine actually emits, marking enforcement level.",
+    "enforcement": {
+      "shape": "validatePacketShape checks the field exists structurally",
+      "constructed": "field is always emitted by the runtime but not independently validated",
+      "cross-packet": "validatePipeline enforces a relation across packets",
+      "none": "spec field with no engine representation"
+    }
+  },
+  "packets": {
+    "knowledge": {
+      "runtimeVersion": "7.0-phase1",
+      "emittedFields": ["scenario", "facts", "signals"],
+      "specSchema": "evidence/knowledge_packet.md, evidence/evidence_schema.yaml",
+      "specOnlyFields": ["evidenceObjects", "provenance", "confidencePerFact", "canonClassification", "conflicts"],
+      "enforcement": "shape"
+    },
+    "continuity": {
+      "runtimeVersion": "7.0-phase2",
+      "emittedFields": ["pendingThreads", "callbacks", "relevantEpisodes"],
+      "specSchema": "engines/continuity/continuity_schema.yaml, packet.md",
+      "specOnlyFields": ["worldEntityStateWithTimeAndSource", "decayPolicy"],
+      "enforcement": "shape"
+    },
+    "relationship": {
+      "runtimeVersion": "7.0-phase3",
+      "emittedFields": ["activeDomains", "partnerRole", "candidateInterpretations", "blockedInterpretations"],
+      "specSchema": "relationship/schemas, relationship_packet.md",
+      "specOnlyFields": ["salienceScores", "retrievalScope", "severityGate"],
+      "enforcement": "shape"
+    },
+    "meaning": {
+      "runtimeVersion": "7.0-phase4",
+      "emittedFields": ["candidateMeanings", "domains", "blocked"],
+      "specSchema": "meaning/schemas, meaning_packet.md",
+      "specOnlyFields": ["appraisal", "counterfactuals", "internetAssociation", "salience"],
+      "enforcement": "shape"
+    },
+    "emotion": {
+      "runtimeVersion": "7.0-phase5",
+      "emittedFields": ["emotions", "dominant", "expressionPressure", "regulatedBy", "blocked", "ameKangelSharedState"],
+      "specSchema": "emotion/schemas, emotion_packet.md",
+      "specOnlyFields": ["blend", "dynamics", "persistenceClass", "emotionMemory", "primaryEmotions", "secondaryEmotions", "underlyingState", "ameSurfaceTendencies", "kangelSurfaceTendencies"],
+      "enforcement": "shape + purity-by-construction (R-PKT-02)"
+    },
+    "need": {
+      "runtimeVersion": "7.0-phase6",
+      "emittedFields": ["needs", "priority", "blocked", "satisfiers"],
+      "specSchema": "need/schemas, need_packet.md",
+      "specOnlyFields": ["needConflict", "persistence", "domainDecomposition"],
+      "enforcement": "shape"
+    },
+    "thought": {
+      "runtimeVersion": "7.0-phase7",
+      "emittedFields": ["observations", "questions", "hypotheses", "rebuttals"],
+      "specSchema": "thought/schemas, thought_packet.md",
+      "specOnlyFields": ["attentionSelection", "rumination", "threads", "cognitiveConflict"],
+      "enforcement": "shape"
+    },
+    "decision": {
+      "runtimeVersion": "7.0-phase8",
+      "emittedFields": ["status", "primaryOutcome", "selectedStrategyFamilies", "commitment", "alternatives", "blocked"],
+      "specSchema": "decision/schemas, decision_packet.md",
+      "specOnlyFields": ["goalFormation", "optionGeneration", "riskUtility", "constraintEngine", "commitmentEngine"],
+      "enforcement": "shape + cross-packet (behavior links strategyFamily)"
+    },
+    "behavior": {
+      "runtimeVersion": "7.0-phase9",
+      "emittedFields": ["decisionRefs", "actionType", "strategyFamily", "targetOutcome", "channel", "target", "messageOrActionCount", "repetitionLimit", "posture", "timing", "sequence", "secondaryAction", "waitingState", "silenceState", "escalationLevel", "preconditions", "stopConditions", "cancelConditions", "fallback", "externalActionRequests", "status"],
+      "specSchema": "behavior/schemas, behavior_packet.md",
+      "specOnlyFields": ["fullEscalationLadder", "intimacyConsentContext", "bodyConstraintModel"],
+      "enforcement": "shape + cross-packet (no-surface, budget) + purity-by-construction"
+    },
+    "expression": {
+      "runtimeVersion": "7.0-phase10",
+      "emittedFields": ["behaviorRefs", "primarySurface", "secondarySurface", "personaBlend", "register", "surfaceControls", "emotionalProjection", "disclosure", "masking", "leakage", "rhetoricalPlan", "partnerReferenceMode", "audienceReferenceMode", "selfReferenceMode", "blockedStyles", "noSurfaceReason"],
+      "specSchema": "expression/schemas, expression_packet.md",
+      "specOnlyFields": ["fullPersonaSelectorScoring", "registerMappingTable", "styleConstraintEnforcement"],
+      "enforcement": "shape + cross-packet (no_surface has no text) + purity-by-construction"
+    },
+    "language": {
+      "runtimeVersion": "7.0-phase11",
+      "emittedFields": ["renderStatus", "selectedCandidate", "messageUnits", "renderedText", "semanticCoverage", "referenceResolution", "lexicalProfile", "syntaxProfile", "punctuationProfile", "symbolProfile", "segmentation", "channelRendering", "redactions", "blockedContent", "alternatives", "executionStatus", "behaviorRefs", "expressionRef"],
+      "specSchema": "language/schemas, language_packet.md",
+      "specOnlyFields": ["generatedCandidateSet", "semanticCoverageChecker(general)", "redactionScanner(general)", "repetitionCooldownAcrossHistory"],
+      "enforcement": "shape + cross-packet (execution boundary, budget, no-surface, semantic coverage field present)"
+    }
+  }
+}
