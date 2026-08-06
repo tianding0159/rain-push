@@ -1,20 +1,26 @@
 name: runtime-v7-tests
 
 # Single source of truth: the reviewable engine source tree at runtime/v7/engine/.
-# runtime/v7/engine.manifest.json is the authoritative 68-file SHA-256 inventory of
-# that tree, produced deterministically by runtime/v7/build-engine-archive.mjs.
+# runtime/v7/engine.manifest.json is the authoritative 68-file SHA-256 inventory of that
+# tree, produced deterministically by runtime/v7/build-engine-archive.mjs, which packages
+# it into the deterministic engine archive (runtime/v7/dist/rain-push-v7-engine.zip).
 #
-# The root blob rain-push-v7-claude-handoff.zip is a LEGACY spec + handoff bundle
-# (full v7 spec docs, handoff notes, and an embedded copy of the engine subtree). It
-# is NOT the authority. To prevent the embedded engine copy from silently drifting
-# from the SSOT, the engine-tests job verifies that bundle's embedded engine subtree
-# byte-for-byte (all 68 files: missing / extra / SHA-256) against the manifest.
+# The root blob rain-push-v7-claude-handoff.zip is a FROZEN legacy spec + handoff bundle
+# (Option B, P0-0B). It is a historical snapshot: it can NOT be deterministically rebuilt
+# from current tracked source + current builder (see runtime/v7/legacy-bundle/), so it no
+# longer follows runtime changes and is NOT parity-checked against the live engine.
+# Instead it is pinned by identity in legacy-bundle/legacy-bundle.lock.json and guarded
+# for tampering.
 #
-# Two jobs, one authority:
-#   - engine-source-ssot : the authority. Runs tests from the reviewable source,
-#     proves the deterministic archive contract, and asserts a clean working tree.
-#   - engine-tests       : legacy-bundle guard. Asserts the root ZIP's embedded
-#     engine matches the manifest 68/68, then runs that bundle's own suite.
+# Two jobs:
+#   - engine-source-ssot   : the authority. Runs engine tests from the reviewable source,
+#     the builder contract + inventory tests, proves the manifest is current, and proves
+#     the generated engine archive round-trips the manifest 68/68 via the parity module.
+#   - legacy-bundle-frozen : identity + consumability guard. Verifies the root ZIP
+#     byte-for-byte against legacy-bundle.lock.json (existence, size, SHA-256, git blob
+#     SHA-1, entry counts, lock version + lock-contract invariants), runs the verifier's
+#     adversarial suite, and proves the frozen bundle still unpacks to a runnable engine
+#     (embedded historical engine 228/0). It does NOT restore parity with the live engine.
 
 on:
   push:
@@ -26,6 +32,7 @@ on:
       - "runtime/v7/build-engine-archive.mjs"
       - "runtime/v7/verify-engine-bundle-parity.mjs"
       - "runtime/v7/tests/**"
+      - "runtime/v7/legacy-bundle/**"
       - ".github/workflows/runtime-tests.yml"
   pull_request:
     paths:
@@ -35,57 +42,41 @@ on:
       - "runtime/v7/build-engine-archive.mjs"
       - "runtime/v7/verify-engine-bundle-parity.mjs"
       - "runtime/v7/tests/**"
+      - "runtime/v7/legacy-bundle/**"
       - ".github/workflows/runtime-tests.yml"
   workflow_dispatch:
 
 jobs:
-  # Legacy-bundle guard. The root rain-push-v7-claude-handoff.zip is a legacy spec +
-  # handoff bundle; its embedded engine subtree must not drift from the SSOT. This job
-  # verifies that embedded subtree against engine.manifest.json (68/68: missing, extra,
-  # and per-file SHA-256), then runs the bundle's own zero-dependency suite.
-  engine-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Unzip the legacy handoff bundle
-        run: |
-          unzip -q rain-push-v7-claude-handoff.zip -d _engine
-          test -f _engine/runtime/v7/engine/package.json
-
-      - name: Assert the bundle's embedded engine matches the manifest (68/68 parity)
-        # Versioned, unit-tested guard (missing / extra / mismatch) — see
-        # runtime/v7/verify-engine-bundle-parity.mjs and its tests. This closes the
-        # silent-divergence gap: editing runtime/v7/engine/ without repacking the
-        # legacy bundle fails here.
-        run: |
-          node runtime/v7/verify-engine-bundle-parity.mjs \
-            runtime/v7/engine.manifest.json \
-            _engine/runtime/v7/engine
-
-      - name: Run the legacy bundle's engine test suite (zero-dependency, node --test)
-        working-directory: _engine/runtime/v7/engine
-        run: npm test
-
   # The authority. The reviewable engine source at runtime/v7/engine/ is the single
-  # source of truth. This job runs its tests directly from the checked-out tree (not
-  # the zip), runs the builder's metadata + symlink contract tests, then proves the
+  # source of truth. This job runs its tests directly from the checked-out tree (not the
+  # zip), runs the builder's metadata + symlink contract tests and the legacy-bundle
+  # inventory/lock tests, proves the committed manifest is current, then proves the
   # deterministic archive contract: regenerating the manifest (to a scratch path)
   # reproduces the committed one, the archive rebuilds byte-identically, extracting it
-  # reproduces every file's SHA-256, and no build step leaves the working tree dirty.
-  # Archive verification uses --no-manifest so it never rewrites the tracked manifest.
-  # The dist zip itself is regenerable and not committed (only the manifest is).
+  # round-trips the manifest 68/68 via the parity module, and no build step leaves the
+  # working tree dirty. Archive verification uses --no-manifest so it never rewrites the
+  # tracked manifest. The dist zip itself is regenerable and not committed.
+  #
+  # fetch-depth: 0 — the inventory tests classify bundle members against a FIXED base
+  # commit (a33c665) via git ls-tree/cat-file. A shallow checkout would not contain that
+  # commit, so the full history is fetched.
   engine-source-ssot:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout (full history for fixed-base-ref inventory tests)
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure the inventory tests' fixed base commit is present
+        run: |
+          # The inventory tests read tracked blobs at this exact commit. fetch-depth: 0
+          # normally provides it; fetch explicitly as a belt-and-suspenders guard so the
+          # job never silently falls back to a shallow tree that lacks it.
+          BASE=a33c66577ed072a021f4b3ec8713baf12a4239af
+          git cat-file -e "$BASE^{commit}" 2>/dev/null \
+            || git fetch --no-tags origin "$BASE"
+          git cat-file -e "$BASE^{commit}"
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -98,6 +89,10 @@ jobs:
 
       - name: Run the engine metadata + symlink contract tests
         run: node --test runtime/v7/tests
+
+      - name: Run the legacy-bundle inventory + frozen-lock tests
+        # Inventory tests depend on the fixed base commit ensured above.
+        run: node --test runtime/v7/legacy-bundle
 
       - name: Assert the committed manifest is current (determinism gate)
         run: |
@@ -112,7 +107,7 @@ jobs:
           diff -u /tmp/committed-manifest.json /tmp/regen-manifest.json \
             || (echo "engine.manifest.json is stale — run: node runtime/v7/build-engine-archive.mjs and commit" && exit 1)
 
-      - name: Verify deterministic archive + round-trip parity
+      - name: Verify deterministic archive + round-trip parity (authority chain)
         run: |
           set -e
           # Build twice with --no-manifest so archive verification never rewrites the
@@ -123,23 +118,14 @@ jobs:
           sha2="$(sha256sum runtime/v7/dist/rain-push-v7-engine.zip | cut -d' ' -f1)"
           test "$sha1" = "$sha2" || (echo "archive is not reproducible: $sha1 != $sha2" && exit 1)
           echo "archive sha256: $sha1"
-          # Extract and verify every file's SHA-256 against the manifest (round-trip).
+          # Extract and verify every file's SHA-256 against the manifest (round-trip),
+          # using the unit-tested parity module — this is the guard that actually protects
+          # the authority chain (source -> manifest -> generated archive).
           rm -rf /tmp/rt && mkdir -p /tmp/rt
           unzip -q runtime/v7/dist/rain-push-v7-engine.zip -d /tmp/rt
-          node -e '
-            const {createHash}=require("crypto"),fs=require("fs"),path=require("path");
-            const m=JSON.parse(fs.readFileSync("runtime/v7/engine.manifest.json","utf8"));
-            const root="/tmp/rt/runtime/v7/engine";
-            let bad=0;
-            for(const f of m.files){
-              const p=path.join(root,f.path);
-              if(!fs.existsSync(p)){console.log("MISSING",f.path);bad++;continue;}
-              const h=createHash("sha256").update(fs.readFileSync(p)).digest("hex");
-              if(h!==f.sha256){console.log("MISMATCH",f.path);bad++;}
-            }
-            if(bad){console.log("round-trip FAILED:",bad);process.exit(1);}
-            console.log("round-trip OK:",m.files.length,"files");
-          '
+          node runtime/v7/verify-engine-bundle-parity.mjs \
+            runtime/v7/engine.manifest.json \
+            /tmp/rt/runtime/v7/engine
           # Extracted engine must run green too.
           (cd /tmp/rt/runtime/v7/engine && npm test)
 
@@ -151,3 +137,45 @@ jobs:
           git status --porcelain
           git diff --exit-code
           git diff --cached --exit-code
+
+  # Identity + consumability guard for the FROZEN legacy artifact. The root
+  # rain-push-v7-claude-handoff.zip is frozen (Option B): pinned by identity, NOT
+  # synchronized with the live engine (its embedded engine is a historical snapshot and is
+  # deliberately not parity-checked against the current manifest).
+  #   - identity:      the on-disk artifact is byte-for-byte the frozen one — existence,
+  #                    size, SHA-256, git blob SHA-1, central/file/directory counts, and
+  #                    lock version — plus the lock-contract invariants (lifecycle,
+  #                    artifactPath, path safety, field formats) via the verifier + its
+  #                    adversarial test suite.
+  #   - consumability: the frozen bundle still unpacks to a runnable engine — the embedded
+  #                    historical engine's own test suite must pass 228/0. This proves the
+  #                    frozen artifact remains a usable handoff, without restoring any
+  #                    parity between it and the live engine.
+  legacy-bundle-frozen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify the frozen legacy bundle against its lock (identity)
+        run: node runtime/v7/legacy-bundle/verify-legacy-bundle.mjs
+
+      - name: Run the frozen-bundle verifier's adversarial test suite (identity)
+        run: node --test runtime/v7/legacy-bundle/verify-legacy-bundle.test.mjs
+
+      - name: Verify the frozen bundle is still consumable (embedded engine 228/0)
+        run: |
+          # Unpack the frozen artifact and run its embedded historical engine's own
+          # suite. This is a consumability check on the FROZEN snapshot — it does NOT
+          # compare the embedded engine to the live engine (that parity was intentionally
+          # removed when the bundle was frozen).
+          rm -rf /tmp/legacy-bundle
+          mkdir -p /tmp/legacy-bundle
+          unzip -q rain-push-v7-claude-handoff.zip -d /tmp/legacy-bundle
+          test -f /tmp/legacy-bundle/runtime/v7/engine/package.json
+          (cd /tmp/legacy-bundle/runtime/v7/engine && npm test)

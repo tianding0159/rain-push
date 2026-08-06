@@ -1,9 +1,10 @@
 // Adversarial tests for the engine bundle parity verifier.
 //
-// The verifier is the lock that keeps the legacy handoff bundle's embedded engine from
-// silently drifting from the manifest SSOT. These tests prove the lock actually
-// catches every drift mode — valid passes, and each of missing / extra / mismatch
-// fails — rather than the guard living only as an inline node -e in the workflow.
+// The verifier is the lock that proves the generated engine archive round-trips the
+// manifest SSOT (source -> manifest -> deterministic archive). These tests prove the
+// lock actually catches every drift mode — valid passes, and each of missing / extra /
+// mismatch fails — rather than the guard living only as an inline node -e in the
+// workflow. (It no longer guards the frozen legacy bundle; that is verify-legacy-bundle.)
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
