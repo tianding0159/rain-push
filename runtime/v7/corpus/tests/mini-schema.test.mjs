@@ -47,6 +47,20 @@ test("enumFrom resolves against the policy", () => {
   assert.ok(!validate({ type: "string", enumFrom: "sourceLayers" }, "C9", policy).valid);
 });
 
+test("number type accepts int + float and enforces minimum; integer still rejects floats", () => {
+  const num = { type: "number", minimum: 0 };
+  assert.ok(validate(num, 0, policy).valid);
+  assert.ok(validate(num, 0.3, policy).valid);
+  assert.ok(validate(num, 1, policy).valid);
+  assert.ok(codes(validate(num, -0.1, policy)).includes(SCHEMA_ERROR_CODES.MINIMUM));
+  assert.ok(codes(validate(num, "0.3", policy)).includes(SCHEMA_ERROR_CODES.TYPE));
+  assert.ok(codes(validate(num, NaN, policy)).includes(SCHEMA_ERROR_CODES.TYPE));
+  // integer must still reject a float — number support must not loosen integer.
+  const int = { type: "integer", minimum: 0 };
+  assert.ok(validate(int, 3, policy).valid);
+  assert.ok(codes(validate(int, 0.3, policy)).includes(SCHEMA_ERROR_CODES.TYPE));
+});
+
 test("nested $ref + items", () => {
   const s = {
     type: "object", required: ["list"], properties: {

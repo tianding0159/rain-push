@@ -3,9 +3,13 @@
 // We deliberately do NOT pull in a JSON-Schema library: the corpus-contracts CI job must
 // run fully offline with no production engine deps, and the shapes we need are small. This
 // validator supports exactly the keywords our four schemas use:
-//   type (object|array|string|integer|boolean), required, additionalProperties,
+//   type (object|array|string|integer|number|boolean), required, additionalProperties,
 //   properties, items, $defs + $ref (local "#/..."), enum, const, minLength, minimum,
 //   minItems, pattern, and enumFrom (resolves the allowed set from the source-policy).
+//
+// `number` accepts any finite JS number (integer or float); `integer` additionally requires
+// an integer. `minimum` applies to both. `number` exists for the value-proof character-signal
+// weights (0..1 floats); the corpus schemas themselves use only `integer`.
 //
 // enumFrom is the bridge to policy/source-policy.json: instead of duplicating the channel
 // / layer / persona-surface lists inside every schema, a field says {"enumFrom":"channels"}
@@ -34,6 +38,9 @@ function isPlainObject(v) {
 }
 function isInteger(v) {
   return typeof v === "number" && Number.isInteger(v);
+}
+function isNumber(v) {
+  return typeof v === "number" && Number.isFinite(v);
 }
 
 // Resolve a local "#/$defs/foo" reference against the root schema. Throws on a bad ref
@@ -66,6 +73,7 @@ function typeOk(schemaType, value) {
     case "array": return Array.isArray(value);
     case "string": return typeof value === "string";
     case "integer": return isInteger(value);
+    case "number": return isNumber(value);
     case "boolean": return typeof value === "boolean";
     default:
       throw new Error(`mini-schema: unsupported type ${JSON.stringify(schemaType)}`);
@@ -106,7 +114,8 @@ function validateNode(schema, value, ctx, path, errors) {
     }
   }
 
-  if (schema.type === "integer" && isInteger(value) && "minimum" in schema && value < schema.minimum) {
+  if ((schema.type === "integer" || schema.type === "number") && isNumber(value)
+      && "minimum" in schema && value < schema.minimum) {
     errors.push({ path, code: SCHEMA_ERROR_CODES.MINIMUM, detail: `min ${schema.minimum}` });
   }
 

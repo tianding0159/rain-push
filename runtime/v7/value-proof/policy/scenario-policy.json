@@ -1,0 +1,12 @@
+{
+  "policyFormatVersion": 1,
+  "description": "SSOT for value-proof scenario enums that are NOT provenance concepts (so they do not belong in the corpus source-policy). Currently just scenarioTypes — the taxonomy of test scenarios the suite must cover (PHASE 9). Read via lib/scenario-policy.mjs. channels / modes for a scenario still come from the corpus source-policy (reused), not duplicated here.",
+
+  "scenarioTypes": [
+    "ordinary",
+    "mixed_emotion",
+    "severe",
+    "adult_intimacy",
+    "drug_influence"
+  ]
+}

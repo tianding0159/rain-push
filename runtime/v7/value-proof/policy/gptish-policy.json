@@ -1,0 +1,28 @@
+{
+  "policyFormatVersion": 1,
+  "description": "SSOT for anti-template / GPT-ish phrase diagnostics. Two tiers with different force. hardBan: phrases that must NEVER appear in character output — acceptance requires zero hits (currently only 接住 and its variants). candidate: suspected model-speak that is COUNTED and human-reviewed, NOT auto-banned; a candidate phrase is promoted to hardBan only once confirmed as clearly stable GPT-speak against the corpus. Read only via lib/gptish.mjs. Keep this list in sync with FAILURE_TAXONOMY.md (ERR_JIEZHU / ERR_GPTISH_PHRASE).",
+
+  "hardBan": [
+    "接住你的情绪",
+    "有人接住",
+    "把你接住",
+    "被稳稳接住",
+    "接住"
+  ],
+
+  "candidate": [
+    "你不需要一个人",
+    "我会一直在这里",
+    "把这一段过完",
+    "给情绪一个出口",
+    "允许自己脆弱",
+    "你值得被好好爱",
+    "我会陪你面对",
+    "把现在留住",
+    "安全的地方",
+    "冲突本身",
+    "情绪从缝里漏出来"
+  ],
+
+  "notes": "接住 is listed both as its specific collocations and as the bare token so any use in character output is caught (接住你的情绪 / 有人接住 / 把你接住 / 被稳稳接住 / bare 接住). The candidate list is diagnostic: hits are reported and compared to the corpus, they do not by themselves fail a candidate."
+}
