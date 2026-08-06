@@ -396,20 +396,76 @@ test("R-DARK-01 a sexual joke is not auto-escalated into intimacy", () => {
   assert.equal(result.language.data.renderedText, null);
 });
 
-test("R-DARK-01 a drug reference is not over-escalated (gate direction a) but is under-handled (gate direction b missing)", () => {
+test("R-DARK-01 NEGATIVE gate: a keyword-only drug reference does not auto-activate a severe state", () => {
   const result = run({ eventId: "drug1", actor: "character", text: "药物梗而已", context: { scenario: "drug_reference" } });
-  // Direction (a) — over-escalation is prevented: no public-safety/severe state,
-  // no rendered operational instruction.
+  // Negative direction (keyword-only) — a bare reference must NOT auto-escalate:
+  // no public-safety/severe state, non-engagement, no rendered operational guidance.
   assert.ok(!result.packets.need.data.dominant.includes("public_safety"));
   assert.equal(result.packets.decision.data.selectedStrategyFamilies[0], "non_engagement");
   assert.equal(result.language.data.renderedText, null);
-  // Direction (b) — the SECOND gate direction is MISSING: unlike dark/sexual, the
-  // content is not marked by a first-class restraint block; it only falls through.
-  // TEMPORARY (R-DARK-01 bidirectional gate): this pins the current one-directional
-  // reality. When a later sprint adds the missing gate direction, blockedMeanings
-  // will become non-empty and this assertion will fail, forcing this test — and the
-  // matrix substatus 'bidirectional-gate-missing' — to be updated together.
-  assert.deepEqual(result.packets.meaning.data.blockedMeanings, []);
+  // The engine expresses the negative inference explicitly (not a blanket block):
+  assert.ok(
+    result.packets.meaning.data.meanings.includes("drug_reference_not_automatically_severe")
+  );
+});
+
+// R-DARK-01 POSITIVE direction — the three activation paths that SHOULD let a real
+// severe state through are all MISSING today. Each assertion below feeds an input that
+// carries real-event provenance and pins the current (flattened) reality: the engine
+// treats it identically to a keyword joke — non_engagement, no severe activation.
+// These are TEMPORARY pins. When a later sprint adds a positive gate, the matching
+// assertion will fail and force this test — and the matrix `gates` map — to be updated.
+// The correct future fix is ADDING these positive paths, NOT a blanket restraint block
+// (a blanket block would suppress exactly these real events).
+test("R-DARK-01 POSITIVE gate MISSING: confirmed_current_event does not activate a severe state (temporary pin)", () => {
+  // provenance = a confirmed, currently-happening event (not a keyword joke)
+  const result = run({
+    eventId: "drug_current1",
+    actor: "character",
+    text: "现在正在发生的真实紧急情况",
+    context: { scenario: "drug_reference", confirmed_current_event: true }
+  });
+  // No confirmed_current_event_positive_gate exists: the engine flattens it to the
+  // same harmless non-engagement as a keyword joke.
+  assert.equal(result.packets.decision.data.selectedStrategyFamilies[0], "non_engagement");
+  assert.ok(!result.packets.need.data.dominant.includes("public_safety"));
+});
+
+test("R-DARK-01 POSITIVE gate MISSING: confirmed_harm_evidence does not activate a severe state (temporary pin)", () => {
+  const result = run({
+    eventId: "drug_harm1",
+    actor: "character",
+    text: "有确凿伤害证据",
+    context: { scenario: "drug_reference", confirmed_harm_evidence: true }
+  });
+  // No confirmed_harm_positive_gate exists.
+  assert.equal(result.packets.decision.data.selectedStrategyFamilies[0], "non_engagement");
+  assert.ok(!result.packets.need.data.dominant.includes("public_safety"));
+});
+
+test("R-DARK-01 POSITIVE gate MISSING: canon_route does not activate a Canon-scripted severe state (temporary pin)", () => {
+  const result = run({
+    eventId: "drug_canon1",
+    actor: "character",
+    text: "Canon 剧情里的严重事件",
+    mode: "canon",
+    context: { scenario: "drug_reference", canon_route: true }
+  });
+  // No canon_route_positive_gate exists: a Canon-scripted severe event is flattened too.
+  assert.equal(result.packets.decision.data.selectedStrategyFamilies[0], "non_engagement");
+});
+
+test("R-DARK-01 operational-guidance language gate MISSING: no rendered text is produced to strip (temporary pin)", () => {
+  // With no positive path, nothing renders — so there is no operational-guidance gate
+  // exercised at the Language/Safety layer. This pins that the gate is not yet present.
+  const result = run({
+    eventId: "drug_op1",
+    actor: "character",
+    text: "如何操作的问题",
+    context: { scenario: "drug_reference", confirmed_current_event: true }
+  });
+  assert.equal(result.language.data.renderedText, null);
+  assert.equal(result.packets.language.data.renderStatus, "no_output");
 });
 
 // ---------------------------------------------------------------------------

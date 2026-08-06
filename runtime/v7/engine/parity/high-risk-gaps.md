@@ -32,39 +32,51 @@ All "current state" claims below were confirmed by executing the engine (not by 
 
 ### R-DARK-01 — sensitive-input bidirectional gate (severity: high, status: partial, substatus: bidirectional-gate-missing)
 
-**Spec (PROJECT_CONCEPT.md §8, emotion V14, behavior V18):** sensitive input (dark humor /
-sexual joke / drug reference) must pass a **bidirectional** gate — it must not auto-*escalate*
-(dark→crisis, sexual→intimacy, drug→severe state / operational instruction), **and** it must not
-be silently *under-handled* (the content should be marked by a first-class restraint block, not
-merely fall through to generic non-engagement).
+**Spec (PROJECT_CONCEPT.md §8, emotion V14, behavior V18):** sensitive input must pass a
+**bidirectional** gate whose behavior depends on the input's **provenance**:
 
-**Why the framing matters (correction to the earlier write-up):** the previous version described
-this as "drug reference has no explicit block" — a one-directional read that invites the wrong fix,
-namely a blanket block that suppresses the input. The real invariant is a gate with **two
-directions**, and only one direction is currently enforced:
+- **Negative direction (keyword-only):** a bare dark-humor / sexual-joke / drug reference must
+  **not** auto-activate a severe state (crisis / intimacy / severe).
+- **Positive direction (real events):** a `confirmed_current_event`, `confirmed_harm_evidence`,
+  or a `canon_route` must be **able** to activate a genuinely severe state. The gate must not
+  flatten a real emergency or a Canon-scripted severe event into the same non-engagement as a
+  keyword joke.
+- **Language/Safety layer:** operational-guidance phrasing must be stripped regardless of
+  direction.
 
-- **Over-escalation direction (enforced for dark & sexual):**
-  - `dark_humor` → `meaning.blockedMeanings = [automatic_crisis]`, `emotion.blocked = [forced_crisis]`, then `non_engagement` / `no_action` / no rendered text. **Implemented and tested.**
-  - `sexual_joke` → `meaning.blockedMeanings = [automatic_intimacy]`, `emotion.blocked = [forced_intimacy]`, then `non_engagement` / `no_action` / no rendered text. **Implemented and tested.**
-- **Under-handling direction (missing):**
-  - `drug_reference` → **no** first-class `blockedMeanings` / `emotion.blocked`; it only falls through to `non_engagement` / `no_action`. The outcome is harmless, but nothing *marks* the content the way dark and sexual are marked. The gate does not close in this direction.
+**Correction to the earlier write-up (important):** a previous version framed the gap as
+"drug reference has no first-class restraint block → add a block". That is the **wrong fix** — a
+blanket block would suppress `confirmed_current_event` and `canon_route` severe states along with
+the keyword jokes, i.e. it would break the positive direction. The real gap is the **missing
+positive direction**, not a missing block.
 
-So the gap is not "add a drug block". It is: **the gate is one-directional** — it catches
-over-escalation but has no first-class handling for the under-handling direction (drug is the
-clearest instance; the same second direction is absent for all three). Fixing it means adding the
-missing gate direction, not blanket-blocking sensitive input.
+**Gate-by-gate reality (verified in `src/runtimes/meaning.js`):**
 
-**Why not "fixed" in Sprint 1:** closing the second gate direction is new *behavior* modelling.
-`NEXT_ACTIONS.md` is explicit — Sprint 1 adds validators and tests, not new dialogue or undocumented
-engine behavior. The under-handling direction belongs in a later sprint alongside the corpus/evidence
-work, mirroring the existing over-escalation blocks.
+| Gate | State | Engine reality |
+|------|-------|----------------|
+| `keyword_only_negative_gate` | **partial** | all three get a negative-inference meaning (`X_not_automatically_severe/crisis/intimacy`); dark & sexual also add `blockedMeanings`, drug does not |
+| `confirmed_current_event_positive_gate` | **missing** | no path lets a confirmed current event re-enable a real severe state |
+| `confirmed_harm_positive_gate` | **missing** | no path activates severity from confirmed harm evidence |
+| `canon_route_positive_gate` | **missing** | no path lets a Canon-scripted severe event through |
+| `operational_guidance_language_gate` | **missing** | no Language/Safety-layer stripping of operational-guidance phrasing |
+| `harmless_fallthrough` | **implemented** | with no positive path, everything falls through to `non_engagement` / no rendered text |
+
+So keyword-only references require a **negative inference gate**, while confirmed current events
+and Canon-gated events require **positive activation paths**. Only the negative direction is
+partially present; all three positive paths and the operational-guidance gate are absent.
+
+**Why not "fixed" in Sprint 1:** adding the positive activation paths is new *behavior* modelling
+(new routing on event provenance). `NEXT_ACTIONS.md` is explicit — Sprint 1 adds validators and
+tests, not new dialogue or undocumented engine behavior. The positive direction belongs in a later
+sprint alongside the corpus/evidence and Canon-routing work.
 
 **Sprint 1 action:** the parity matrix marks R-DARK-01 `partial` with substatus
-`bidirectional-gate-missing`. Contract tests assert the *verified* truth — the over-escalation
-direction is locked for dark & sexual; the under-handling direction is documented as missing by
-asserting drug `blockedMeanings == []` (a **temporary** assertion that pins the current one-directional
-reality). When a future sprint adds the missing gate direction, that assertion will flip and force the
-test to be updated — see the inline `TEMPORARY (R-DARK-01 bidirectional gate)` comment in
+`bidirectional-gate-missing` and a per-gate `gates` map. Contract tests assert the *verified* truth
+— the negative direction is locked for dark & sexual, and **each** positive path is pinned as
+still-missing (a `confirmed_current_event` / `confirmed_harm` / `canon_route` input currently does
+**not** produce a severe activation). These are **temporary** pinning assertions: when a future
+sprint adds a positive gate, the corresponding assertion flips and forces the test — and the `gates`
+map — to be updated together. See the inline `TEMPORARY (R-DARK-01 bidirectional gate)` comment in
 `tests/parity-contract.test.js`.
 
 ## Deferred (correctly out of Sprint 1 scope)

@@ -165,6 +165,78 @@ test("every 'enforced' contract cites evidence pointing at a real validator sour
   }
 });
 
+// A validator citation that resolves to a file is necessary but not sufficient: an
+// 'enforced' claim must name (1) the specific validator function, (2) the specific
+// errorCode that fires, and (3) the exact fields the validator reads — and all three
+// must be verifiable against the validator's own source. This is what distinguishes a
+// genuinely-enforced relation from a runtime-constructed one that merely *looks*
+// enforced. It is exactly the check that catches an over-claim like
+// behavior.externalActionRequests[].status or rhetoricalPlan.primaryActs: those fields
+// never appear in validators.js, so a validator cannot be enforcing them.
+test("every 'enforced' contract maps errorCode + checkedFields to tokens in the cited validator source", () => {
+  const enforced = [
+    ...map.runtimes.flatMap((r) => r.contracts),
+    ...map.orchestratorContracts.contracts
+  ].filter((c) => c.status === "enforced");
+  assert.ok(enforced.length > 0, "expected at least one enforced contract");
+  for (const c of enforced) {
+    // (1) structured enforcedBy is mandatory for enforced contracts
+    assert.ok(
+      c.enforcedBy && typeof c.enforcedBy === "object",
+      `enforced ${c.req}: missing structured enforcedBy`
+    );
+    const { validator, errorCode, checkedFields } = c.enforcedBy;
+    assert.ok(validator, `enforced ${c.req}: enforcedBy.validator missing`);
+    assert.ok(errorCode, `enforced ${c.req}: enforcedBy.errorCode missing`);
+    assert.ok(
+      Array.isArray(checkedFields) && checkedFields.length > 0,
+      `enforced ${c.req}: enforcedBy.checkedFields must be a non-empty array`
+    );
+
+    // (2) validator citation format "src/....js#fnName" -> file must exist and be a
+    // known validator source
+    const file = validator.split("#")[0];
+    assert.ok(
+      VALIDATOR_FILES.includes(file),
+      `enforced ${c.req}: validator file '${file}' is not a known validator source`
+    );
+    const abs = path.join(engineRoot, file);
+    assert.ok(fs.existsSync(abs), `enforced ${c.req}: validator file missing: ${file}`);
+    const src = fs.readFileSync(abs, "utf8");
+
+    // (3) the named validator function must be defined in that file. The citation may
+    // be a bare function ("validatePipeline") or a Class.method ("ReplayEngine.verify");
+    // every dotted segment must appear as a token in the source.
+    const fn = validator.split("#")[1];
+    assert.ok(fn, `enforced ${c.req}: enforcedBy.validator missing #function`);
+    for (const seg of fn.split(".")) {
+      assert.ok(
+        src.includes(seg),
+        `enforced ${c.req}: function token '${seg}' (from '${fn}') not found in ${file}`
+      );
+    }
+
+    // (4) the errorCode must be a literal that actually fires in the source — a
+    // downgraded validator (comment / renamed code) breaks this.
+    assert.ok(
+      src.includes(errorCode),
+      `enforced ${c.req}: errorCode '${errorCode}' not present in ${file} — validator does not raise it`
+    );
+
+    // (5) every checked field's leaf token must appear in the source. This is the
+    // over-claim guard: if a contract says it enforces behavior.externalActionRequests
+    // or rhetoricalPlan.primaryActs but the validator never reads that field, this fails
+    // and the contract must be downgraded to tested_only / constructed.
+    for (const field of checkedFields) {
+      const leaf = field.split(".").pop();
+      assert.ok(
+        src.includes(leaf),
+        `enforced ${c.req}: checked field '${field}' (leaf '${leaf}') is never read in ${file} — cannot be enforced there`
+      );
+    }
+  }
+});
+
 test("'tested_only' contracts describe a lock in a parity/property test that exists", () => {
   const testedOnly = [
     ...map.runtimes.flatMap((r) => r.contracts),

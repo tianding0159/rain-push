@@ -185,10 +185,18 @@
         },
         {
           "req": "R-DARK-01",
-          "statement": "Dark/sexual content is not auto-escalated into crisis or intimacy.",
+          "statement": "Sensitive input passes a bidirectional gate: keyword-only references get a NEGATIVE inference gate (not auto-severe/crisis/intimacy), while confirmed current events and Canon-routed events get POSITIVE activation paths (real severe state may activate). Operational-guidance language is stripped at the Language/Safety layer.",
           "status": "tested_only",
           "substatus": "bidirectional-gate-missing",
-          "evidence": "parity-contract R-DARK-01 covers the no-over-escalation direction only; there is NO gate for the under-block direction (e.g. drug reference not explicitly blocked). See high-risk-gaps.md."
+          "gates": {
+            "keyword_only_negative_gate": "partial",
+            "confirmed_current_event_positive_gate": "missing",
+            "confirmed_harm_positive_gate": "missing",
+            "canon_route_positive_gate": "missing",
+            "operational_guidance_language_gate": "missing",
+            "harmless_fallthrough": "implemented"
+          },
+          "evidence": "Engine reality (src/runtimes/meaning.js): dark_humor/sexual_joke/drug_reference each get only a NEGATIVE inference meaning (X_not_automatically_crisis/intimacy/severe); dark & sexual additionally add blockedMeanings (automatic_crisis/automatic_intimacy), drug does not. NONE of the three has a POSITIVE activation path: there is no gate that lets a confirmed_current_event, confirmed_harm_evidence, or a canon_route re-enable a genuinely severe state — so a real emergency or a Canon-scripted severe event would be flattened the same as a keyword joke. There is also no Language/Safety-layer gate that strips operational-guidance phrasing. The missing piece is the POSITIVE direction (three activation paths + operational-guidance gate), NOT 'add a restraint block to drug'. parity-contract R-DARK-01 locks the negative direction and pins each positive path as still-missing. See high-risk-gaps.md."
         }
       ]
     },
@@ -319,21 +327,43 @@
       "contracts": [
         {
           "req": "R-EXEC-03",
-          "statement": "External action requests stay not_executed.",
-          "status": "enforced",
-          "evidence": "validatePipeline + ExecutionBoundary reject any executed status; parity-contract R-EXEC-03 forges a violation."
+          "statement": "behavior.externalActionRequests[].status is built as not_executed (with confirmationRequired).",
+          "status": "tested_only",
+          "testedBy": {
+            "test": "tests/parity-contract.test.js",
+            "assertsFields": [
+              "behavior.externalActionRequests"
+            ]
+          },
+          "evidence": "runBehavior constructs every externalActionRequests entry as status=not_executed, confirmationRequired=true, and parity-contract R-EXEC-03 asserts that. There is NO validator that re-checks behavior.externalActionRequests[].status: validatePipeline's execution-boundary rule (line 46) inspects language.executionStatus, not the behavior packet, and ExecutionBoundary governs the boundary request object (R-EXEC-02), not this packet. So a forged behavior.externalActionRequests[].status='executed' would pass validatePipeline. This is constructed-by-runtime + tested, not enforced."
         },
         {
           "req": "R-BUDGET-01",
-          "statement": "A message/action budget is defined (messageOrActionCount).",
+          "statement": "language.messageUnits length must not exceed behavior.messageOrActionCount.",
           "status": "enforced",
-          "evidence": "validatePipeline rejects language.messageUnits > behavior.messageOrActionCount (language_message_budget_exceeded)."
+          "enforcedBy": {
+            "validator": "src/validators.js#validatePipeline",
+            "errorCode": "language_message_budget_exceeded",
+            "checkedFields": [
+              "language.messageUnits",
+              "behavior.messageOrActionCount"
+            ]
+          },
+          "evidence": "validatePipeline (line 50) rejects when language.messageUnits.length > behavior.messageOrActionCount."
         },
         {
           "req": "R-SURF-01",
-          "statement": "No-surface action types (wait/no_action/observe) exist.",
+          "statement": "A no-surface behavior.actionType (wait/no_action/observe_without_engaging) must yield language.renderStatus=no_output.",
           "status": "enforced",
-          "evidence": "validatePipeline rejects rendered text under a no-surface actionType (no_surface_behavior_rendered_text)."
+          "enforcedBy": {
+            "validator": "src/validators.js#validatePipeline",
+            "errorCode": "no_surface_behavior_rendered_text",
+            "checkedFields": [
+              "behavior.actionType",
+              "language.renderStatus"
+            ]
+          },
+          "evidence": "validatePipeline (line 38) rejects when behavior.actionType is a no-surface type but language.renderStatus !== no_output."
         },
         {
           "req": "R-PKT-02",
@@ -372,9 +402,9 @@
       "contracts": [
         {
           "req": "R-SURF-01",
-          "statement": "no_surface -> no active rhetorical acts.",
-          "status": "enforced",
-          "evidence": "validatePipeline rejects no_surface primarySurface with rendered text (no_surface_has_rendered_text)."
+          "statement": "When primarySurface=no_surface, expression.rhetoricalPlan carries no active rhetorical acts.",
+          "status": "constructed",
+          "evidence": "runExpression builds rhetoricalPlan with no active primaryActs under a no_surface primarySurface. No validator checks rhetoricalPlan.primaryActs: validatePipeline's no_surface rule (line 42) inspects only primarySurface + language.renderedText — it never reads rhetoricalPlan.primaryActs. So a forged non-empty primaryActs under no_surface would still pass validatePipeline. This is constructed-by-runtime, not enforced. (The separate, genuinely-enforced no_surface->no renderedText relation lives on the language stage as R-SURF-01.)"
         },
         {
           "req": "R-PRIV-02",
@@ -423,21 +453,44 @@
       "contracts": [
         {
           "req": "R-EXEC-01",
-          "statement": "executionStatus stays not_executed.",
+          "statement": "language.executionStatus stays not_executed.",
           "status": "enforced",
-          "evidence": "validatePipeline rejects any other value (language_execution_boundary_violation); parity-contract R-EXEC-01 forges a claim."
+          "enforcedBy": {
+            "validator": "src/validators.js#validatePipeline",
+            "errorCode": "language_execution_boundary_violation",
+            "checkedFields": [
+              "language.executionStatus"
+            ]
+          },
+          "evidence": "validatePipeline (line 46) rejects any language.executionStatus other than not_executed; parity-contract R-EXEC-01 forges a claim."
         },
         {
           "req": "R-SURF-01",
-          "statement": "no_surface -> renderStatus no_output.",
+          "statement": "When expression.primarySurface=no_surface, language must have no renderedText.",
           "status": "enforced",
-          "evidence": "validatePipeline enforces the no-surface->no_output relation."
+          "enforcedBy": {
+            "validator": "src/validators.js#validatePipeline",
+            "errorCode": "no_surface_has_rendered_text",
+            "checkedFields": [
+              "expression.primarySurface",
+              "language.renderedText"
+            ]
+          },
+          "evidence": "validatePipeline (line 42) rejects a no_surface primarySurface that carries language.renderedText."
         },
         {
           "req": "R-BUDGET-01",
-          "statement": "messageUnits <= behavior.messageOrActionCount.",
+          "statement": "language.messageUnits length must not exceed behavior.messageOrActionCount.",
           "status": "enforced",
-          "evidence": "validatePipeline budget check."
+          "enforcedBy": {
+            "validator": "src/validators.js#validatePipeline",
+            "errorCode": "language_message_budget_exceeded",
+            "checkedFields": [
+              "language.messageUnits",
+              "behavior.messageOrActionCount"
+            ]
+          },
+          "evidence": "validatePipeline (line 50) budget check."
         },
         {
           "req": "R-PRIV-01",
@@ -465,69 +518,156 @@
     "contracts": [
       {
         "req": "R-EVENT-01",
-        "statement": "validateEvent before pipeline.",
+        "statement": "A malformed event is rejected before the pipeline runs.",
         "status": "enforced",
-        "evidence": "validators.js#validateEvent rejects malformed events."
+        "enforcedBy": {
+          "validator": "src/validators.js#validateEvent",
+          "errorCode": "missing_event_id",
+          "checkedFields": [
+            "event.eventId",
+            "event.mode",
+            "event.actor"
+          ]
+        },
+        "evidence": "validateEvent rejects malformed events (missing_event_id / invalid_mode / invalid_actor)."
       },
       {
         "req": "R-PKT-01",
-        "statement": "validatePacketShape per packet + event_id match.",
+        "statement": "Each packet has a valid shape and matches the event id.",
         "status": "enforced",
-        "evidence": "validators.js#validatePipeline runs validatePacketShape and event_id_mismatch per RUNTIME_ORDER."
+        "enforcedBy": {
+          "validator": "src/validators.js#validatePipeline",
+          "errorCode": "event_id_mismatch",
+          "checkedFields": [
+            "packet.eventId",
+            "packet.kind",
+            "packet.data"
+          ]
+        },
+        "evidence": "validatePipeline runs validatePacketShape per RUNTIME_ORDER and flags event_id_mismatch."
       },
       {
         "req": "R-EXEC-01",
-        "statement": "validatePipeline cross-packet execution boundary.",
+        "statement": "language.executionStatus stays not_executed (cross-packet boundary).",
         "status": "enforced",
-        "evidence": "validators.js#validatePipeline execution-boundary check."
+        "enforcedBy": {
+          "validator": "src/validators.js#validatePipeline",
+          "errorCode": "language_execution_boundary_violation",
+          "checkedFields": [
+            "language.executionStatus"
+          ]
+        },
+        "evidence": "validatePipeline (line 46) execution-boundary check."
       },
       {
         "req": "R-SURF-01",
-        "statement": "validatePipeline no-surface checks.",
+        "statement": "no-surface behavior.actionType -> no_output, and no_surface primarySurface -> no renderedText.",
         "status": "enforced",
-        "evidence": "validators.js#validatePipeline no_surface_* rules."
+        "enforcedBy": {
+          "validator": "src/validators.js#validatePipeline",
+          "errorCode": "no_surface_behavior_rendered_text",
+          "checkedFields": [
+            "behavior.actionType",
+            "language.renderStatus",
+            "expression.primarySurface",
+            "language.renderedText"
+          ]
+        },
+        "evidence": "validatePipeline lines 38 and 42 enforce the no-surface relations."
       },
       {
         "req": "R-BUDGET-01",
-        "statement": "validatePipeline message budget check.",
+        "statement": "language.messageUnits length must not exceed behavior.messageOrActionCount.",
         "status": "enforced",
-        "evidence": "validators.js#validatePipeline budget check."
+        "enforcedBy": {
+          "validator": "src/validators.js#validatePipeline",
+          "errorCode": "language_message_budget_exceeded",
+          "checkedFields": [
+            "language.messageUnits",
+            "behavior.messageOrActionCount"
+          ]
+        },
+        "evidence": "validatePipeline (line 50) budget check."
       },
       {
         "req": "R-UPD-01",
-        "statement": "Updates require evidence refs.",
+        "statement": "An update without evidenceRefs is rejected.",
         "status": "enforced",
-        "evidence": "update-queue.js#validateUpdate; parity-contract R-UPD-01."
+        "enforcedBy": {
+          "validator": "src/update-queue.js#validateUpdate",
+          "errorCode": "missing_update_evidence",
+          "checkedFields": [
+            "update.evidenceRefs"
+          ]
+        },
+        "evidence": "validateUpdate rejects updates lacking evidenceRefs; parity-contract R-UPD-01."
       },
       {
         "req": "R-UPD-02",
-        "statement": "Updates cannot write forbidden paths.",
+        "statement": "An update writing outside counters/patterns/memory is rejected.",
         "status": "enforced",
-        "evidence": "update-queue.js#validateUpdate; parity-contract R-UPD-02."
+        "enforcedBy": {
+          "validator": "src/update-queue.js#validateUpdate",
+          "errorCode": "forbidden_update_path",
+          "checkedFields": [
+            "update.path"
+          ]
+        },
+        "evidence": "validateUpdate rejects forbidden paths; parity-contract R-UPD-02."
       },
       {
         "req": "R-UPD-03",
-        "statement": "Over-cap increments are rejected.",
+        "statement": "An increment beyond the cap is rejected.",
         "status": "enforced",
-        "evidence": "update-queue.js#validateUpdate; parity-contract R-UPD-03."
+        "enforcedBy": {
+          "validator": "src/update-queue.js#validateUpdate",
+          "errorCode": "update_increment_cap_exceeded",
+          "checkedFields": [
+            "update.operation",
+            "update.delta"
+          ]
+        },
+        "evidence": "validateUpdate rejects over-cap increments; parity-contract R-UPD-03."
       },
       {
         "req": "R-CANON-01",
-        "statement": "canon_only updates rejected in living mode.",
+        "statement": "A canon_only update in living mode is rejected.",
         "status": "enforced",
-        "evidence": "update-queue.js#validateUpdate; parity-contract R-CANON-01."
+        "enforcedBy": {
+          "validator": "src/update-queue.js#validateUpdate",
+          "errorCode": "canon_update_in_living_mode",
+          "checkedFields": [
+            "update.policy"
+          ]
+        },
+        "evidence": "validateUpdate rejects canon_only updates outside canon mode; parity-contract R-CANON-01."
       },
       {
         "req": "R-DET-01",
-        "statement": "Deterministic pipelineHash / replay verify.",
+        "statement": "Replay verify flags any pipelineHash mismatch.",
         "status": "enforced",
-        "evidence": "replay/replay.js#ReplayEngine.verify; parity-contract R-DET-01."
+        "enforcedBy": {
+          "validator": "src/replay/replay.js#ReplayEngine.verify",
+          "errorCode": "mismatch",
+          "checkedFields": [
+            "pipelineHash"
+          ]
+        },
+        "evidence": "ReplayEngine.verify returns status=mismatch on hash divergence; parity-contract R-DET-01."
       },
       {
         "req": "R-EXEC-02",
-        "statement": "result.executionStatus = not_executed unless allowlist+confirmed+handler.",
+        "statement": "A boundary request stays not_executed unless allowlisted + confirmed + handler present.",
         "status": "enforced",
-        "evidence": "execution/execution-boundary.js; parity-contract R-EXEC-02."
+        "enforcedBy": {
+          "validator": "src/execution/execution-boundary.js#ExecutionBoundary.request",
+          "errorCode": "action_not_allowlisted",
+          "checkedFields": [
+            "request.action",
+            "request.confirmed"
+          ]
+        },
+        "evidence": "ExecutionBoundary.request blocks non-allowlisted actions and returns not_executed unless confirmed with a handler; parity-contract R-EXEC-02."
       }
     ]
   }

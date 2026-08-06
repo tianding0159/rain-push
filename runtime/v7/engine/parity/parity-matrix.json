@@ -311,17 +311,25 @@
       "phase": 5,
       "runtime": "emotion/behavior",
       "source": "PROJECT_CONCEPT.md 8; emotion V14.7/13/14; behavior V18.9-11",
-      "requirement": "Sensitive input (dark humor / sexual joke / drug reference) must pass a BIDIRECTIONAL gate: it must not auto-escalate (dark->crisis, sexual->intimacy, drug->severe state) AND it must not be silently under-handled (a first-class restraint block should mark the content, not merely fall through to non-engagement).",
+      "requirement": "Sensitive input must pass a BIDIRECTIONAL gate with distinct paths by provenance. NEGATIVE direction (keyword-only): a bare dark/sexual/drug reference must not auto-activate a severe state (crisis / intimacy / severe). POSITIVE direction (real events): a confirmed_current_event, confirmed_harm_evidence, or a canon_route must be ABLE to activate a genuinely severe state — the gate must not flatten real emergencies or Canon-scripted severe events into the same non-engagement as a keyword joke. Separately, operational-guidance phrasing must be stripped at the Language/Safety layer. The correct fix is adding the missing POSITIVE activation paths, NOT a blanket restraint block.",
       "severity": "high",
       "substatus": "bidirectional-gate-missing",
-      "expectedPacketField": "meaning.data.blockedMeanings + emotion.data.blocked + behavior.data.actionType",
+      "gates": {
+        "keyword_only_negative_gate": "partial",
+        "confirmed_current_event_positive_gate": "missing",
+        "confirmed_harm_positive_gate": "missing",
+        "canon_route_positive_gate": "missing",
+        "operational_guidance_language_gate": "missing",
+        "harmless_fallthrough": "implemented"
+      },
+      "expectedPacketField": "meaning.data.meanings + meaning.data.blockedMeanings + emotion.data.blocked + behavior.data.actionType",
       "implementation": {
         "status": "partial",
         "file": "src/runtimes/meaning.js, emotion.js, decision.js, behavior.js",
-        "detail": "Gate framed as two directions. Over-escalation direction: dark_humor -> meaning.blockedMeanings=[automatic_crisis], emotion.blocked=[forced_crisis]; sexual_joke -> blockedMeanings=[automatic_intimacy], emotion.blocked=[forced_intimacy]; both then non_engagement/no_action/no rendered text — this direction is implemented + tested for dark & sexual. Under-handling direction: drug_reference has NO first-class restraint block (blockedMeanings stays []), it only falls through to non_engagement. The outcome is harmless but the gate is one-directional: it catches over-escalation, not under-handling. The gap is the MISSING second direction of the gate, not merely 'no drug block'."
+        "detail": "NEGATIVE direction (partial): meaning.js gives each of dark_humor/sexual_joke/drug_reference a negative inference meaning (dark_language_context_not_automatically_crisis / sexual_joke_not_automatically_intimacy / drug_reference_not_automatically_severe); dark & sexual additionally add blockedMeanings (automatic_crisis / automatic_intimacy), drug does not. POSITIVE direction (missing): there is NO activation path in any runtime that lets a confirmed_current_event, confirmed_harm_evidence, or a canon_route re-enable a real severe state — a genuine emergency or a Canon-scripted severe event is flattened to the same harmless non-engagement as a keyword joke. operational_guidance_language_gate (missing): no Language/Safety-layer gate strips operational-guidance phrasing. harmless_fallthrough (implemented): with no positive path, everything falls through to non_engagement / no rendered text. The gap is the MISSING positive direction (three activation gates + operational-guidance gate), not 'add a drug block'."
       },
-      "validator": "meaning/emotion scenario blocks enforce the over-escalation direction (dark, sexual); the under-handling direction has no first-class block for any of the three (drug is the clearest case).",
-      "test": { "status": "tested", "file": "tests/parity-contract.test.js + tests/property-conformance.test.js", "name": "bidirectional gate: over-escalation direction locked for dark & sexual; under-handling direction documented as missing (drug blockedMeanings asserted still-empty)" }
+      "validator": "meaning.js emits negative-inference meanings for all three and blockedMeanings for dark & sexual (partial negative gate); there is NO validator or runtime path implementing the positive activation gates (confirmed current event / confirmed harm / canon route) or the operational-guidance language gate.",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js + tests/property-conformance.test.js", "name": "bidirectional gate: negative direction locked for dark & sexual; each positive activation path (confirmed current event / confirmed harm / canon route) + operational-guidance gate pinned as still-missing" }
     },
     {
       "id": "R-ORD-01",
