@@ -16,9 +16,11 @@ name: runtime-v7-tests
 #   - engine-source-ssot   : the authority. Runs engine tests from the reviewable source,
 #     the builder contract + inventory tests, proves the manifest is current, and proves
 #     the generated engine archive round-trips the manifest 68/68 via the parity module.
-#   - legacy-bundle-frozen : tamper guard. Verifies the root ZIP byte-for-byte against
-#     legacy-bundle.lock.json (existence, size, SHA-256, git blob SHA-1, entry counts,
-#     lock version), then runs the frozen-bundle verifier's own test suite.
+#   - legacy-bundle-frozen : identity + consumability guard. Verifies the root ZIP
+#     byte-for-byte against legacy-bundle.lock.json (existence, size, SHA-256, git blob
+#     SHA-1, entry counts, lock version + lock-contract invariants), runs the verifier's
+#     adversarial suite, and proves the frozen bundle still unpacks to a runnable engine
+#     (embedded historical engine 228/0). It does NOT restore parity with the live engine.
 
 on:
   push:
@@ -136,12 +138,19 @@ jobs:
           git diff --exit-code
           git diff --cached --exit-code
 
-  # Tamper guard for the FROZEN legacy artifact. The root rain-push-v7-claude-handoff.zip
-  # is frozen (Option B): it is pinned by identity, not synchronized with the live engine.
-  # This job asserts the on-disk artifact is byte-for-byte the frozen one — existence,
-  # size, SHA-256, git blob SHA-1, central/file/directory counts, and lock version — then
-  # runs the verifier's own adversarial test suite (valid / byte-mutation / wrong-sha /
-  # wrong-size / wrong-entry-count / wrong-lock-version / missing).
+  # Identity + consumability guard for the FROZEN legacy artifact. The root
+  # rain-push-v7-claude-handoff.zip is frozen (Option B): pinned by identity, NOT
+  # synchronized with the live engine (its embedded engine is a historical snapshot and is
+  # deliberately not parity-checked against the current manifest).
+  #   - identity:      the on-disk artifact is byte-for-byte the frozen one — existence,
+  #                    size, SHA-256, git blob SHA-1, central/file/directory counts, and
+  #                    lock version — plus the lock-contract invariants (lifecycle,
+  #                    artifactPath, path safety, field formats) via the verifier + its
+  #                    adversarial test suite.
+  #   - consumability: the frozen bundle still unpacks to a runnable engine — the embedded
+  #                    historical engine's own test suite must pass 228/0. This proves the
+  #                    frozen artifact remains a usable handoff, without restoring any
+  #                    parity between it and the live engine.
   legacy-bundle-frozen:
     runs-on: ubuntu-latest
     steps:
@@ -153,8 +162,20 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Verify the frozen legacy bundle against its lock
+      - name: Verify the frozen legacy bundle against its lock (identity)
         run: node runtime/v7/legacy-bundle/verify-legacy-bundle.mjs
 
-      - name: Run the frozen-bundle verifier's adversarial test suite
+      - name: Run the frozen-bundle verifier's adversarial test suite (identity)
         run: node --test runtime/v7/legacy-bundle/verify-legacy-bundle.test.mjs
+
+      - name: Verify the frozen bundle is still consumable (embedded engine 228/0)
+        run: |
+          # Unpack the frozen artifact and run its embedded historical engine's own
+          # suite. This is a consumability check on the FROZEN snapshot — it does NOT
+          # compare the embedded engine to the live engine (that parity was intentionally
+          # removed when the bundle was frozen).
+          rm -rf /tmp/legacy-bundle
+          mkdir -p /tmp/legacy-bundle
+          unzip -q rain-push-v7-claude-handoff.zip -d /tmp/legacy-bundle
+          test -f /tmp/legacy-bundle/runtime/v7/engine/package.json
+          (cd /tmp/legacy-bundle/runtime/v7/engine && npm test)
