@@ -1,0 +1,1811 @@
+{
+  "trackedFilesIndexed": 97,
+  "zipFileMembers": 333,
+  "mappedByContent": 68,
+  "orphanCount": 265,
+  "mapped": [
+    {
+      "zipPath": "runtime/v7/engine/ARCHITECTURE.md",
+      "sha256": "26a3d47dadae9e2b324b75998136d33bb7ab78b0decab671ec9bdb1050b19ca1",
+      "sources": [
+        "runtime/v7/engine/ARCHITECTURE.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/CHANGELOG.md",
+      "sha256": "910cc7cf67de11a87a831b7d691e2d4cd2eecbfef8619d9e31f58f444ae68689",
+      "sources": [
+        "runtime/v7/engine/CHANGELOG.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/EXECUTION_BOUNDARY.md",
+      "sha256": "b66e6c5f397d2d35e04b73b688adec6ccce75aa465ae49ca49d0e923cbccca2a",
+      "sources": [
+        "runtime/v7/engine/EXECUTION_BOUNDARY.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/INTEGRATION_GUIDE.md",
+      "sha256": "73630bb986cda2d163a50dcf2f50fc69066ca49441c2a35faaf6c7f40136d5b8",
+      "sources": [
+        "runtime/v7/engine/INTEGRATION_GUIDE.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/MIGRATION_NOTES.md",
+      "sha256": "173e817b81eaaaa055228d370fe974ee4ce049b7c9fcb72d9012a9c72fc763e6",
+      "sources": [
+        "runtime/v7/engine/MIGRATION_NOTES.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/PACKET_CONTRACTS.md",
+      "sha256": "f38954df9558e7e4c96503694536770bedb69df50b3fbff83164e9e898e0ad40",
+      "sources": [
+        "runtime/v7/engine/PACKET_CONTRACTS.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/PARITY_REVIEW_README.md",
+      "sha256": "43cb1d4eea83ce3c3e3477220d2aeadbf19d016df8df474c349427149c20cfe2",
+      "sources": [
+        "runtime/v7/engine/PARITY_REVIEW_README.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/README.md",
+      "sha256": "2deb0469b8b9b18c82dc6f885d12ae0a36e63b07d6077c62b790e4900fa2345a",
+      "sources": [
+        "runtime/v7/engine/README.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/STATE_MODEL.md",
+      "sha256": "4b669ccfc91b032f90957b742a0ff95df2929886270e8923831ebdacbbf0e7a5",
+      "sources": [
+        "runtime/v7/engine/STATE_MODEL.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/TEST_REPORT.md",
+      "sha256": "5e3983bf7829670e12ce73fa9a625c37c697a36907fada384efd89f1b660b752",
+      "sources": [
+        "runtime/v7/engine/TEST_REPORT.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/examples/replay-events.json",
+      "sha256": "31c75577ab5a2f00e3acb6dddd3c0376fdb8ae0126e31083b9356502d13344fa",
+      "sources": [
+        "runtime/v7/engine/examples/replay-events.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/examples/sample-event.json",
+      "sha256": "52df2860b019fe53f94afec5eeb41846f27fffc35c6432b2a5bf4b84fc483a1e",
+      "sources": [
+        "runtime/v7/engine/examples/sample-event.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/examples/sample-output.json",
+      "sha256": "6f17d5d44e86d0837cff03d23fde6f3dcaf7c5cca7769cf8adb12506fda614bb",
+      "sources": [
+        "runtime/v7/engine/examples/sample-output.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/package.json",
+      "sha256": "8064f80392734e86f2af28125f547f802564519d3e4f031a03d65f5d3df1ad0c",
+      "sources": [
+        "runtime/v7/engine/package.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/parity/actual-packet-fields.json",
+      "sha256": "069bbff2a666a6a39eeddfae9c8661579de9c076be6bbbe0f9bf08bcf25fb5fd",
+      "sources": [
+        "runtime/v7/engine/parity/actual-packet-fields.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/parity/build-runtime-contract-map.mjs",
+      "sha256": "8877f79111cfef1ea07282be08090a03322b09eb00e27ad59d0a491c320bd4be",
+      "sources": [
+        "runtime/v7/engine/parity/build-runtime-contract-map.mjs"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/parity/build-schema-field-map.mjs",
+      "sha256": "8b6a6900682a7735ad74eabe23a9671760051323d651741d22397cad45f24f85",
+      "sources": [
+        "runtime/v7/engine/parity/build-schema-field-map.mjs"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/parity/high-risk-gaps.md",
+      "sha256": "7d247887ba71dcb2e6ad2294428ba674b9b9c7df05cac15001d0899ea7ccf7d6",
+      "sources": [
+        "runtime/v7/engine/parity/high-risk-gaps.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/parity/parity-matrix.json",
+      "sha256": "57a5443f3d9be01a158e6f106757db34a7d91d1b1c3713242131a33ed0eb239f",
+      "sources": [
+        "runtime/v7/engine/parity/parity-matrix.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/parity/parity-matrix.md",
+      "sha256": "0e653e6a198730ea2564ab8706be8d370133e4849953b49bd04600b876a174b7",
+      "sources": [
+        "runtime/v7/engine/parity/parity-matrix.md"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/parity/runtime-contract-map.json",
+      "sha256": "27a98963af6f682031c0e305ded87fd61569f0fa677a0bbf83e89f3f514e338a",
+      "sources": [
+        "runtime/v7/engine/parity/runtime-contract-map.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/parity/schema-field-map.json",
+      "sha256": "880db3a23091984628a0df87d7b783c9ec490344547df4be31abb9f4d1986adc",
+      "sources": [
+        "runtime/v7/engine/parity/schema-field-map.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/cli.js",
+      "sha256": "6d12ded7e3762124e065c84247685b4e3fb4930563742a7b4996fd788cc375cb",
+      "sources": [
+        "runtime/v7/engine/src/cli.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/constants.js",
+      "sha256": "93195624cd521ace864a69549b8efb16a0ae6620ed8236a40b1c624680fbaf22",
+      "sources": [
+        "runtime/v7/engine/src/constants.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/execution/execution-boundary.js",
+      "sha256": "0d00bd87705e1484e9561b32b25144fa39ef98b817b1985f625e2cff038a737e",
+      "sources": [
+        "runtime/v7/engine/src/execution/execution-boundary.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/index.js",
+      "sha256": "fa41b9bf70ab17e5b583f7600f52ddb144a7ce2b5f6d6bbe328538668e0d1747",
+      "sources": [
+        "runtime/v7/engine/src/index.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/logging/logger.js",
+      "sha256": "74fb189db5101609eb5b7f436758952be5afbe59adb40f644be074d2fcba1554",
+      "sources": [
+        "runtime/v7/engine/src/logging/logger.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/orchestrator.js",
+      "sha256": "d29999a2d91520cffa7829a727b44d669485e82f488e1873a06868c33b3a79f9",
+      "sources": [
+        "runtime/v7/engine/src/orchestrator.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/packet.js",
+      "sha256": "31feb6d37c44adb63345ed51e3bac888cc9f4a5479249d6316a9f90c5832c829",
+      "sources": [
+        "runtime/v7/engine/src/packet.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/registry.js",
+      "sha256": "22034d7a3c66711f93719d9064c635c3b67d15fe111ef4b954ea11e582344ff9",
+      "sources": [
+        "runtime/v7/engine/src/registry.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/replay/replay.js",
+      "sha256": "68e58af717c180e154154881744a067fd95ca34a1a0a69b5e5dc27fe8722b5b9",
+      "sources": [
+        "runtime/v7/engine/src/replay/replay.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtime-bus.js",
+      "sha256": "600edd6f7731089d989a17b724fd08eff8b22808bf616b3ef2b69f02d69b5f56",
+      "sources": [
+        "runtime/v7/engine/src/runtime-bus.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/behavior.js",
+      "sha256": "b11c022e2f637ddb949f4f83a7ffbf12869e10e07f3dfc400cd23369ded9e7bd",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/behavior.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/common.js",
+      "sha256": "33535441b46fbcdc92885233e484ce533559daf80ac80fea5caad10d656e8fc8",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/common.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/continuity.js",
+      "sha256": "e515372e1e7b0f5c6a2da04fde93c454fabd6fb51ed30e6464b016e2284301e8",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/continuity.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/decision.js",
+      "sha256": "e8f1d66fa62b77cf407415c442b7973e2e20d1424d74170da02ea714b56bfb41",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/decision.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/emotion.js",
+      "sha256": "a8d035c22424670fcd340720b06a72d7cbe0a2a026846c3b6c20e5d297da632d",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/emotion.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/expression.js",
+      "sha256": "830a42bbc341e6a1178721d9f4e7e711fc3ae2401293736cac183db620ceb119",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/expression.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/knowledge.js",
+      "sha256": "2f66f921500a2127f9a393db25662cd3ae6a10121ebfd25334085cf0285f3d0a",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/knowledge.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/language.js",
+      "sha256": "95a0626217755faf4ae484b8623d176feefb98f546ea09136a3d1ba30e0e7ba8",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/language.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/meaning.js",
+      "sha256": "3f8e7928f8814ccd6e56aa344cc0b65d6d0794a92d4ee613dc6b4517166efd52",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/meaning.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/need.js",
+      "sha256": "6c8e7cd3f8cb2d4f5a2187c2846ce3ec21acd56cd9b8ed58ea8d2ad59b42aba7",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/need.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/relationship.js",
+      "sha256": "ad6a7e8a3392de0faeab8fbe969f48c045bbb06dcc7d3d1b54437fa9b76640c7",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/relationship.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/runtimes/thought.js",
+      "sha256": "49d2e7ad9fccff66fe20f5c860ac00e8db1272a25c0b4ab6351cfe4c970669a6",
+      "sources": [
+        "runtime/v7/engine/src/runtimes/thought.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/signals.js",
+      "sha256": "1a5d3789c94e45413c31a27dedbb43bce9886f89b0339fc045484edf07089f71",
+      "sources": [
+        "runtime/v7/engine/src/signals.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/state/state.js",
+      "sha256": "2a78dc8ec3811a71f125e21e9f8084bc491bb17299e6974e7d0d4efb64d22961",
+      "sources": [
+        "runtime/v7/engine/src/state/state.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/types.d.ts",
+      "sha256": "1d89a07899836262b2b49bcf98360864a0de05e8e8e6f1075922a942ae5b54fd",
+      "sources": [
+        "runtime/v7/engine/src/types.d.ts"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/update-queue.js",
+      "sha256": "48b1725a061639056ddeef119c2f9188f2bfc01607cc113d7fc37849bf6b4d4f",
+      "sources": [
+        "runtime/v7/engine/src/update-queue.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/util.js",
+      "sha256": "73c249a73dbfc64984ff31d9fd765df5b072da44b76609a802947c447055868f",
+      "sources": [
+        "runtime/v7/engine/src/util.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/src/validators.js",
+      "sha256": "da9809ed6b1885b731ac18df54fdcd71f4dc5c1c77dde61a43948c261cbe0d0f",
+      "sources": [
+        "runtime/v7/engine/src/validators.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/determinism.test.js",
+      "sha256": "2f3d8952d9c9dea78f82b037bf7f611cd3cff80fc8cb9d4a5f07f54bc07f3236",
+      "sources": [
+        "runtime/v7/engine/tests/determinism.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/execution.test.js",
+      "sha256": "e6e530e01549887ffc5a92e1dbd78c6fe525b27759ec7341b7ffde7acb17b014",
+      "sources": [
+        "runtime/v7/engine/tests/execution.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/fixtures.js",
+      "sha256": "0b884f71127e9e7056f9ac30b31308798c0152e7fddf3e4a954c2994284ded7b",
+      "sources": [
+        "runtime/v7/engine/tests/fixtures.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/gen-actual-fields.mjs",
+      "sha256": "1e592a4e100cf72bce86964dff71e54e9f42474a3e15d8b74c99ef3089d1e760",
+      "sources": [
+        "runtime/v7/engine/tests/gen-actual-fields.mjs"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/packet-contract.test.js",
+      "sha256": "c10f24f243dc0ad7a354d8707f136ec5f3a6241f1b87d7073b4fa10a74443b52",
+      "sources": [
+        "runtime/v7/engine/tests/packet-contract.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/parity-contract.test.js",
+      "sha256": "53ead682e7de6419824df61eb2e4f989ec542a294be9ed3bed4343d02f3d88b5",
+      "sources": [
+        "runtime/v7/engine/tests/parity-contract.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/pipeline.test.js",
+      "sha256": "0fcf0ec48454ec77ac1b7c64c964c548b6825a6154dc284e229379182852c60d",
+      "sources": [
+        "runtime/v7/engine/tests/pipeline.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/property-conformance.test.js",
+      "sha256": "efbd67f5e986431b5b6a65ae79c85837eff71c0c2434741545eb0a1814ee983f",
+      "sources": [
+        "runtime/v7/engine/tests/property-conformance.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/replay.test.js",
+      "sha256": "364558c95bb908c3af21f24a21a67573256f837d19fdc658ed8a069a48648331",
+      "sources": [
+        "runtime/v7/engine/tests/replay.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/runtime-contract-map.test.js",
+      "sha256": "ea233731ecabf3e99c2457b7d8265bae567d76ba259baaf1116362af3d9d19f8",
+      "sources": [
+        "runtime/v7/engine/tests/runtime-contract-map.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/scenario-conformance.test.js",
+      "sha256": "02885c943b450ae5e6bef667ddd966aa55a960c28790bdc39edc357f9a3c1b6e",
+      "sources": [
+        "runtime/v7/engine/tests/scenario-conformance.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/scenario-fixtures.json",
+      "sha256": "fe6269e57ffea06ef82fd9bfd4eb16abe7ea9cb1169b8325c6e6b5f06b0035e6",
+      "sources": [
+        "runtime/v7/engine/tests/scenario-fixtures.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/schema-field-map.test.js",
+      "sha256": "164fc4ae7f398129550b34f254f6d5d91a9485a568a03b24b4e0a1b123cb7994",
+      "sources": [
+        "runtime/v7/engine/tests/schema-field-map.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/spec-coverage.test.js",
+      "sha256": "e5732dcd86dc7e6b2725c44eabcad971e8deac272c4c93feedc86160ad4f7f95",
+      "sources": [
+        "runtime/v7/engine/tests/spec-coverage.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/state.test.js",
+      "sha256": "673d88dcfc324234c957ca59031da586bd05b16614c62082ff0d398e82c775e1",
+      "sources": [
+        "runtime/v7/engine/tests/state.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/test-manifest.json",
+      "sha256": "3c5dc4b0d94e7120fd94959f5429c9958d270a88bba304b40d57265987849d08",
+      "sources": [
+        "runtime/v7/engine/tests/test-manifest.json"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/update-queue.test.js",
+      "sha256": "3c290451c09861328cc52627bc76ec11fe462db60aa176b40236918f2e9bc88f",
+      "sources": [
+        "runtime/v7/engine/tests/update-queue.test.js"
+      ]
+    },
+    {
+      "zipPath": "runtime/v7/engine/tests/validation.test.js",
+      "sha256": "11a5d977e1d33766077d0db188c6aa865a1b760c4e0af21457d4661421e11fb6",
+      "sources": [
+        "runtime/v7/engine/tests/validation.test.js"
+      ]
+    }
+  ],
+  "orphans": [
+    {
+      "zipPath": "CLAUDE.md",
+      "sha256": "a5ea8a26eb6c588d0717c7208a33e5e402b0671743bbabec3e9d628723ef6a0d",
+      "bytes": 4205
+    },
+    {
+      "zipPath": "README.md",
+      "sha256": "bb6c296cab884045edd55399e8599b3ceec46b03e415a07cf5241816e119ae31",
+      "bytes": 785
+    },
+    {
+      "zipPath": "START_HERE_CLAUDE.md",
+      "sha256": "1d82d7c82ac3fa0ac6b0be3d0c45579eda5b9fce2ba6d63a724e0411938f62e7",
+      "bytes": 2832
+    },
+    {
+      "zipPath": "handoff/ACCEPTANCE_CRITERIA.md",
+      "sha256": "c2ec3bbd44e686161531c421ceeb9d34ff972bf469240de6d61b0862437c5489",
+      "bytes": 3092
+    },
+    {
+      "zipPath": "handoff/CLAUDE_BOOTSTRAP_PROMPT.md",
+      "sha256": "17483c8781de023c45b8eca5f559c1ac4cb19df5b7e6d1c6d4e0d787f60eb9a6",
+      "bytes": 2801
+    },
+    {
+      "zipPath": "handoff/CURRENT_IMPLEMENTATION.md",
+      "sha256": "f3812195e9bfe52b45dd1f78be64750c676be35ffdf0e837210b8259b53eb1b1",
+      "bytes": 3247
+    },
+    {
+      "zipPath": "handoff/DECISION_LOG.md",
+      "sha256": "affba6f367d16516298b62a6dea11c977693f5a8ff00dac4c4e403ca73ffb0b0",
+      "bytes": 3737
+    },
+    {
+      "zipPath": "handoff/FILE_MAP.md",
+      "sha256": "8542c8fb9b070edbcec49393a0bf01b86987b0fe27e06f2d167984e4711adf4a",
+      "bytes": 1302
+    },
+    {
+      "zipPath": "handoff/HANDOFF_VERIFICATION.md",
+      "sha256": "73e8ea67ac1ddeafb6d134eb57e92fd0a0d5db0125ca2fbbd4841d891950d56f",
+      "bytes": 1334
+    },
+    {
+      "zipPath": "handoff/KNOWN_LIMITATIONS.md",
+      "sha256": "ddc8a31f31d51608e047a85906ac74fbcb8964b8b7d6089386b550689119cf4c",
+      "bytes": 2872
+    },
+    {
+      "zipPath": "handoff/MATERIALS_AND_PROVENANCE.md",
+      "sha256": "46062f6b1246fdc20c615a74b35bc1ab9b45831b21ae1bf24f42c9b6b599e123",
+      "bytes": 3786
+    },
+    {
+      "zipPath": "handoff/NEXT_ACTIONS.md",
+      "sha256": "859a319ba5d735fc613ffd2206ec6368a16b7af6f3d22973eeb4b36e349791f4",
+      "bytes": 8134
+    },
+    {
+      "zipPath": "handoff/PROJECT_CONCEPT.md",
+      "sha256": "858d08d2e71f9ae6a96af1f22affc68493083fa7baf56eac5fdc15f2e2292417",
+      "bytes": 5406
+    },
+    {
+      "zipPath": "handoff/gen-materials-manifest.mjs",
+      "sha256": "5fc114b3cc6779e6ebd7adf6d31a0ad76d6a6cff7d8bf0126e866b3cef2813d6",
+      "bytes": 3222
+    },
+    {
+      "zipPath": "handoff/materials_manifest.json",
+      "sha256": "566a101e1cb50ca32777394bedf4f1232b1c2fa33bedca563da8a0505c24ccbe",
+      "bytes": 87057
+    },
+    {
+      "zipPath": "handoff/npm-test-output.txt",
+      "sha256": "6bebf4428308d2d2cedf6e3fc3cc9f67a9296653457ffdeb329f5887e1f98820",
+      "bytes": 21443
+    },
+    {
+      "zipPath": "handoff/package_tree.txt",
+      "sha256": "beb40e201272c433d2af9a8066038ffd76be3f244bd7cd6e4fcb7f26cb9de3db",
+      "bytes": 12790
+    },
+    {
+      "zipPath": "handoff/project_context.json",
+      "sha256": "146046456ef976c89b78bcbb3bda2e415623c84dadfaca4869878810deb3025e",
+      "bytes": 4296
+    },
+    {
+      "zipPath": "runtime/v7/FINAL_RUNTIME_STATUS.md",
+      "sha256": "cf9a198eb61515e7dd015f042a34d07aad90a5bf25312e1ab3d873061d4bef7d",
+      "bytes": 781
+    },
+    {
+      "zipPath": "runtime/v7/NAMING_POLICY.md",
+      "sha256": "20d0604ee67e3725f3a50eff0e56208a6e32fa0f4cc5c793de96a8ec2b6d1b39",
+      "bytes": 709
+    },
+    {
+      "zipPath": "runtime/v7/PHASE10_STATUS.md",
+      "sha256": "4185af58412844d711983cdba46f7f949e2ca003767ada4c75ce00646cb5402c",
+      "bytes": 1231
+    },
+    {
+      "zipPath": "runtime/v7/PHASE11_STATUS.md",
+      "sha256": "7f78613e5b1061b7a2e1d177c60e310d3afc76c83def2311dac8f9ef1c785a6c",
+      "bytes": 1490
+    },
+    {
+      "zipPath": "runtime/v7/PHASE12_STATUS.md",
+      "sha256": "2314fe7685b3536bfcf3c89d08bb4012aa5540bf441c656a11499b14b089c736",
+      "bytes": 3056
+    },
+    {
+      "zipPath": "runtime/v7/PHASE2_STATUS.md",
+      "sha256": "62d1a6dffd2dabfde5f87c703c5714243d7eeb7480c0cce9e754dcaf8737316e",
+      "bytes": 444
+    },
+    {
+      "zipPath": "runtime/v7/PHASE3_STATUS.md",
+      "sha256": "7ef40562986921ad93db63cbf5b9f3ffb80efb5124a6a021f2d0d66b116f61ec",
+      "bytes": 325
+    },
+    {
+      "zipPath": "runtime/v7/PHASE4_STATUS.md",
+      "sha256": "9fe6323c801852f8f7d04edc0e8eea464f3b0ec3e016b68650ae2670c6e225d8",
+      "bytes": 463
+    },
+    {
+      "zipPath": "runtime/v7/PHASE5_CORE_STATUS.md",
+      "sha256": "0c1b6f658021ff1f485aea97a3eb1d6351c3b7ac9bf9314f990aa3fd1983a733",
+      "bytes": 745
+    },
+    {
+      "zipPath": "runtime/v7/PHASE5_STATUS.md",
+      "sha256": "aaeb42fa6c1ff6242a6c87f4c3c27ccd44522f75f8a535bd18b02e90f7338909",
+      "bytes": 841
+    },
+    {
+      "zipPath": "runtime/v7/PHASE6_STATUS.md",
+      "sha256": "2d5a3425ac30e4be57e36a288cf1a8ec9e2065ecdb16bf8b66743a902e1e67f6",
+      "bytes": 825
+    },
+    {
+      "zipPath": "runtime/v7/PHASE7_STATUS.md",
+      "sha256": "e4b24bfc012a7e1be2e8365697912ccb10e53e13213a800aadd053aef17c86df",
+      "bytes": 929
+    },
+    {
+      "zipPath": "runtime/v7/PHASE8_STATUS.md",
+      "sha256": "7abfd1afbab838f34f83e26ed0616c6ef2591d2f84fe7856ff9073bcf7d6186e",
+      "bytes": 1071
+    },
+    {
+      "zipPath": "runtime/v7/PHASE9_STATUS.md",
+      "sha256": "88c728d744567a9fc4a92ab159dc7f8b338e9e92ee31457039fb7565f7a57c31",
+      "bytes": 1120
+    },
+    {
+      "zipPath": "runtime/v7/README.md",
+      "sha256": "2172e518812c749101423106afb6cc0270312ad72bfb213b70f7613211ab5866",
+      "bytes": 2244
+    },
+    {
+      "zipPath": "runtime/v7/REVISION2_STATUS.md",
+      "sha256": "968498a9ff67fad3c7ec0b244178fa2162f0ad840ac0c9a902ab8ac8ba79c57f",
+      "bytes": 730
+    },
+    {
+      "zipPath": "runtime/v7/RUNTIME_BUS.md",
+      "sha256": "af2d0f8d2e47f71ff6dd27eb8283e8d95ac1a71ef10821ea8ad9747e7e6dec33",
+      "bytes": 1062
+    },
+    {
+      "zipPath": "runtime/v7/behavior/CHANGELOG.md",
+      "sha256": "2e971b868df37db623eeaa2c34d54cdd17ebabcd0bb491382203a471d3129926",
+      "bytes": 1085
+    },
+    {
+      "zipPath": "runtime/v7/behavior/README.md",
+      "sha256": "2b197e8cae302ac3c4083c406fd9e91d51fb4ec1cf3d5d9f9f83f3ed1e223676",
+      "bytes": 2865
+    },
+    {
+      "zipPath": "runtime/v7/behavior/action_repertoire.md",
+      "sha256": "3895b0ce54fe543372bbe19caf068479ca59cd8bb944fdbc72da52cfc61bf648",
+      "bytes": 4788
+    },
+    {
+      "zipPath": "runtime/v7/behavior/behavior_domains.md",
+      "sha256": "7a3503ed928f89ef96a762f65bf2b2240ee7ab35297cfa90e2f33401b21e8e11",
+      "bytes": 2118
+    },
+    {
+      "zipPath": "runtime/v7/behavior/behavior_model.md",
+      "sha256": "df7957788724abf19b3b3e35279cbd45fb584242bb418885ab1c18b4f773549f",
+      "bytes": 6991
+    },
+    {
+      "zipPath": "runtime/v7/behavior/behavior_packet.md",
+      "sha256": "6526fad69974274cdb5ffe4d56d9c521d956c98e6fa3c2b8a9e5489593c9c482",
+      "bytes": 2691
+    },
+    {
+      "zipPath": "runtime/v7/behavior/behavior_persistence.md",
+      "sha256": "6d691e351fcff57e0cbee3fc164334af34280dbdb237ec652cba743b9737fbc8",
+      "bytes": 2262
+    },
+    {
+      "zipPath": "runtime/v7/behavior/channel_selection.md",
+      "sha256": "e6d5d919cb7fafff3279bd151abc86d2fb2b96389c310ddfb4c7999a4f18d0cd",
+      "bytes": 3294
+    },
+    {
+      "zipPath": "runtime/v7/behavior/dsl/behavior_rules.dsl",
+      "sha256": "6d311bccd96a97bfbb9e4ad7dd6fddd4ec71edd1b9803fd3ec6d05809308383f",
+      "bytes": 2820
+    },
+    {
+      "zipPath": "runtime/v7/behavior/escalation_control.md",
+      "sha256": "404fafb83dd602ceb343c6993ec2b52bb4a4955271a682435be59304dbd86fd6",
+      "bytes": 2707
+    },
+    {
+      "zipPath": "runtime/v7/behavior/examples/behavior_runtime_examples.yaml",
+      "sha256": "93601a8c7d8a5cc69bd9fbe2ec5066271142ec0a218979e2b0117f7a39e1c435",
+      "bytes": 1433
+    },
+    {
+      "zipPath": "runtime/v7/behavior/interaction_posture.md",
+      "sha256": "efc024d25d3f23a7b4bd84390505821b09198f11b4816e55bdaadd8df6b44e07",
+      "bytes": 3077
+    },
+    {
+      "zipPath": "runtime/v7/behavior/schemas/behavior_model.yaml",
+      "sha256": "ca69a3ef9bacedcf81fc878483398e05eebfc05148b1f153b1ee6360378be821",
+      "bytes": 565
+    },
+    {
+      "zipPath": "runtime/v7/behavior/schemas/behavior_packet.yaml",
+      "sha256": "2a36ee203b5b0c3fff99f70f393b975b9dad247a7037646f57666066366b47ed",
+      "bytes": 543
+    },
+    {
+      "zipPath": "runtime/v7/behavior/schemas/behavior_update.yaml",
+      "sha256": "7a26b430833d72cd6709f039a0c23fb20bf27feb12a7a9690d10f63d5aadcb79",
+      "bytes": 114
+    },
+    {
+      "zipPath": "runtime/v7/behavior/schemas/behavior_validation.yaml",
+      "sha256": "09f60ad91c61ad984b7410b28f40966311a33fb003518ccfa081349bc1b00a8e",
+      "bytes": 156
+    },
+    {
+      "zipPath": "runtime/v7/behavior/sequence_planner.md",
+      "sha256": "5d61532b77a47219166267192fe9fc287b96d1fab9c42ff6e8717497a910bdbb",
+      "bytes": 2478
+    },
+    {
+      "zipPath": "runtime/v7/behavior/silence_and_waiting.md",
+      "sha256": "31b459113db781942176f47b9e31a66d5c3a7d95a77bb9741c95662b59f39dd4",
+      "bytes": 2646
+    },
+    {
+      "zipPath": "runtime/v7/behavior/tests/behavior_runtime_cases.md",
+      "sha256": "713bebb7d2e859feed77a44cffac458037219b4209e326b1a3e9e11f9de743fa",
+      "bytes": 42671
+    },
+    {
+      "zipPath": "runtime/v7/behavior/tests/test_manifest.yaml",
+      "sha256": "b9a1852920e0107adb317ed338aa8c0fb5c38daef4b4286187a1165487dce6b7",
+      "bytes": 14845
+    },
+    {
+      "zipPath": "runtime/v7/behavior/tests/validator_matrix.yaml",
+      "sha256": "425037ac9b799fc02c4761b2b15e58646bb8e0a7f2340d9f1b89878a539b9656",
+      "bytes": 1374
+    },
+    {
+      "zipPath": "runtime/v7/behavior/timing_scheduler.md",
+      "sha256": "0653e12d31b937088083b9e694e5046f6a22a874d9659da185e8975bbca1b659",
+      "bytes": 2745
+    },
+    {
+      "zipPath": "runtime/v7/behavior/update_queue.md",
+      "sha256": "df4bd41ae84d36ca82c062eaa437fd00d5c35eb3f0f1b722124130b4977e56e1",
+      "bytes": 3082
+    },
+    {
+      "zipPath": "runtime/v7/behavior/validator.md",
+      "sha256": "3fc750a4b168d0f07529185be3ab5408e0db8248eb5a909d56a8e24ed8823115",
+      "bytes": 8518
+    },
+    {
+      "zipPath": "runtime/v7/corpus/annotation_contract.md",
+      "sha256": "bf02d2974f5e3326a2fae18444972bcd7e43ad89bd9620f7aed9a92862a69752",
+      "bytes": 708
+    },
+    {
+      "zipPath": "runtime/v7/decision/CHANGELOG.md",
+      "sha256": "775d02afb62fecf45efc59b3999eb314b08f45f256661738b1470c7ae6b29435",
+      "bytes": 974
+    },
+    {
+      "zipPath": "runtime/v7/decision/README.md",
+      "sha256": "6d7c332bd8364dd7768ba40e8d529da2b4005f651e3ad57471555f0d22f72eeb",
+      "bytes": 2642
+    },
+    {
+      "zipPath": "runtime/v7/decision/commitment_engine.md",
+      "sha256": "1b8996811d47ae45355fe20df5003a20c0f8544966299141d335930e3f55bab8",
+      "bytes": 1929
+    },
+    {
+      "zipPath": "runtime/v7/decision/constraint_engine.md",
+      "sha256": "0e0b24e90739f3c04a294ef1f5dc6eb42e61d077f8d12b9a3a6576716b648d58",
+      "bytes": 2656
+    },
+    {
+      "zipPath": "runtime/v7/decision/decision_conflict.md",
+      "sha256": "c38bd93ef9bad02a97625e6f3dab3406be5ec9a374d20161b417ae07892cfc2b",
+      "bytes": 2076
+    },
+    {
+      "zipPath": "runtime/v7/decision/decision_domains.md",
+      "sha256": "0a840253443dbd9f87421b6492bd984569223d7926a9bbcf9cf6d5828b1f777e",
+      "bytes": 1933
+    },
+    {
+      "zipPath": "runtime/v7/decision/decision_model.md",
+      "sha256": "b2012aa9cfbd35abef91a04766e9acfc72867469df38d3c626cfb0604daccac8",
+      "bytes": 6995
+    },
+    {
+      "zipPath": "runtime/v7/decision/decision_packet.md",
+      "sha256": "5f78cd351309a6b653245c4cd3cacbe4e1f9d7733b4380842c8bfb8628713de0",
+      "bytes": 1206
+    },
+    {
+      "zipPath": "runtime/v7/decision/dsl/decision_rules.dsl",
+      "sha256": "34650af57b58f51a67c53b440009148466e65f18db990b233dfa101973c1c50f",
+      "bytes": 2620
+    },
+    {
+      "zipPath": "runtime/v7/decision/examples/decision_runtime_examples.yaml",
+      "sha256": "2a6f39b12b712063559e754ae1fdf2ee186e5e4801b3fd3a62a5949833cca690",
+      "bytes": 1394
+    },
+    {
+      "zipPath": "runtime/v7/decision/goal_formation.md",
+      "sha256": "18c5196e956c78bf855064acb190a7de06d42832c971d50ccca96b21caa94c71",
+      "bytes": 2170
+    },
+    {
+      "zipPath": "runtime/v7/decision/option_generation.md",
+      "sha256": "012016214e3f996c73120456a71e192c4448f2cdf0fdf3654117737da2e2314b",
+      "bytes": 2592
+    },
+    {
+      "zipPath": "runtime/v7/decision/risk_utility.md",
+      "sha256": "9e1fff19fa9849c0fa48512f12cba9e02604bb9af20f8642a5f68d107011949f",
+      "bytes": 2811
+    },
+    {
+      "zipPath": "runtime/v7/decision/schemas/decision_model.yaml",
+      "sha256": "d5e1430f640509b9e11a06cae89e031ce383d0176c3e76564e8bbeabcec84b22",
+      "bytes": 514
+    },
+    {
+      "zipPath": "runtime/v7/decision/schemas/decision_packet.yaml",
+      "sha256": "12afd11492b03564370e2e676d9cef3de003431129e68a9113977138723b3c4e",
+      "bytes": 499
+    },
+    {
+      "zipPath": "runtime/v7/decision/schemas/decision_update.yaml",
+      "sha256": "9426a361d2b5fed9e6d7731e6fd8bfdfb40e1525a582b8042f30cefab0c4ea4a",
+      "bytes": 114
+    },
+    {
+      "zipPath": "runtime/v7/decision/schemas/decision_validation.yaml",
+      "sha256": "37df2859c2ed9492479034578509955c6a531f8b9c5801ac26df37775be36ee3",
+      "bytes": 156
+    },
+    {
+      "zipPath": "runtime/v7/decision/strategy_selection.md",
+      "sha256": "c909d747c19d3ce4dc8854209020e903666124a93eabf06e784a3ed6b989e2c5",
+      "bytes": 2202
+    },
+    {
+      "zipPath": "runtime/v7/decision/tests/decision_runtime_cases.md",
+      "sha256": "28a1856b09636c65c8cfe9c5919ad378ca3e4291266ef5b8e5e94f27d40148e5",
+      "bytes": 43521
+    },
+    {
+      "zipPath": "runtime/v7/decision/tests/test_manifest.yaml",
+      "sha256": "0dd520c48bc31829aeedcde8e71c8bddd78e78eab475f6769637554a11531880",
+      "bytes": 14572
+    },
+    {
+      "zipPath": "runtime/v7/decision/tests/validator_matrix.yaml",
+      "sha256": "9f63e475ecf7e63a123a058bb07a5e0bed3fef538bf0d9816bad89cb0248480b",
+      "bytes": 1017
+    },
+    {
+      "zipPath": "runtime/v7/decision/update_queue.md",
+      "sha256": "0feba7883731bd968dd309e844b699c9cf2b932042379e7ff18c507ac59445dc",
+      "bytes": 1825
+    },
+    {
+      "zipPath": "runtime/v7/decision/validator.md",
+      "sha256": "b7978608cbdf6a7bac372c3a69c7ae49e7fd21985b3b1feb21d16d8b622d788d",
+      "bytes": 7443
+    },
+    {
+      "zipPath": "runtime/v7/emotion/CHANGELOG.md",
+      "sha256": "d5f51532ae9bfc1dcb6d6e221f0a225b031ea9d1d768fee2825d464f8c329368",
+      "bytes": 991
+    },
+    {
+      "zipPath": "runtime/v7/emotion/README.md",
+      "sha256": "8a109f170a6f18a19371ebddcc2214e040dd7c3549dfd4c9ea507687cdba1c51",
+      "bytes": 1863
+    },
+    {
+      "zipPath": "runtime/v7/emotion/dsl/emotion_rules.dsl",
+      "sha256": "c1928a6e5439c58530c4238999ff6d25e7b57f18a05b3b0e8f03606f1faa5bae",
+      "bytes": 1637
+    },
+    {
+      "zipPath": "runtime/v7/emotion/emotion_activation.md",
+      "sha256": "653dab50a5bc10499551dbc021f6a2694cac9de855af6767788ef1d441fd14c6",
+      "bytes": 3499
+    },
+    {
+      "zipPath": "runtime/v7/emotion/emotion_blending.md",
+      "sha256": "dfd067e824ab793e57edb52a3eddaf288b8ada2cc72065ecc5ec0b98c5e25e03",
+      "bytes": 6800
+    },
+    {
+      "zipPath": "runtime/v7/emotion/emotion_domains.md",
+      "sha256": "2db3fff4d562933edc28e0c4d473791baa695420fab5756edc07ba6b19a39ecd",
+      "bytes": 2106
+    },
+    {
+      "zipPath": "runtime/v7/emotion/emotion_dynamics.md",
+      "sha256": "8fba20ed5eef68d4f81082a8dd221553e8fc8cdb8767c8d4328b684481247caa",
+      "bytes": 5599
+    },
+    {
+      "zipPath": "runtime/v7/emotion/emotion_memory.md",
+      "sha256": "09bf00e1a89ae95069fd140f8e636513ff6fcdc3cd9ba40b0a8fca359123acaa",
+      "bytes": 3494
+    },
+    {
+      "zipPath": "runtime/v7/emotion/emotion_model.md",
+      "sha256": "2fcaee9e10401afe079ff41f2f2c139bfe08cd5975ce39a88b52bf91bdf72bbe",
+      "bytes": 7583
+    },
+    {
+      "zipPath": "runtime/v7/emotion/emotion_packet.md",
+      "sha256": "8295387d758f94ec1275197b89c0c5b8cc11ecf01b34c59ce0a15a580ec0fa1a",
+      "bytes": 1155
+    },
+    {
+      "zipPath": "runtime/v7/emotion/emotion_regulation.md",
+      "sha256": "e82a74afb15510a6da5318a201096ba4a721a92d96026018c7ba24419f4a07b1",
+      "bytes": 5189
+    },
+    {
+      "zipPath": "runtime/v7/emotion/examples/emotion_round2_examples.yaml",
+      "sha256": "c06933f24f50d01301f30b1528e7fa7b3c72263515a262cc9bee9024b394a82b",
+      "bytes": 689
+    },
+    {
+      "zipPath": "runtime/v7/emotion/examples/emotion_runtime_examples.yaml",
+      "sha256": "f0e3f639bbb6799cb51e40e6c9d7523c214b604602bce5367a1c7e3a9182c6bd",
+      "bytes": 998
+    },
+    {
+      "zipPath": "runtime/v7/emotion/expression_pressure.md",
+      "sha256": "7c2a9e426c763403a33c480d4eac096116aa0e959e48b9409019b995f058d28b",
+      "bytes": 3275
+    },
+    {
+      "zipPath": "runtime/v7/emotion/schemas/emotion_dynamics.yaml",
+      "sha256": "b9a20fba4999c7879e78b099ec8ac781d14ed8db8eeaa59927491e0ec60c492d",
+      "bytes": 640
+    },
+    {
+      "zipPath": "runtime/v7/emotion/schemas/emotion_model.yaml",
+      "sha256": "7e10c62383b9af4aedd03bcdc30b2a284b24305297f596310c85cba719968943",
+      "bytes": 342
+    },
+    {
+      "zipPath": "runtime/v7/emotion/schemas/emotion_packet.yaml",
+      "sha256": "06b66014ce0c03b6c059f06ec0fd37706b1c861749d0d33f65b0c4db3c000cc8",
+      "bytes": 454
+    },
+    {
+      "zipPath": "runtime/v7/emotion/schemas/emotion_regulation.yaml",
+      "sha256": "b5eaf07c60d892d9000e55898ce88c1c5cbb6e2d062bfc053ad47a1bf51fd4a6",
+      "bytes": 226
+    },
+    {
+      "zipPath": "runtime/v7/emotion/schemas/emotion_update.yaml",
+      "sha256": "f9515fa788523792ea302de1bc01e89f65929b37ec147b767adc70fc5fb69efd",
+      "bytes": 606
+    },
+    {
+      "zipPath": "runtime/v7/emotion/schemas/emotion_validation.yaml",
+      "sha256": "1deaac1eb850930f688f472ab207d821051c7767261ef5a205dff2a044e3083c",
+      "bytes": 156
+    },
+    {
+      "zipPath": "runtime/v7/emotion/tests/emotion_runtime_cases.md",
+      "sha256": "d5a9fa5dd4bc8a903a2e661ad6db425084309182e8600881306fa1639b56bf37",
+      "bytes": 57080
+    },
+    {
+      "zipPath": "runtime/v7/emotion/tests/test_manifest.yaml",
+      "sha256": "fbc6c3b760c52565ed7958e11767b298c37c88bd73e4c19404fc61b78aeb15fc",
+      "bytes": 15027
+    },
+    {
+      "zipPath": "runtime/v7/emotion/tests/validator_matrix.yaml",
+      "sha256": "f0374d5cee250666a2037613ab7ce8a038c47eda349672c328686874312c7ed8",
+      "bytes": 860
+    },
+    {
+      "zipPath": "runtime/v7/emotion/update_queue.md",
+      "sha256": "169e89c25cdb579f48116d4b26e241ee611390678aea0c94e1d0e666c48b6fb2",
+      "bytes": 8055
+    },
+    {
+      "zipPath": "runtime/v7/emotion/validator.md",
+      "sha256": "bda82a7ec6672b9066c9ad1b31cd1fad77b203da7312dc74c15fbe5567c3151f",
+      "bytes": 9091
+    },
+    {
+      "zipPath": "runtime/v7/engines/continuity/README.md",
+      "sha256": "1750b6ae45a2a837e49c7d208315901cc8002cc3e904cd46773030fb3b9150d7",
+      "bytes": 467
+    },
+    {
+      "zipPath": "runtime/v7/engines/continuity/continuity_schema.yaml",
+      "sha256": "3d2be80c778db9def08639dca9aabd8add0fd6d7322fd01e18bc7ff9ac9eb464",
+      "bytes": 469
+    },
+    {
+      "zipPath": "runtime/v7/engines/continuity/model.md",
+      "sha256": "63f99a4833299c21c253756368d010b939b7409b9d7dd16105a57460687da5a3",
+      "bytes": 497
+    },
+    {
+      "zipPath": "runtime/v7/engines/continuity/packet.md",
+      "sha256": "a1edaf84959d8a1f8213ef8fd54a1d1585029e46a4177c7c79bca4a705371c05",
+      "bytes": 462
+    },
+    {
+      "zipPath": "runtime/v7/engines/continuity/runtime.md",
+      "sha256": "fc59c8f68ca53ed6f02ff9a639ab075c48359362c4aca0d2b68c2a9ced8107b8",
+      "bytes": 580
+    },
+    {
+      "zipPath": "runtime/v7/engines/continuity/tests.md",
+      "sha256": "97f1747fe0268b232f33afbaac4e542068708c17f7b66cdb318c3d313b9979ce",
+      "bytes": 871
+    },
+    {
+      "zipPath": "runtime/v7/engines/continuity/update_queue.md",
+      "sha256": "844041bce83d0fae561da4478e554d22233ec26deadf046244f51b685991ef12",
+      "bytes": 334
+    },
+    {
+      "zipPath": "runtime/v7/engines/continuity/validator.md",
+      "sha256": "b606ed30f8032a750102b058505dda1b56255dcda2f78c66327bbf7aa6dd7fc5",
+      "bytes": 426
+    },
+    {
+      "zipPath": "runtime/v7/evidence/README.md",
+      "sha256": "a25d7f81d06ea5eaa5dd80bbf2d2a042be01f34cadd826797992b5a119812095",
+      "bytes": 859
+    },
+    {
+      "zipPath": "runtime/v7/evidence/canon_validator.md",
+      "sha256": "162a5245f7eb202c524072d10b3b53e7be571e832f849f00f7094903198c6bf7",
+      "bytes": 431
+    },
+    {
+      "zipPath": "runtime/v7/evidence/confidence.md",
+      "sha256": "6c3077272d6b18dfa282bae148daf53023b2194fb26f665affd4824c997aba61",
+      "bytes": 337
+    },
+    {
+      "zipPath": "runtime/v7/evidence/evidence_schema.yaml",
+      "sha256": "bce66afa8d62dbee99c033fa3face197a47caee4d0092f5097389df467761c58",
+      "bytes": 777
+    },
+    {
+      "zipPath": "runtime/v7/evidence/extractor.md",
+      "sha256": "00b5e6cbf8695eb946860edf98d471171b0a99149d086f26ba637310b41f1c12",
+      "bytes": 609
+    },
+    {
+      "zipPath": "runtime/v7/evidence/fact_builder.md",
+      "sha256": "eac1ef827158a3dcd83344045937acca17d1f879ce5f7cca7d5046c7dc03c96a",
+      "bytes": 760
+    },
+    {
+      "zipPath": "runtime/v7/evidence/knowledge_model.md",
+      "sha256": "e83a5177c52b9c3f67af57d45791744bcda72f30e3d4c5514ae533c05c4c869b",
+      "bytes": 454
+    },
+    {
+      "zipPath": "runtime/v7/evidence/knowledge_packet.md",
+      "sha256": "9631a809fb0a419cd522b7e1b26499d6b4f5acd2eb89399f5749d1aeb2df8ca9",
+      "bytes": 322
+    },
+    {
+      "zipPath": "runtime/v7/evidence/knowledge_runtime.md",
+      "sha256": "ed6743843818d0073fb83e723ce1605774b8821c052f3808ea16ae84dcc3119a",
+      "bytes": 391
+    },
+    {
+      "zipPath": "runtime/v7/evidence/pipeline.md",
+      "sha256": "619f87ff32898042d9e6b64e0638d60163ccb3470f6ae3f4302db943ade85af9",
+      "bytes": 785
+    },
+    {
+      "zipPath": "runtime/v7/expression/CHANGELOG.md",
+      "sha256": "0ef09c55ec3651e1340057c18e5167d64c77af90eff8b37b259face2d4b64ad4",
+      "bytes": 1047
+    },
+    {
+      "zipPath": "runtime/v7/expression/README.md",
+      "sha256": "5c79d7c4f22957353b215216b354991926d7c61dd22037c883db5c3bb3bd3ab7",
+      "bytes": 2747
+    },
+    {
+      "zipPath": "runtime/v7/expression/channel_surface_rules.md",
+      "sha256": "3da0fa069907987cf7bd04b480c814bd24c1323894eda550357d5689eb0b7f62",
+      "bytes": 3783
+    },
+    {
+      "zipPath": "runtime/v7/expression/disclosure_control.md",
+      "sha256": "67cc95f279d542535e3f89318807360f2d27a013bcdcf27374bc2aec19a39fb5",
+      "bytes": 3438
+    },
+    {
+      "zipPath": "runtime/v7/expression/dsl/expression_rules.dsl",
+      "sha256": "40a07efa035cc354708da7d09822dca6c904876ec46582d6a4fed7b1140f62ed",
+      "bytes": 4185
+    },
+    {
+      "zipPath": "runtime/v7/expression/emotional_projection.md",
+      "sha256": "c7878b749c102a0cebb36d5a78387099b325491ed31474568ae3a8d59bdadef4",
+      "bytes": 4165
+    },
+    {
+      "zipPath": "runtime/v7/expression/examples/expression_runtime_examples.yaml",
+      "sha256": "0328cb376cb055a7a65313593d2a0546b2424b6a891ec6eb09c84c4e31e143fd",
+      "bytes": 1972
+    },
+    {
+      "zipPath": "runtime/v7/expression/expression_model.md",
+      "sha256": "5115ce2c0eabd4ba4d4760f50d1d3d0c09e6c5c1532fcab4e99020ddeb5041b3",
+      "bytes": 9339
+    },
+    {
+      "zipPath": "runtime/v7/expression/expression_packet.md",
+      "sha256": "57d12dccba293c93337a35ec4756a5db9ad533ef2778012b1b43a48c5490f859",
+      "bytes": 2843
+    },
+    {
+      "zipPath": "runtime/v7/expression/masking_and_leakage.md",
+      "sha256": "bcf77755ea765fbe95692360ff81903d03198c0e80a88635b385d6b724bfa642",
+      "bytes": 2970
+    },
+    {
+      "zipPath": "runtime/v7/expression/persona_selector.md",
+      "sha256": "1560563f71eea4a8dedfac40f164bb0f069c36af98d351292e60bc660401db8c",
+      "bytes": 2918
+    },
+    {
+      "zipPath": "runtime/v7/expression/persona_surfaces.md",
+      "sha256": "51c80d14de067a4f0622a913991d1bc680ee132d252a51222d857121f72e3efb",
+      "bytes": 3233
+    },
+    {
+      "zipPath": "runtime/v7/expression/register_mapping.md",
+      "sha256": "f0c780ecb911863b1c7a5f8042c1b18877a049aeac89979ab6f37bd6447f4d5f",
+      "bytes": 4283
+    },
+    {
+      "zipPath": "runtime/v7/expression/rhetorical_act_planner.md",
+      "sha256": "52a5b4b2b55c1b8cac51ae16217390e8d4543768d8859ffa9b0cd8d0f126ab98",
+      "bytes": 4103
+    },
+    {
+      "zipPath": "runtime/v7/expression/schemas/expression_model.yaml",
+      "sha256": "205b8bf01422983eefd90c478d3f1645ca3e23591fe2fef784ebd37da0a5bdf0",
+      "bytes": 583
+    },
+    {
+      "zipPath": "runtime/v7/expression/schemas/expression_packet.yaml",
+      "sha256": "6d6ef16f1357bc1b75d6858666543c5e0c73006798754ff701aedd63ed390368",
+      "bytes": 1009
+    },
+    {
+      "zipPath": "runtime/v7/expression/schemas/expression_update.yaml",
+      "sha256": "c504a1e86cada687e970f5825a2e53f4f5765aacec631fdd8d71cb9288f27c3d",
+      "bytes": 116
+    },
+    {
+      "zipPath": "runtime/v7/expression/schemas/expression_validation.yaml",
+      "sha256": "37ebcfb368d618d1bcd1299230f8fefecc3d59e935077f4f3e4ea994909ad8bf",
+      "bytes": 157
+    },
+    {
+      "zipPath": "runtime/v7/expression/style_constraints.md",
+      "sha256": "96200194e10887341b955cef87028e9d515a28488b8cc9eda0662b8eb0db0cb8",
+      "bytes": 4163
+    },
+    {
+      "zipPath": "runtime/v7/expression/tests/expression_runtime_cases.md",
+      "sha256": "c3f5429e782e21ca08c2d15bddade4c82abe5308d737d1aaf66cf676e0365a2f",
+      "bytes": 42542
+    },
+    {
+      "zipPath": "runtime/v7/expression/tests/test_manifest.yaml",
+      "sha256": "21d691173433cb8cc56a4d87f3ab814b7fcf29b149d63c882cd0b6b2e271c8a6",
+      "bytes": 15794
+    },
+    {
+      "zipPath": "runtime/v7/expression/tests/validator_matrix.yaml",
+      "sha256": "d3aa1bb013f300ded6440da394d85e74b75bb3405d2a37660d469c41a825bffa",
+      "bytes": 1197
+    },
+    {
+      "zipPath": "runtime/v7/expression/update_queue.md",
+      "sha256": "0d4b1fc5f0d7d30b57c413ff0f667d8b62c0159180f466aa0be02f83fb1bcd56",
+      "bytes": 3519
+    },
+    {
+      "zipPath": "runtime/v7/expression/validator.md",
+      "sha256": "c5b42ea0099ba8a6da0ab823ad3f420d8251e6f0a5ef07d01338c3c8348b6e01",
+      "bytes": 10070
+    },
+    {
+      "zipPath": "runtime/v7/language/CHANGELOG.md",
+      "sha256": "6d8dfcc374dca458e48b9c9e913ba49471c60d8fb848dea994cf07874ce252ca",
+      "bytes": 1175
+    },
+    {
+      "zipPath": "runtime/v7/language/README.md",
+      "sha256": "b120c2ad1ba5b409fa1a283b931dc8b60ed2e42ca16a6c432f3539f98ef894e3",
+      "bytes": 2710
+    },
+    {
+      "zipPath": "runtime/v7/language/channel_rendering.md",
+      "sha256": "7ce0d4f8058a67714126dfb35a0c7e1a1296ffb169b3715edf5422d6ddd880cc",
+      "bytes": 2619
+    },
+    {
+      "zipPath": "runtime/v7/language/dsl/language_rules.dsl",
+      "sha256": "ebe7b835265ff0889409a93fc97138dac9c3c873c860d49dd0d52461a344a472",
+      "bytes": 3604
+    },
+    {
+      "zipPath": "runtime/v7/language/emoji_kaomoji.md",
+      "sha256": "3f4091bf7e0ee43d03c11ab7ba6f0634e6163cde4fbfb9a6e9515f2d3e45670e",
+      "bytes": 2433
+    },
+    {
+      "zipPath": "runtime/v7/language/examples/language_runtime_examples.yaml",
+      "sha256": "e502c586ca9e8739fb0455b6a20456b071c8c42c58aa2cd4a49415e2ef72f1f0",
+      "bytes": 2102
+    },
+    {
+      "zipPath": "runtime/v7/language/language_domains.md",
+      "sha256": "d7290f9c6ecbbc5467f0ea35e2b5af88fec6577e36b5371ab83062a65993963a",
+      "bytes": 2018
+    },
+    {
+      "zipPath": "runtime/v7/language/language_model.md",
+      "sha256": "a2aad5c22d93e9cc4b76c4845d87ab7df5294497cd0c601018420d7cf63b0e6b",
+      "bytes": 7289
+    },
+    {
+      "zipPath": "runtime/v7/language/language_packet.md",
+      "sha256": "11e1d98342a8de1d1d09594a11b4321ca7fac1510e23c9ce38907b19b9ca8e27",
+      "bytes": 2496
+    },
+    {
+      "zipPath": "runtime/v7/language/lexical_selection.md",
+      "sha256": "272c2bc830133c2e863f05360b93710fa9222dd13eea9f3d24e970d7ffaccb38",
+      "bytes": 4316
+    },
+    {
+      "zipPath": "runtime/v7/language/message_segmentation.md",
+      "sha256": "4650006e1181e14dc0c2032dfa3525e867efd899cfc7a7f37a6005f7afc5bd57",
+      "bytes": 2314
+    },
+    {
+      "zipPath": "runtime/v7/language/persona_voice_renderer.md",
+      "sha256": "e42c219a5cc3277062789f8f2d148e35f53f3a05e8d08f34f1961496d5db8eb4",
+      "bytes": 3022
+    },
+    {
+      "zipPath": "runtime/v7/language/punctuation_rhythm.md",
+      "sha256": "0ef5a758ba45c00a5c8f5d7b434207a23909fb5da9f0b1c71413f22700936ca6",
+      "bytes": 3110
+    },
+    {
+      "zipPath": "runtime/v7/language/reference_resolution.md",
+      "sha256": "d87d094500ee4e23dc23374491bd022f0841ac48f95b5a3368dc43a1054f5a25",
+      "bytes": 2468
+    },
+    {
+      "zipPath": "runtime/v7/language/render_pipeline.md",
+      "sha256": "1bc3360234ae386e61b52cb75e126273775f1986122ad5abd475ec681600278f",
+      "bytes": 3479
+    },
+    {
+      "zipPath": "runtime/v7/language/safety_privacy_redaction.md",
+      "sha256": "ede888f3a00d88a9357d5cf33556a03c2ad6daaa487169988f1a832f9e471576",
+      "bytes": 2625
+    },
+    {
+      "zipPath": "runtime/v7/language/schemas/language_model.yaml",
+      "sha256": "70aca6fbb829be42e43ca49ee0ed7ca377cc4191eeeeef2c14806ccc8cc93d1b",
+      "bytes": 671
+    },
+    {
+      "zipPath": "runtime/v7/language/schemas/language_packet.yaml",
+      "sha256": "765924bb373e24d8b6d9e4554cdff943882bc742dc2838398e2e0cb95ec963f4",
+      "bytes": 595
+    },
+    {
+      "zipPath": "runtime/v7/language/schemas/language_update.yaml",
+      "sha256": "a226748051f6b6912a71943d64d3b1a85f5a96f5262a7177a72bfa286ba141e6",
+      "bytes": 116
+    },
+    {
+      "zipPath": "runtime/v7/language/schemas/language_validation.yaml",
+      "sha256": "e35fa3bb4b9b792c09d5fcb91207c3057748f2efed8f9afb287bc93e9746670a",
+      "bytes": 157
+    },
+    {
+      "zipPath": "runtime/v7/language/semantic_assembly.md",
+      "sha256": "5fdd11f2f9d8943ecc5c1cb5dac2531eb9f706aa4caed75263e14509069afeb6",
+      "bytes": 2894
+    },
+    {
+      "zipPath": "runtime/v7/language/syntax_planner.md",
+      "sha256": "d991f96df80d6d14d93daed72884909ea844b3f1efd6014d6c091dda366ce119",
+      "bytes": 2909
+    },
+    {
+      "zipPath": "runtime/v7/language/tests/golden_outputs.yaml",
+      "sha256": "1effaec6f4a321747b88e752cf12e9cc9aee77012f2b0037cc3ebbbef19d170b",
+      "bytes": 1539
+    },
+    {
+      "zipPath": "runtime/v7/language/tests/language_runtime_cases.md",
+      "sha256": "6b3bb6010d73b5c9410e20c562bc459a1a4e16549c21fd77083607bdf3ac3ed8",
+      "bytes": 40293
+    },
+    {
+      "zipPath": "runtime/v7/language/tests/test_manifest.yaml",
+      "sha256": "9ed9c09d8eeffb1dcbe7b9ca4df612588c1acac95413cb1dcc48af5a88961f18",
+      "bytes": 18298
+    },
+    {
+      "zipPath": "runtime/v7/language/tests/validator_matrix.yaml",
+      "sha256": "f2c242fe4760c429e52efc9fab3aa42852965e110aa19af165c7c14337e40a3c",
+      "bytes": 1521
+    },
+    {
+      "zipPath": "runtime/v7/language/update_queue.md",
+      "sha256": "f2988445347b57b2514ab44ea3ed73928bec32e525079e985990b3d602b6c552",
+      "bytes": 3681
+    },
+    {
+      "zipPath": "runtime/v7/language/validator.md",
+      "sha256": "f1bbc6b1ec8e28b0f66c8ccea6d602004f895a4137ab13ae2b92d1d2483252b7",
+      "bytes": 11734
+    },
+    {
+      "zipPath": "runtime/v7/meaning/CHANGELOG.md",
+      "sha256": "22e089c15c15dcd2e46df65d0c093fa5304eb5d826e420fd4be2c4a475814fe8",
+      "bytes": 361
+    },
+    {
+      "zipPath": "runtime/v7/meaning/README.md",
+      "sha256": "f0126b4daca68873886ad2f62d4f4b002a07aa319ceaeddf31945e8510adb14a",
+      "bytes": 2590
+    },
+    {
+      "zipPath": "runtime/v7/meaning/appraisal_engine.md",
+      "sha256": "b6e4d0e5b84e8f80fd7ec5cf38daf5bbfd95b1ffe25df026bc2162b783734735",
+      "bytes": 1653
+    },
+    {
+      "zipPath": "runtime/v7/meaning/counterfactual_engine.md",
+      "sha256": "884382ae5a65ce4ff16a4d904299ad941d223ed220b2f073499708e8619da433",
+      "bytes": 1487
+    },
+    {
+      "zipPath": "runtime/v7/meaning/domain_activation.md",
+      "sha256": "9d018b0d1456fd31bca8019f86498dfb4dad26ba1648341fca162ceb0789b3fd",
+      "bytes": 2858
+    },
+    {
+      "zipPath": "runtime/v7/meaning/dsl/meaning_rules.dsl",
+      "sha256": "266b011413359e9d48cf27d24c7489f0e13c1cef86618f2650cb99f19ef793a0",
+      "bytes": 939
+    },
+    {
+      "zipPath": "runtime/v7/meaning/examples/meaning_runtime_examples.yaml",
+      "sha256": "52770f0a1e6cf868bd2303fc03d8d6958d10bc4c9bf3e5f87f7c059d3e900b7a",
+      "bytes": 784
+    },
+    {
+      "zipPath": "runtime/v7/meaning/internet_association_graph.md",
+      "sha256": "6f50fd282e441428e890cd748677ce1a61c87ba554c6ab91a67f571336008889",
+      "bytes": 2174
+    },
+    {
+      "zipPath": "runtime/v7/meaning/meaning_model.md",
+      "sha256": "2b9062d6ff11e71b7fe6d378a8e40d9dd87554f6ea6f187740c017943b32e1f2",
+      "bytes": 6247
+    },
+    {
+      "zipPath": "runtime/v7/meaning/meaning_packet.md",
+      "sha256": "6c72262dd8041f6c37c39661ed39e9572701eca080b3aafba617827d06148a27",
+      "bytes": 769
+    },
+    {
+      "zipPath": "runtime/v7/meaning/meaning_salience.md",
+      "sha256": "18a3aa248c00f4310810b152f124757ec8ab3e76c7a81df0f61b34beb7d058be",
+      "bytes": 1267
+    },
+    {
+      "zipPath": "runtime/v7/meaning/perception_normalizer.md",
+      "sha256": "ef6f3d108cbdf94164cbcc852a36c3809367ad1e7348ae10f206ac6555fc5cae",
+      "bytes": 1406
+    },
+    {
+      "zipPath": "runtime/v7/meaning/schemas/meaning_model.yaml",
+      "sha256": "d76638790ffc461952a72b20bca43eb3c5193706e2b5af76cfbe463cdc075844",
+      "bytes": 1557
+    },
+    {
+      "zipPath": "runtime/v7/meaning/schemas/meaning_packet.yaml",
+      "sha256": "031e05748e1cb05821af22b2f3dddfd3340f0bcc42adcab47834fb22a6506074",
+      "bytes": 499
+    },
+    {
+      "zipPath": "runtime/v7/meaning/schemas/meaning_update.yaml",
+      "sha256": "745b49a7a9adfcd1fc2f84dbd24af23e4f616a72bdeab42b47c0d8fcdd69c129",
+      "bytes": 57
+    },
+    {
+      "zipPath": "runtime/v7/meaning/self_career_audience_translation.md",
+      "sha256": "c457928239c4c40e842a25340d270e2f21355424e28a7028f2a8b74d0872af1c",
+      "bytes": 1802
+    },
+    {
+      "zipPath": "runtime/v7/meaning/tests/meaning_runtime_cases.md",
+      "sha256": "41b8e6b8860d3611e4f47905f9fe388b0b4157135213a9fda83a698ea88d59ee",
+      "bytes": 8320
+    },
+    {
+      "zipPath": "runtime/v7/meaning/tests/test_manifest.yaml",
+      "sha256": "3881ff35b46c571f8354642cb64ed71d6c1fb98e93772224f1ddc3c7187cbb5b",
+      "bytes": 3025
+    },
+    {
+      "zipPath": "runtime/v7/meaning/update_queue.md",
+      "sha256": "888dc0ded9a48e699a484610e6419d176b3941c3d322a023a974bd318275cae6",
+      "bytes": 881
+    },
+    {
+      "zipPath": "runtime/v7/meaning/validator.md",
+      "sha256": "244f56fb54ea0571013cdf3e0d048de3833c8ec728e32b1bfd03f6079f3502a9",
+      "bytes": 2449
+    },
+    {
+      "zipPath": "runtime/v7/need/CHANGELOG.md",
+      "sha256": "a1bef035730ea30c6cc19b07e5d8e12bfa40a9f939abcfa116b66180be961e30",
+      "bytes": 913
+    },
+    {
+      "zipPath": "runtime/v7/need/README.md",
+      "sha256": "1f45458af711732c564af21b54e930e5bfb37f421e30541150b6967f1bb46dd0",
+      "bytes": 2385
+    },
+    {
+      "zipPath": "runtime/v7/need/dsl/need_rules.dsl",
+      "sha256": "f01cc560c9c80f93fd58c909626c151aecc1d508e4562e41fa06fd8a693af2f9",
+      "bytes": 1872
+    },
+    {
+      "zipPath": "runtime/v7/need/examples/need_runtime_examples.yaml",
+      "sha256": "6d9b6144c93e7562a209046aa6f3c2043e73e4dd20b309a936eaaab86c18c549",
+      "bytes": 1176
+    },
+    {
+      "zipPath": "runtime/v7/need/need_activation.md",
+      "sha256": "8bb149e4952d39e149bf2ac114cab5064a71e1f7189ee0d29f051aca5638fdcb",
+      "bytes": 4547
+    },
+    {
+      "zipPath": "runtime/v7/need/need_conflict.md",
+      "sha256": "ab6afcaf74bae23b4245e87c56800d970994e9f3dccb0ddd61edf3fb731545b4",
+      "bytes": 3782
+    },
+    {
+      "zipPath": "runtime/v7/need/need_domains.md",
+      "sha256": "48800709bf37b7a6837feea314a2729a0bea8f7564104271cf25155b6dc9419e",
+      "bytes": 2386
+    },
+    {
+      "zipPath": "runtime/v7/need/need_model.md",
+      "sha256": "27ce1416c667dade32d0d338cd4cd12d0ca644ac98f513e0f2ac174a6b155317",
+      "bytes": 9289
+    },
+    {
+      "zipPath": "runtime/v7/need/need_packet.md",
+      "sha256": "957f06661f201ff5d4af2cba96845fbbc0f0f350a6d1cb9f572c2f2affcb3da2",
+      "bytes": 1722
+    },
+    {
+      "zipPath": "runtime/v7/need/need_persistence.md",
+      "sha256": "944921485074bf2e29429d22d1c4a293c55240e1c0ec386fed25187abe0c72d7",
+      "bytes": 2607
+    },
+    {
+      "zipPath": "runtime/v7/need/need_prioritization.md",
+      "sha256": "3448729ce7729f68037ad01084de9817108c61a9efdfa69cc7bc69abfa0bb400",
+      "bytes": 2435
+    },
+    {
+      "zipPath": "runtime/v7/need/need_satisfaction.md",
+      "sha256": "f37b5857879d15c3ddc79758a7baf87b50832f5dfdc5738befa71143d2015478",
+      "bytes": 5474
+    },
+    {
+      "zipPath": "runtime/v7/need/schemas/need_model.yaml",
+      "sha256": "8aa94e4f7fd96199d2f0edbfd6669776164d2904aed56a25fd3696ae560acc67",
+      "bytes": 536
+    },
+    {
+      "zipPath": "runtime/v7/need/schemas/need_packet.yaml",
+      "sha256": "cdd1d272ecea01500b52237478f1e7c95a14b3bc15e54929da3484fbffcb7e28",
+      "bytes": 418
+    },
+    {
+      "zipPath": "runtime/v7/need/schemas/need_update.yaml",
+      "sha256": "3fc3996d291b653df6689a9e3e5c45af4658acd0830e7c68d76d3d9a6ee528fc",
+      "bytes": 114
+    },
+    {
+      "zipPath": "runtime/v7/need/schemas/need_validation.yaml",
+      "sha256": "e46018aff6bf878ec8e24ae032eaf8acb5530723268bc86c491e3425882a64cb",
+      "bytes": 156
+    },
+    {
+      "zipPath": "runtime/v7/need/tests/need_runtime_cases.md",
+      "sha256": "cd00cd30e494ab3977cc3286d0bad924df9ed6ccb3bc084f37c57e367295612d",
+      "bytes": 38503
+    },
+    {
+      "zipPath": "runtime/v7/need/tests/test_manifest.yaml",
+      "sha256": "de8e1394336f5678fc2dc831295893e5c3bb2b7acec7bed424823d3b70d9bd27",
+      "bytes": 12213
+    },
+    {
+      "zipPath": "runtime/v7/need/tests/validator_matrix.yaml",
+      "sha256": "ab6a92af426912dc4382d32d974ca980cf16e67984e6da02fd95d0ec803aa0f9",
+      "bytes": 795
+    },
+    {
+      "zipPath": "runtime/v7/need/update_queue.md",
+      "sha256": "553aeed120be8ed9d268ae3c207418db4528e677142e2db6aa54d0d81985922d",
+      "bytes": 2120
+    },
+    {
+      "zipPath": "runtime/v7/need/validator.md",
+      "sha256": "84c46d032722eded90596e278b38f0ca1248a069b30e1d61b1bc0345365acadb",
+      "bytes": 6080
+    },
+    {
+      "zipPath": "runtime/v7/relationship/CHANGELOG.md",
+      "sha256": "7031a90d28914cf4c76dbe87a568aaf93ff3f2e3bc0315b722b3d763601b0896",
+      "bytes": 385
+    },
+    {
+      "zipPath": "runtime/v7/relationship/README.md",
+      "sha256": "09272578fdc1d7dec25a4b7eeb06291b557bb6a8852f3f19d1aa7390b28381c2",
+      "bytes": 2667
+    },
+    {
+      "zipPath": "runtime/v7/relationship/domain_activation.md",
+      "sha256": "ee47085b587889e7921c21bb5744d53bfe6c84f64e28d002fb9b8de8860720d8",
+      "bytes": 5710
+    },
+    {
+      "zipPath": "runtime/v7/relationship/dsl/relationship_rules.dsl",
+      "sha256": "648e7d4a6394443c6c5720c1882975df6ebfc5b7cecec2ddba94f707b58a07dc",
+      "bytes": 1024
+    },
+    {
+      "zipPath": "runtime/v7/relationship/event_classifier.md",
+      "sha256": "69f8b68e74e98e6d2a8eb191281f70ab1c9a7e95a7a8df5e78b4bf784607c3f5",
+      "bytes": 4695
+    },
+    {
+      "zipPath": "runtime/v7/relationship/examples/runtime_examples.yaml",
+      "sha256": "bf98ebb2421af973ce092c9a3c3aa2305f97188fc22bd13bd88433ea9446f2b1",
+      "bytes": 892
+    },
+    {
+      "zipPath": "runtime/v7/relationship/interpretation_engine.md",
+      "sha256": "5b5343ddf42777ef93da3ad3ca985327d02788a75ecabda224a1e7b77a9e4c07",
+      "bytes": 5567
+    },
+    {
+      "zipPath": "runtime/v7/relationship/relationship_model.md",
+      "sha256": "312a771d2ce150912e4b4e4d79b3855ec8fc6b60c725993cef35909ddf0b3b4a",
+      "bytes": 16613
+    },
+    {
+      "zipPath": "runtime/v7/relationship/relationship_packet.md",
+      "sha256": "6d004ff9c75915e7cd529c7b702d253c8ce6bf765dd43acd0bb61043b3680809",
+      "bytes": 873
+    },
+    {
+      "zipPath": "runtime/v7/relationship/relationship_retrieval.md",
+      "sha256": "e3ab157c3c667c4bc828df024fc927b96dbd4cbebafbba34ea6fad24b32f6f4c",
+      "bytes": 3363
+    },
+    {
+      "zipPath": "runtime/v7/relationship/salience_engine.md",
+      "sha256": "02ee9d555fcb566da197923ad22abb2215f388ae574a0f6b160b2b2b16343e25",
+      "bytes": 3013
+    },
+    {
+      "zipPath": "runtime/v7/relationship/schemas/relationship_model.yaml",
+      "sha256": "86c7d5605cb379212f425be7cc8e3739b9639fcd51193776acf7c991562dd6ed",
+      "bytes": 3650
+    },
+    {
+      "zipPath": "runtime/v7/relationship/schemas/relationship_packet.yaml",
+      "sha256": "f5491825383aa236a19a9c02ac0bad45af080303c963781db0a86842ea4e2f4f",
+      "bytes": 510
+    },
+    {
+      "zipPath": "runtime/v7/relationship/schemas/relationship_update.yaml",
+      "sha256": "d1d2777af9054c188f37cb5795e4fda260fb7e0b81a83e7a1f115a452d0d349b",
+      "bytes": 77
+    },
+    {
+      "zipPath": "runtime/v7/relationship/tests/relationship_runtime_cases.md",
+      "sha256": "12d56cf72b9b0111b73d055b4760c65f8dc4a97da6838285af4e71933b13b6a6",
+      "bytes": 8604
+    },
+    {
+      "zipPath": "runtime/v7/relationship/tests/test_manifest.yaml",
+      "sha256": "f47905df292f29cfe450f520588e08b0c89437ebc5d91c3621fb14ccfadadc65",
+      "bytes": 3227
+    },
+    {
+      "zipPath": "runtime/v7/relationship/update_queue.md",
+      "sha256": "72d22019364e6c92b9e83a3b3f13f32c8d942c91029ced6f85289c10b9aff6e0",
+      "bytes": 1213
+    },
+    {
+      "zipPath": "runtime/v7/relationship/validator.md",
+      "sha256": "8b7a162d7a242c9ec4dad903b1f106b93e434b016975c17914965df6aa281796",
+      "bytes": 3484
+    },
+    {
+      "zipPath": "runtime/v7/runtime_overview.md",
+      "sha256": "b5642c6be33b7d812f666cf6305d45e50e5a5a3998a8c9a12d87db6b22728d56",
+      "bytes": 1063
+    },
+    {
+      "zipPath": "runtime/v7/schemas/continuity_state.yaml",
+      "sha256": "50aab13fd80047618374ee842f0cf425dda686088592c198a896a5150a2b8197",
+      "bytes": 598
+    },
+    {
+      "zipPath": "runtime/v7/schemas/continuity_update_rules.yaml",
+      "sha256": "9b637c8a1bdd750f5186598bd3a4fa551e5ef8876d278aa38db74b22b3d0c053",
+      "bytes": 974
+    },
+    {
+      "zipPath": "runtime/v7/tests/phase2_continuity_cases.md",
+      "sha256": "08a41ad870220a7e307b8bb8d51957540d2b9179a361bfa73e0b0e3fa672da93",
+      "bytes": 1274
+    },
+    {
+      "zipPath": "runtime/v7/thought/CHANGELOG.md",
+      "sha256": "f4e316afbb8d365bc001aea452eaa267b365bdbc68662656186331c4b82f4525",
+      "bytes": 957
+    },
+    {
+      "zipPath": "runtime/v7/thought/README.md",
+      "sha256": "ea2abd495aa03321d9adc8a8baca6e2df34482a3c5f00b2b09b056e0de64b3bc",
+      "bytes": 1992
+    },
+    {
+      "zipPath": "runtime/v7/thought/attention_selection.md",
+      "sha256": "98402f86fc51d1d487bb975ac34d614ff511fdc6a6e4a51f40f4891651861fa6",
+      "bytes": 2944
+    },
+    {
+      "zipPath": "runtime/v7/thought/cognitive_conflict.md",
+      "sha256": "28466785fe64a090d711aabc68c577aa8d0d06960eb5276b41b986c87d451394",
+      "bytes": 2338
+    },
+    {
+      "zipPath": "runtime/v7/thought/counterthought_engine.md",
+      "sha256": "f1e61f06d1fe47588ddc5eb24da8e45f891c2917ca5506bfebe3543b0bbd656e",
+      "bytes": 2179
+    },
+    {
+      "zipPath": "runtime/v7/thought/dsl/thought_rules.dsl",
+      "sha256": "cac8b1be92619dbb55db626180d6e0759547254d309f3e3ea7921cd0b8965df5",
+      "bytes": 1833
+    },
+    {
+      "zipPath": "runtime/v7/thought/examples/thought_runtime_examples.yaml",
+      "sha256": "d6e6236aa7339e6d34e8f6b1a2ce46dcb7478e0ebabc614eee47447e6c14193f",
+      "bytes": 1220
+    },
+    {
+      "zipPath": "runtime/v7/thought/rumination_engine.md",
+      "sha256": "3e4df5000d38d4145be3ebb9ba5b849475070b7799400f0953a79c0516c76f3d",
+      "bytes": 2653
+    },
+    {
+      "zipPath": "runtime/v7/thought/schemas/thought_model.yaml",
+      "sha256": "64bf7c78c6608b45b5fab24ceded4ebd656f753b13b8eaca8b923b598d0c93d1",
+      "bytes": 503
+    },
+    {
+      "zipPath": "runtime/v7/thought/schemas/thought_packet.yaml",
+      "sha256": "c43cc0211415fbbafdc7dc45ba7dce61d671a9fe53f0f726fd4eea88431ab71c",
+      "bytes": 452
+    },
+    {
+      "zipPath": "runtime/v7/thought/schemas/thought_update.yaml",
+      "sha256": "8cf27dea44164a83c794cf63328344afe2cc7dd08d0bd3afffe61ae4403e8222",
+      "bytes": 114
+    },
+    {
+      "zipPath": "runtime/v7/thought/schemas/thought_validation.yaml",
+      "sha256": "d7587238d3de0d252ea4339391e650b2d1c952768b45b71a3171779dc26895d2",
+      "bytes": 156
+    },
+    {
+      "zipPath": "runtime/v7/thought/tests/test_manifest.yaml",
+      "sha256": "b066c6a6ae19603e0dc7b409ce9ecba3d8b01fbccb261d393272b2c9abd9593a",
+      "bytes": 13308
+    },
+    {
+      "zipPath": "runtime/v7/thought/tests/thought_runtime_cases.md",
+      "sha256": "481fa8072e8aaca7e26e4a595511d0dbee65ab7bc6011f1713b806107de27e81",
+      "bytes": 35254
+    },
+    {
+      "zipPath": "runtime/v7/thought/tests/validator_matrix.yaml",
+      "sha256": "6d8552ec8c920aed610d906735cbdae93b428d29615b715d0d7485ab18c03832",
+      "bytes": 1026
+    },
+    {
+      "zipPath": "runtime/v7/thought/thought_generation.md",
+      "sha256": "6573eaee792e163987cfcf8b0660f9ee547a7b058514f66c6ae1636cb1eec062",
+      "bytes": 2939
+    },
+    {
+      "zipPath": "runtime/v7/thought/thought_model.md",
+      "sha256": "202ed73f801ae44f57d2262878d0bfbece0424f4fd7878d4ba3b9cb404789723",
+      "bytes": 8025
+    },
+    {
+      "zipPath": "runtime/v7/thought/thought_packet.md",
+      "sha256": "b2dd690510a48daa181881305e4f89302ad5bf483ac70561718f0fb686396292",
+      "bytes": 1637
+    },
+    {
+      "zipPath": "runtime/v7/thought/thought_persistence.md",
+      "sha256": "c97d9839fb667f8ab4a12b0e6ea2d68a68fda66534d50e66b94ab0541b96a02b",
+      "bytes": 1913
+    },
+    {
+      "zipPath": "runtime/v7/thought/thought_salience.md",
+      "sha256": "f8a4e10d4a9bf10263e308f86ff63128d47a2cba42cd3e937ca1b76077d76daa",
+      "bytes": 1535
+    },
+    {
+      "zipPath": "runtime/v7/thought/thought_threads.md",
+      "sha256": "774344a399a3251bf1d4fbfcfbdfc409d379ea2c474fd249c31a34987c6e409e",
+      "bytes": 2788
+    },
+    {
+      "zipPath": "runtime/v7/thought/update_queue.md",
+      "sha256": "4c4309221798d7ec7c5b0db11c27506af2981c4c453eb9bac67c6d17be5e141e",
+      "bytes": 1748
+    },
+    {
+      "zipPath": "runtime/v7/thought/validator.md",
+      "sha256": "b090344ffcf985fb589ddcbad2c056b779813c2d2ed1717b9080168875aabab7",
+      "bytes": 6585
+    },
+    {
+      "zipPath": "runtime/v7/validator/canon_validator.md",
+      "sha256": "29e5d7e3487cb1dfe3a65cd0fb04cc957530e227c9f2fe4bd5a90c753b417bc9",
+      "bytes": 806
+    }
+  ]
+}
