@@ -2,26 +2,39 @@
 //
 // Produces a machine-verifiable census of the root legacy handoff bundle
 // (rain-push-v7-claude-handoff.zip): every member's path, sizes, SHA-256, and ZIP
-// metadata, plus each file member's canonical tracked source path — matched by CONTENT
-// SHA-256, never by filename. Members with no tracked file of identical content are
-// marked orphan.
+// metadata, plus each file member's classification against a FIXED Git base ref —
+// matched by CONTENT SHA-256, never by filename.
+//
+// Source classification (four buckets — do NOT conflate as "orphan"):
+//   - exact_content_match         : exactly one tracked blob has identical content
+//   - ambiguous_content_match     : >1 tracked blobs share this content
+//   - same_path_different_content : a tracked file exists at the same path, but its
+//                                   content differs (canonical source EXISTS, just drifted)
+//   - no_tracked_path             : no tracked blob of this content AND no tracked file
+//                                   at this path
+//
+// Determinism: the tracked index is read from a FIXED Git base ref (git ls-tree /
+// cat-file), never the mutable working tree. This decouples classification from a dirty
+// worktree and from this script's own artifacts, so `--check` stays green after commit.
+// Symlink entries (mode 120000) are skipped — they are not regular file content.
 //
 // Two artifacts are written next to this script (deterministic; no timestamps):
 //   - bundle-inventory.json : per-member census (paths, sizes, SHA-256, metadata)
-//   - bundle-source-map.json: mapped[] (member -> tracked sources) + orphans[]
+//   - bundle-source-map.json: classification of each file member vs the base ref
 //
 // Zero runtime dependencies — node: builtins only. The ZIP central directory is parsed
 // directly (no unzip needed) so file order, metadata, and directory entries are visible.
 // Content SHA-256 is computed by inflating each member with zlib.
 //
 // Usage:
-//   node runtime/v7/legacy-bundle/gen-bundle-inventory.mjs [--zip PATH] [--check]
+//   node runtime/v7/legacy-bundle/gen-bundle-inventory.mjs [--zip PATH] [--base REF] [--check]
 //     --zip PATH   bundle path (default: rain-push-v7-claude-handoff.zip at repo root)
-//     --check      regenerate to /tmp and diff against committed artifacts; exit 1 on drift
+//     --base REF   Git ref to index tracked sources from (default: BASE_REF constant)
+//     --check      regenerate in-memory and diff against committed artifacts; exit 1 on drift
 
 import { createHash } from "node:crypto";
 import { inflateRawSync } from "node:zlib";
-import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { join, dirname, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
@@ -31,6 +44,10 @@ const REPO_ROOT = join(HERE, "..", "..", ".."); // runtime/v7/legacy-bundle -> r
 const DEFAULT_ZIP = join(REPO_ROOT, "rain-push-v7-claude-handoff.zip");
 const INVENTORY_PATH = join(HERE, "bundle-inventory.json");
 const SOURCE_MAP_PATH = join(HERE, "bundle-source-map.json");
+
+// Fixed base ref for source classification. Pinned so classification is reproducible and
+// unaffected by later commits (including this script's own inventory artifacts).
+export const BASE_REF = "a33c66577ed072a021f4b3ec8713baf12a4239af";
 
 // ---- ZIP central-directory parser (zero-dep) ----
 export function parseZip(buf) {
@@ -80,6 +97,11 @@ export function parseZip(buf) {
     });
     p += 46 + nlen + elen + clen;
   }
+  if (members.length !== totalEntries) {
+    throw new Error(
+      `member count mismatch: parsed ${members.length} central records but EOCD totalEntries=${totalEntries}`,
+    );
+  }
   return { totalEntries, members };
 }
 
@@ -121,54 +143,98 @@ export function buildInventory(zipPath) {
   };
 }
 
-// Index every tracked file (git ls-files) by content SHA-256.
-export function trackedByContentSha(repoRoot = REPO_ROOT) {
-  const listed = execFileSync("git", ["ls-files"], { cwd: repoRoot })
+// Index every tracked regular file at a FIXED Git ref by content SHA-256.
+// Reads Git blobs via ls-tree/cat-file (never the mutable working tree), so the index is
+// reproducible and unaffected by uncommitted changes or this script's own artifacts.
+// Symlink entries (mode 120000) and submodules (160000) are skipped: only regular blobs
+// (100644 / 100755) count as tracked file content.
+export function trackedByContentSha(baseRef = BASE_REF, repoRoot = REPO_ROOT) {
+  const lines = execFileSync("git", ["ls-tree", "-r", baseRef], { cwd: repoRoot, maxBuffer: 1 << 28 })
     .toString()
     .split("\n")
     .filter(Boolean);
-  const byHash = new Map();
+  const byHash = new Map(); // content sha256 -> [paths]
+  const paths = new Set(); // regular-file paths present at baseRef
   let count = 0;
-  for (const rel of listed) {
-    const abs = join(repoRoot, rel);
-    let st;
-    try {
-      st = statSync(abs);
-    } catch {
-      continue;
+  let symlinksSkipped = 0;
+  for (const line of lines) {
+    // format: "<mode> <type> <objectsha>\t<path>"
+    const tab = line.indexOf("\t");
+    const meta = line.slice(0, tab);
+    const path = line.slice(tab + 1);
+    const [mode, type, objSha] = meta.split(/\s+/);
+    if (mode === "120000") {
+      symlinksSkipped++;
+      continue; // symlink — not regular file content
     }
-    if (!st.isFile()) continue;
-    const h = createHash("sha256").update(readFileSync(abs)).digest("hex");
+    if (type !== "blob") continue; // gitlink/submodule etc.
+    const content = execFileSync("git", ["cat-file", "blob", objSha], {
+      cwd: repoRoot,
+      maxBuffer: 1 << 30,
+    });
+    const h = createHash("sha256").update(content).digest("hex");
     if (!byHash.has(h)) byHash.set(h, []);
-    byHash.get(h).push(rel);
+    byHash.get(h).push(path);
+    paths.add(path);
     count++;
   }
-  return { byHash, count };
+  return { byHash, paths, count, symlinksSkipped };
 }
 
-// Map each file member to tracked source(s) by CONTENT sha256 (never by filename).
-export function buildSourceMap(inventory, repoRoot = REPO_ROOT) {
-  const { byHash, count } = trackedByContentSha(repoRoot);
-  const mapped = [];
-  const orphans = [];
+// Classify each file member against the fixed base ref by CONTENT sha256 (never filename).
+// Four buckets (see file header). "no_tracked_path" is the only true source-absent case —
+// same_path_different_content means the canonical source EXISTS but has drifted.
+export function buildSourceMap(inventory, baseRef = BASE_REF, repoRoot = REPO_ROOT) {
+  const { byHash, paths, count, symlinksSkipped } = trackedByContentSha(baseRef, repoRoot);
+  const buckets = {
+    exact_content_match: [],
+    same_path_different_content: [],
+    ambiguous_content_match: [],
+    no_tracked_path: [],
+  };
   for (const m of inventory.members) {
     if (m.isDir) continue;
     const sources = byHash.get(m.sha256);
-    if (sources && sources.length) {
-      mapped.push({ zipPath: m.path, sha256: m.sha256, sources: [...sources].sort() });
+    if (sources && sources.length === 1) {
+      buckets.exact_content_match.push({
+        zipPath: m.path,
+        sha256: m.sha256,
+        source: sources[0],
+      });
+    } else if (sources && sources.length > 1) {
+      buckets.ambiguous_content_match.push({
+        zipPath: m.path,
+        sha256: m.sha256,
+        sources: [...sources].sort(),
+      });
+    } else if (paths.has(m.path)) {
+      buckets.same_path_different_content.push({
+        zipPath: m.path,
+        bundleSha256: m.sha256,
+        note: "tracked file exists at this path at base ref but content differs",
+      });
     } else {
-      orphans.push({ zipPath: m.path, sha256: m.sha256, bytes: m.uncompressedBytes });
+      buckets.no_tracked_path.push({
+        zipPath: m.path,
+        sha256: m.sha256,
+        bytes: m.uncompressedBytes,
+      });
     }
   }
-  mapped.sort((a, b) => (a.zipPath < b.zipPath ? -1 : a.zipPath > b.zipPath ? 1 : 0));
-  orphans.sort((a, b) => (a.zipPath < b.zipPath ? -1 : a.zipPath > b.zipPath ? 1 : 0));
+  const byZipPath = (a, b) => (a.zipPath < b.zipPath ? -1 : a.zipPath > b.zipPath ? 1 : 0);
+  for (const k of Object.keys(buckets)) buckets[k].sort(byZipPath);
   return {
+    baseRef,
     trackedFilesIndexed: count,
+    symlinksSkipped,
     zipFileMembers: inventory.fileMembers,
-    mappedByContent: mapped.length,
-    orphanCount: orphans.length,
-    mapped,
-    orphans,
+    counts: {
+      exact_content_match: buckets.exact_content_match.length,
+      same_path_different_content: buckets.same_path_different_content.length,
+      ambiguous_content_match: buckets.ambiguous_content_match.length,
+      no_tracked_path: buckets.no_tracked_path.length,
+    },
+    ...buckets,
   };
 }
 
@@ -180,10 +246,12 @@ function stableJson(obj) {
 function main(argv) {
   const zi = argv.indexOf("--zip");
   const zipPath = zi >= 0 && argv[zi + 1] ? argv[zi + 1] : DEFAULT_ZIP;
+  const bi = argv.indexOf("--base");
+  const baseRef = bi >= 0 && argv[bi + 1] ? argv[bi + 1] : BASE_REF;
   const check = argv.includes("--check");
 
   const inventory = buildInventory(zipPath);
-  const sourceMap = buildSourceMap(inventory);
+  const sourceMap = buildSourceMap(inventory, baseRef);
 
   if (check) {
     const invNow = stableJson(inventory);
@@ -209,14 +277,18 @@ function main(argv) {
 
   writeFileSync(INVENTORY_PATH, stableJson(inventory));
   writeFileSync(SOURCE_MAP_PATH, stableJson(sourceMap));
-  console.log(`zip                 : ${inventory.zip}`);
-  console.log(`zip sha256          : ${inventory.zipSha256}`);
-  console.log(`central entries     : ${inventory.totalCentralEntries}`);
-  console.log(`  file members      : ${inventory.fileMembers}`);
-  console.log(`  dir members       : ${inventory.dirMembers}`);
-  console.log(`tracked indexed     : ${sourceMap.trackedFilesIndexed}`);
-  console.log(`  mapped by content : ${sourceMap.mappedByContent}`);
-  console.log(`  orphans           : ${sourceMap.orphanCount}`);
+  console.log(`zip                          : ${inventory.zip}`);
+  console.log(`zip sha256                   : ${inventory.zipSha256}`);
+  console.log(`central entries              : ${inventory.totalCentralEntries}`);
+  console.log(`  file members               : ${inventory.fileMembers}`);
+  console.log(`  dir members                : ${inventory.dirMembers}`);
+  console.log(`base ref                     : ${sourceMap.baseRef}`);
+  console.log(`tracked indexed (base ref)   : ${sourceMap.trackedFilesIndexed}`);
+  console.log(`  symlinks skipped           : ${sourceMap.symlinksSkipped}`);
+  console.log(`  exact_content_match        : ${sourceMap.counts.exact_content_match}`);
+  console.log(`  same_path_different_content: ${sourceMap.counts.same_path_different_content}`);
+  console.log(`  ambiguous_content_match    : ${sourceMap.counts.ambiguous_content_match}`);
+  console.log(`  no_tracked_path            : ${sourceMap.counts.no_tracked_path}`);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
