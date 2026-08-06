@@ -12,7 +12,7 @@ name: runtime-v7-tests
 # Instead it is pinned by identity in legacy-bundle/legacy-bundle.lock.json and guarded
 # for tampering.
 #
-# Two jobs:
+# Three jobs:
 #   - engine-source-ssot   : the authority. Runs engine tests from the reviewable source,
 #     the builder contract + inventory tests, proves the manifest is current, and proves
 #     the generated engine archive round-trips the manifest 68/68 via the parity module.
@@ -21,6 +21,11 @@ name: runtime-v7-tests
 #     SHA-1, entry counts, lock version + lock-contract invariants), runs the verifier's
 #     adversarial suite, and proves the frozen bundle still unpacks to a runnable engine
 #     (embedded historical engine 228/0). It does NOT restore parity with the live engine.
+#   - corpus-contracts     : the P0-A corpus contract. Runs fully offline with no
+#     production engine deps: schema meta-validation, the cross-record validator tests,
+#     migration + deterministic import/export tests, privacy/export leak tests, filesystem
+#     safety + CLI exit-code tests, and the negative/adversarial suite; then re-runs the
+#     migration + export tools and asserts a clean working tree (deterministic, no drift).
 
 on:
   push:
@@ -33,6 +38,7 @@ on:
       - "runtime/v7/verify-engine-bundle-parity.mjs"
       - "runtime/v7/tests/**"
       - "runtime/v7/legacy-bundle/**"
+      - "runtime/v7/corpus/**"
       - ".github/workflows/runtime-tests.yml"
   pull_request:
     paths:
@@ -43,6 +49,7 @@ on:
       - "runtime/v7/verify-engine-bundle-parity.mjs"
       - "runtime/v7/tests/**"
       - "runtime/v7/legacy-bundle/**"
+      - "runtime/v7/corpus/**"
       - ".github/workflows/runtime-tests.yml"
   workflow_dispatch:
 
@@ -179,3 +186,66 @@ jobs:
           unzip -q rain-push-v7-claude-handoff.zip -d /tmp/legacy-bundle
           test -f /tmp/legacy-bundle/runtime/v7/engine/package.json
           (cd /tmp/legacy-bundle/runtime/v7/engine && npm test)
+
+  # The P0-A corpus contract at runtime/v7/corpus/. This is the provenance + policy + IO
+  # layer for the character corpus: schemas, the SSOT source-policy, the cross-record
+  # validator, and the deterministic migration / public-export / privacy-scan tools.
+  #
+  # It runs fully OFFLINE with ZERO production dependencies (the schemas and validators are
+  # hand-rolled precisely so this job needs no npm install and no network/LLM). The job:
+  #   - runs the whole node:test suite (schema meta-validation, cross-record validator,
+  #     migration, deterministic import/export, privacy/export leak, filesystem-safety +
+  #     CLI exit-code, and the negative/adversarial cases);
+  #   - re-runs the migration + export tools over the committed golden outputs and asserts
+  #     a clean working tree, so any non-determinism or accidental in-tree write fails CI.
+  # No engine, legacy-bundle, or dist artifacts are touched here.
+  corpus-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Assert the corpus contract has no production dependencies
+        run: |
+          # The contract is deliberately zero-dependency so this job stays offline. If a
+          # package.json with dependencies is ever added under runtime/v7/corpus/, fail —
+          # a dependency must be introduced deliberately and pinned, not by accident.
+          if [ -f runtime/v7/corpus/package.json ]; then
+            node -e "const p=require('./runtime/v7/corpus/package.json'); const d={...(p.dependencies||{})}; if(Object.keys(d).length){console.error('unexpected production dependencies:',d); process.exit(1)}"
+          fi
+
+      - name: Run the corpus-contract test suite (offline, zero-dependency)
+        run: node --test runtime/v7/corpus/tests
+
+      - name: Re-run migration + export tools and assert deterministic, clean tree
+        run: |
+          set -e
+          # Regenerate the committed golden artifacts in place; deterministic tools must
+          # reproduce them byte-for-byte, so the working tree stays clean.
+          node runtime/v7/corpus/bin/migrate.mjs \
+            --in runtime/v7/corpus/fixtures/corpus.v0_1.json \
+            --out-registry runtime/v7/corpus/fixtures/expected/migrated-registry.json \
+            --out-events   runtime/v7/corpus/fixtures/expected/migrated-events.json
+          node runtime/v7/corpus/bin/export-public.mjs \
+            --registry runtime/v7/corpus/fixtures/registry.valid.json \
+            --events   runtime/v7/corpus/fixtures/events.valid.json \
+            --out      runtime/v7/corpus/fixtures/expected/public-export.json
+          git status --porcelain runtime/v7/corpus
+          git diff --exit-code -- runtime/v7/corpus
+
+      - name: Prove the public export carries no private verbatim
+        run: |
+          # Export to a scratch path and scan it against the private events. Any verbatim
+          # or private-only field in public output fails the job.
+          node runtime/v7/corpus/bin/export-public.mjs \
+            --registry runtime/v7/corpus/fixtures/registry.valid.json \
+            --events   runtime/v7/corpus/fixtures/events.valid.json \
+            --out /tmp/corpus-public.json
+          node runtime/v7/corpus/bin/privacy-scan.mjs \
+            --private runtime/v7/corpus/fixtures/events.valid.json \
+            --public  /tmp/corpus-public.json

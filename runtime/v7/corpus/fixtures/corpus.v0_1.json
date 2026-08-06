@@ -1,0 +1,57 @@
+{
+  "version": "0.1",
+  "records": [
+    {
+      "id": "low feedback",
+      "text": "SYN-V01-1: ask which part specifically placeholder",
+      "role": "ame",
+      "source": {
+        "type": "dialogue",
+        "reference": "synthetic-canon-scene-001",
+        "confidence": "CANON_TEXT"
+      },
+      "channel": "jine",
+      "persona_surface": "ame_private",
+      "canon_state": "ordinary",
+      "day": 3,
+      "event_trigger": "partner replies with a low-information acknowledgement",
+      "functional_need": "obtain a concrete evaluation",
+      "p_role": "audience_of_one",
+      "behavior_primitives": ["ask_once"],
+      "expected_reply_class": "concrete_feedback",
+      "reply_timing_sensitivity": "medium",
+      "state_effect": ["relationship.attentiveness+"],
+      "route_severity": "minor",
+      "context_required": true,
+      "uncertainty": [],
+      "notes": "SYNTHETIC v0.1 record",
+      "legacy_extra_field": "preserved-under-x_legacy"
+    },
+    {
+      "id": "guide threshold",
+      "text": "SYN-V01-2: threshold mechanic placeholder",
+      "role": "system",
+      "source": {
+        "type": "guide",
+        "reference": "synthetic-guide-thresholds",
+        "confidence": "GUIDE_CONFIRMED"
+      },
+      "channel": "app_notification",
+      "event_trigger": "affection threshold crossed",
+      "route_severity": "none",
+      "context_required": false
+    },
+    {
+      "id": "unknown confidence line",
+      "text": "SYN-V01-3: unmapped confidence placeholder",
+      "source": {
+        "type": "user_note",
+        "reference": "synthetic-unknown",
+        "confidence": "TOTALLY_UNKNOWN_LEVEL"
+      },
+      "channel": "in_person",
+      "event_trigger": "misc",
+      "route_severity": "none"
+    }
+  ]
+}

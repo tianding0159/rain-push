@@ -1,0 +1,56 @@
+{
+  "$schemaDialect": "rain-push-corpus/mini-schema/1",
+  "$id": "private-corpus-event",
+  "title": "Private corpus event",
+  "description": "The private (internal) annotation unit: an EVENT plus its ORDERED message sequence. This is where verbatim text may live and where full annotation is carried. Private records must never be committed to the public repo (see privacy scanner + export tool). Vocabulary preserved from runtime/v7/corpus/annotation_contract.md and the Phase docs: channel, persona surface, Canon/Living mode, Canon state, event trigger, functional need, P role, behavior primitives, expected reply class, reply timing sensitivity, state effect, route severity, context-required, uncertainty, sequence order and delay.",
+  "type": "object",
+  "required": [
+    "recordFormatVersion", "id", "sourceId", "channel", "mode",
+    "eventTrigger", "messages"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "recordFormatVersion": { "type": "integer", "const": 1 },
+    "id":            { "type": "string", "pattern": "^evt_[a-z0-9_]+$" },
+    "sourceId":      { "type": "string", "pattern": "^src_[a-z0-9_]+$" },
+    "channel":       { "type": "string", "enumFrom": "channels" },
+    "personaSurface":{ "type": "string", "enumFrom": "personaSurfaces" },
+    "mode":          { "type": "string", "enumFrom": "modes" },
+    "canonState":    { "type": "string" },
+    "canonTime":     { "type": "string" },
+    "day":           { "type": "integer", "minimum": 0 },
+    "eventTrigger":  { "type": "string", "minLength": 1 },
+    "functionalNeed":{ "type": "string" },
+    "pRole":         { "type": "string" },
+    "behaviorPrimitives": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "expectedReplyClass": { "type": "string" },
+    "replyTimingSensitivity": { "type": "string", "enum": ["none", "low", "medium", "high"] },
+    "stateEffect":   { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "routeSeverity": { "type": "string", "enumFrom": "routeSeverities" },
+    "routeId":       { "type": "string", "pattern": "^route_[a-z0-9_]+$" },
+    "contextRequired": { "type": "boolean" },
+    "uncertainty":   { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "syntheticOnly": { "type": "boolean" },
+    "notes":         { "type": "string" },
+    "x_legacy":      { "type": "object" },
+    "messages": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/message" }
+    }
+  },
+  "$defs": {
+    "message": {
+      "type": "object",
+      "required": ["order", "role", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "order":  { "type": "integer", "minimum": 1 },
+        "role":   { "type": "string", "enumFrom": "messageRoles" },
+        "text":   { "type": "string" },
+        "delayMs":{ "type": "integer", "minimum": 0 },
+        "verbatim": { "type": "boolean" }
+      }
+    }
+  }
+}

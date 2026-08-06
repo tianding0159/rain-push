@@ -1,0 +1,73 @@
+[
+  {
+    "behaviorPrimitives": [
+      "ask_once"
+    ],
+    "canonState": "ordinary",
+    "channel": "jine",
+    "contextRequired": true,
+    "day": 3,
+    "eventTrigger": "partner replies with a low-information acknowledgement",
+    "expectedReplyClass": "concrete_feedback",
+    "functionalNeed": "obtain a concrete evaluation",
+    "id": "evt_low_feedback",
+    "messages": [
+      {
+        "order": 1,
+        "role": "ame",
+        "text": "SYN-V01-1: ask which part specifically placeholder",
+        "verbatim": true
+      }
+    ],
+    "mode": "living",
+    "notes": "SYNTHETIC v0.1 record",
+    "pRole": "audience_of_one",
+    "personaSurface": "ame_private",
+    "recordFormatVersion": 1,
+    "replyTimingSensitivity": "medium",
+    "routeSeverity": "minor",
+    "sourceId": "src_synthetic_canon_scene_001",
+    "stateEffect": [
+      "relationship.attentiveness+"
+    ],
+    "x_legacy": {
+      "legacy_extra_field": "preserved-under-x_legacy"
+    }
+  },
+  {
+    "channel": "app_notification",
+    "contextRequired": false,
+    "eventTrigger": "affection threshold crossed",
+    "id": "evt_guide_threshold",
+    "messages": [
+      {
+        "order": 1,
+        "role": "system",
+        "text": "SYN-V01-2: threshold mechanic placeholder",
+        "verbatim": true
+      }
+    ],
+    "mode": "living",
+    "recordFormatVersion": 1,
+    "routeSeverity": "none",
+    "sourceId": "src_synthetic_guide_thresholds"
+  },
+  {
+    "channel": "in_person",
+    "eventTrigger": "misc",
+    "id": "evt_unknown_confidence_line",
+    "messages": [
+      {
+        "order": 1,
+        "role": "ame",
+        "text": "SYN-V01-3: unmapped confidence placeholder",
+        "verbatim": true
+      }
+    ],
+    "mode": "living",
+    "recordFormatVersion": 1,
+    "routeSeverity": "none",
+    "sourceId": "src_synthetic_unknown",
+    "syntheticOnly": true
+  }
+]
