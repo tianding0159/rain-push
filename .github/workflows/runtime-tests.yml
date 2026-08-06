@@ -24,6 +24,7 @@ on:
       - "runtime/v7/engine/**"
       - "runtime/v7/engine.manifest.json"
       - "runtime/v7/build-engine-archive.mjs"
+      - "runtime/v7/verify-engine-bundle-parity.mjs"
       - "runtime/v7/tests/**"
       - ".github/workflows/runtime-tests.yml"
   pull_request:
@@ -32,6 +33,7 @@ on:
       - "runtime/v7/engine/**"
       - "runtime/v7/engine.manifest.json"
       - "runtime/v7/build-engine-archive.mjs"
+      - "runtime/v7/verify-engine-bundle-parity.mjs"
       - "runtime/v7/tests/**"
       - ".github/workflows/runtime-tests.yml"
   workflow_dispatch:
@@ -58,33 +60,14 @@ jobs:
           test -f _engine/runtime/v7/engine/package.json
 
       - name: Assert the bundle's embedded engine matches the manifest (68/68 parity)
+        # Versioned, unit-tested guard (missing / extra / mismatch) — see
+        # runtime/v7/verify-engine-bundle-parity.mjs and its tests. This closes the
+        # silent-divergence gap: editing runtime/v7/engine/ without repacking the
+        # legacy bundle fails here.
         run: |
-          # The manifest is the authority. Every file it lists must exist in the
-          # bundle's embedded engine with an identical SHA-256 (no missing files), and
-          # the bundle must not carry engine files the manifest does not know about
-          # (no extra files). This is what closes the silent-divergence gap: editing
-          # runtime/v7/engine/ without regenerating the bundle now fails here.
-          node -e '
-            const {createHash}=require("crypto"),fs=require("fs"),path=require("path");
-            const m=JSON.parse(fs.readFileSync("runtime/v7/engine.manifest.json","utf8"));
-            const root="_engine/runtime/v7/engine";
-            const want=new Map(m.files.map(f=>[f.path,f.sha256]));
-            let bad=0;
-            // missing / mismatch
-            for(const [rel,sha] of want){
-              const p=path.join(root,rel);
-              if(!fs.existsSync(p)){console.log("MISSING in bundle:",rel);bad++;continue;}
-              const h=createHash("sha256").update(fs.readFileSync(p)).digest("hex");
-              if(h!==sha){console.log("SHA MISMATCH:",rel);bad++;}
-            }
-            // extra
-            function walk(d,base){let o=[];for(const n of fs.readdirSync(d)){const a=path.join(d,n);const s=fs.lstatSync(a);const r=base?base+"/"+n:n;if(s.isDirectory())o.push(...walk(a,r));else o.push(r);}return o;}
-            for(const rel of walk(root,"")){
-              if(!want.has(rel)){console.log("EXTRA in bundle (not in manifest):",rel);bad++;}
-            }
-            if(bad){console.log("root-ZIP engine parity FAILED:",bad);process.exit(1);}
-            console.log("root-ZIP engine parity OK:",want.size,"files 68/68");
-          '
+          node runtime/v7/verify-engine-bundle-parity.mjs \
+            runtime/v7/engine.manifest.json \
+            _engine/runtime/v7/engine
 
       - name: Run the legacy bundle's engine test suite (zero-dependency, node --test)
         working-directory: _engine/runtime/v7/engine

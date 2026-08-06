@@ -22,6 +22,7 @@ import { execFileSync } from "node:child_process";
 import {
   buildZip,
   collectEngineFiles,
+  compareUtf8Bytes,
   CONSTANTS,
 } from "../build-engine-archive.mjs";
 
@@ -105,6 +106,58 @@ test("non-ASCII filenames round-trip through the archive (UTF-8 flag)", () => {
   const expected = Buffer.from(entries[0].path, "utf8");
   const stored = zip.subarray(30, 30 + l.nameLen);
   assert.deepEqual(stored, expected, "stored filename is UTF-8 bytes");
+});
+
+// ---- UTF-8 bytewise ordering (adversarial: distinguishes UTF-16 from UTF-8 order) ----
+
+test("compareUtf8Bytes orders by UTF-8 bytes, not JS UTF-16 code units", () => {
+  // U+E000 (BMP private-use) encodes to 0xEE 0x80 0x80.
+  // U+10000 (supplementary plane) encodes to 0xF0 0x90 0x80 0x80.
+  // In UTF-8 bytes, 0xEE < 0xF0 → U+E000 sorts FIRST.
+  // In JS string (UTF-16) comparison, U+10000 is a surrogate pair starting at
+  // 0xD800 < 0xE000 → U+10000 sorts first — the OPPOSITE order. A comparator that
+  // agreed with `<` here would be UTF-16, not the contract's UTF-8 bytewise order.
+  const bmp = "\uE000"; // U+E000
+  const supp = "\u{10000}"; // U+10000
+
+  const jsOrder = bmp < supp ? -1 : bmp > supp ? 1 : 0;
+  assert.equal(jsOrder, 1, "sanity: UTF-16 puts U+10000 before U+E000");
+
+  const byteOrder = compareUtf8Bytes(bmp, supp);
+  assert.ok(byteOrder < 0, "UTF-8 puts U+E000 before U+10000");
+  assert.notEqual(
+    Math.sign(byteOrder),
+    Math.sign(jsOrder),
+    "UTF-8 order must differ from UTF-16 order for this pair",
+  );
+});
+
+test("collectEngineFiles sorts paths by UTF-8 bytes, not UTF-16", () => {
+  const dir = mkdtempSync(join(tmpdir(), "engine-order-"));
+  try {
+    writeFileSync(join(dir, "\uE000.txt"), "bmp\n"); // U+E000
+    writeFileSync(join(dir, "\u{10000}.txt"), "supp\n"); // U+10000
+    const paths = collectEngineFiles(dir).map((f) => f.path);
+    // UTF-8 order → U+E000 file first; UTF-16 order would reverse this.
+    assert.deepEqual(paths, ["\uE000.txt", "\u{10000}.txt"]);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("buildZip preserves the caller's (UTF-8 sorted) entry order for non-BMP paths", () => {
+  // Entries pre-sorted by UTF-8 bytes; the archive must lay them out in that order.
+  const entries = [
+    { path: "\uE000.txt", data: Buffer.from("a\n", "utf8") },
+    { path: "\u{10000}.txt", data: Buffer.from("b\n", "utf8") },
+  ].sort((a, b) => compareUtf8Bytes(a.path, b.path));
+  assert.equal(entries[0].path, "\uE000.txt", "U+E000 sorts first under UTF-8");
+
+  const zip = buildZip(entries);
+  // First local header's filename must be the UTF-8 bytes of U+E000.txt.
+  const l = firstLocalHeader(zip);
+  const firstName = zip.subarray(30, 30 + l.nameLen);
+  assert.deepEqual(firstName, Buffer.from("\uE000.txt", "utf8"));
 });
 
 test("building identical input twice yields byte-identical archives", () => {

@@ -60,6 +60,14 @@ const ARCHIVE_NAME = "rain-push-v7-engine.zip";
 // Prefix inside the archive so it extracts to a self-describing directory.
 const ARCHIVE_ROOT = "runtime/v7/engine";
 
+// Order paths by their UTF-8 byte sequence (NOT JS string order, which is UTF-16
+// code-unit order). The archive/manifest contract promises bytewise ordering; the two
+// diverge for non-BMP vs BMP paths (e.g. U+10000 sorts before U+E000 in UTF-16 but
+// after it in UTF-8), so with UTF-8 filename support in scope we must sort by bytes.
+export function compareUtf8Bytes(a, b) {
+  return Buffer.compare(Buffer.from(a, "utf8"), Buffer.from(b, "utf8"));
+}
+
 // ---- file collection (recursive, deterministic order) ----
 // Uses lstatSync (never follows symlinks) and rejects anything that is not a plain
 // directory or regular file, so a stray symlink can't smuggle out-of-tree content
@@ -96,8 +104,8 @@ export function collectEngineFiles(engineDir = ENGINE_DIR) {
       const sha256 = createHash("sha256").update(data).digest("hex");
       return { path: rel, sha256, bytes: data.length, data };
     })
-    // bytewise sort by path
-    .sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
+    // sort by UTF-8 bytes (contract order), not JS UTF-16 string order
+    .sort((a, b) => compareUtf8Bytes(a.path, b.path));
 }
 
 // ---- manifest (deterministic JSON: stable key order, no timestamps) ----
