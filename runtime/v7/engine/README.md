@@ -1,63 +1,251 @@
-# runtime/v7/engine — reviewable surface
+# rain-push v7 Executable Runtime
 
-The full v7 character-runtime engine (orchestrator, 11 runtime modules, validators,
-state stores, and its complete test suite) ships as the versioned deliverable
-`rain-push-v7-claude-handoff.zip` at the repository root. It is self-contained and
-zero-dependency: unzip it and run `npm test` inside `runtime/v7/engine/`.
+Phase 12 turns the Phase 1–11 specifications into a runnable deterministic JavaScript reference engine.
 
-This directory surfaces the **Hardening Sprint 1 — Spec–Engine Parity Audit** artifacts as
-plain text so they can be reviewed line-by-line in the pull request (a zip blob cannot).
-The identical files also live inside the zip; this is a review convenience copy, not a second
-source of truth.
+## What is executable
 
-## Scope (read this first)
-
-This audit is **not** an exhaustive line-by-line audit of every Phase 1–11 requirement. It
-covers **26 high-risk requirements selected across the phases** — the invariants whose
-violation would be safety-, privacy-, or correctness-critical (execution boundary, privacy
-redaction, message budget, no-surface, update gating, determinism, escalation restraint,
-naming). Lower-risk and purely descriptive spec fields are intentionally out of scope for
-Sprint 1. The 26 requirements span the pipeline but do not enumerate every field of every
-packet; the field-level picture lives in `schema-field-map.json`.
-
-## Review these
-
-- `parity/parity-matrix.md` — human-readable parity matrix (generated from the JSON SSOT)
-- `parity/parity-matrix.json` — machine-readable SSOT: **26 high-risk cross-phase
-  requirements** with implementation status, severity, validator, and test linkage
-- `parity/high-risk-gaps.md` — risk ranking + the residual high-risk gap (R-DARK-01, a
-  bidirectional sensitive-input gate with one direction still missing)
-- `parity/actual-packet-fields.json` — ground truth: the field union the engine actually
-  emits, captured from real execution over every fixture (regenerate via
-  `tests/gen-actual-fields.mjs`; never hand-edit)
-- `parity/schema-field-map.json` — per-packet map with four field categories:
-  `actualFields` (ground truth) / `specFields` / `mappedFields` / `specOnlyFields`
-  (+ `engineOnlyFields`); rebuilt via `parity/build-schema-field-map.mjs`
-- `parity/runtime-contract-map.json` — per-runtime inputs, **real** output fields, and
-  contracts tagged `enforced` / `constructed` / `tested_only` / `specification_only`;
-  rebuilt via `parity/build-runtime-contract-map.mjs`
-- `tests/parity-contract.test.js` — 26 high-risk invariant tests (negative tests forge a
-  violation and assert the pipeline validator rejects it)
-- `tests/packet-contract.test.js` — 5 packet-shape + active purity-scan tests
-- `tests/spec-coverage.test.js` — parity-matrix integrity tests, including a
-  mutation-sensitive phase-coverage partition (dedicated vs cross-only phases)
-- `tests/schema-field-map.test.js` — asserts `schema-field-map` actualFields equal the live
-  engine field union (runs the engine, not a static table)
-- `tests/runtime-contract-map.test.js` — asserts pipeline order, entry files, output-field
-  parity, and that each contract's status is backed (enforced→validator, tested_only→test)
-
-## Running the tests
-
-These test files import the engine via `../src/...`, which is present **inside the zip**, not
-in this reviewable-surface directory. To actually run them:
-
-```bash
-unzip rain-push-v7-claude-handoff.zip -d /tmp/engine
-cd /tmp/engine/runtime/v7/engine
-npm test        # 223 pass / 0 fail (166 baseline + 57 Sprint 1)
+```text
+Knowledge
+→ Continuity
+→ Relationship
+→ Meaning
+→ Emotion
+→ Need
+→ Thought
+→ Decision
+→ Behavior
+→ Expression
+→ Language
 ```
 
-Sprint 1 test breakdown (57): parity-contract 26, packet-contract 5, spec-coverage 10,
-schema-field-map 7, runtime-contract-map 9.
+Every stage produces:
 
-Verified: a fresh unzip runs 223/223 with no network and no dependencies.
+- a versioned Packet
+- deterministic Packet ID and SHA-256-derived hash
+- confidence
+- trace data
+- validation status
+- update proposals
+
+The Orchestrator then:
+
+1. validates the event
+2. detects typed signals
+3. executes all eleven runtimes in order
+4. validates cross-packet boundaries
+5. commits allowed update queues
+6. persists state
+7. emits a deterministic pipeline hash
+8. returns final language without claiming execution
+
+## Requirements
+
+- Node.js 20 or newer
+- no npm dependencies
+- no network access required
+
+## Quick start
+
+```bash
+cd runtime/v7/engine
+npm test
+npm run demo
+```
+
+The demo input is:
+
+```text
+examples/sample-event.json
+```
+
+The final rendered output is available at:
+
+```text
+result.language.data.renderedText
+```
+
+## CLI
+
+Run one stateless event:
+
+```bash
+node src/cli.js examples/sample-event.json
+```
+
+Run with persistent JSON state:
+
+```bash
+node src/cli.js examples/sample-event.json \
+  --state examples/demo-state.json
+```
+
+Replay a sequence:
+
+```bash
+node src/cli.js --replay examples/replay-events.json
+```
+
+## JavaScript API
+
+```js
+import {
+  RuntimeOrchestrator,
+  MemoryStateStore
+} from "./src/index.js";
+
+const orchestrator = new RuntimeOrchestrator({
+  store: new MemoryStateStore()
+});
+
+const result = orchestrator.run({
+  eventId: "feedback-001",
+  timestamp: "2026-08-06T13:48:00+08:00",
+  mode: "living",
+  channel: "jine_private",
+  actor: "partner",
+  text: "很强",
+  context: {
+    scenario: "generic_stream_feedback"
+  },
+  seed: "example"
+});
+
+console.log(result.language.data.renderedText);
+// 具体哪里好
+```
+
+## Event contract
+
+```json
+{
+  "eventId": "string",
+  "timestamp": "ISO-8601 datetime",
+  "mode": "canon | living",
+  "channel": "jine_private | live_stream | public_post | face_to_face | physical_world | internal_wait | no_channel",
+  "actor": "partner | character | audience | system",
+  "text": "optional text",
+  "signals": ["optional explicit signal"],
+  "context": {
+    "scenario": "optional typed scenario",
+    "priorNotice": false,
+    "promiseStatus": "none | overdue",
+    "promiseDueAt": "optional ISO datetime",
+    "privacyRisk": "none | low | medium | high | critical",
+    "audienceThreat": "none | single | low | medium | high | critical",
+    "fatigue": 0,
+    "milestone": "optional milestone",
+    "object": "optional object",
+    "taskStatus": "optional task status"
+  },
+  "seed": "deterministic seed"
+}
+```
+
+Explicit signals and typed context are preferred for production integrations. Text heuristics are a fallback.
+
+## Built-in executable scenario families
+
+The reference engine currently has first-class behavior for:
+
+- generic stream feedback
+- specific feedback
+- prior-notice waiting
+- overdue promises and exact-time clarification
+- ordinary pudding and household omissions
+- post-stream fatigue and live-to-private transition
+- audience milestones
+- low-value trolls
+- privacy and doxxing risk
+- autonomy and control overreach
+- contextual dark humor
+- contextual sexual jokes
+- contextual drug references
+- hunger and illness boundaries
+
+The runtime is deliberately rule-based and inspectable. It is an executable reference implementation of the architecture, not a general-purpose language model.
+
+## State
+
+Two stores are included:
+
+```js
+MemoryStateStore
+JsonFileStateStore
+```
+
+State contains:
+
+- revision
+- per-runtime counters and patterns
+- bounded event history
+- pending rejected updates
+- last Packet hashes
+
+## Update queues
+
+Each runtime may propose changes only inside its own model namespace.
+
+Allowed operations:
+
+- `increment`
+- `set`
+- `append_unique`
+
+Cross-runtime writes, excessive deltas, missing evidence, and Canon-only writes in Living Mode are rejected.
+
+## Execution boundary
+
+Language output is always marked:
+
+```text
+executionStatus: not_executed
+```
+
+The engine never pretends that a message was sent, a post was published, or moderation occurred.
+
+External actions pass through `ExecutionBoundary`, which supports:
+
+- allowlisting
+- dry-run mode
+- confirmation requirements
+- injected execution handlers
+- explicit blocked / not_executed / executed / failed states
+
+Dry-run is the default.
+
+## Determinism
+
+Given the same:
+
+- event
+- initial state
+- runtime version
+- seed
+
+the engine produces the same:
+
+- Packet IDs
+- Packet hashes
+- rendered language
+- segmentation
+- update proposals
+- pipeline hash
+
+## Tests
+
+```bash
+npm test
+```
+
+Current executable suite:
+
+- 16 baseline integration tests
+- 100 scenario conformance tests
+- 50 property conformance tests
+- 166 baseline total
+- 57 Hardening Sprint 1 contract tests (parity-contract 26, packet-contract 5,
+  spec-coverage 10, schema-field-map 7, runtime-contract-map 9)
+- 223 total
+- 223 passing
+
+See `TEST_REPORT.md`.

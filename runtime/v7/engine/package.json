@@ -1,0 +1,16 @@
+{
+  "name": "rain-push-v7-runtime",
+  "version": "7.0.0-phase12",
+  "private": true,
+  "type": "module",
+  "description": "Executable deterministic runtime for the rain-push v7 character architecture.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "demo": "node src/cli.js examples/sample-event.json",
+    "demo:stateful": "node src/cli.js examples/sample-event.json --state examples/demo-state.json",
+    "replay": "node src/cli.js --replay examples/replay-events.json"
+  }
+}

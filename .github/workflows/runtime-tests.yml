@@ -1,10 +1,20 @@
 name: runtime-v7-tests
 
-# The v7 character-runtime engine ships as a zip blob at the repo root
-# (rain-push-v7-claude-handoff.zip). It is zero-dependency and runs on node --test.
-# This workflow unzips it and runs the full suite so the engine's contract tests
-# (including the Hardening Sprint 1 parity tests) gate every change that touches the
-# engine, its reviewable surface, or the zip itself.
+# Single source of truth: the reviewable engine source tree at runtime/v7/engine/.
+# runtime/v7/engine.manifest.json is the authoritative 68-file SHA-256 inventory of
+# that tree, produced deterministically by runtime/v7/build-engine-archive.mjs.
+#
+# The root blob rain-push-v7-claude-handoff.zip is a LEGACY spec + handoff bundle
+# (full v7 spec docs, handoff notes, and an embedded copy of the engine subtree). It
+# is NOT the authority. To prevent the embedded engine copy from silently drifting
+# from the SSOT, the engine-tests job verifies that bundle's embedded engine subtree
+# byte-for-byte (all 68 files: missing / extra / SHA-256) against the manifest.
+#
+# Two jobs, one authority:
+#   - engine-source-ssot : the authority. Runs tests from the reviewable source,
+#     proves the deterministic archive contract, and asserts a clean working tree.
+#   - engine-tests       : legacy-bundle guard. Asserts the root ZIP's embedded
+#     engine matches the manifest 68/68, then runs that bundle's own suite.
 
 on:
   push:
@@ -12,15 +22,27 @@ on:
     paths:
       - "rain-push-v7-claude-handoff.zip"
       - "runtime/v7/engine/**"
+      - "runtime/v7/engine.manifest.json"
+      - "runtime/v7/build-engine-archive.mjs"
+      - "runtime/v7/verify-engine-bundle-parity.mjs"
+      - "runtime/v7/tests/**"
       - ".github/workflows/runtime-tests.yml"
   pull_request:
     paths:
       - "rain-push-v7-claude-handoff.zip"
       - "runtime/v7/engine/**"
+      - "runtime/v7/engine.manifest.json"
+      - "runtime/v7/build-engine-archive.mjs"
+      - "runtime/v7/verify-engine-bundle-parity.mjs"
+      - "runtime/v7/tests/**"
       - ".github/workflows/runtime-tests.yml"
   workflow_dispatch:
 
 jobs:
+  # Legacy-bundle guard. The root rain-push-v7-claude-handoff.zip is a legacy spec +
+  # handoff bundle; its embedded engine subtree must not drift from the SSOT. This job
+  # verifies that embedded subtree against engine.manifest.json (68/68: missing, extra,
+  # and per-file SHA-256), then runs the bundle's own zero-dependency suite.
   engine-tests:
     runs-on: ubuntu-latest
     steps:
@@ -32,51 +54,100 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Unzip the v7 engine deliverable
+      - name: Unzip the legacy handoff bundle
         run: |
           unzip -q rain-push-v7-claude-handoff.zip -d _engine
           test -f _engine/runtime/v7/engine/package.json
 
-      - name: Run the engine test suite (zero-dependency, node --test)
+      - name: Assert the bundle's embedded engine matches the manifest (68/68 parity)
+        # Versioned, unit-tested guard (missing / extra / mismatch) — see
+        # runtime/v7/verify-engine-bundle-parity.mjs and its tests. This closes the
+        # silent-divergence gap: editing runtime/v7/engine/ without repacking the
+        # legacy bundle fails here.
+        run: |
+          node runtime/v7/verify-engine-bundle-parity.mjs \
+            runtime/v7/engine.manifest.json \
+            _engine/runtime/v7/engine
+
+      - name: Run the legacy bundle's engine test suite (zero-dependency, node --test)
         working-directory: _engine/runtime/v7/engine
         run: npm test
 
-      - name: Regenerate ground truth + parity maps and assert the committed copies are current
-        working-directory: _engine/runtime/v7/engine
-        run: |
-          # _engine is a fresh unzip (not a git tree), so we compare regenerated
-          # output against the copies that shipped inside the zip.
-          set -e
-          cp parity/actual-packet-fields.json /tmp/orig-actual.json
-          cp parity/schema-field-map.json /tmp/orig-schema.json
-          cp parity/runtime-contract-map.json /tmp/orig-contract.json
-          node tests/gen-actual-fields.mjs
-          node parity/build-schema-field-map.mjs
-          node parity/build-runtime-contract-map.mjs
-          diff -u /tmp/orig-actual.json parity/actual-packet-fields.json \
-            || (echo "actual-packet-fields.json is stale — run node tests/gen-actual-fields.mjs and commit" && exit 1)
-          diff -u /tmp/orig-schema.json parity/schema-field-map.json \
-            || (echo "schema-field-map.json is stale — run node parity/build-schema-field-map.mjs and commit" && exit 1)
-          diff -u /tmp/orig-contract.json parity/runtime-contract-map.json \
-            || (echo "runtime-contract-map.json is stale — run node parity/build-runtime-contract-map.mjs and commit" && exit 1)
+  # The authority. The reviewable engine source at runtime/v7/engine/ is the single
+  # source of truth. This job runs its tests directly from the checked-out tree (not
+  # the zip), runs the builder's metadata + symlink contract tests, then proves the
+  # deterministic archive contract: regenerating the manifest (to a scratch path)
+  # reproduces the committed one, the archive rebuilds byte-identically, extracting it
+  # reproduces every file's SHA-256, and no build step leaves the working tree dirty.
+  # Archive verification uses --no-manifest so it never rewrites the tracked manifest.
+  # The dist zip itself is regenerable and not committed (only the manifest is).
+  engine-source-ssot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Verify the reviewable surface matches the zip
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run engine tests from the reviewable source (zero-dependency)
+        working-directory: runtime/v7/engine
+        run: npm test
+
+      - name: Run the engine metadata + symlink contract tests
+        run: node --test runtime/v7/tests
+
+      - name: Assert the committed manifest is current (determinism gate)
         run: |
-          # The tracked runtime/v7/engine/ mirror must match the files inside the zip
-          # so reviewers reading the PR see exactly what ships. Compare the overlapping
-          # reviewable files (parity artifacts + Sprint 1 tests + README).
           set -e
-          for rel in \
-            parity/parity-matrix.json \
-            parity/parity-matrix.md \
-            parity/high-risk-gaps.md \
-            parity/schema-field-map.json \
-            parity/runtime-contract-map.json \
-            tests/parity-contract.test.js \
-            tests/packet-contract.test.js \
-            tests/spec-coverage.test.js ; do
-            if [ -f "runtime/v7/engine/$rel" ]; then
-              diff -u "runtime/v7/engine/$rel" "_engine/runtime/v7/engine/$rel" \
-                || (echo "reviewable surface diverges from zip: $rel" && exit 1)
-            fi
-          done
+          cp runtime/v7/engine.manifest.json /tmp/committed-manifest.json
+          # Regenerate the manifest to a scratch path (never touching the tracked file)
+          # and pin promotedFromCommit to the committed value so the provenance field
+          # never causes a spurious diff — we are gating file paths + hashes, not commit.
+          SRC="$(python3 -c "import json;print(json.load(open('/tmp/committed-manifest.json'))['promotedFromCommit'])")"
+          node runtime/v7/build-engine-archive.mjs --no-zip \
+            --manifest-out /tmp/regen-manifest.json --promoted-from "$SRC"
+          diff -u /tmp/committed-manifest.json /tmp/regen-manifest.json \
+            || (echo "engine.manifest.json is stale — run: node runtime/v7/build-engine-archive.mjs and commit" && exit 1)
+
+      - name: Verify deterministic archive + round-trip parity
+        run: |
+          set -e
+          # Build twice with --no-manifest so archive verification never rewrites the
+          # tracked manifest; the archive must be byte-identical across builds.
+          node runtime/v7/build-engine-archive.mjs --no-manifest >/dev/null
+          sha1="$(sha256sum runtime/v7/dist/rain-push-v7-engine.zip | cut -d' ' -f1)"
+          node runtime/v7/build-engine-archive.mjs --no-manifest >/dev/null
+          sha2="$(sha256sum runtime/v7/dist/rain-push-v7-engine.zip | cut -d' ' -f1)"
+          test "$sha1" = "$sha2" || (echo "archive is not reproducible: $sha1 != $sha2" && exit 1)
+          echo "archive sha256: $sha1"
+          # Extract and verify every file's SHA-256 against the manifest (round-trip).
+          rm -rf /tmp/rt && mkdir -p /tmp/rt
+          unzip -q runtime/v7/dist/rain-push-v7-engine.zip -d /tmp/rt
+          node -e '
+            const {createHash}=require("crypto"),fs=require("fs"),path=require("path");
+            const m=JSON.parse(fs.readFileSync("runtime/v7/engine.manifest.json","utf8"));
+            const root="/tmp/rt/runtime/v7/engine";
+            let bad=0;
+            for(const f of m.files){
+              const p=path.join(root,f.path);
+              if(!fs.existsSync(p)){console.log("MISSING",f.path);bad++;continue;}
+              const h=createHash("sha256").update(fs.readFileSync(p)).digest("hex");
+              if(h!==f.sha256){console.log("MISMATCH",f.path);bad++;}
+            }
+            if(bad){console.log("round-trip FAILED:",bad);process.exit(1);}
+            console.log("round-trip OK:",m.files.length,"files");
+          '
+          # Extracted engine must run green too.
+          (cd /tmp/rt/runtime/v7/engine && npm test)
+
+      - name: Assert a clean working tree (no build step mutated tracked files)
+        run: |
+          # The determinism gate and archive verification must not modify any tracked
+          # file (the dist zip is gitignored). If anything changed, a build step wrote
+          # into the tree — fail loudly rather than passing on a dirty tree.
+          git status --porcelain
+          git diff --exit-code
+          git diff --cached --exit-code
