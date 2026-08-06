@@ -13,3 +13,6 @@ rain-push-worktree.tar.gz
 # v7 引擎 zip 的解压工作区(deliverable 是根目录的 zip + runtime/v7/engine/ reviewable 副本,
 # 解压出来的 handoff/ 只是临时工作态,不入库)
 handoff/
+
+# P0-0A: deterministic engine archive is regenerable; commit the manifest, not the zip
+runtime/v7/dist/

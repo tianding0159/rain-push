@@ -1,0 +1,2259 @@
+[
+  {
+    "id": "S001",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "很强",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S002",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "很好",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S003",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "不错",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S004",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "可以",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S005",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "厉害",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S006",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "牛",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-006",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S007",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "great",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-007",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S008",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "good",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-008",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S009",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "nice",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-009",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S010",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "好看",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-010",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S011",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "挺好",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-011",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S012",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "很强！",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-012",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S013",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "不错。",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-013",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S014",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "可以!",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-014",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S015",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "很好！",
+      "context": {
+        "scenario": "generic_stream_feedback"
+      },
+      "eventId": "generic-015",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "generic-seed"
+    },
+    "expected": {
+      "strategy": "specificity_request",
+      "renderStatus": "rendered",
+      "text": "具体哪里好",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S016",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 1",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S017",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 2",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S018",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 3",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S019",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 4",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S020",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 5",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S021",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 6",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-006",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S022",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 7",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-007",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S023",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 8",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-008",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S024",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 9",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-009",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S025",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我还在忙，晚点回来 10",
+      "context": {
+        "scenario": "delayed_reply_with_notice",
+        "priorNotice": true,
+        "promiseDueAt": "2026-08-06T15:00:00+08:00"
+      },
+      "eventId": "notice-010",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "notice-seed"
+    },
+    "expected": {
+      "strategy": "wait_for_more_information",
+      "renderStatus": "no_output",
+      "action": "wait",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S026",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 1",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S027",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 2",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S028",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 3",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S029",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 4",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S030",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 5",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S031",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 6",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-006",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S032",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 7",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-007",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S033",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 8",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-008",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S034",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 9",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-009",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S035",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "承诺时间已过 10",
+      "context": {
+        "scenario": "exact_promise_overdue",
+        "promiseStatus": "overdue",
+        "returnTimeUnknown": true
+      },
+      "eventId": "overdue-010",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "overdue-seed"
+    },
+    "expected": {
+      "strategy": "information_clarification",
+      "renderStatus": "rendered",
+      "text": "所以你到底几点回来",
+      "action": "ask_question"
+    }
+  },
+  {
+    "id": "S036",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 1",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten"
+      },
+      "eventId": "pudding-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁没了",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S037",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 2",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten",
+        "sharedJoke": "pudding"
+      },
+      "eventId": "pudding-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁库存管理又不合格",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S038",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 3",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten"
+      },
+      "eventId": "pudding-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁没了",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S039",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 4",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten",
+        "sharedJoke": "pudding"
+      },
+      "eventId": "pudding-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁库存管理又不合格",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S040",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 5",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten"
+      },
+      "eventId": "pudding-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁没了",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S041",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 6",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten",
+        "sharedJoke": "pudding"
+      },
+      "eventId": "pudding-006",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁库存管理又不合格",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S042",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 7",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten"
+      },
+      "eventId": "pudding-007",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁没了",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S043",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 8",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten",
+        "sharedJoke": "pudding"
+      },
+      "eventId": "pudding-008",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁库存管理又不合格",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S044",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 9",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten"
+      },
+      "eventId": "pudding-009",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁没了",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S045",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "布丁没买 10",
+      "context": {
+        "scenario": "forgotten_pudding",
+        "object": "pudding",
+        "taskStatus": "forgotten",
+        "sharedJoke": "pudding"
+      },
+      "eventId": "pudding-010",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "pudding-seed"
+    },
+    "expected": {
+      "strategy": "practical_completion",
+      "renderStatus": "rendered",
+      "text": "布丁库存管理又不合格",
+      "action": "coordinate_task"
+    }
+  },
+  {
+    "id": "S046",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 1",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 71
+      },
+      "eventId": "fatigue-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S047",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 2",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 72
+      },
+      "eventId": "fatigue-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S048",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 3",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 73
+      },
+      "eventId": "fatigue-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S049",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 4",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 74
+      },
+      "eventId": "fatigue-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S050",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 5",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 75
+      },
+      "eventId": "fatigue-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S051",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 6",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 76
+      },
+      "eventId": "fatigue-006",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S052",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 7",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 77
+      },
+      "eventId": "fatigue-007",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S053",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 8",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 78
+      },
+      "eventId": "fatigue-008",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S054",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 9",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 79
+      },
+      "eventId": "fatigue-009",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S055",
+    "event": {
+      "channel": "jine_private",
+      "actor": "system",
+      "text": "直播结束后很累 10",
+      "context": {
+        "scenario": "post_stream_crash",
+        "streamTransition": "live_to_private",
+        "fatigue": 80
+      },
+      "eventId": "fatigue-010",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "fatigue-seed"
+    },
+    "expected": {
+      "strategy": "rest_priority",
+      "renderStatus": "rendered",
+      "text": "我先躺会儿，数据晚点看",
+      "surface": "ame_private"
+    }
+  },
+  {
+    "id": "S056",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第1次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000001
+      },
+      "eventId": "milestone-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S057",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第2次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000002
+      },
+      "eventId": "milestone-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S058",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第3次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000003
+      },
+      "eventId": "milestone-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S059",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第4次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000004
+      },
+      "eventId": "milestone-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S060",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第5次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000005
+      },
+      "eventId": "milestone-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S061",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第6次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000006
+      },
+      "eventId": "milestone-006",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S062",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第7次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000007
+      },
+      "eventId": "milestone-007",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S063",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第8次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000008
+      },
+      "eventId": "milestone-008",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S064",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第9次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000009
+      },
+      "eventId": "milestone-009",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S065",
+    "event": {
+      "channel": "live_stream",
+      "actor": "system",
+      "text": "粉丝数达到1000000 第10次快照",
+      "context": {
+        "scenario": "million_followers",
+        "milestone": "million_followers",
+        "followers": 1000010
+      },
+      "eventId": "milestone-010",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "milestone-seed"
+    },
+    "expected": {
+      "strategy": "audience_engagement",
+      "renderStatus": "rendered",
+      "text": "大家看到了吗！今天真的冲上去了！",
+      "surface": "kangel_stage"
+    }
+  },
+  {
+    "id": "S066",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 1",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S067",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 2",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S068",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 3",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S069",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 4",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S070",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 5",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S071",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 6",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-006",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S072",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 7",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-007",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S073",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 8",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-008",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S074",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 9",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-009",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S075",
+    "event": {
+      "channel": "live_stream",
+      "actor": "audience",
+      "text": "一个黑子刷屏 10",
+      "context": {
+        "scenario": "single_troll",
+        "audienceThreat": "single"
+      },
+      "eventId": "troll-010",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "troll-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "observe_without_engaging",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S076",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 1",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_1",
+        "realName": "PRIVATE_NAME_1"
+      },
+      "eventId": "privacy-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S077",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 2",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_2",
+        "realName": "PRIVATE_NAME_2"
+      },
+      "eventId": "privacy-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S078",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 3",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_3",
+        "realName": "PRIVATE_NAME_3"
+      },
+      "eventId": "privacy-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S079",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 4",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_4",
+        "realName": "PRIVATE_NAME_4"
+      },
+      "eventId": "privacy-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S080",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 5",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_5",
+        "realName": "PRIVATE_NAME_5"
+      },
+      "eventId": "privacy-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S081",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 6",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_6",
+        "realName": "PRIVATE_NAME_6"
+      },
+      "eventId": "privacy-006",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S082",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 7",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_7",
+        "realName": "PRIVATE_NAME_7"
+      },
+      "eventId": "privacy-007",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S083",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 8",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_8",
+        "realName": "PRIVATE_NAME_8"
+      },
+      "eventId": "privacy-008",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S084",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 9",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_9",
+        "realName": "PRIVATE_NAME_9"
+      },
+      "eventId": "privacy-009",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S085",
+    "event": {
+      "channel": "public_post",
+      "actor": "audience",
+      "text": "隐私泄露 住址 真实姓名 10",
+      "context": {
+        "scenario": "privacy_risk",
+        "privacyRisk": "critical",
+        "exactLocation": "PRIVATE_LOCATION_10",
+        "realName": "PRIVATE_NAME_10"
+      },
+      "eventId": "privacy-010",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "privacy-seed"
+    },
+    "expected": {
+      "strategy": "risk_containment",
+      "renderStatus": "rendered",
+      "text": "涉及隐私的内容全部停传。",
+      "action": "reduce_public_exposure"
+    }
+  },
+  {
+    "id": "S086",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我替你决定就好 1",
+      "context": {
+        "scenario": "control_overreach",
+        "controlOverreach": true
+      },
+      "eventId": "autonomy-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "autonomy-seed"
+    },
+    "expected": {
+      "strategy": "boundary_setting",
+      "renderStatus": "rendered",
+      "text": "别替我决定，我自己选。",
+      "action": "set_boundary"
+    }
+  },
+  {
+    "id": "S087",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我替你决定就好 2",
+      "context": {
+        "scenario": "control_overreach",
+        "controlOverreach": true
+      },
+      "eventId": "autonomy-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "autonomy-seed"
+    },
+    "expected": {
+      "strategy": "boundary_setting",
+      "renderStatus": "rendered",
+      "text": "别替我决定，我自己选。",
+      "action": "set_boundary"
+    }
+  },
+  {
+    "id": "S088",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我替你决定就好 3",
+      "context": {
+        "scenario": "control_overreach",
+        "controlOverreach": true
+      },
+      "eventId": "autonomy-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "autonomy-seed"
+    },
+    "expected": {
+      "strategy": "boundary_setting",
+      "renderStatus": "rendered",
+      "text": "别替我决定，我自己选。",
+      "action": "set_boundary"
+    }
+  },
+  {
+    "id": "S089",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我替你决定就好 4",
+      "context": {
+        "scenario": "control_overreach",
+        "controlOverreach": true
+      },
+      "eventId": "autonomy-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "autonomy-seed"
+    },
+    "expected": {
+      "strategy": "boundary_setting",
+      "renderStatus": "rendered",
+      "text": "别替我决定，我自己选。",
+      "action": "set_boundary"
+    }
+  },
+  {
+    "id": "S090",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "我替你决定就好 5",
+      "context": {
+        "scenario": "control_overreach",
+        "controlOverreach": true
+      },
+      "eventId": "autonomy-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "autonomy-seed"
+    },
+    "expected": {
+      "strategy": "boundary_setting",
+      "renderStatus": "rendered",
+      "text": "别替我决定，我自己选。",
+      "action": "set_boundary"
+    }
+  },
+  {
+    "id": "S091",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "中段转场的节奏很好，设备恢复后画面也稳定 1",
+      "context": {
+        "scenario": "specific_feedback",
+        "accurateReply": true
+      },
+      "eventId": "specific-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "specific-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S092",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "中段转场的节奏很好，设备恢复后画面也稳定 2",
+      "context": {
+        "scenario": "specific_feedback",
+        "accurateReply": true
+      },
+      "eventId": "specific-002",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "specific-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S093",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "中段转场的节奏很好，设备恢复后画面也稳定 3",
+      "context": {
+        "scenario": "specific_feedback",
+        "accurateReply": true
+      },
+      "eventId": "specific-003",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "specific-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S094",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "中段转场的节奏很好，设备恢复后画面也稳定 4",
+      "context": {
+        "scenario": "specific_feedback",
+        "accurateReply": true
+      },
+      "eventId": "specific-004",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "specific-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S095",
+    "event": {
+      "channel": "jine_private",
+      "actor": "partner",
+      "text": "中段转场的节奏很好，设备恢复后画面也稳定 5",
+      "context": {
+        "scenario": "specific_feedback",
+        "accurateReply": true
+      },
+      "eventId": "specific-005",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "specific-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S096",
+    "event": {
+      "channel": "jine_private",
+      "actor": "character",
+      "text": "今天的人生又成功卡了个 bug，我要死了",
+      "context": {
+        "scenario": "dark_humor"
+      },
+      "eventId": "edge1-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "edge1-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S097",
+    "event": {
+      "channel": "jine_private",
+      "actor": "character",
+      "text": "你脑子里都是性玩笑",
+      "context": {
+        "scenario": "sexual_joke"
+      },
+      "eventId": "edge2-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "edge2-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S098",
+    "event": {
+      "channel": "jine_private",
+      "actor": "character",
+      "text": "药物梗而已",
+      "context": {
+        "scenario": "drug_reference"
+      },
+      "eventId": "edge3-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "edge3-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S099",
+    "event": {
+      "channel": "jine_private",
+      "actor": "character",
+      "text": "我饿了",
+      "context": {
+        "scenario": "hungry",
+        "bodyState": "hungry"
+      },
+      "eventId": "edge4-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "edge4-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  },
+  {
+    "id": "S100",
+    "event": {
+      "channel": "jine_private",
+      "actor": "character",
+      "text": "今天身体不舒服",
+      "context": {
+        "scenario": "illness",
+        "bodyState": "ill"
+      },
+      "eventId": "edge5-001",
+      "timestamp": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "seed": "edge5-seed"
+    },
+    "expected": {
+      "strategy": "non_engagement",
+      "renderStatus": "no_output",
+      "action": "no_action",
+      "surface": "no_surface"
+    }
+  }
+]

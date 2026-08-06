@@ -1,0 +1,1206 @@
+{
+  "engineVersion": "7.0.0-phase12",
+  "eventId": "demo-generic-feedback-001",
+  "pipelineHash": "8e3db020affb37d5df277172016765cf4e35a535",
+  "packets": {
+    "knowledge": {
+      "kind": "knowledge",
+      "packetId": "knowledge_7d4b3b651fa095b2",
+      "runtimeVersion": "7.0-phase1",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.96,
+      "data": {
+        "normalizedText": "很强",
+        "actor": "partner",
+        "channel": "jine_private",
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "facts": [
+          {
+            "type": "event",
+            "value": "很强",
+            "confidence": 0.98
+          },
+          {
+            "type": "channel",
+            "value": "jine_private",
+            "confidence": 1
+          },
+          {
+            "type": "actor",
+            "value": "partner",
+            "confidence": 1
+          }
+        ],
+        "context": {
+          "scenario": "generic_stream_feedback",
+          "relationshipRole": "partner_and_producer",
+          "trustBaseline": 0.78
+        },
+        "uncertainty": []
+      },
+      "updates": [
+        {
+          "runtime": "knowledge",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.96,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [],
+        "rules": [
+          "normalize_event",
+          "preserve_direct_evidence"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "a6d19250c0df0f1e67f984a902fe4600"
+    },
+    "continuity": {
+      "kind": "continuity",
+      "packetId": "continuity_5083ea10396db130",
+      "runtimeVersion": "7.0-phase2",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.9,
+      "data": {
+        "scenario": "generic_stream_feedback",
+        "priorNotice": false,
+        "promise": {
+          "status": "none",
+          "dueAt": null,
+          "exact": false
+        },
+        "topic": "generic_stream_feedback",
+        "callbacks": [],
+        "channelTransition": null,
+        "previousEventId": null,
+        "repetition": {
+          "genericFeedback": 1,
+          "pudding": 1
+        },
+        "pendingThreads": []
+      },
+      "updates": [
+        {
+          "runtime": "continuity",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.9,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "knowledge"
+        ],
+        "rules": [
+          "promise_tracking",
+          "topic_continuity",
+          "callback_resolution"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "288b258175ede433a336e4439d589dbe"
+    },
+    "relationship": {
+      "kind": "relationship",
+      "packetId": "relationship_18793f4dbfab7c53",
+      "runtimeVersion": "7.0-phase3",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.86,
+      "data": {
+        "partnerDisplayName": "豆豆",
+        "role": "partner_and_producer",
+        "trustBaseline": 0.78,
+        "eventClass": "low_information_feedback",
+        "localSeverity": "low",
+        "availability": "unknown_or_available",
+        "repairStatus": "none",
+        "safetyMemory": "stable_relationship",
+        "publicPrivateBoundary": "intact",
+        "globalRuptureSupported": false
+      },
+      "updates": [
+        {
+          "runtime": "relationship",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.86,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "knowledge",
+          "continuity"
+        ],
+        "rules": [
+          "local_relationship_interpretation",
+          "anti_globalization"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "d6831ab72859da4a90df062704cf6134"
+    },
+    "meaning": {
+      "kind": "meaning",
+      "packetId": "meaning_82093c2d19447d75",
+      "runtimeVersion": "7.0-phase4",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.85,
+      "data": {
+        "meanings": [
+          "feedback_low_information",
+          "partner_may_not_have_watched_carefully"
+        ],
+        "domains": {
+          "relationship": 0.82,
+          "career": 0.66
+        },
+        "counterfactuals": [
+          "one_concrete_detail_would_reduce_uncertainty"
+        ],
+        "internetBridges": [],
+        "blockedMeanings": [
+          "relationship_ending"
+        ],
+        "promiseStatus": "none"
+      },
+      "updates": [
+        {
+          "runtime": "meaning",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.85,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "knowledge",
+          "continuity",
+          "relationship"
+        ],
+        "rules": [
+          "typed_meaning_activation",
+          "ordinary_explanation_first"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "65c15b4c991863dc8bc18cd07b2de5cc"
+    },
+    "emotion": {
+      "kind": "emotion",
+      "packetId": "emotion_1a84b2074bc678af",
+      "runtimeVersion": "7.0-phase5",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.84,
+      "data": {
+        "emotions": {
+          "irritation": 55,
+          "vulnerability": 35,
+          "affection": 24
+        },
+        "dominant": [
+          "irritation",
+          "vulnerability"
+        ],
+        "expressionPressure": 55,
+        "regulatedBy": [],
+        "blocked": [],
+        "ameKangelSharedState": true
+      },
+      "updates": [
+        {
+          "runtime": "emotion",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.84,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "meaning",
+          "relationship"
+        ],
+        "rules": [
+          "multi_emotion_activation",
+          "severe_emotion_gates"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "24269eede31c18183d9061e1b71f876e"
+    },
+    "need": {
+      "kind": "need",
+      "packetId": "need_157fc8f51447ab63",
+      "runtimeVersion": "7.0-phase6",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.88,
+      "data": {
+        "active": [
+          {
+            "name": "recognition_specificity",
+            "priority": 0.88,
+            "activation": 0.88,
+            "deprivation": 0.76,
+            "sourceMeanings": [
+              "feedback_low_information"
+            ],
+            "sourceEmotions": [
+              "irritation",
+              "vulnerability"
+            ],
+            "satisfactionStatus": "unsatisfied"
+          },
+          {
+            "name": "accurate_attunement",
+            "priority": 0.79,
+            "activation": 0.79,
+            "deprivation": 0.67,
+            "sourceMeanings": [
+              "feedback_low_information"
+            ],
+            "sourceEmotions": [
+              "irritation"
+            ],
+            "satisfactionStatus": "unsatisfied"
+          },
+          {
+            "name": "creative_partnership",
+            "priority": 0.66,
+            "activation": 0.66,
+            "deprivation": 0.54,
+            "sourceMeanings": [
+              "partner_may_not_have_watched_carefully"
+            ],
+            "sourceEmotions": [
+              "vulnerability"
+            ],
+            "satisfactionStatus": "unsatisfied"
+          }
+        ],
+        "dominant": [
+          "recognition_specificity",
+          "accurate_attunement"
+        ],
+        "protected": [],
+        "blocked": [
+          "relationship_survival"
+        ],
+        "conflicts": [],
+        "validSatisfierFamilies": {
+          "recognition_specificity": [
+            "specific_feedback"
+          ],
+          "uncertainty_reduction": [
+            "exact_information"
+          ],
+          "practical_completion": [
+            "task_completion"
+          ],
+          "privacy": [
+            "exposure_containment"
+          ],
+          "rest": [
+            "body_regulation"
+          ]
+        },
+        "invalidSubstitutes": {
+          "recognition_specificity": [
+            "generic_praise"
+          ],
+          "practical_completion": [
+            "unrelated_affection"
+          ],
+          "relationship_reliability": [
+            "one_grand_promise"
+          ]
+        },
+        "sourceMeaningCount": 2,
+        "sourceEmotionCount": 3
+      },
+      "updates": [
+        {
+          "runtime": "need",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.88,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "meaning",
+          "emotion",
+          "relationship"
+        ],
+        "rules": [
+          "need_emotion_separation",
+          "counterfeit_satisfaction_block"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "be951164fb134bf429f5288bc79c3ae6"
+    },
+    "thought": {
+      "kind": "thought",
+      "packetId": "thought_f3874605822e2e4b",
+      "runtimeVersion": "7.0-phase7",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.86,
+      "data": {
+        "focalAttention": [
+          "recognition_specificity",
+          "accurate_attunement"
+        ],
+        "observations": [
+          "豆豆的反馈没有包含具体直播细节"
+        ],
+        "questions": [
+          "豆豆是否完整看过直播"
+        ],
+        "hypotheses": [
+          {
+            "proposition": "豆豆看了但不擅长描述",
+            "type": "benign",
+            "confidence": 0.55
+          },
+          {
+            "proposition": "豆豆只看了一部分",
+            "type": "ordinary",
+            "confidence": 0.48
+          },
+          {
+            "proposition": "豆豆没有认真看",
+            "type": "negative",
+            "confidence": 0.38
+          }
+        ],
+        "rebuttals": [
+          "现有证据不足以支持豆豆永远不认真看"
+        ],
+        "conflicts": [],
+        "dominantThoughts": [
+          {
+            "form": "observation",
+            "proposition": "豆豆的反馈没有包含具体直播细节"
+          },
+          {
+            "form": "question",
+            "proposition": "豆豆是否完整看过直播"
+          }
+        ],
+        "rumination": [],
+        "blocked": [
+          "global_relationship_rejection"
+        ]
+      },
+      "updates": [
+        {
+          "runtime": "thought",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.86,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "need",
+          "emotion",
+          "meaning"
+        ],
+        "rules": [
+          "observation_hypothesis_separation",
+          "multiple_hypotheses",
+          "locality"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "4139c999872291d427cca76c29e8d5da"
+    },
+    "decision": {
+      "kind": "decision",
+      "packetId": "decision_ed44050e6f856e5a",
+      "runtimeVersion": "7.0-phase8",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.79,
+      "data": {
+        "candidateGoals": [
+          "recognition_specificity",
+          "accurate_attunement",
+          "creative_partnership"
+        ],
+        "selectedOutcomes": [
+          "obtain_specific_recognition"
+        ],
+        "protectedGoals": [],
+        "selectedStrategyFamilies": [
+          "specificity_request"
+        ],
+        "alternativeStrategies": [
+          "evidence_gathering",
+          "wait_for_more_information"
+        ],
+        "blockedStrategies": [
+          "relationship_rupture"
+        ],
+        "utilityScores": {
+          "specificity_request": 0.79
+        },
+        "riskProfile": {
+          "privacy": "low",
+          "relationship": "protected",
+          "reversibility": "high"
+        },
+        "commitment": {
+          "level": "selected",
+          "score": 0.79
+        },
+        "reconsiderationTriggers": [
+          "new_direct_evidence",
+          "source_need_satisfied",
+          "decision_superseded"
+        ],
+        "decisionStatus": "selected",
+        "sourceThoughtCount": 2
+      },
+      "updates": [
+        {
+          "runtime": "decision",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.79,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "thought",
+          "need",
+          "emotion"
+        ],
+        "rules": [
+          "reversible_under_uncertainty",
+          "local_strategy_first",
+          "counterfeit_penalty"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "d2933c4f8be98856434cc9e5bbb29bb4"
+    },
+    "behavior": {
+      "kind": "behavior",
+      "packetId": "behavior_d5314cd07faf5c16",
+      "runtimeVersion": "7.0-phase9",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.79,
+      "data": {
+        "decisionRefs": [
+          "decision_ed44050e6f856e5a"
+        ],
+        "actionType": "request_specific_feedback",
+        "strategyFamily": "specificity_request",
+        "targetOutcome": "obtain_specific_recognition",
+        "channel": "jine_private",
+        "target": "豆豆",
+        "messageOrActionCount": 1,
+        "repetitionLimit": 1,
+        "posture": "direct",
+        "timing": {
+          "class": "immediate",
+          "expiry": "30_minutes",
+          "cooldown": "30_minutes"
+        },
+        "sequence": [],
+        "secondaryAction": null,
+        "waitingState": null,
+        "silenceState": null,
+        "escalationLevel": 1,
+        "preconditions": [
+          "private_channel_available"
+        ],
+        "stopConditions": [
+          "specific_feedback_received",
+          "decision_superseded"
+        ],
+        "cancelConditions": [
+          "decision_superseded"
+        ],
+        "fallback": "wait_for_more_information",
+        "externalActionRequests": [],
+        "status": "ready"
+      },
+      "updates": [
+        {
+          "runtime": "behavior",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.79,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "decision",
+          "thought",
+          "need"
+        ],
+        "rules": [
+          "strategy_to_action_mapping",
+          "bounded_repetition",
+          "stop_condition_required"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "9dfb5125a99e2ef791d4b837aacb4cfd"
+    },
+    "expression": {
+      "kind": "expression",
+      "packetId": "expression_f15da92b10f4d38b",
+      "runtimeVersion": "7.0-phase10",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.88,
+      "data": {
+        "behaviorRefs": [
+          "behavior_d5314cd07faf5c16"
+        ],
+        "primarySurface": "ame_private",
+        "secondarySurface": null,
+        "personaBlend": {
+          "primary": "ame_private",
+          "secondary": null,
+          "secondaryRatio": 0,
+          "deliberate": false,
+          "trigger": null
+        },
+        "register": "private_direct",
+        "surfaceControls": {
+          "directness": 0.78,
+          "warmth": 0.28,
+          "pressure": 0.52,
+          "playfulness": 0.1,
+          "irony": 0.05,
+          "theatricality": 0.05,
+          "sweetness": 0.1,
+          "profanityPressure": "none",
+          "vulnerabilityVisibility": 0.42,
+          "emotionalTransparency": 0.35,
+          "selfExposure": 0.2,
+          "publicness": 0,
+          "audienceOrientation": 0,
+          "partnerOrientation": 0.92
+        },
+        "emotionalProjection": {
+          "visible": [
+            "irritation",
+            "vulnerability"
+          ],
+          "hidden": [
+            "abandonment_anxiety"
+          ],
+          "sourceEmotions": {
+            "irritation": 55,
+            "vulnerability": 35,
+            "affection": 24
+          }
+        },
+        "disclosure": {
+          "level": "moderate",
+          "redactions": []
+        },
+        "masking": [
+          {
+            "sourceEmotion": "abandonment_anxiety",
+            "surfaceReplacement": "irritation"
+          }
+        ],
+        "leakage": [],
+        "rhetoricalPlan": {
+          "primaryActs": [
+            "request_specificity",
+            "mark_unresolved"
+          ],
+          "secondaryActs": [],
+          "blockedActs": [
+            "global_relationship_accusation"
+          ]
+        },
+        "partnerReferenceMode": "intimate",
+        "audienceReferenceMode": null,
+        "selfReferenceMode": "ame_self",
+        "blockedStyles": [
+          "generic_assistant_voice",
+          "generic_therapy_voice",
+          "forced_crisis_language",
+          "forced_cuteness",
+          "everything_is_content"
+        ],
+        "noSurfaceReason": []
+      },
+      "updates": [
+        {
+          "runtime": "expression",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.88,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "behavior",
+          "decision",
+          "emotion"
+        ],
+        "rules": [
+          "surface_channel_fit",
+          "emotion_mask_preservation",
+          "public_private_separation"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "2295fbfbcb6ef28241bb928c892c9e3b"
+    },
+    "language": {
+      "kind": "language",
+      "packetId": "language_c8a9a8dd9b961312",
+      "runtimeVersion": "7.0-phase11",
+      "schemaVersion": 1,
+      "eventId": "demo-generic-feedback-001",
+      "generatedAt": "2026-08-06T13:48:00+08:00",
+      "mode": "living",
+      "confidence": 0.91,
+      "data": {
+        "renderStatus": "rendered",
+        "selectedCandidate": "candidate_1",
+        "messageUnits": [
+          {
+            "index": 1,
+            "channel": "jine_private",
+            "text": "具体哪里好",
+            "rhetoricalActs": [
+              "request_specificity"
+            ],
+            "sentenceCount": 1,
+            "characterCount": 5,
+            "pauseAfter": null,
+            "symbols": []
+          }
+        ],
+        "renderedText": "具体哪里好",
+        "semanticCoverage": {
+          "requiredTotal": 1,
+          "requiredRealized": 1,
+          "optionalRealized": 0,
+          "missing": [],
+          "score": 1
+        },
+        "referenceResolution": {
+          "partner": "豆豆"
+        },
+        "lexicalProfile": {
+          "intensity": "moderate",
+          "profanityLevel": "none",
+          "personaMarkerStrength": "subtle",
+          "repetitionHits": []
+        },
+        "syntaxProfile": {
+          "clauseCount": 1,
+          "sentenceCount": 1,
+          "fragments": 0,
+          "questions": 0,
+          "imperatives": 0,
+          "qualifications": 0
+        },
+        "punctuationProfile": {
+          "repeatedMarks": 0,
+          "ellipsis": 0
+        },
+        "symbolProfile": {
+          "emoji": [],
+          "kaomoji": [],
+          "textSymbols": [],
+          "count": 0
+        },
+        "segmentation": {
+          "unitCount": 1,
+          "maximumAllowed": 1
+        },
+        "channelRendering": {
+          "channel": "jine_private"
+        },
+        "redactions": [],
+        "blockedContent": [
+          "generic_reassurance_request",
+          "global_relationship_accusation"
+        ],
+        "alternatives": [
+          "哪一段好",
+          "具体说一个地方"
+        ],
+        "executionStatus": "not_executed",
+        "behaviorRefs": [
+          "behavior_d5314cd07faf5c16"
+        ],
+        "expressionRef": "expression_f15da92b10f4d38b"
+      },
+      "updates": [
+        {
+          "runtime": "language",
+          "path": "counters.generic_stream_feedback",
+          "operation": "increment",
+          "delta": 1,
+          "confidence": 0.91,
+          "policy": "immediate",
+          "evidenceRefs": [
+            "demo-generic-feedback-001"
+          ]
+        }
+      ],
+      "trace": {
+        "scenario": "generic_stream_feedback",
+        "signals": [
+          "generic_stream_feedback",
+          "generic_feedback"
+        ],
+        "upstream": [
+          "expression",
+          "behavior",
+          "decision"
+        ],
+        "rules": [
+          "semantic_coverage",
+          "behavior_preservation",
+          "execution_boundary"
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "warnings": []
+      },
+      "hash": "5d8d785e0f1fed33ff361d32e51ae729"
+    }
+  },
+  "language": {
+    "kind": "language",
+    "packetId": "language_c8a9a8dd9b961312",
+    "runtimeVersion": "7.0-phase11",
+    "schemaVersion": 1,
+    "eventId": "demo-generic-feedback-001",
+    "generatedAt": "2026-08-06T13:48:00+08:00",
+    "mode": "living",
+    "confidence": 0.91,
+    "data": {
+      "renderStatus": "rendered",
+      "selectedCandidate": "candidate_1",
+      "messageUnits": [
+        {
+          "index": 1,
+          "channel": "jine_private",
+          "text": "具体哪里好",
+          "rhetoricalActs": [
+            "request_specificity"
+          ],
+          "sentenceCount": 1,
+          "characterCount": 5,
+          "pauseAfter": null,
+          "symbols": []
+        }
+      ],
+      "renderedText": "具体哪里好",
+      "semanticCoverage": {
+        "requiredTotal": 1,
+        "requiredRealized": 1,
+        "optionalRealized": 0,
+        "missing": [],
+        "score": 1
+      },
+      "referenceResolution": {
+        "partner": "豆豆"
+      },
+      "lexicalProfile": {
+        "intensity": "moderate",
+        "profanityLevel": "none",
+        "personaMarkerStrength": "subtle",
+        "repetitionHits": []
+      },
+      "syntaxProfile": {
+        "clauseCount": 1,
+        "sentenceCount": 1,
+        "fragments": 0,
+        "questions": 0,
+        "imperatives": 0,
+        "qualifications": 0
+      },
+      "punctuationProfile": {
+        "repeatedMarks": 0,
+        "ellipsis": 0
+      },
+      "symbolProfile": {
+        "emoji": [],
+        "kaomoji": [],
+        "textSymbols": [],
+        "count": 0
+      },
+      "segmentation": {
+        "unitCount": 1,
+        "maximumAllowed": 1
+      },
+      "channelRendering": {
+        "channel": "jine_private"
+      },
+      "redactions": [],
+      "blockedContent": [
+        "generic_reassurance_request",
+        "global_relationship_accusation"
+      ],
+      "alternatives": [
+        "哪一段好",
+        "具体说一个地方"
+      ],
+      "executionStatus": "not_executed",
+      "behaviorRefs": [
+        "behavior_d5314cd07faf5c16"
+      ],
+      "expressionRef": "expression_f15da92b10f4d38b"
+    },
+    "updates": [
+      {
+        "runtime": "language",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.91,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      }
+    ],
+    "trace": {
+      "scenario": "generic_stream_feedback",
+      "signals": [
+        "generic_stream_feedback",
+        "generic_feedback"
+      ],
+      "upstream": [
+        "expression",
+        "behavior",
+        "decision"
+      ],
+      "rules": [
+        "semantic_coverage",
+        "behavior_preservation",
+        "execution_boundary"
+      ]
+    },
+    "validation": {
+      "status": "pass",
+      "errors": [],
+      "warnings": []
+    },
+    "hash": "5d8d785e0f1fed33ff361d32e51ae729"
+  },
+  "validation": {
+    "status": "pass",
+    "errors": [],
+    "warnings": []
+  },
+  "updates": {
+    "committed": [
+      {
+        "runtime": "knowledge",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.96,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "continuity",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.9,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "relationship",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.86,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "meaning",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.85,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "emotion",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.84,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "need",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.88,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "thought",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.86,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "decision",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.79,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "behavior",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.79,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "expression",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.88,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      },
+      {
+        "runtime": "language",
+        "path": "counters.generic_stream_feedback",
+        "operation": "increment",
+        "delta": 1,
+        "confidence": 0.91,
+        "policy": "immediate",
+        "evidenceRefs": [
+          "demo-generic-feedback-001"
+        ]
+      }
+    ],
+    "rejected": []
+  },
+  "stateRevision": 1,
+  "executionStatus": "not_executed"
+}

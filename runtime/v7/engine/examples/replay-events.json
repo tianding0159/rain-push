@@ -1,0 +1,44 @@
+[
+  {
+    "eventId": "demo-generic-feedback-001",
+    "timestamp": "2026-08-06T13:48:00+08:00",
+    "mode": "living",
+    "channel": "jine_private",
+    "actor": "partner",
+    "text": "很强",
+    "context": {
+      "scenario": "generic_stream_feedback",
+      "relationshipRole": "partner_and_producer",
+      "trustBaseline": 0.78
+    },
+    "seed": "demo"
+  },
+  {
+    "eventId": "demo-wait-002",
+    "timestamp": "2026-08-06T14:00:00+08:00",
+    "mode": "living",
+    "channel": "jine_private",
+    "actor": "partner",
+    "text": "我这边还在忙，晚点回来",
+    "context": {
+      "scenario": "delayed_reply_with_notice",
+      "priorNotice": true,
+      "promiseDueAt": "2026-08-06T15:00:00+08:00"
+    },
+    "seed": "demo"
+  },
+  {
+    "eventId": "demo-milestone-003",
+    "timestamp": "2026-08-06T20:00:00+08:00",
+    "mode": "living",
+    "channel": "live_stream",
+    "actor": "system",
+    "text": "粉丝数达到1000000",
+    "context": {
+      "scenario": "million_followers",
+      "milestone": "million_followers",
+      "followers": 1000000
+    },
+    "seed": "demo"
+  }
+]

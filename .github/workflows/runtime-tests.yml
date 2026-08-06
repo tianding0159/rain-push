@@ -12,11 +12,15 @@ on:
     paths:
       - "rain-push-v7-claude-handoff.zip"
       - "runtime/v7/engine/**"
+      - "runtime/v7/engine.manifest.json"
+      - "runtime/v7/build-engine-archive.mjs"
       - ".github/workflows/runtime-tests.yml"
   pull_request:
     paths:
       - "rain-push-v7-claude-handoff.zip"
       - "runtime/v7/engine/**"
+      - "runtime/v7/engine.manifest.json"
+      - "runtime/v7/build-engine-archive.mjs"
       - ".github/workflows/runtime-tests.yml"
   workflow_dispatch:
 
@@ -80,3 +84,64 @@ jobs:
                 || (echo "reviewable surface diverges from zip: $rel" && exit 1)
             fi
           done
+
+  # P0-0A: the reviewable engine source at runtime/v7/engine/ is the single source of
+  # truth. This job runs its tests directly from the checked-out tree (not the zip),
+  # then proves the deterministic archive contract: regenerating the manifest must
+  # reproduce the committed one, the archive rebuilds byte-identically, and extracting
+  # it reproduces every file's SHA-256. The dist zip itself is regenerable and not
+  # committed (only the manifest is).
+  engine-source-ssot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run engine tests from the reviewable source (zero-dependency)
+        working-directory: runtime/v7/engine
+        run: npm test
+
+      - name: Assert the committed manifest is current (determinism gate)
+        run: |
+          set -e
+          cp runtime/v7/engine.manifest.json /tmp/committed-manifest.json
+          # Regenerate manifest only (no zip) and pin sourceCommit so the provenance
+          # field never causes a spurious diff — we are gating file hashes, not commit.
+          SRC="$(python3 -c "import json;print(json.load(open('/tmp/committed-manifest.json'))['sourceCommit'])")"
+          node runtime/v7/build-engine-archive.mjs --no-zip --source-commit "$SRC"
+          diff -u /tmp/committed-manifest.json runtime/v7/engine.manifest.json \
+            || (echo "engine.manifest.json is stale — run: node runtime/v7/build-engine-archive.mjs and commit" && exit 1)
+
+      - name: Verify deterministic archive + round-trip parity
+        run: |
+          set -e
+          # Build twice; the archive must be byte-identical.
+          node runtime/v7/build-engine-archive.mjs --source-commit ci >/dev/null
+          sha1="$(sha256sum runtime/v7/dist/rain-push-v7-engine.zip | cut -d' ' -f1)"
+          node runtime/v7/build-engine-archive.mjs --source-commit ci >/dev/null
+          sha2="$(sha256sum runtime/v7/dist/rain-push-v7-engine.zip | cut -d' ' -f1)"
+          test "$sha1" = "$sha2" || (echo "archive is not reproducible: $sha1 != $sha2" && exit 1)
+          # Extract and verify every file's SHA-256 against the manifest (round-trip).
+          rm -rf /tmp/rt && mkdir -p /tmp/rt
+          unzip -q runtime/v7/dist/rain-push-v7-engine.zip -d /tmp/rt
+          node -e '
+            const {createHash}=require("crypto"),fs=require("fs"),path=require("path");
+            const m=JSON.parse(fs.readFileSync("runtime/v7/engine.manifest.json","utf8"));
+            const root="/tmp/rt/runtime/v7/engine";
+            let bad=0;
+            for(const f of m.files){
+              const p=path.join(root,f.path);
+              if(!fs.existsSync(p)){console.log("MISSING",f.path);bad++;continue;}
+              const h=createHash("sha256").update(fs.readFileSync(p)).digest("hex");
+              if(h!==f.sha256){console.log("MISMATCH",f.path);bad++;}
+            }
+            if(bad){console.log("round-trip FAILED:",bad);process.exit(1);}
+            console.log("round-trip OK:",m.files.length,"files");
+          '
+          # Extracted engine must run green too.
+          (cd /tmp/rt/runtime/v7/engine && npm test)
