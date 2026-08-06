@@ -1,0 +1,447 @@
+{
+  "meta": {
+    "artifact": "spec-engine-parity-matrix",
+    "sprint": "Hardening Sprint 1",
+    "engineVersion": "7.0.0-phase12",
+    "generatedBy": "Spec-Engine Parity Audit",
+    "baseline": { "tests": 166, "pass": 166, "fail": 0 },
+    "statusVocabulary": [
+      "implemented",
+      "partial",
+      "specification_only",
+      "tested",
+      "untested",
+      "blocked"
+    ],
+    "note": "status = implementation depth; tested = whether an executable test locks it. A requirement can be e.g. implemented + untested. High-risk requirements should move to implemented + tested via Sprint 1 contract tests.",
+  "scope": "26 high-risk requirements selected across Phases 1-11 plus cross-cutting owners (orchestrator, update-queue, execution-boundary). NOT an exhaustive per-field audit of every phase. Selection criterion: invariants whose violation is safety/privacy/correctness-critical. Field-level parity lives in schema-field-map.json; per-runtime enforcement status in runtime-contract-map.json. Four phases (continuity, relationship, thought, decision) have no dedicated requirement and are covered only by cross-cutting requirements (see tests/spec-coverage.test.js phase partition).",
+    "severityVocabulary": ["critical", "high", "medium", "low"]
+  },
+  "requirements": [
+    {
+      "id": "R-EXEC-01",
+      "phase": 11,
+      "runtime": "language",
+      "source": "language/validator.md V2; START_HERE_CLAUDE.md; CLAUDE_BOOTSTRAP_PROMPT.md",
+      "requirement": "Language Packet must never claim external execution; executionStatus stays not_executed until a real confirmed handler returns success.",
+      "severity": "critical",
+      "expectedPacketField": "language.data.executionStatus",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/runtimes/language.js + src/validators.js",
+        "detail": "rendered()/noOutput() hardcode executionStatus:'not_executed'; validatePipeline pushes 'language_execution_boundary_violation' if language.data.executionStatus !== 'not_executed'."
+      },
+      "validator": "validatePipeline execution-boundary check",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "execution claim in language packet is rejected" }
+    },
+    {
+      "id": "R-EXEC-02",
+      "phase": 12,
+      "runtime": "execution-boundary",
+      "source": "START_HERE_CLAUDE.md 'Important execution boundary'; CURRENT_IMPLEMENTATION.md 8",
+      "requirement": "Message generated != message sent. Execution boundary defaults to dry-run and does not deliver.",
+      "severity": "critical",
+      "expectedPacketField": "ExecutionBoundary.request().status",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/execution/execution-boundary.js",
+        "detail": "dryRun default true -> status 'not_executed' reason 'dry_run'; non-allowlisted -> 'blocked'; unconfirmed -> 'not_executed'; missing handler -> 'not_executed'."
+      },
+      "validator": "ExecutionBoundary internal",
+      "test": { "status": "tested", "file": "tests/execution.test.js + tests/parity-contract.test.js", "name": "dry-run never executes; unconfirmed/handlerless never executes" }
+    },
+    {
+      "id": "R-EXEC-03",
+      "phase": 9,
+      "runtime": "behavior",
+      "source": "behavior/validator.md V4/V16 (EXECUTION_LEAK)",
+      "requirement": "External action requests inside Behavior Packet must be marked not executed and confirmation-required, never treated as already executed.",
+      "severity": "critical",
+      "expectedPacketField": "behavior.data.externalActionRequests[].status",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/runtimes/behavior.js",
+        "detail": "risk_containment path emits externalActionRequests:[{action,status:'not_executed',confirmationRequired:true}] (verified via probe)."
+      },
+      "validator": "none dedicated (structural)",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "behavior external action requests stay not_executed" }
+    },
+    {
+      "id": "R-PRIV-01",
+      "phase": 11,
+      "runtime": "language",
+      "source": "language/safety_privacy_redaction.md; language/validator.md V5; PROJECT_CONCEPT.md 10",
+      "requirement": "Public/private separation: private referents (exact location, real name, private promise, intimate detail) must not appear in public-channel rendered output.",
+      "severity": "critical",
+      "expectedPacketField": "language.data.renderedText + language.data.redactions",
+      "implementation": {
+        "status": "partial",
+        "file": "src/runtimes/language.js reduce_public_exposure branch",
+        "detail": "privacy_risk scenario renders fixed safe text and declares redactions[ exact_location, real_name, private_promise, intimate_detail ]. Verified renderedText does not contain injected LOC/NAME. Coverage is per-scenario, not a general redaction pass over arbitrary text."
+      },
+      "validator": "expression disclosure.redactions on public channels; no general leak scanner",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "privacy scenario redacts private referents from public output" }
+    },
+    {
+      "id": "R-PRIV-02",
+      "phase": 10,
+      "runtime": "expression",
+      "source": "expression/validator.md; PROJECT_CONCEPT.md 10",
+      "requirement": "On public_post/live_stream channels, expression disclosure level must be low and private detail rhetorical acts blocked.",
+      "severity": "high",
+      "expectedPacketField": "expression.data.disclosure.level + rhetoricalPlan.blockedActs",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/runtimes/expression.js",
+        "detail": "disclosure.level='low' + redactions list on public channels; blockedActs includes 'private_relationship_detail' on public channels."
+      },
+      "validator": "expression build-time",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "public channel expression forces low disclosure and blocks private detail" }
+    },
+    {
+      "id": "R-SURF-01",
+      "phase": 11,
+      "runtime": "language",
+      "source": "behavior/silence_and_waiting.md; expression/validator.md V1; language/validator.md V1",
+      "requirement": "No-surface behavior (wait / observe_without_engaging / no_action) and no_surface expression must produce no rendered text.",
+      "severity": "critical",
+      "expectedPacketField": "language.data.renderStatus == 'no_output'",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/runtimes/language.js + src/validators.js",
+        "detail": "language emits noOutput() for those action types / no_surface; validatePipeline rejects with 'no_surface_behavior_rendered_text' and 'no_surface_has_rendered_text' when violated (verified via probe3)."
+      },
+      "validator": "validatePipeline no-surface checks",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "no_surface pipeline carrying rendered text is rejected" }
+    },
+    {
+      "id": "R-BUDGET-01",
+      "phase": 11,
+      "runtime": "language",
+      "source": "behavior/validator.md V7 (MESSAGE_BUDGET_EXCEEDED); language/validator.md V2",
+      "requirement": "Rendered message units must not exceed behavior.messageOrActionCount.",
+      "severity": "high",
+      "expectedPacketField": "language.data.messageUnits.length <= behavior.data.messageOrActionCount",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/validators.js",
+        "detail": "validatePipeline pushes 'language_message_budget_exceeded' when messageUnits.length > messageOrActionCount (verified via probe)."
+      },
+      "validator": "validatePipeline budget check",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "message budget overflow is rejected" }
+    },
+    {
+      "id": "R-UPD-01",
+      "phase": 2,
+      "runtime": "update-queue",
+      "source": "engines/continuity/validator.md; every phase update_queue.md; ACCEPTANCE_CRITERIA runtime boundaries",
+      "requirement": "Every long-term update must carry evidence refs; updates without evidence are rejected.",
+      "severity": "high",
+      "expectedPacketField": "update.evidenceRefs",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/update-queue.js validateUpdate",
+        "detail": "missing/empty evidenceRefs -> 'missing_update_evidence' (verified via probe)."
+      },
+      "validator": "validateUpdate",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js + tests/update-queue.test.js", "name": "update without evidence is rejected" }
+    },
+    {
+      "id": "R-UPD-02",
+      "phase": 2,
+      "runtime": "update-queue",
+      "source": "all validator.md 'DIRECT_MODEL_MUTATION' / 'target belongs to another runtime'",
+      "requirement": "Updates may only target counters/patterns/memory paths; cross-runtime or arbitrary model paths are forbidden.",
+      "severity": "critical",
+      "expectedPacketField": "update.path + update.runtime",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/update-queue.js validateUpdate + commitUpdateQueues",
+        "detail": "path must match ^(counters|patterns|memory)(\\.|$) else 'forbidden_update_path'; commit writes only into state.models[update.runtime] (verified via probe)."
+      },
+      "validator": "validateUpdate",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js + tests/update-queue.test.js", "name": "forbidden path is rejected; commit stays within runtime model" }
+    },
+    {
+      "id": "R-UPD-03",
+      "phase": 3,
+      "runtime": "update-queue",
+      "source": "relationship/validator.md V6 'update exceeds per-event cap'; emotion V13",
+      "requirement": "One event may not make identity-level jumps; increment magnitude is capped.",
+      "severity": "high",
+      "expectedPacketField": "update.delta",
+      "implementation": {
+        "status": "partial",
+        "file": "src/update-queue.js MAX_INCREMENT=3",
+        "detail": "increment abs > 3 -> 'update_increment_cap_exceeded' (verified). This is a global magnitude cap, not a per-domain identity-jump gate; identity/trait-level protection from spec is not separately modeled."
+      },
+      "validator": "validateUpdate",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "over-cap increment is rejected" }
+    },
+    {
+      "id": "R-CANON-01",
+      "phase": 3,
+      "runtime": "update-queue",
+      "source": "relationship/validator.md V8; PROJECT_CONCEPT.md 6; update-queue policy",
+      "requirement": "Canon-only updates must not commit in Living Mode (route-level escalation stays gated).",
+      "severity": "high",
+      "expectedPacketField": "update.policy + event.mode",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/update-queue.js validateUpdate",
+        "detail": "policy 'canon_only' with mode !== 'canon' -> 'canon_update_in_living_mode' (verified via probe)."
+      },
+      "validator": "validateUpdate",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "canon_only update in living mode is rejected" }
+    },
+    {
+      "id": "R-NAME-01",
+      "phase": 3,
+      "runtime": "all",
+      "source": "NAMING_POLICY.md; every validator.md naming section; BOOTSTRAP invariants",
+      "requirement": "Generated runtime output uses partner display name 豆豆 (canon quotations may keep 阿P).",
+      "severity": "high",
+      "expectedPacketField": "language.data.referenceResolution.partner",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/runtimes/language.js",
+        "detail": "referenceResolution defaults { partner: '豆豆' } (verified via probe). No runtime code emits 阿P."
+      },
+      "validator": "none dedicated",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "partner naming is 豆豆 and rendered output never emits 阿P" }
+    },
+    {
+      "id": "R-DET-01",
+      "phase": 12,
+      "runtime": "orchestrator",
+      "source": "all validator.md determinism sections; engine README; replay.js",
+      "requirement": "Same event + state + seed produces the same packet hashes and pipeline hash (deterministic replay).",
+      "severity": "high",
+      "expectedPacketField": "result.pipelineHash",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/orchestrator.js + src/replay/replay.js + src/util.js hashValue",
+        "detail": "pipelineHash derived from ordered packet hashes; ReplayEngine.verify compares hash sequences (verified two identical runs match)."
+      },
+      "validator": "ReplayEngine.verify",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js + tests/determinism.test.js + tests/replay.test.js", "name": "identical events yield identical pipeline hashes" }
+    },
+    {
+      "id": "R-EVENT-01",
+      "phase": 12,
+      "runtime": "orchestrator",
+      "source": "src/validators.js validateEvent; ACCEPTANCE baseline",
+      "requirement": "Invalid RuntimeEvents (missing id, bad timestamp, bad mode/actor, missing channel) are rejected before pipeline execution.",
+      "severity": "high",
+      "expectedPacketField": "throws INVALID_RUNTIME_EVENT",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/validators.js validateEvent + orchestrator guard",
+        "detail": "run() throws INVALID_RUNTIME_EVENT on reject before any runtime executes."
+      },
+      "validator": "validateEvent",
+      "test": { "status": "tested", "file": "tests/validation.test.js + tests/packet-contract.test.js", "name": "invalid event rejected pre-pipeline" }
+    },
+    {
+      "id": "R-PKT-01",
+      "phase": "1-11",
+      "runtime": "all",
+      "source": "packet.js validatePacketShape; every phase *_packet.md",
+      "requirement": "Every packet must carry kind, packetId, runtimeVersion, eventId, generatedAt, data, hash and match its expected runtime kind and event id.",
+      "severity": "high",
+      "expectedPacketField": "packet.{kind,packetId,runtimeVersion,eventId,generatedAt,data,hash}",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/packet.js + src/validators.js",
+        "detail": "validatePacketShape enforces required fields + kind; validatePipeline adds event_id_mismatch per packet (verified via probe)."
+      },
+      "validator": "validatePacketShape + validatePipeline",
+      "test": { "status": "tested", "file": "tests/packet-contract.test.js", "name": "all 11 packets carry required contract fields and matching eventId" }
+    },
+    {
+      "id": "R-PKT-02",
+      "phase": 5,
+      "runtime": "emotion",
+      "source": "emotion/validator.md V17 packet purity; behavior V16; expression V2",
+      "requirement": "Emotion Packet may not contain need/goal/action/decision/reply_text/final_message/persona_output; Behavior may not contain final wording; Expression may not contain final text/emoji.",
+      "severity": "high",
+      "expectedPacketField": "packet.data key set",
+      "implementation": {
+        "status": "partial",
+        "file": "src/runtimes/emotion.js, behavior.js, expression.js",
+        "detail": "By construction each runtime emits only its own concern (verified emotion keys: emotions,dominant,expressionPressure,regulatedBy,blocked,ameKangelSharedState; behavior/expression carry no renderedText). There is no runtime validator that actively scans packet.data for forbidden purity-violating keys/strings; purity holds by construction, not by enforcement."
+      },
+      "validator": "none dedicated (spec asks for active purity scan)",
+      "test": { "status": "tested", "file": "tests/packet-contract.test.js", "name": "emotion/behavior/expression packets are free of downstream-layer fields" }
+    },
+    {
+      "id": "R-ESC-01",
+      "phase": 5,
+      "runtime": "emotion",
+      "source": "emotion/validator.md V5 severity gate; PROJECT_CONCEPT.md 7-8; relationship V5",
+      "requirement": "Local/ordinary events must not escalate to severe emotion or global relationship claims (anti-escalation); severe emotions require gate/evidence.",
+      "severity": "critical",
+      "expectedPacketField": "emotion.data.blocked + emotion.data.emotions",
+      "implementation": {
+        "status": "partial",
+        "file": "src/runtimes/emotion.js",
+        "detail": "Scenario paths block severe emotions (e.g. pudding blocks relationship_survival/abandonment) and keep ordinary events ordinary. This is scenario-encoded, not a general severity-gate engine; only typed scenarios are protected."
+      },
+      "validator": "none dedicated general gate",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "ordinary pudding event blocks abandonment/severe emotion and stays local" }
+    },
+    {
+      "id": "R-FACT-01",
+      "phase": 4,
+      "runtime": "meaning",
+      "source": "meaning/README; meaning/validator.md; language/validator.md V6",
+      "requirement": "Hypothesis/candidate meaning must not collapse into asserted fact in final output (fact vs hypothesis separation).",
+      "severity": "high",
+      "expectedPacketField": "meaning.data (candidate meanings) vs language.data.renderedText",
+      "implementation": {
+        "status": "partial",
+        "file": "src/runtimes/meaning.js + language.js blockedContent",
+        "detail": "Language branches attach blockedContent like 'unverified_motive','global_relationship_accusation','relationship_rupture' so rendered lines stay local/specific. There is no general validator asserting no hypothesis-as-fact across arbitrary text; protection is per-scenario blockedContent."
+      },
+      "validator": "none dedicated",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "generic feedback yields specific request, blocks global accusation, and never renders relationship-rupture text" }
+    },
+    {
+      "id": "R-DARK-01",
+      "phase": 5,
+      "runtime": "emotion/behavior",
+      "source": "PROJECT_CONCEPT.md 8; emotion V14.7/13/14; behavior V18.9-11",
+      "requirement": "Sensitive input must pass a BIDIRECTIONAL gate with distinct paths by provenance. NEGATIVE direction (keyword-only): a bare dark/sexual/drug reference must not auto-activate a severe state (crisis / intimacy / severe). POSITIVE direction (real events): a confirmed_current_event, confirmed_harm_evidence, or a canon_route must be ABLE to activate a genuinely severe state — the gate must not flatten real emergencies or Canon-scripted severe events into the same non-engagement as a keyword joke. Separately, operational-guidance phrasing must be stripped at the Language/Safety layer. The correct fix is adding the missing POSITIVE activation paths, NOT a blanket restraint block.",
+      "severity": "high",
+      "substatus": "bidirectional-gate-missing",
+      "gates": {
+        "keyword_only_negative_gate": "partial",
+        "confirmed_current_event_positive_gate": "missing",
+        "confirmed_harm_positive_gate": "missing",
+        "canon_route_positive_gate": "missing",
+        "operational_guidance_language_gate": "missing",
+        "harmless_fallthrough": "implemented"
+      },
+      "expectedPacketField": "meaning.data.meanings + meaning.data.blockedMeanings + emotion.data.blocked + behavior.data.actionType",
+      "implementation": {
+        "status": "partial",
+        "file": "src/runtimes/meaning.js, emotion.js, decision.js, behavior.js",
+        "detail": "NEGATIVE direction (partial): meaning.js gives each of dark_humor/sexual_joke/drug_reference a negative inference meaning (dark_language_context_not_automatically_crisis / sexual_joke_not_automatically_intimacy / drug_reference_not_automatically_severe); dark & sexual additionally add blockedMeanings (automatic_crisis / automatic_intimacy), drug does not. POSITIVE direction (missing): there is NO activation path in any runtime that lets a confirmed_current_event, confirmed_harm_evidence, or a canon_route re-enable a real severe state — a genuine emergency or a Canon-scripted severe event is flattened to the same harmless non-engagement as a keyword joke. operational_guidance_language_gate (missing): no Language/Safety-layer gate strips operational-guidance phrasing. harmless_fallthrough (implemented): with no positive path, everything falls through to non_engagement / no rendered text. The gap is the MISSING positive direction (three activation gates + operational-guidance gate), not 'add a drug block'."
+      },
+      "validator": "meaning.js emits negative-inference meanings for all three and blockedMeanings for dark & sexual (partial negative gate); there is NO validator or runtime path implementing the positive activation gates (confirmed current event / confirmed harm / canon route) or the operational-guidance language gate.",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js + tests/property-conformance.test.js", "name": "bidirectional gate: negative direction locked for dark & sexual; each positive activation path (confirmed current event / confirmed harm / canon route) + operational-guidance gate pinned as still-missing" }
+    },
+    {
+      "id": "R-ORD-01",
+      "phase": 3,
+      "runtime": "need/behavior",
+      "source": "PROJECT_CONCEPT.md 7 ordinary-life principle; behavior V13",
+      "requirement": "Ordinary life is first-class: a forgotten pudding may remain a forgotten pudding; rest/food behaviors are legitimate and not career abandonment.",
+      "severity": "medium",
+      "expectedPacketField": "language.data.renderedText for pudding/fatigue scenarios",
+      "implementation": {
+        "status": "implemented",
+        "file": "src/runtimes/decision.js, behavior.js, language.js",
+        "detail": "pudding -> 'practical_completion' -> '布丁没了'/'布丁库存管理又不合格'; fatigue -> 'rest_priority' -> '我先躺会儿，数据晚点看'."
+      },
+      "validator": "none dedicated",
+      "test": { "status": "tested", "file": "tests/scenario-conformance.test.js + tests/parity-contract.test.js", "name": "ordinary pudding/fatigue stay ordinary" }
+    },
+    {
+      "id": "R-DUAL-01",
+      "phase": 10,
+      "runtime": "expression",
+      "source": "PROJECT_CONCEPT.md 4; emotion V8/V10 Ame-KAngel; expression persona_surfaces.md",
+      "requirement": "Ame and KAngel are two surfaces of one person sharing one substrate; stage energy must not delete fatigue; performance is not automatically fake.",
+      "severity": "medium",
+      "expectedPacketField": "expression.data.primarySurface + emotion.data.ameKangelSharedState",
+      "implementation": {
+        "status": "partial",
+        "file": "src/runtimes/expression.js + emotion.js",
+        "detail": "Surfaces selected per behavior (kangel_stage vs ame_private) with shared emotion substrate (ameKangelSharedState present, fatigue kept as hidden under audience_euphoria). Not a full persona blend/leakage engine as specified."
+      },
+      "validator": "none dedicated",
+      "test": { "status": "tested", "file": "tests/parity-contract.test.js", "name": "million-followers uses kangel_stage while shared emotion substrate persists" }
+    },
+    {
+      "id": "R-SCHEMA-01",
+      "phase": "1-11",
+      "runtime": "all",
+      "source": "*/schemas/*.yaml; KNOWN_LIMITATIONS 3",
+      "requirement": "Every YAML schema field and enum should be enforced at runtime with a generated JSON Schema pipeline.",
+      "severity": "medium",
+      "expectedPacketField": "n/a (schema enforcement)",
+      "implementation": {
+        "status": "specification_only",
+        "file": "n/a",
+        "detail": "Only packet shape (required keys) is validated. No generated JSON Schema, no enum enforcement. Deferred to Sprint 2 (Schema and Type Safety)."
+      },
+      "validator": "partial (shape only)",
+      "test": { "status": "untested", "file": null, "name": "TODO Sprint 2" }
+    },
+    {
+      "id": "R-DSL-01",
+      "phase": "3-11",
+      "runtime": "all",
+      "source": "*/dsl/*.dsl; KNOWN_LIMITATIONS 2",
+      "requirement": "DSL/Markdown rules should compile into the runtime rule table (single source of truth).",
+      "severity": "medium",
+      "expectedPacketField": "n/a",
+      "implementation": {
+        "status": "specification_only",
+        "file": "n/a",
+        "detail": "Runtime behavior is hardcoded JS conditionals; DSL/Markdown are not compiled. Duplicate sources of truth acknowledged. Deferred to Sprint 3 (Rule Source Unification)."
+      },
+      "validator": "none",
+      "test": { "status": "untested", "file": null, "name": "TODO Sprint 3" }
+    },
+    {
+      "id": "R-EVID-01",
+      "phase": 1,
+      "runtime": "knowledge",
+      "source": "evidence/README.md; evidence/evidence_schema.yaml; corpus/annotation_contract.md",
+      "requirement": "Evidence must be sourced, classified (canon/guide/community/simulator), confidence-scored, location-addressable; no unsourced claim silently becomes Canon; no full copyrighted corpus in repo.",
+      "severity": "medium",
+      "expectedPacketField": "knowledge.data (facts + provenance)",
+      "implementation": {
+        "status": "specification_only",
+        "file": "src/runtimes/knowledge.js",
+        "detail": "Knowledge runtime derives a scenario label from signals; it does not ingest an evidence corpus or carry per-fact provenance. Evidence pipeline is spec-only. No corpus is bundled (correct). Deferred to Sprint 4."
+      },
+      "validator": "none",
+      "test": { "status": "untested", "file": null, "name": "TODO Sprint 4" }
+    },
+    {
+      "id": "R-WX-01",
+      "phase": "future",
+      "runtime": "weather-adapter",
+      "source": "NEXT_ACTIONS Sprint 5; PROJECT_CONCEPT.md 2",
+      "requirement": "Weather adapter produces typed RuntimeEvents with source/freshness/timezone; rain must not imply abandonment/crisis; no notification without execution handler.",
+      "severity": "low",
+      "expectedPacketField": "n/a (adapter)",
+      "implementation": {
+        "status": "specification_only",
+        "file": "n/a",
+        "detail": "No weather adapter in engine. Character core only. Deferred to Sprint 5."
+      },
+      "validator": "none",
+      "test": { "status": "untested", "file": null, "name": "TODO Sprint 5" }
+    },
+    {
+      "id": "R-LLM-01",
+      "phase": "future",
+      "runtime": "renderer",
+      "source": "NEXT_ACTIONS Sprint 6",
+      "requirement": "A constrained LLM renderer may vary wording but not facts/outcome/behavior/message count/disclosure/execution status; baseline tests stay zero-network.",
+      "severity": "low",
+      "expectedPacketField": "n/a",
+      "implementation": {
+        "status": "specification_only",
+        "file": "n/a",
+        "detail": "Renderer is deterministic fixed-rule. No LLM adapter. Deferred to Sprint 6."
+      },
+      "validator": "none",
+      "test": { "status": "untested", "file": null, "name": "TODO Sprint 6" }
+    }
+  ]
+}

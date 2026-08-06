@@ -9,3 +9,7 @@ assets/
 # 备份打包产物,不入库
 rain-push-full.bundle
 rain-push-worktree.tar.gz
+
+# v7 引擎 zip 的解压工作区(deliverable 是根目录的 zip + runtime/v7/engine/ reviewable 副本,
+# 解压出来的 handoff/ 只是临时工作态,不入库)
+handoff/

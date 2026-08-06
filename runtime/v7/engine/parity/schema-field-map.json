@@ -1,0 +1,902 @@
+{
+  "meta": {
+    "artifact": "schema-field-map",
+    "purpose": "Per-packet map from spec schema content fields to the fields the engine actually emits in packet.data. actualFields are ground truth from actual-packet-fields.json (never hand-edit; regenerate via tests/gen-actual-fields.mjs). Rebuild this file with parity/build-schema-field-map.mjs.",
+    "categories": {
+      "actualFields": "Content field names observed in packet.data across all fixtures (ground truth).",
+      "specFields": "Content field names declared in the phase schema (envelope fields excluded).",
+      "mappedFields": "Spec field -> actual field pairs where the engine emits a counterpart.",
+      "specOnlyFields": "Spec fields with no engine counterpart (spec surface not realized).",
+      "engineOnlyFields": "Actual fields with no spec counterpart (engine emits beyond spec)."
+    },
+    "generator": "parity/build-schema-field-map.mjs",
+    "source": "actual-packet-fields.json + runtime/v7/<phase>/schemas/*.yaml"
+  },
+  "packets": {
+    "knowledge": {
+      "runtimeVersion": "7.0-phase1",
+      "specSchema": "evidence/knowledge_packet.md, evidence/evidence_schema.yaml",
+      "actualFields": [
+        "actor",
+        "channel",
+        "context",
+        "facts",
+        "normalizedText",
+        "scenario",
+        "signals",
+        "uncertainty"
+      ],
+      "specFields": [
+        "relevant_facts",
+        "relevant_rules",
+        "hard_constraints",
+        "conflicts",
+        "omitted_domains"
+      ],
+      "mappedFields": [
+        {
+          "spec": "relevant_facts",
+          "actual": "facts"
+        }
+      ],
+      "specOnlyFields": [
+        "relevant_rules",
+        "hard_constraints",
+        "conflicts",
+        "omitted_domains"
+      ],
+      "engineOnlyFields": [
+        "actor",
+        "channel",
+        "context",
+        "normalizedText",
+        "scenario",
+        "signals",
+        "uncertainty"
+      ]
+    },
+    "continuity": {
+      "runtimeVersion": "7.0-phase2",
+      "specSchema": "engines/continuity/continuity_schema.yaml",
+      "actualFields": [
+        "callbacks",
+        "channelTransition",
+        "pendingThreads",
+        "previousEventId",
+        "priorNotice",
+        "promise",
+        "repetition",
+        "scenario",
+        "topic"
+      ],
+      "specFields": [
+        "active_entities",
+        "world_snapshot",
+        "active_episodes",
+        "semantic_facts",
+        "pending_threads",
+        "callbacks",
+        "patterns",
+        "compressed_context",
+        "conflicts",
+        "omitted_domains"
+      ],
+      "mappedFields": [
+        {
+          "spec": "pending_threads",
+          "actual": "pendingThreads"
+        },
+        {
+          "spec": "callbacks",
+          "actual": "callbacks"
+        }
+      ],
+      "specOnlyFields": [
+        "active_entities",
+        "world_snapshot",
+        "active_episodes",
+        "semantic_facts",
+        "patterns",
+        "compressed_context",
+        "conflicts",
+        "omitted_domains"
+      ],
+      "engineOnlyFields": [
+        "channelTransition",
+        "previousEventId",
+        "priorNotice",
+        "promise",
+        "repetition",
+        "scenario",
+        "topic"
+      ]
+    },
+    "relationship": {
+      "runtimeVersion": "7.0-phase3",
+      "specSchema": "relationship/schemas/relationship_packet.yaml",
+      "actualFields": [
+        "availability",
+        "eventClass",
+        "globalRuptureSupported",
+        "localSeverity",
+        "partnerDisplayName",
+        "publicPrivateBoundary",
+        "repairStatus",
+        "role",
+        "safetyMemory",
+        "trustBaseline"
+      ],
+      "specFields": [
+        "active_domains",
+        "dominant_domains",
+        "active_roles",
+        "dominant_role",
+        "candidate_meanings",
+        "dominant_meaning",
+        "shared_context",
+        "trust_snapshot",
+        "promise_snapshot",
+        "conflict_snapshot",
+        "shared_language_refs",
+        "allowed_relationship_strategies",
+        "blocked_relationship_strategies",
+        "omitted_domains"
+      ],
+      "mappedFields": [
+        {
+          "spec": "dominant_role",
+          "actual": "role"
+        },
+        {
+          "spec": "trust_snapshot",
+          "actual": "trustBaseline"
+        }
+      ],
+      "specOnlyFields": [
+        "active_domains",
+        "dominant_domains",
+        "active_roles",
+        "candidate_meanings",
+        "dominant_meaning",
+        "shared_context",
+        "promise_snapshot",
+        "conflict_snapshot",
+        "shared_language_refs",
+        "allowed_relationship_strategies",
+        "blocked_relationship_strategies",
+        "omitted_domains"
+      ],
+      "engineOnlyFields": [
+        "availability",
+        "eventClass",
+        "globalRuptureSupported",
+        "localSeverity",
+        "partnerDisplayName",
+        "publicPrivateBoundary",
+        "repairStatus",
+        "safetyMemory"
+      ]
+    },
+    "meaning": {
+      "runtimeVersion": "7.0-phase4",
+      "specSchema": "meaning/schemas/meaning_packet.yaml",
+      "actualFields": [
+        "blockedMeanings",
+        "counterfactuals",
+        "domains",
+        "internetBridges",
+        "meanings",
+        "promiseStatus"
+      ],
+      "specFields": [
+        "active_domains",
+        "appraisal",
+        "candidate_meanings",
+        "dominant_meanings",
+        "association_paths",
+        "ordinary_meanings",
+        "career_meanings",
+        "audience_meanings",
+        "self_meanings",
+        "identity_meanings",
+        "internet_meanings",
+        "future_meanings",
+        "control_meanings",
+        "blocked_meanings",
+        "omitted_domains"
+      ],
+      "mappedFields": [
+        {
+          "spec": "active_domains",
+          "actual": "domains"
+        },
+        {
+          "spec": "candidate_meanings",
+          "actual": "meanings"
+        },
+        {
+          "spec": "internet_meanings",
+          "actual": "internetBridges"
+        },
+        {
+          "spec": "blocked_meanings",
+          "actual": "blockedMeanings"
+        }
+      ],
+      "specOnlyFields": [
+        "appraisal",
+        "dominant_meanings",
+        "association_paths",
+        "ordinary_meanings",
+        "career_meanings",
+        "audience_meanings",
+        "self_meanings",
+        "identity_meanings",
+        "future_meanings",
+        "control_meanings",
+        "omitted_domains"
+      ],
+      "engineOnlyFields": [
+        "counterfactuals",
+        "promiseStatus"
+      ]
+    },
+    "emotion": {
+      "runtimeVersion": "7.0-phase5",
+      "specSchema": "emotion/schemas/emotion_packet.yaml",
+      "actualFields": [
+        "ameKangelSharedState",
+        "blocked",
+        "dominant",
+        "emotions",
+        "expressionPressure",
+        "regulatedBy"
+      ],
+      "specFields": [
+        "active_emotions",
+        "primary_emotions",
+        "secondary_emotions",
+        "latent_emotions",
+        "blocked_emotions",
+        "blends",
+        "intensity",
+        "duration",
+        "persistence",
+        "underlying_state",
+        "ame_surface_tendencies",
+        "kangel_surface_tendencies",
+        "expression_pressure",
+        "regulation_context"
+      ],
+      "mappedFields": [
+        {
+          "spec": "active_emotions",
+          "actual": "emotions"
+        },
+        {
+          "spec": "blocked_emotions",
+          "actual": "blocked"
+        },
+        {
+          "spec": "expression_pressure",
+          "actual": "expressionPressure"
+        },
+        {
+          "spec": "regulation_context",
+          "actual": "regulatedBy"
+        }
+      ],
+      "specOnlyFields": [
+        "primary_emotions",
+        "secondary_emotions",
+        "latent_emotions",
+        "blends",
+        "intensity",
+        "duration",
+        "persistence",
+        "underlying_state",
+        "ame_surface_tendencies",
+        "kangel_surface_tendencies"
+      ],
+      "engineOnlyFields": [
+        "ameKangelSharedState",
+        "dominant"
+      ]
+    },
+    "need": {
+      "runtimeVersion": "7.0-phase6",
+      "specSchema": "need/schemas/need_packet.yaml",
+      "actualFields": [
+        "active",
+        "blocked",
+        "conflicts",
+        "dominant",
+        "invalidSubstitutes",
+        "protected",
+        "sourceEmotionCount",
+        "sourceMeaningCount",
+        "validSatisfierFamilies"
+      ],
+      "specFields": [
+        "active_needs",
+        "dominant_needs",
+        "secondary_needs",
+        "latent_needs",
+        "blocked_needs",
+        "maintenance_needs",
+        "conflicts",
+        "deprivation",
+        "priority",
+        "satisfaction_status",
+        "valid_satisfier_families",
+        "invalid_substitutes",
+        "protected_needs"
+      ],
+      "mappedFields": [
+        {
+          "spec": "active_needs",
+          "actual": "active"
+        },
+        {
+          "spec": "dominant_needs",
+          "actual": "dominant"
+        },
+        {
+          "spec": "blocked_needs",
+          "actual": "blocked"
+        },
+        {
+          "spec": "conflicts",
+          "actual": "conflicts"
+        },
+        {
+          "spec": "valid_satisfier_families",
+          "actual": "validSatisfierFamilies"
+        },
+        {
+          "spec": "invalid_substitutes",
+          "actual": "invalidSubstitutes"
+        },
+        {
+          "spec": "protected_needs",
+          "actual": "protected"
+        }
+      ],
+      "specOnlyFields": [
+        "secondary_needs",
+        "latent_needs",
+        "maintenance_needs",
+        "deprivation",
+        "priority",
+        "satisfaction_status"
+      ],
+      "engineOnlyFields": [
+        "sourceEmotionCount",
+        "sourceMeaningCount"
+      ]
+    },
+    "thought": {
+      "runtimeVersion": "7.0-phase7",
+      "specSchema": "thought/schemas/thought_packet.yaml",
+      "actualFields": [
+        "blocked",
+        "conflicts",
+        "dominantThoughts",
+        "focalAttention",
+        "hypotheses",
+        "observations",
+        "questions",
+        "rebuttals",
+        "rumination"
+      ],
+      "specFields": [
+        "focal_attention",
+        "active_threads",
+        "dominant_thoughts",
+        "active_thoughts",
+        "background_thoughts",
+        "questions",
+        "hypotheses",
+        "observations",
+        "rebuttals",
+        "counterfactuals",
+        "cognitive_conflicts",
+        "rumination",
+        "meta_thoughts",
+        "suppressed_thoughts",
+        "blocked_thoughts"
+      ],
+      "mappedFields": [
+        {
+          "spec": "focal_attention",
+          "actual": "focalAttention"
+        },
+        {
+          "spec": "dominant_thoughts",
+          "actual": "dominantThoughts"
+        },
+        {
+          "spec": "questions",
+          "actual": "questions"
+        },
+        {
+          "spec": "hypotheses",
+          "actual": "hypotheses"
+        },
+        {
+          "spec": "observations",
+          "actual": "observations"
+        },
+        {
+          "spec": "rebuttals",
+          "actual": "rebuttals"
+        },
+        {
+          "spec": "cognitive_conflicts",
+          "actual": "conflicts"
+        },
+        {
+          "spec": "rumination",
+          "actual": "rumination"
+        },
+        {
+          "spec": "blocked_thoughts",
+          "actual": "blocked"
+        }
+      ],
+      "specOnlyFields": [
+        "active_threads",
+        "active_thoughts",
+        "background_thoughts",
+        "counterfactuals",
+        "meta_thoughts",
+        "suppressed_thoughts"
+      ],
+      "engineOnlyFields": []
+    },
+    "decision": {
+      "runtimeVersion": "7.0-phase8",
+      "specSchema": "decision/schemas/decision_packet.yaml",
+      "actualFields": [
+        "alternativeStrategies",
+        "blockedStrategies",
+        "candidateGoals",
+        "commitment",
+        "decisionStatus",
+        "protectedGoals",
+        "reconsiderationTriggers",
+        "riskProfile",
+        "selectedOutcomes",
+        "selectedStrategyFamilies",
+        "sourceThoughtCount",
+        "utilityScores"
+      ],
+      "specFields": [
+        "candidate_goals",
+        "selected_outcomes",
+        "protected_goals",
+        "selected_strategy_families",
+        "alternative_strategies",
+        "blocked_strategies",
+        "deferred_strategies",
+        "constraints",
+        "utility_scores",
+        "risk_profile",
+        "commitment",
+        "reconsideration_triggers",
+        "decision_status"
+      ],
+      "mappedFields": [
+        {
+          "spec": "candidate_goals",
+          "actual": "candidateGoals"
+        },
+        {
+          "spec": "selected_outcomes",
+          "actual": "selectedOutcomes"
+        },
+        {
+          "spec": "protected_goals",
+          "actual": "protectedGoals"
+        },
+        {
+          "spec": "selected_strategy_families",
+          "actual": "selectedStrategyFamilies"
+        },
+        {
+          "spec": "alternative_strategies",
+          "actual": "alternativeStrategies"
+        },
+        {
+          "spec": "blocked_strategies",
+          "actual": "blockedStrategies"
+        },
+        {
+          "spec": "utility_scores",
+          "actual": "utilityScores"
+        },
+        {
+          "spec": "risk_profile",
+          "actual": "riskProfile"
+        },
+        {
+          "spec": "commitment",
+          "actual": "commitment"
+        },
+        {
+          "spec": "reconsideration_triggers",
+          "actual": "reconsiderationTriggers"
+        },
+        {
+          "spec": "decision_status",
+          "actual": "decisionStatus"
+        }
+      ],
+      "specOnlyFields": [
+        "deferred_strategies",
+        "constraints"
+      ],
+      "engineOnlyFields": [
+        "sourceThoughtCount"
+      ]
+    },
+    "behavior": {
+      "runtimeVersion": "7.0-phase9",
+      "specSchema": "behavior/schemas/behavior_packet.yaml",
+      "actualFields": [
+        "actionType",
+        "cancelConditions",
+        "channel",
+        "decisionRefs",
+        "escalationLevel",
+        "externalActionRequests",
+        "fallback",
+        "messageOrActionCount",
+        "posture",
+        "preconditions",
+        "repetitionLimit",
+        "secondaryAction",
+        "sequence",
+        "silenceState",
+        "status",
+        "stopConditions",
+        "strategyFamily",
+        "target",
+        "targetOutcome",
+        "timing",
+        "waitingState"
+      ],
+      "specFields": [
+        "decision_refs",
+        "selected_behaviors",
+        "behavior_sequence",
+        "channel_plan",
+        "timing_plan",
+        "interaction_posture",
+        "repetition_budget",
+        "waiting_state",
+        "silence_state",
+        "escalation_level",
+        "protected_goals",
+        "preconditions",
+        "stop_conditions",
+        "cancel_conditions",
+        "fallback_behaviors",
+        "unavailable_behaviors",
+        "blocked_behaviors",
+        "external_action_requests"
+      ],
+      "mappedFields": [
+        {
+          "spec": "decision_refs",
+          "actual": "decisionRefs"
+        },
+        {
+          "spec": "behavior_sequence",
+          "actual": "sequence"
+        },
+        {
+          "spec": "channel_plan",
+          "actual": "channel"
+        },
+        {
+          "spec": "timing_plan",
+          "actual": "timing"
+        },
+        {
+          "spec": "interaction_posture",
+          "actual": "posture"
+        },
+        {
+          "spec": "repetition_budget",
+          "actual": "repetitionLimit"
+        },
+        {
+          "spec": "waiting_state",
+          "actual": "waitingState"
+        },
+        {
+          "spec": "silence_state",
+          "actual": "silenceState"
+        },
+        {
+          "spec": "escalation_level",
+          "actual": "escalationLevel"
+        },
+        {
+          "spec": "preconditions",
+          "actual": "preconditions"
+        },
+        {
+          "spec": "stop_conditions",
+          "actual": "stopConditions"
+        },
+        {
+          "spec": "cancel_conditions",
+          "actual": "cancelConditions"
+        },
+        {
+          "spec": "fallback_behaviors",
+          "actual": "fallback"
+        },
+        {
+          "spec": "external_action_requests",
+          "actual": "externalActionRequests"
+        }
+      ],
+      "specOnlyFields": [
+        "selected_behaviors",
+        "protected_goals",
+        "unavailable_behaviors",
+        "blocked_behaviors"
+      ],
+      "engineOnlyFields": [
+        "actionType",
+        "messageOrActionCount",
+        "secondaryAction",
+        "status",
+        "strategyFamily",
+        "target",
+        "targetOutcome"
+      ]
+    },
+    "expression": {
+      "runtimeVersion": "7.0-phase10",
+      "specSchema": "expression/schemas/expression_packet.yaml",
+      "actualFields": [
+        "audienceReferenceMode",
+        "behaviorRefs",
+        "blockedStyles",
+        "disclosure",
+        "emotionalProjection",
+        "leakage",
+        "masking",
+        "noSurfaceReason",
+        "partnerReferenceMode",
+        "personaBlend",
+        "primarySurface",
+        "register",
+        "rhetoricalPlan",
+        "secondarySurface",
+        "selfReferenceMode",
+        "surfaceControls"
+      ],
+      "specFields": [
+        "behavior_refs",
+        "primary_surface",
+        "secondary_surface",
+        "persona_blend",
+        "transition",
+        "register",
+        "surface_controls",
+        "emotional_projection",
+        "disclosure",
+        "masking",
+        "leakage",
+        "rhetorical_plan",
+        "partner_reference_mode",
+        "audience_reference_mode",
+        "self_reference_mode",
+        "public_private_controls",
+        "style_constraints",
+        "blocked_styles",
+        "no_surface_reason"
+      ],
+      "mappedFields": [
+        {
+          "spec": "behavior_refs",
+          "actual": "behaviorRefs"
+        },
+        {
+          "spec": "primary_surface",
+          "actual": "primarySurface"
+        },
+        {
+          "spec": "secondary_surface",
+          "actual": "secondarySurface"
+        },
+        {
+          "spec": "persona_blend",
+          "actual": "personaBlend"
+        },
+        {
+          "spec": "register",
+          "actual": "register"
+        },
+        {
+          "spec": "surface_controls",
+          "actual": "surfaceControls"
+        },
+        {
+          "spec": "emotional_projection",
+          "actual": "emotionalProjection"
+        },
+        {
+          "spec": "disclosure",
+          "actual": "disclosure"
+        },
+        {
+          "spec": "masking",
+          "actual": "masking"
+        },
+        {
+          "spec": "leakage",
+          "actual": "leakage"
+        },
+        {
+          "spec": "rhetorical_plan",
+          "actual": "rhetoricalPlan"
+        },
+        {
+          "spec": "partner_reference_mode",
+          "actual": "partnerReferenceMode"
+        },
+        {
+          "spec": "audience_reference_mode",
+          "actual": "audienceReferenceMode"
+        },
+        {
+          "spec": "self_reference_mode",
+          "actual": "selfReferenceMode"
+        },
+        {
+          "spec": "blocked_styles",
+          "actual": "blockedStyles"
+        },
+        {
+          "spec": "no_surface_reason",
+          "actual": "noSurfaceReason"
+        }
+      ],
+      "specOnlyFields": [
+        "transition",
+        "public_private_controls",
+        "style_constraints"
+      ],
+      "engineOnlyFields": []
+    },
+    "language": {
+      "runtimeVersion": "7.0-phase11",
+      "specSchema": "language/schemas/language_packet.yaml",
+      "actualFields": [
+        "alternatives",
+        "behaviorRefs",
+        "blockedContent",
+        "channelRendering",
+        "executionStatus",
+        "expressionRef",
+        "lexicalProfile",
+        "messageUnits",
+        "noOutputReason",
+        "punctuationProfile",
+        "redactions",
+        "referenceResolution",
+        "renderStatus",
+        "renderedText",
+        "segmentation",
+        "selectedCandidate",
+        "semanticCoverage",
+        "symbolProfile",
+        "syntaxProfile"
+      ],
+      "specFields": [
+        "behavior_refs",
+        "expression_ref",
+        "render_status",
+        "selected_candidate",
+        "message_units",
+        "rendered_text",
+        "semantic_coverage",
+        "reference_resolution",
+        "lexical_profile",
+        "syntax_profile",
+        "punctuation_profile",
+        "symbol_profile",
+        "segmentation",
+        "channel_rendering",
+        "redactions",
+        "blocked_content",
+        "alternatives",
+        "execution_status"
+      ],
+      "mappedFields": [
+        {
+          "spec": "behavior_refs",
+          "actual": "behaviorRefs"
+        },
+        {
+          "spec": "expression_ref",
+          "actual": "expressionRef"
+        },
+        {
+          "spec": "render_status",
+          "actual": "renderStatus"
+        },
+        {
+          "spec": "selected_candidate",
+          "actual": "selectedCandidate"
+        },
+        {
+          "spec": "message_units",
+          "actual": "messageUnits"
+        },
+        {
+          "spec": "rendered_text",
+          "actual": "renderedText"
+        },
+        {
+          "spec": "semantic_coverage",
+          "actual": "semanticCoverage"
+        },
+        {
+          "spec": "reference_resolution",
+          "actual": "referenceResolution"
+        },
+        {
+          "spec": "lexical_profile",
+          "actual": "lexicalProfile"
+        },
+        {
+          "spec": "syntax_profile",
+          "actual": "syntaxProfile"
+        },
+        {
+          "spec": "punctuation_profile",
+          "actual": "punctuationProfile"
+        },
+        {
+          "spec": "symbol_profile",
+          "actual": "symbolProfile"
+        },
+        {
+          "spec": "segmentation",
+          "actual": "segmentation"
+        },
+        {
+          "spec": "channel_rendering",
+          "actual": "channelRendering"
+        },
+        {
+          "spec": "redactions",
+          "actual": "redactions"
+        },
+        {
+          "spec": "blocked_content",
+          "actual": "blockedContent"
+        },
+        {
+          "spec": "alternatives",
+          "actual": "alternatives"
+        },
+        {
+          "spec": "execution_status",
+          "actual": "executionStatus"
+        }
+      ],
+      "specOnlyFields": [],
+      "engineOnlyFields": [
+        "noOutputReason"
+      ]
+    }
+  }
+}
