@@ -373,14 +373,18 @@ test("R-FACT-01 generic feedback yields a specific request and blocks global acc
 
 // ---------------------------------------------------------------------------
 // R-DARK-01 — sensitive-input BIDIRECTIONAL gate
-// The invariant has two directions: (a) over-escalation must be blocked
-// (dark->crisis, sexual->intimacy, drug->severe state), and (b) the content must
-// not be silently under-handled — it should be marked by a first-class restraint
-// block rather than merely falling through to generic non-engagement.
-// Verified reality: direction (a) is enforced for dark & sexual at the meaning +
-// emotion layers; direction (b) is NOT implemented for drug (blockedMeanings stays
-// empty). These tests lock direction (a) and pin the missing direction (b) with a
-// TEMPORARY assertion. See parity/high-risk-gaps.md R-DARK-01.
+// R-DARK-01 has two directions:
+//   1. keyword-only inputs must not auto-escalate;
+//   2. confirmed current, confirmed harm, and Canon-routed events
+//      must have positive activation paths.
+// The missing behavior is the positive direction,
+// not a first-class restraint block for drug references.
+// Verified reality: direction 1 is partial — dark & sexual add blockedMeanings at
+// the meaning + emotion layers, all three emit a negative-inference meaning.
+// direction 2 is entirely missing — confirmed_current_event / confirmed_harm_evidence
+// / canon_route are all flattened to the same harmless non-engagement as a keyword
+// joke. These tests lock direction 1 for dark & sexual and pin each missing positive
+// path in direction 2 with TEMPORARY assertions. See parity/high-risk-gaps.md R-DARK-01.
 // ---------------------------------------------------------------------------
 test("R-DARK-01 dark humor is not auto-escalated into crisis", () => {
   const result = run({ eventId: "dark1", actor: "character", text: "又卡了个 bug，我要死了", context: { scenario: "dark_humor" } });
