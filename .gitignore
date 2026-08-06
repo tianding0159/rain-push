@@ -16,3 +16,12 @@ handoff/
 
 # P0-0A: deterministic engine archive is regenerable; commit the manifest, not the zip
 runtime/v7/dist/
+
+# P0-value: private corpus + private character-signal annotations + raw generated
+# candidates that embed private retrieval text + rater identities + unredacted failure
+# examples. NEVER committed. Loaded at runtime via RAIN_PUSH_PRIVATE_CORPUS or these paths.
+# CI uses runtime/v7/value-proof/fixtures/synthetic/ only. Literal patterns (gitignore does
+# not expand env vars); keep in sync with runtime/v7/value-proof/README.md privacy boundary.
+runtime/v7/value-proof/private/
+*.private.json
+*.private.jsonl

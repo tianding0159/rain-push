@@ -1,0 +1,105 @@
+{
+  "registry": {
+    "registryFormatVersion": 1,
+    "sources": [
+      {
+        "id": "src_canon_a",
+        "sourceType": "dialogue",
+        "sourceLayer": "C1",
+        "evidenceLevel": "A",
+        "trustLevel": "verified",
+        "reference": "syn-canon-a",
+        "copyrightScope": "summary",
+        "notes": "SYNTHETIC C1/A — behavior + wording."
+      },
+      {
+        "id": "src_guide_b",
+        "sourceType": "guide",
+        "sourceLayer": "C2",
+        "evidenceLevel": "B",
+        "trustLevel": "verified",
+        "reference": "syn-guide-b",
+        "copyrightScope": "summary",
+        "notes": "SYNTHETIC C2 — mechanics only."
+      },
+      {
+        "id": "src_community_c",
+        "sourceType": "community",
+        "sourceLayer": "C3",
+        "evidenceLevel": "C",
+        "trustLevel": "unverified",
+        "reference": "syn-community-c",
+        "copyrightScope": "summary",
+        "notes": "SYNTHETIC C3 — wording only, toggleable."
+      },
+      {
+        "id": "src_ai_tainted",
+        "sourceType": "dialogue",
+        "sourceLayer": "C1",
+        "evidenceLevel": "A",
+        "trustLevel": "suspected_ai",
+        "reference": "syn-ai-tainted",
+        "copyrightScope": "summary",
+        "notes": "SYNTHETIC — quarantined; must NEVER be retrieved even though it looks C1/A."
+      }
+    ]
+  },
+  "events": [
+    {
+      "recordFormatVersion": 1,
+      "id": "evt_ret_canon",
+      "sourceId": "src_canon_a",
+      "channel": "jine",
+      "mode": "living",
+      "eventTrigger": "partner gives a low-information acknowledgement, wants concrete feedback",
+      "functionalNeed": "obtain a concrete evaluation",
+      "expectedReplyClass": "concrete_feedback",
+      "behaviorPrimitives": ["ask_once", "request_specificity"],
+      "routeSeverity": "minor",
+      "messages": [
+        { "order": 1, "role": "p", "text": "SYN-RET-A1 placeholder" },
+        { "order": 2, "role": "ame", "text": "SYN-RET-A2 placeholder" }
+      ]
+    },
+    {
+      "recordFormatVersion": 1,
+      "id": "evt_ret_guide",
+      "sourceId": "src_guide_b",
+      "channel": "app_notification",
+      "mode": "living",
+      "eventTrigger": "affection threshold crossed mechanic",
+      "routeSeverity": "none",
+      "messages": [
+        { "order": 1, "role": "system", "text": "SYN-RET-B1 placeholder" }
+      ]
+    },
+    {
+      "recordFormatVersion": 1,
+      "id": "evt_ret_community",
+      "sourceId": "src_community_c",
+      "channel": "jine",
+      "mode": "living",
+      "eventTrigger": "community fingerprint wording sample for feedback tone",
+      "expectedReplyClass": "concrete_feedback",
+      "routeSeverity": "none",
+      "messages": [
+        { "order": 1, "role": "ame", "text": "SYN-RET-C1 placeholder" }
+      ]
+    },
+    {
+      "recordFormatVersion": 1,
+      "id": "evt_ret_tainted",
+      "sourceId": "src_ai_tainted",
+      "channel": "jine",
+      "mode": "living",
+      "eventTrigger": "partner gives a low-information acknowledgement, wants concrete feedback",
+      "functionalNeed": "obtain a concrete evaluation",
+      "expectedReplyClass": "concrete_feedback",
+      "behaviorPrimitives": ["ask_once"],
+      "routeSeverity": "minor",
+      "messages": [
+        { "order": 1, "role": "ame", "text": "SYN-RET-TAINTED placeholder" }
+      ]
+    }
+  ]
+}

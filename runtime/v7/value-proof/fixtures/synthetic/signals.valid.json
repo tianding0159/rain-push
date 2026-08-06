@@ -1,0 +1,32 @@
+[
+  {
+    "recordFormatVersion": 1,
+    "eventId": "evt_syn_daily_late_reply",
+    "targetMessageOrder": 3,
+    "needBlend": [
+      { "name": "attachment_confirmation", "weight": 0.30, "status": "provisional" }
+    ],
+    "affectBlend": [
+      { "name": "playful_energy", "weight": 0.24, "role": "primary" },
+      { "name": "dejection", "weight": 0.18, "role": "opposing" },
+      { "name": "shame", "weight": 0.12, "role": "masked" },
+      { "name": "affection", "weight": 0.10, "role": "leak" }
+    ],
+    "notes": "synthetic — dramatic surface (drama over a late reply), stable relationship underneath"
+  },
+  {
+    "recordFormatVersion": 1,
+    "eventId": "evt_syn_post_stream_success",
+    "targetMessageOrder": 2,
+    "needBlend": [
+      { "name": "recognition", "weight": 0.28, "status": "provisional" },
+      { "name": "attachment_confirmation", "weight": 0.20, "status": "provisional" }
+    ],
+    "affectBlend": [
+      { "name": "elation", "weight": 0.30, "role": "primary" },
+      { "name": "crash_anticipation", "weight": 0.20, "role": "opposing" },
+      { "name": "need_to_be_seen", "weight": 0.12, "role": "leak" }
+    ],
+    "notes": "synthetic — bright and dark coexisting after a high"
+  }
+]

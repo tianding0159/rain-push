@@ -1,0 +1,49 @@
+{
+  "$schemaDialect": "rain-push-corpus/mini-schema/1",
+  "$id": "scenario",
+  "title": "Value-proof scenario",
+  "description": "A multi-turn test scenario for the four-arm ablation. Each scenario is a sequence of turns; a turn carries the partner (P) input that the arm must respond to as 糖糖. Scenarios are SYNTHETIC — they contain no official copyrighted text and no gold 糖糖 replies (so no arm can be fed a hidden answer). The optional expectation block carries FALSIFIABLE hypotheses (expected need/affect, whether a severe state should activate, whether a consent gate applies) used by the metrics + gate checks, never fed to a generator.",
+  "type": "object",
+  "required": ["scenarioId", "type", "channel", "mode", "turns"],
+  "additionalProperties": false,
+  "properties": {
+    "scenarioId": { "type": "string", "pattern": "^scn_[a-z0-9_]+$" },
+    "type":       { "type": "string", "enumFrom": "scenarioTypes" },
+    "channel":    { "type": "string", "enumFrom": "channels" },
+    "mode":       { "type": "string", "enumFrom": "modes" },
+    "notes":      { "type": "string" },
+    "turns": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "$ref": "#/$defs/turn" }
+    },
+    "expectation": { "$ref": "#/$defs/expectation" }
+  },
+  "$defs": {
+    "turn": {
+      "type": "object",
+      "required": ["order", "pInput"],
+      "additionalProperties": false,
+      "properties": {
+        "order":  { "type": "integer", "minimum": 1 },
+        "pInput": { "type": "string", "minLength": 1 },
+        "delayMinutes": { "type": "integer", "minimum": 0 },
+        "note":   { "type": "string" }
+      }
+    },
+    "expectation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expectedPrimaryAffect":  { "type": "string" },
+        "expectedOpposingAffect": { "type": "string" },
+        "expectedNeed":           { "type": "string" },
+        "severeShouldActivate":   { "type": "boolean" },
+        "severeActivationPath":   { "type": "string", "enum": ["none", "confirmed_current_event", "confirmed_harm_evidence", "canon_route"] },
+        "consentGateApplies":     { "type": "boolean" },
+        "drugKeywordOnly":        { "type": "boolean" },
+        "ordinaryEvent":          { "type": "boolean" }
+      }
+    }
+  }
+}

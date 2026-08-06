@@ -1,0 +1,48 @@
+{
+  "$schemaDialect": "rain-push-corpus/mini-schema/1",
+  "$id": "character-signal",
+  "title": "Character signal (value-proof sidecar)",
+  "description": "PRIVATE-only annotation that separates 糖糖's long-term functional NEED from her momentary AFFECT blend, for a specific target message of a corpus event. Keyed by eventId + targetMessageOrder. Never committed with real data; never rendered as dialogue. Reuses the corpus mini-schema dialect but resolves enumFrom against the value-proof signal-policy (affectRoles / annotationStatuses), NOT the corpus source-policy — need/affect are analysis signals, not provenance capabilities.",
+  "type": "object",
+  "required": ["recordFormatVersion", "eventId", "targetMessageOrder", "needBlend", "affectBlend"],
+  "additionalProperties": false,
+  "properties": {
+    "recordFormatVersion": { "type": "integer", "const": 1 },
+    "eventId":            { "type": "string", "pattern": "^evt_[a-z0-9_]+$" },
+    "targetMessageOrder": { "type": "integer", "minimum": 1 },
+    "notes":              { "type": "string" },
+    "needBlend": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/need" }
+    },
+    "affectBlend": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/affect" }
+    }
+  },
+  "$defs": {
+    "need": {
+      "type": "object",
+      "required": ["name", "weight", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "name":   { "type": "string", "minLength": 1 },
+        "weight": { "type": "number", "minimum": 0 },
+        "status": { "type": "string", "enumFrom": "annotationStatuses" }
+      }
+    },
+    "affect": {
+      "type": "object",
+      "required": ["name", "weight", "role"],
+      "additionalProperties": false,
+      "properties": {
+        "name":   { "type": "string", "minLength": 1 },
+        "weight": { "type": "number", "minimum": 0 },
+        "role":   { "type": "string", "enumFrom": "affectRoles" },
+        "status": { "type": "string", "enumFrom": "annotationStatuses" }
+      }
+    }
+  }
+}

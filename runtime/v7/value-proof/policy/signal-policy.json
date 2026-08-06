@@ -1,0 +1,27 @@
+{
+  "policyFormatVersion": 1,
+  "description": "SSOT for the value-proof character-signal sidecar. Defines the affect roles, the annotation status vocabulary, and the analysis constraints (how many of each role a well-formed target annotation carries). Read ONLY via lib/signal-policy.mjs; never hardcode these lists in the schema, parser, or metrics. Kept separate from the corpus source-policy because these are eval/analysis signals, not provenance capabilities — they must never be confused with what a source is allowed to influence.",
+
+  "affectRoles": {
+    "primary":  { "meaning": "The emotion the surface most reads as." },
+    "opposing": { "meaning": "A genuinely contradictory emotion active at the same time — what a blind evaluator should still detect. This co-activation is the character." },
+    "masked":   { "meaning": "Present but hidden under the surface (e.g. shame under bravado)." },
+    "leak":     { "meaning": "Not intended to show, but slips through (e.g. affection leaking through an attack)." }
+  },
+
+  "annotationStatuses": {
+    "provisional": { "meaning": "A hypothesis, not calibrated. All pilot weights start here. Never a fixed acceptance threshold." },
+    "calibrated":  { "meaning": "Revised against real corpus + blind eval." }
+  },
+
+  "constraints": {
+    "needBlendMax": 3,
+    "affectPrimaryExpected": 1,
+    "affectOpposingExpected": 1,
+    "affectMaskedLeakMax": 2,
+    "weightMin": 0,
+    "weightMax": 1,
+    "weightsMustSumTo100": false,
+    "notes": "A typical target reply = 1 stable need + 1 primary + 1 opposing + 0-2 masked/leak. These are the well-formedness expectations the parser reports against; they are analysis guidance, not hard schema rejections, because real corpus may legitimately exceed them and we do not want to silently drop signal."
+  }
+}
