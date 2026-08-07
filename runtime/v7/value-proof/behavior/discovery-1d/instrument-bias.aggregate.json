@@ -1,0 +1,1322 @@
+{
+  "actionBias": {
+    "aActionTotal": 89,
+    "bActionTotal": 56,
+    "netDetectionRatio": 0.629,
+    "overDetectedTotal": 45,
+    "topConfusedActionPairs": [
+      {
+        "count": 15,
+        "key": "reveal=>no_clear_action"
+      },
+      {
+        "count": 4,
+        "key": "reassure_partner=>no_clear_action"
+      },
+      {
+        "count": 3,
+        "key": "perform_confidence=>no_clear_action"
+      },
+      {
+        "count": 3,
+        "key": "reveal=>accuse"
+      },
+      {
+        "count": 3,
+        "key": "reveal=>demand"
+      },
+      {
+        "count": 3,
+        "key": "reveal=>withdraw"
+      },
+      {
+        "count": 3,
+        "key": "seek_exclusivity=>no_clear_action"
+      },
+      {
+        "count": 3,
+        "key": "tease=>no_clear_action"
+      },
+      {
+        "count": 2,
+        "key": "seek_confirmation=>no_clear_action"
+      },
+      {
+        "count": 2,
+        "key": "self_devalue=>no_clear_action"
+      },
+      {
+        "count": 1,
+        "key": "accuse=>no_clear_action"
+      },
+      {
+        "count": 1,
+        "key": "accuse=>reveal"
+      }
+    ],
+    "topOverDetectedActions": [
+      {
+        "count": 29,
+        "key": "no_clear_action"
+      },
+      {
+        "count": 4,
+        "key": "withdraw"
+      },
+      {
+        "count": 3,
+        "key": "accuse"
+      },
+      {
+        "count": 3,
+        "key": "demand"
+      },
+      {
+        "count": 2,
+        "key": "reveal"
+      },
+      {
+        "count": 1,
+        "key": "request_practical_action"
+      },
+      {
+        "count": 1,
+        "key": "retract"
+      },
+      {
+        "count": 1,
+        "key": "self_monitor"
+      },
+      {
+        "count": 1,
+        "key": "tease"
+      }
+    ],
+    "topUnderDetectedActions": [
+      {
+        "count": 28,
+        "key": "reveal"
+      },
+      {
+        "count": 5,
+        "key": "seek_confirmation"
+      },
+      {
+        "count": 5,
+        "key": "self_devalue"
+      },
+      {
+        "count": 4,
+        "key": "perform_confidence"
+      },
+      {
+        "count": 4,
+        "key": "reassure_partner"
+      },
+      {
+        "count": 3,
+        "key": "future_bind"
+      },
+      {
+        "count": 3,
+        "key": "seek_exclusivity"
+      },
+      {
+        "count": 3,
+        "key": "tease"
+      },
+      {
+        "count": 2,
+        "key": "accuse"
+      },
+      {
+        "count": 2,
+        "key": "bait"
+      },
+      {
+        "count": 2,
+        "key": "demand"
+      },
+      {
+        "count": 2,
+        "key": "escalate"
+      }
+    ],
+    "underDetectedTotal": 78,
+    "underSegmentationRecords": 23
+  },
+  "design": "paired A-vs-B on the identical 50 pilot records; A (hand) is the reference measurement, B (heuristic) is the device under test.",
+  "heatmap": {
+    "cells": [
+      {
+        "biasType": "under_segmentation",
+        "primaryLayer": "L1_actions",
+        "severity": 0.46
+      },
+      {
+        "biasType": "over_segmentation",
+        "primaryLayer": "L1_actions",
+        "severity": 0.506
+      },
+      {
+        "biasType": "action_vocabulary_bias",
+        "primaryLayer": "L1_actions",
+        "severity": 0.371
+      },
+      {
+        "biasType": "trigger_fallback_bias",
+        "primaryLayer": "L2_trigger",
+        "severity": 0.78
+      },
+      {
+        "biasType": "trigger_confusion",
+        "primaryLayer": "L2_trigger",
+        "severity": 0.78
+      },
+      {
+        "biasType": "mask_detection_bias",
+        "primaryLayer": "L3_mask",
+        "severity": 0.839
+      },
+      {
+        "biasType": "driving_force_suppression",
+        "primaryLayer": "L2_driving_force",
+        "severity": 0.7
+      },
+      {
+        "biasType": "driving_force_inflation",
+        "primaryLayer": "L2_driving_force",
+        "severity": 0
+      },
+      {
+        "biasType": "interaction_function_collapse",
+        "primaryLayer": "L2_functions",
+        "severity": 0.24
+      },
+      {
+        "biasType": "relationship_operation_collapse",
+        "primaryLayer": "L_relationship",
+        "severity": 0.273
+      },
+      {
+        "biasType": "expected_partner_collapse",
+        "primaryLayer": "L_expected_partner",
+        "severity": 0.734
+      },
+      {
+        "biasType": "performance_collapse",
+        "primaryLayer": "L_performance",
+        "severity": 0.8
+      },
+      {
+        "biasType": "meta_self_monitoring_miss",
+        "primaryLayer": "L_meta",
+        "severity": 0.9
+      },
+      {
+        "biasType": "weak_inference_inflation",
+        "primaryLayer": "L_confidence",
+        "severity": 0.22
+      },
+      {
+        "biasType": "prior_leakage",
+        "primaryLayer": "L2_driving_force",
+        "severity": 0.26
+      }
+    ],
+    "layerReliability": [
+      {
+        "layer": "L_confidence",
+        "reliability": 0.78,
+        "worstBiasSeverity": 0.22
+      },
+      {
+        "layer": "L2_functions",
+        "reliability": 0.76,
+        "worstBiasSeverity": 0.24
+      },
+      {
+        "layer": "L_relationship",
+        "reliability": 0.727,
+        "worstBiasSeverity": 0.273
+      },
+      {
+        "layer": "L1_actions",
+        "reliability": 0.494,
+        "worstBiasSeverity": 0.506
+      },
+      {
+        "layer": "L2_driving_force",
+        "reliability": 0.3,
+        "worstBiasSeverity": 0.7
+      },
+      {
+        "layer": "L_expected_partner",
+        "reliability": 0.266,
+        "worstBiasSeverity": 0.734
+      },
+      {
+        "layer": "L2_trigger",
+        "reliability": 0.22,
+        "worstBiasSeverity": 0.78
+      },
+      {
+        "layer": "L_performance",
+        "reliability": 0.2,
+        "worstBiasSeverity": 0.8
+      },
+      {
+        "layer": "L3_mask",
+        "reliability": 0.161,
+        "worstBiasSeverity": 0.839
+      },
+      {
+        "layer": "L_meta",
+        "reliability": 0.1,
+        "worstBiasSeverity": 0.9
+      }
+    ],
+    "leastReliableLayer": {
+      "layer": "L_meta",
+      "reliability": 0.1,
+      "worstBiasSeverity": 0.9
+    },
+    "mostReliableLayer": {
+      "layer": "L_confidence",
+      "reliability": 0.78,
+      "worstBiasSeverity": 0.22
+    }
+  },
+  "impact": {
+    "byBias": [
+      {
+        "affectsGrammar": [
+          "transition_grammar",
+          "momentum_grammar"
+        ],
+        "biasType": "under_segmentation",
+        "severity": 0.46
+      },
+      {
+        "affectsGrammar": [
+          "transition_grammar"
+        ],
+        "biasType": "over_segmentation",
+        "severity": 0.506
+      },
+      {
+        "affectsGrammar": [
+          "transition_grammar",
+          "reveal_grammar",
+          "performance_grammar"
+        ],
+        "biasType": "action_vocabulary_bias",
+        "severity": 0.371
+      },
+      {
+        "affectsGrammar": [
+          "trigger_sensitivity",
+          "priors_grammar"
+        ],
+        "biasType": "trigger_fallback_bias",
+        "severity": 0.78
+      },
+      {
+        "affectsGrammar": [
+          "trigger_sensitivity",
+          "priors_grammar"
+        ],
+        "biasType": "trigger_confusion",
+        "severity": 0.78
+      },
+      {
+        "affectsGrammar": [
+          "reveal_grammar",
+          "mask_grammar"
+        ],
+        "biasType": "mask_detection_bias",
+        "severity": 0.839
+      },
+      {
+        "affectsGrammar": [
+          "priors_grammar",
+          "driver_strategy_grammar"
+        ],
+        "biasType": "driving_force_suppression",
+        "severity": 0.7
+      },
+      {
+        "affectsGrammar": [
+          "priors_grammar"
+        ],
+        "biasType": "driving_force_inflation",
+        "severity": 0
+      },
+      {
+        "affectsGrammar": [
+          "expected_partner_grammar",
+          "performance_grammar"
+        ],
+        "biasType": "interaction_function_collapse",
+        "severity": 0.24
+      },
+      {
+        "affectsGrammar": [
+          "partner_operation_grammar",
+          "relationship_grammar"
+        ],
+        "biasType": "relationship_operation_collapse",
+        "severity": 0.273
+      },
+      {
+        "affectsGrammar": [
+          "expected_partner_grammar"
+        ],
+        "biasType": "expected_partner_collapse",
+        "severity": 0.734
+      },
+      {
+        "affectsGrammar": [
+          "performance_grammar",
+          "reveal_grammar"
+        ],
+        "biasType": "performance_collapse",
+        "severity": 0.8
+      },
+      {
+        "affectsGrammar": [
+          "self_monitoring_grammar"
+        ],
+        "biasType": "meta_self_monitoring_miss",
+        "severity": 0.9
+      },
+      {
+        "affectsGrammar": [
+          "all_grammar_confidence"
+        ],
+        "biasType": "weak_inference_inflation",
+        "severity": 0.22
+      },
+      {
+        "affectsGrammar": [
+          "priors_grammar"
+        ],
+        "biasType": "prior_leakage",
+        "severity": 0.26
+      }
+    ],
+    "grammarThreat": [
+      {
+        "aggregateThreat": 1,
+        "biases": [
+          {
+            "biasType": "mask_detection_bias",
+            "severity": 0.839
+          },
+          {
+            "biasType": "performance_collapse",
+            "severity": 0.8
+          },
+          {
+            "biasType": "action_vocabulary_bias",
+            "severity": 0.371
+          }
+        ],
+        "grammar": "reveal_grammar"
+      },
+      {
+        "aggregateThreat": 1,
+        "biases": [
+          {
+            "biasType": "performance_collapse",
+            "severity": 0.8
+          },
+          {
+            "biasType": "action_vocabulary_bias",
+            "severity": 0.371
+          },
+          {
+            "biasType": "interaction_function_collapse",
+            "severity": 0.24
+          }
+        ],
+        "grammar": "performance_grammar"
+      },
+      {
+        "aggregateThreat": 1,
+        "biases": [
+          {
+            "biasType": "trigger_fallback_bias",
+            "severity": 0.78
+          },
+          {
+            "biasType": "trigger_confusion",
+            "severity": 0.78
+          }
+        ],
+        "grammar": "trigger_sensitivity"
+      },
+      {
+        "aggregateThreat": 1,
+        "biases": [
+          {
+            "biasType": "trigger_fallback_bias",
+            "severity": 0.78
+          },
+          {
+            "biasType": "trigger_confusion",
+            "severity": 0.78
+          },
+          {
+            "biasType": "driving_force_suppression",
+            "severity": 0.7
+          },
+          {
+            "biasType": "prior_leakage",
+            "severity": 0.26
+          },
+          {
+            "biasType": "driving_force_inflation",
+            "severity": 0
+          }
+        ],
+        "grammar": "priors_grammar"
+      },
+      {
+        "aggregateThreat": 0.9,
+        "biases": [
+          {
+            "biasType": "meta_self_monitoring_miss",
+            "severity": 0.9
+          }
+        ],
+        "grammar": "self_monitoring_grammar"
+      },
+      {
+        "aggregateThreat": 0.86,
+        "biases": [
+          {
+            "biasType": "over_segmentation",
+            "severity": 0.506
+          },
+          {
+            "biasType": "under_segmentation",
+            "severity": 0.46
+          },
+          {
+            "biasType": "action_vocabulary_bias",
+            "severity": 0.371
+          }
+        ],
+        "grammar": "transition_grammar"
+      },
+      {
+        "aggregateThreat": 0.854,
+        "biases": [
+          {
+            "biasType": "expected_partner_collapse",
+            "severity": 0.734
+          },
+          {
+            "biasType": "interaction_function_collapse",
+            "severity": 0.24
+          }
+        ],
+        "grammar": "expected_partner_grammar"
+      },
+      {
+        "aggregateThreat": 0.839,
+        "biases": [
+          {
+            "biasType": "mask_detection_bias",
+            "severity": 0.839
+          }
+        ],
+        "grammar": "mask_grammar"
+      },
+      {
+        "aggregateThreat": 0.7,
+        "biases": [
+          {
+            "biasType": "driving_force_suppression",
+            "severity": 0.7
+          }
+        ],
+        "grammar": "driver_strategy_grammar"
+      },
+      {
+        "aggregateThreat": 0.46,
+        "biases": [
+          {
+            "biasType": "under_segmentation",
+            "severity": 0.46
+          }
+        ],
+        "grammar": "momentum_grammar"
+      },
+      {
+        "aggregateThreat": 0.273,
+        "biases": [
+          {
+            "biasType": "relationship_operation_collapse",
+            "severity": 0.273
+          }
+        ],
+        "grammar": "partner_operation_grammar"
+      },
+      {
+        "aggregateThreat": 0.273,
+        "biases": [
+          {
+            "biasType": "relationship_operation_collapse",
+            "severity": 0.273
+          }
+        ],
+        "grammar": "relationship_grammar"
+      },
+      {
+        "aggregateThreat": 0.22,
+        "biases": [
+          {
+            "biasType": "weak_inference_inflation",
+            "severity": 0.22
+          }
+        ],
+        "grammar": "all_grammar_confidence"
+      }
+    ]
+  },
+  "inferenceQuality": {
+    "affectWeakInferenceA": 33,
+    "affectWeakInferenceB": 14,
+    "triggerWeakInferenceA": 39,
+    "triggerWeakInferenceB": 50,
+    "triggerWeakInflation": 0.22
+  },
+  "layerCoverages": {
+    "actions": {
+      "aTotal": 89,
+      "bTotal": 56,
+      "recordsFullyCollapsed": 0,
+      "retention": 0.629
+    },
+    "drivingForce": {
+      "aTotal": 60,
+      "bTotal": 18,
+      "recordsFullyCollapsed": 31,
+      "retention": 0.3
+    },
+    "expectedPartner": {
+      "aTotal": 109,
+      "bTotal": 29,
+      "recordsFullyCollapsed": 28,
+      "retention": 0.266
+    },
+    "functionalMask": {
+      "aTotal": 3,
+      "bTotal": 0,
+      "recordsFullyCollapsed": 3,
+      "retention": 0
+    },
+    "interactionFunctions": {
+      "aTotal": 75,
+      "bTotal": 57,
+      "recordsFullyCollapsed": 0,
+      "retention": 0.76
+    },
+    "metaSelfMonitoring": {
+      "aTotal": 30,
+      "bTotal": 3,
+      "recordsFullyCollapsed": 19,
+      "retention": 0.1
+    },
+    "performance": {
+      "aTotal": 5,
+      "bTotal": 1,
+      "recordsFullyCollapsed": 4,
+      "retention": 0.2
+    },
+    "relationshipOps": {
+      "aTotal": 33,
+      "bTotal": 24,
+      "recordsFullyCollapsed": 9,
+      "retention": 0.727
+    },
+    "relationshipPresent": {
+      "aTotal": 18,
+      "bTotal": 15,
+      "recordsFullyCollapsed": 9,
+      "retention": 0.833
+    }
+  },
+  "longMessageBias": {
+    "actionRetentionDropsWithLength": true,
+    "rows": [
+      {
+        "actionRetention": 1,
+        "lengthBucket": "0-14",
+        "meanActionsA": 1,
+        "meanActionsB": 1,
+        "meanFunctionsA": 1,
+        "meanFunctionsB": 1,
+        "n": 9
+      },
+      {
+        "actionRetention": 0.69,
+        "lengthBucket": "15-29",
+        "meanActionsA": 1.615,
+        "meanActionsB": 1.115,
+        "meanFunctionsA": 1.462,
+        "meanFunctionsB": 1.038,
+        "n": 26
+      },
+      {
+        "actionRetention": 0.56,
+        "lengthBucket": "30-59",
+        "meanActionsA": 2.083,
+        "meanActionsB": 1.167,
+        "meanFunctionsA": 1.667,
+        "meanFunctionsB": 1.25,
+        "n": 12
+      },
+      {
+        "actionRetention": 0.308,
+        "lengthBucket": "60+",
+        "meanActionsA": 4.333,
+        "meanActionsB": 1.333,
+        "meanFunctionsA": 2.667,
+        "meanFunctionsB": 2,
+        "n": 3
+      }
+    ]
+  },
+  "maskBias": {
+    "agreements": 5,
+    "ambiguousIdsCount": 26,
+    "ambiguousUnjudgeable": 26,
+    "falseNegatives": 0,
+    "falsePositives": 0,
+    "fnIdsCount": 0,
+    "fnRateAmongReferenceReveals": 0,
+    "fpIdsCount": 0,
+    "revealBearingInReference": 31,
+    "revealSurvivalRate": 0.161
+  },
+  "n": 50,
+  "note": "Bias here is an INSTRUMENT property measured against the hand reference, not a character claim. Severities are magnitudes of the A-vs-B gap on identical input.",
+  "priority": [
+    {
+      "biasType": "mask_detection_bias",
+      "fixability": 0.9,
+      "grammarReach": 2,
+      "remediationBenefit": 0.503,
+      "severity": 0.839,
+      "stars": 3
+    },
+    {
+      "biasType": "performance_collapse",
+      "fixability": 0.7,
+      "grammarReach": 2,
+      "remediationBenefit": 0.373,
+      "severity": 0.8,
+      "stars": 2
+    },
+    {
+      "biasType": "trigger_fallback_bias",
+      "fixability": 0.6,
+      "grammarReach": 2,
+      "remediationBenefit": 0.312,
+      "severity": 0.78,
+      "stars": 2
+    },
+    {
+      "biasType": "driving_force_suppression",
+      "fixability": 0.6,
+      "grammarReach": 2,
+      "remediationBenefit": 0.28,
+      "severity": 0.7,
+      "stars": 1
+    },
+    {
+      "biasType": "action_vocabulary_bias",
+      "fixability": 0.7,
+      "grammarReach": 3,
+      "remediationBenefit": 0.26,
+      "severity": 0.371,
+      "stars": 1
+    },
+    {
+      "biasType": "trigger_confusion",
+      "fixability": 0.5,
+      "grammarReach": 2,
+      "remediationBenefit": 0.26,
+      "severity": 0.78,
+      "stars": 1
+    },
+    {
+      "biasType": "under_segmentation",
+      "fixability": 0.8,
+      "grammarReach": 2,
+      "remediationBenefit": 0.245,
+      "severity": 0.46,
+      "stars": 1
+    },
+    {
+      "biasType": "over_segmentation",
+      "fixability": 0.8,
+      "grammarReach": 1,
+      "remediationBenefit": 0.135,
+      "severity": 0.506,
+      "stars": 1
+    },
+    {
+      "biasType": "expected_partner_collapse",
+      "fixability": 0.5,
+      "grammarReach": 1,
+      "remediationBenefit": 0.122,
+      "severity": 0.734,
+      "stars": 1
+    },
+    {
+      "biasType": "meta_self_monitoring_miss",
+      "fixability": 0.4,
+      "grammarReach": 1,
+      "remediationBenefit": 0.12,
+      "severity": 0.9,
+      "stars": 1
+    }
+  ],
+  "remediation": [
+    {
+      "biasType": "mask_detection_bias",
+      "proposal": "make mask conditional on reveal detection first; a mask review question only fires once a reveal is detected (the FN here is a reveal miss, not a mask miss).",
+      "remediationBenefit": 0.503,
+      "type": "review_question"
+    },
+    {
+      "biasType": "performance_collapse",
+      "proposal": "add perform_confidence lexical cues (boast/flex markers) to the annotator.",
+      "remediationBenefit": 0.373,
+      "type": "guide_rule"
+    },
+    {
+      "biasType": "trigger_fallback_bias",
+      "proposal": "add a decision rule that prefers the nearest specific trigger domain before falling back to other/indeterminate.",
+      "remediationBenefit": 0.312,
+      "type": "guide_rule"
+    },
+    {
+      "biasType": "driving_force_suppression",
+      "proposal": "lower the evidence bar for emitting a driving-force CANDIDATE (candidate, not committed) so motive coverage matches the reference.",
+      "remediationBenefit": 0.28,
+      "type": "guide_rule"
+    },
+    {
+      "biasType": "action_vocabulary_bias",
+      "proposal": "add explicit lexical cues for the top-missed action (reveal) to the annotator; add a QA test asserting reveal recall on a fixed mini-set.",
+      "remediationBenefit": 0.26,
+      "type": "guide_rule + qa_test"
+    },
+    {
+      "biasType": "trigger_confusion",
+      "proposal": "add disambiguation questions for the top confused pairs (e.g. public_evaluation vs humiliation).",
+      "remediationBenefit": 0.26,
+      "type": "review_question"
+    },
+    {
+      "biasType": "under_segmentation",
+      "proposal": "add a segmentation validator: when an utterance contains a coordinating/turn marker (a CJK coordinating conjunction or a newline) flag single-action annotations for a second segmentation pass.",
+      "remediationBenefit": 0.245,
+      "type": "validator"
+    },
+    {
+      "biasType": "over_segmentation",
+      "proposal": "strip no_clear_action when any real action is present in the same record.",
+      "remediationBenefit": 0.135,
+      "type": "validator"
+    },
+    {
+      "biasType": "expected_partner_collapse",
+      "proposal": "add expected-partner cues for the most common immediate-reply classes.",
+      "remediationBenefit": 0.122,
+      "type": "guide_rule"
+    },
+    {
+      "biasType": "meta_self_monitoring_miss",
+      "proposal": "add meta-tag lexical cues; accept that meta is inherently low-recall and down-weight meta-derived grammar.",
+      "remediationBenefit": 0.12,
+      "type": "enum + guide_rule"
+    }
+  ],
+  "robustness": [
+    {
+      "biasSensitivity": "HIGH",
+      "candidate": "GC1_delayed_reply_to_accuse_or_seek",
+      "dependsOn": [
+        "trigger_sensitivity",
+        "transition_grammar",
+        "expected_partner_grammar"
+      ],
+      "fragile": true,
+      "maxDependencyThreat": 1
+    },
+    {
+      "biasSensitivity": "HIGH",
+      "candidate": "GC2_reveal_to_mask",
+      "dependsOn": [
+        "reveal_grammar",
+        "mask_grammar"
+      ],
+      "fragile": true,
+      "maxDependencyThreat": 1
+    },
+    {
+      "biasSensitivity": "HIGH",
+      "candidate": "GC4_exclusivity_trigger_to_unique",
+      "dependsOn": [
+        "trigger_sensitivity",
+        "priors_grammar",
+        "relationship_grammar"
+      ],
+      "fragile": true,
+      "maxDependencyThreat": 1
+    },
+    {
+      "biasSensitivity": "HIGH",
+      "candidate": "GC6_low_trigger_high_activation",
+      "dependsOn": [
+        "trigger_sensitivity"
+      ],
+      "fragile": true,
+      "maxDependencyThreat": 1
+    },
+    {
+      "biasSensitivity": "HIGH",
+      "candidate": "GC7_self_monitoring_present",
+      "dependsOn": [
+        "self_monitoring_grammar"
+      ],
+      "fragile": true,
+      "maxDependencyThreat": 0.9
+    },
+    {
+      "biasSensitivity": "HIGH",
+      "candidate": "GC3_accusation_seeks_reassurance",
+      "dependsOn": [
+        "transition_grammar",
+        "expected_partner_grammar"
+      ],
+      "fragile": true,
+      "maxDependencyThreat": 0.86
+    },
+    {
+      "biasSensitivity": "LOW",
+      "candidate": "GC5_relationship_management_explicit",
+      "dependsOn": [
+        "relationship_grammar",
+        "partner_operation_grammar"
+      ],
+      "fragile": false,
+      "maxDependencyThreat": 0.273
+    }
+  ],
+  "simulation": {
+    "cumulativeUnitsRecovered": 6,
+    "simulations": [
+      {
+        "biasType": "mask_detection_bias",
+        "grammarDeltaNote": "closing this gap moves mask_detection_bias's layer from 0 toward reference; affects 2 grammar families.",
+        "layer": "functionalMask",
+        "measuredGap": 3,
+        "projectedRecovered": 3,
+        "rank": 1,
+        "retentionAfter": 1,
+        "retentionBefore": 0
+      },
+      {
+        "biasType": "performance_collapse",
+        "grammarDeltaNote": "closing this gap moves performance_collapse's layer from 0.2 toward reference; affects 2 grammar families.",
+        "layer": "performance",
+        "measuredGap": 4,
+        "projectedRecovered": 3,
+        "rank": 2,
+        "retentionAfter": 0.8,
+        "retentionBefore": 0.2
+      }
+    ],
+    "topK": 2
+  },
+  "stage": "P1-1D",
+  "stopRule": {
+    "actionDetectionRatio": 0.629,
+    "fragileSurvivors": [
+      "GC4_exclusivity_trigger_to_unique"
+    ],
+    "highThreatGrammars": [
+      "reveal_grammar",
+      "performance_grammar",
+      "trigger_sensitivity",
+      "priors_grammar",
+      "self_monitoring_grammar",
+      "transition_grammar",
+      "expected_partner_grammar",
+      "mask_grammar",
+      "driver_strategy_grammar"
+    ],
+    "proceed": "HOLD_FIX_INSTRUMENT_FIRST",
+    "reasons": [
+      "grammar families under HIGH instrument threat: reveal_grammar, performance_grammar, trigger_sensitivity, priors_grammar, self_monitoring_grammar, transition_grammar, expected_partner_grammar, mask_grammar, driver_strategy_grammar",
+      "action detection ratio 0.629 < floor 0.85: the instrument loses too many actions vs the reference",
+      "P1-1C E3 survivors are instrument-fragile: GC4_exclusivity_trigger_to_unique"
+    ],
+    "status": "BIAS_TOO_HIGH"
+  },
+  "taxonomy": [
+    {
+      "definition": "Instrument collapses a multi-action utterance into fewer actions than the reference marked.",
+      "id": "under_segmentation",
+      "layer": "L1_actions",
+      "scope": [
+        "transition_grammar",
+        "momentum_grammar"
+      ],
+      "severity": 0.46,
+      "support": {
+        "actionDetectionRatio": 0.629,
+        "underSegmentationRecords": 23
+      }
+    },
+    {
+      "definition": "Instrument invents actions the reference did not mark (chiefly fallback tokens like no_clear_action).",
+      "id": "over_segmentation",
+      "layer": "L1_actions",
+      "scope": [
+        "transition_grammar"
+      ],
+      "severity": 0.506,
+      "support": {
+        "overDetectedTotal": 45,
+        "topOver": [
+          {
+            "count": 29,
+            "key": "no_clear_action"
+          },
+          {
+            "count": 4,
+            "key": "withdraw"
+          },
+          {
+            "count": 3,
+            "key": "accuse"
+          }
+        ]
+      }
+    },
+    {
+      "definition": "Specific action types are disproportionately missed or swapped (systematic per-token gaps).",
+      "id": "action_vocabulary_bias",
+      "layer": "L1_actions",
+      "scope": [
+        "transition_grammar",
+        "reveal_grammar",
+        "performance_grammar"
+      ],
+      "severity": 0.371,
+      "support": {
+        "topConfused": [
+          {
+            "count": 15,
+            "key": "reveal=>no_clear_action"
+          },
+          {
+            "count": 4,
+            "key": "reassure_partner=>no_clear_action"
+          },
+          {
+            "count": 3,
+            "key": "perform_confidence=>no_clear_action"
+          },
+          {
+            "count": 3,
+            "key": "reveal=>accuse"
+          },
+          {
+            "count": 3,
+            "key": "reveal=>demand"
+          }
+        ],
+        "topUnderDetected": [
+          {
+            "count": 28,
+            "key": "reveal"
+          },
+          {
+            "count": 5,
+            "key": "seek_confirmation"
+          },
+          {
+            "count": 5,
+            "key": "self_devalue"
+          },
+          {
+            "count": 4,
+            "key": "perform_confidence"
+          },
+          {
+            "count": 4,
+            "key": "reassure_partner"
+          }
+        ]
+      }
+    },
+    {
+      "definition": "Instrument routes triggers it cannot classify into escape-hatch domains instead of the specific one the reference used.",
+      "id": "trigger_fallback_bias",
+      "layer": "L2_trigger",
+      "scope": [
+        "trigger_sensitivity",
+        "priors_grammar"
+      ],
+      "severity": 0.78,
+      "support": {
+        "agreement": 0.22,
+        "instrumentEscape": 8,
+        "referenceEscape": 15
+      }
+    },
+    {
+      "definition": "Instrument maps one specific trigger domain onto a different specific domain (off-diagonal confusion).",
+      "id": "trigger_confusion",
+      "layer": "L2_trigger",
+      "scope": [
+        "trigger_sensitivity",
+        "priors_grammar"
+      ],
+      "severity": 0.78,
+      "support": {
+        "disagreements": 39,
+        "topConfusions": [
+          {
+            "count": 11,
+            "key": "indeterminate=>no_external_trigger"
+          },
+          {
+            "count": 6,
+            "key": "public_evaluation=>no_external_trigger"
+          },
+          {
+            "count": 3,
+            "key": "exclusivity_threat=>no_external_trigger"
+          },
+          {
+            "count": 2,
+            "key": "ambiguous_feedback=>no_external_trigger"
+          },
+          {
+            "count": 2,
+            "key": "audience_metrics=>public_evaluation"
+          }
+        ]
+      }
+    },
+    {
+      "definition": "Instrument fails to detect functional masks — dominated here by not seeing the reveal at all (see reveal under-detection).",
+      "id": "mask_detection_bias",
+      "layer": "L3_mask",
+      "scope": [
+        "reveal_grammar",
+        "mask_grammar"
+      ],
+      "severity": 0.839,
+      "support": {
+        "ambiguousUnjudgeable": 26,
+        "fn": 0,
+        "fp": 0,
+        "revealSurvival": 0.161
+      }
+    },
+    {
+      "definition": "Instrument emits far fewer driving-force candidates than the reference (under-attribution of motive).",
+      "id": "driving_force_suppression",
+      "layer": "L2_driving_force",
+      "scope": [
+        "priors_grammar",
+        "driver_strategy_grammar"
+      ],
+      "severity": 0.7,
+      "support": {
+        "aTotal": 60,
+        "bTotal": 18,
+        "retention": 0.3
+      }
+    },
+    {
+      "definition": "Instrument emits MORE driving forces than the reference (over-attribution / guessing motive).",
+      "id": "driving_force_inflation",
+      "layer": "L2_driving_force",
+      "scope": [
+        "priors_grammar"
+      ],
+      "severity": 0,
+      "support": {
+        "retention": 0.3
+      }
+    },
+    {
+      "definition": "Instrument under-detects interaction functions relative to the reference.",
+      "id": "interaction_function_collapse",
+      "layer": "L2_functions",
+      "scope": [
+        "expected_partner_grammar",
+        "performance_grammar"
+      ],
+      "severity": 0.24,
+      "support": {
+        "fullyCollapsed": 0,
+        "retention": 0.76
+      }
+    },
+    {
+      "definition": "Instrument under-detects explicit relationship operations.",
+      "id": "relationship_operation_collapse",
+      "layer": "L_relationship",
+      "scope": [
+        "partner_operation_grammar",
+        "relationship_grammar"
+      ],
+      "severity": 0.273,
+      "support": {
+        "presentRetention": 0.833,
+        "retention": 0.727
+      }
+    },
+    {
+      "definition": "Instrument under-detects the specific partner operation the utterance is engineered to elicit.",
+      "id": "expected_partner_collapse",
+      "layer": "L_expected_partner",
+      "scope": [
+        "expected_partner_grammar"
+      ],
+      "severity": 0.734,
+      "support": {
+        "retention": 0.266
+      }
+    },
+    {
+      "definition": "Instrument under-detects perform_confidence (surface confidence display).",
+      "id": "performance_collapse",
+      "layer": "L_performance",
+      "scope": [
+        "performance_grammar",
+        "reveal_grammar"
+      ],
+      "severity": 0.8,
+      "support": {
+        "retention": 0.2
+      }
+    },
+    {
+      "definition": "Instrument almost never detects meta self-monitoring tags the reference marked.",
+      "id": "meta_self_monitoring_miss",
+      "layer": "L_meta",
+      "scope": [
+        "self_monitoring_grammar"
+      ],
+      "severity": 0.9,
+      "support": {
+        "aTotal": 30,
+        "bTotal": 3,
+        "retention": 0.1
+      }
+    },
+    {
+      "definition": "Instrument marks judgements weak_inference far more often than the reference (systematic under-commitment).",
+      "id": "weak_inference_inflation",
+      "layer": "L_confidence",
+      "scope": [
+        "all_grammar_confidence"
+      ],
+      "severity": 0.22,
+      "support": {
+        "inflation": 0.22,
+        "triggerWeakA": 39,
+        "triggerWeakB": 50
+      }
+    },
+    {
+      "definition": "Instrument attributes forces/affect from priors rather than the record text (guessing beyond evidence). Measured indirectly as driving-force emitted while trigger is weak_inference.",
+      "id": "prior_leakage",
+      "layer": "L2_driving_force",
+      "scope": [
+        "priors_grammar"
+      ],
+      "severity": 0.26,
+      "support": {
+        "note": "measured via driving-force present under weak trigger confidence in instrument output"
+      }
+    }
+  ],
+  "triggerBias": {
+    "aEscapeToOther": 15,
+    "bEscapeToOther": 8,
+    "domainAgreementRate": 0.22,
+    "domainDisagreements": 39,
+    "n": 50,
+    "topConfusions": [
+      {
+        "count": 11,
+        "key": "indeterminate=>no_external_trigger"
+      },
+      {
+        "count": 6,
+        "key": "public_evaluation=>no_external_trigger"
+      },
+      {
+        "count": 3,
+        "key": "exclusivity_threat=>no_external_trigger"
+      },
+      {
+        "count": 2,
+        "key": "ambiguous_feedback=>no_external_trigger"
+      },
+      {
+        "count": 2,
+        "key": "audience_metrics=>public_evaluation"
+      },
+      {
+        "count": 2,
+        "key": "perceived_rejection=>indeterminate"
+      },
+      {
+        "count": 2,
+        "key": "perceived_rejection=>no_external_trigger"
+      },
+      {
+        "count": 1,
+        "key": "audience_metrics=>no_external_trigger"
+      },
+      {
+        "count": 1,
+        "key": "delayed_reply=>indeterminate"
+      },
+      {
+        "count": 1,
+        "key": "delayed_reply=>no_external_trigger"
+      },
+      {
+        "count": 1,
+        "key": "divided_attention=>no_external_trigger"
+      },
+      {
+        "count": 1,
+        "key": "indeterminate=>public_evaluation"
+      }
+    ]
+  },
+  "truthfulnessLabels": [
+    "INSTRUMENT_BIAS_TOO_HIGH",
+    "HOLD_FIX_INSTRUMENT_FIRST"
+  ],
+  "verbatimFree": true,
+  "visibility": "committed_safe"
+}
