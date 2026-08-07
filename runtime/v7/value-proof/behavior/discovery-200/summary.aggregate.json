@@ -1,0 +1,314 @@
+{
+  "families": {
+    "affectStrategy": {
+      "k": 5,
+      "keysAfter": 11,
+      "keysBefore": 11,
+      "overlapAtK": 1,
+      "sharedKeys": 11,
+      "spearman": 1,
+      "tally": {
+        "COLLAPSED": 0,
+        "NEWLY_EMERGED": 0,
+        "SHIFTED": 11,
+        "STABLE": 0
+      },
+      "topAfter": [
+        "surface:affection+opposing:fear+leaked:fear => build_future_bond",
+        "surface:anger+opposing:fear => test_exclusivity",
+        "surface:excitement+opposing:fear => reduce_distance",
+        "surface:fear+opposing:loneliness => obtain_specific_reassurance",
+        "surface:fear+opposing:shame => repair_relationship"
+      ],
+      "topBefore": [
+        "surface:affection+opposing:fear+leaked:fear => build_future_bond",
+        "surface:anger+opposing:fear => test_exclusivity",
+        "surface:excitement+opposing:fear => reduce_distance",
+        "surface:fear+opposing:loneliness => obtain_specific_reassurance",
+        "surface:fear+opposing:shame => repair_relationship"
+      ],
+      "verdict": "SHIFTED"
+    },
+    "behaviorBigrams": {
+      "k": 5,
+      "keysAfter": 47,
+      "keysBefore": 34,
+      "overlapAtK": 0.6,
+      "sharedKeys": 34,
+      "spearman": 0.719,
+      "tally": {
+        "COLLAPSED": 0,
+        "NEWLY_EMERGED": 13,
+        "SHIFTED": 34,
+        "STABLE": 0
+      },
+      "topAfter": [
+        "reveal>self_devalue",
+        "accuse>retract",
+        "demand>request_practical_action",
+        "demand>reveal",
+        "perform_confidence>reveal"
+      ],
+      "topBefore": [
+        "reveal>self_devalue",
+        "demand>reveal",
+        "perform_confidence>reveal",
+        "reveal>reveal",
+        "accuse>escalate"
+      ],
+      "verdict": "SHIFTED"
+    },
+    "behaviorTrigrams": {
+      "k": 5,
+      "keysAfter": 20,
+      "keysBefore": 12,
+      "overlapAtK": 0.6,
+      "sharedKeys": 12,
+      "spearman": 0.066,
+      "tally": {
+        "COLLAPSED": 0,
+        "NEWLY_EMERGED": 8,
+        "SHIFTED": 12,
+        "STABLE": 0
+      },
+      "topAfter": [
+        "accuse>escalate>retract",
+        "accuse>retract>mask",
+        "accuse>retract>reveal",
+        "accuse>seek_confirmation>future_bind",
+        "accuse>tease>demand"
+      ],
+      "topBefore": [
+        "accuse>escalate>retract",
+        "accuse>retract>mask",
+        "accuse>seek_confirmation>future_bind",
+        "future_bind>reveal>seek_confirmation",
+        "justify>reassure_partner>seek_confirmation"
+      ],
+      "verdict": "SHIFTED"
+    },
+    "drivingForceStrategy": {
+      "k": 5,
+      "keysAfter": 19,
+      "keysBefore": 19,
+      "overlapAtK": 1,
+      "sharedKeys": 19,
+      "spearman": 1,
+      "tally": {
+        "COLLAPSED": 0,
+        "NEWLY_EMERGED": 0,
+        "SHIFTED": 19,
+        "STABLE": 0
+      },
+      "topAfter": [
+        "fear_of_abandonment>obtain_specific_reassurance",
+        "fear_of_abandonment>test_exclusivity",
+        "fear_of_abandonment>build_future_bond",
+        "fear_of_abandonment>repair_relationship",
+        "need_for_attention>demand_reciprocation"
+      ],
+      "topBefore": [
+        "fear_of_abandonment>obtain_specific_reassurance",
+        "fear_of_abandonment>test_exclusivity",
+        "fear_of_abandonment>build_future_bond",
+        "fear_of_abandonment>repair_relationship",
+        "need_for_attention>demand_reciprocation"
+      ],
+      "verdict": "SHIFTED"
+    },
+    "partnerOps": {
+      "k": 5,
+      "keysAfter": 99,
+      "keysBefore": 91,
+      "overlapAtK": 0.2,
+      "sharedKeys": 91,
+      "spearman": 0.87,
+      "tally": {
+        "COLLAPSED": 0,
+        "NEWLY_EMERGED": 8,
+        "SHIFTED": 90,
+        "STABLE": 1
+      },
+      "topAfter": [
+        "unknown => answer [immediate]",
+        "invite_playful_response => laugh_play_along [immediate]",
+        "test_exclusivity => confirm_exclusivity [immediate]",
+        "test_exclusivity => show_special_treatment [relationship]",
+        "intensify_intimacy => reciprocate_affection [immediate]"
+      ],
+      "topBefore": [
+        "invite_playful_response => laugh_play_along [immediate]",
+        "discharge_overload => stay_present [immediate]",
+        "obtain_specific_reassurance => reassure [immediate]",
+        "discharge_overload => reassure [immediate]",
+        "discharge_overload => remain_available [relationship]"
+      ],
+      "verdict": "SHIFTED"
+    },
+    "performance": {
+      "k": 5,
+      "keysAfter": 6,
+      "keysBefore": 4,
+      "overlapAtK": 0.6,
+      "sharedKeys": 4,
+      "spearman": 0.5,
+      "tally": {
+        "COLLAPSED": 0,
+        "NEWLY_EMERGED": 2,
+        "SHIFTED": 4,
+        "STABLE": 0
+      },
+      "topAfter": [
+        "perform_confidence>reveal",
+        "deescalate>perform_confidence",
+        "perform_confidence>accuse",
+        "perform_confidence>bait",
+        "request_practical_action>perform_confidence"
+      ],
+      "topBefore": [
+        "perform_confidence>reveal",
+        "deescalate>perform_confidence",
+        "perform_confidence>bait",
+        "reveal>drop_performance"
+      ],
+      "verdict": "SHIFTED"
+    },
+    "relationshipOps": {
+      "k": 5,
+      "keysAfter": 9,
+      "keysBefore": 8,
+      "overlapAtK": 0.6,
+      "sharedKeys": 8,
+      "spearman": 0.083,
+      "tally": {
+        "COLLAPSED": 0,
+        "NEWLY_EMERGED": 1,
+        "SHIFTED": 5,
+        "STABLE": 3
+      },
+      "topAfter": [
+        "seek_exclusivity",
+        "reduce_distance",
+        "future_bind",
+        "test_bond",
+        "threaten_bond"
+      ],
+      "topBefore": [
+        "test_bond",
+        "seek_exclusivity",
+        "stabilize_bond",
+        "repair_bond",
+        "future_bind"
+      ],
+      "verdict": "SHIFTED"
+    },
+    "revealFollowup": {
+      "k": 5,
+      "keysAfter": 1,
+      "keysBefore": 1,
+      "overlapAtK": 1,
+      "sharedKeys": 1,
+      "spearman": null,
+      "tally": {
+        "COLLAPSED": 0,
+        "NEWLY_EMERGED": 0,
+        "SHIFTED": 1,
+        "STABLE": 0
+      },
+      "topAfter": [
+        "reveal>self_devalue"
+      ],
+      "topBefore": [
+        "reveal>self_devalue"
+      ],
+      "verdict": "SHIFTED"
+    },
+    "triggerStrategy": {
+      "k": 5,
+      "keysAfter": 11,
+      "keysBefore": 11,
+      "overlapAtK": 0.8,
+      "sharedKeys": 11,
+      "spearman": 0.964,
+      "tally": {
+        "COLLAPSED": 0,
+        "NEWLY_EMERGED": 0,
+        "SHIFTED": 8,
+        "STABLE": 3
+      },
+      "topAfter": [
+        "no_external_trigger",
+        "indeterminate",
+        "public_evaluation",
+        "exclusivity_threat",
+        "perceived_rejection"
+      ],
+      "topBefore": [
+        "indeterminate",
+        "no_external_trigger",
+        "public_evaluation",
+        "perceived_rejection",
+        "audience_metrics"
+      ],
+      "verdict": "SHIFTED"
+    }
+  },
+  "familyVerdicts": {
+    "affectStrategy": "SHIFTED",
+    "behaviorBigrams": "SHIFTED",
+    "behaviorTrigrams": "SHIFTED",
+    "drivingForceStrategy": "SHIFTED",
+    "partnerOps": "SHIFTED",
+    "performance": "SHIFTED",
+    "relationshipOps": "SHIFTED",
+    "revealFollowup": "SHIFTED",
+    "triggerStrategy": "SHIFTED"
+  },
+  "freezeStatus": "GUIDE_FREEZE_UNCHANGED",
+  "guideFreezeVersion": "P1-1C.freeze.1",
+  "instrumentShift": {
+    "confounded": true,
+    "heuristicShareOf160": 0.688,
+    "interpretation": "SHIFTED verdicts below are NOT evidence the grammar collapsed; they are dominated by annotator-sensitivity difference. Treat 200-stage stability as INCONCLUSIVE pending a single-instrument re-annotation.",
+    "multiFunctionRateDelta": -0.232,
+    "reason": "50 carry-over records are hand-authored; 110 new records use the conservative heuristic annotator (lower action/function detection).",
+    "singleActionRateDelta": 0.315
+  },
+  "maskStrategyDistribution": {
+    "after": {
+      "accusation": 1,
+      "aggression": 1,
+      "command": 1,
+      "self_mockery": 2
+    },
+    "before": {
+      "accusation": 1,
+      "self_mockery": 2
+    }
+  },
+  "n160": 160,
+  "n50": 50,
+  "rateMetrics": {
+    "multiFunctionRate": {
+      "after": 0.188,
+      "before": 0.42,
+      "delta": -0.232,
+      "metric": "multiFunctionRate",
+      "verdict": "SHIFTED"
+    },
+    "singleActionRate": {
+      "after": 0.775,
+      "before": 0.46,
+      "delta": 0.315,
+      "metric": "singleActionRate",
+      "verdict": "SHIFTED"
+    }
+  },
+  "stage": "P1-1C-200",
+  "truthfulnessLabels": [
+    "MIXED_INSTRUMENT",
+    "NOT_CHARACTER_CONCLUSIVE"
+  ],
+  "verbatimFree": true,
+  "visibility": "committed_safe"
+}

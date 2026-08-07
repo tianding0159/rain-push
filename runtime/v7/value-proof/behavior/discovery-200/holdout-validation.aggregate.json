@@ -1,0 +1,218 @@
+{
+  "e3Rollup": {
+    "E3_CANDIDATE_SURVIVES": 2,
+    "E3_NOT_MET": 5
+  },
+  "e3Survival": [
+    {
+      "candidateId": "GC1_delayed_reply_to_accuse_or_seek",
+      "clauses": {
+        "hasMinCounterexampleOpportunities": false,
+        "hasMinUniqueSupport": false,
+        "holdoutConfirmed": false,
+        "notPriorDominated": true
+      },
+      "counterexampleOpportunities160": 2,
+      "counterexamplesFound160": 0,
+      "failedClauses": [
+        "hasMinUniqueSupport",
+        "hasMinCounterexampleOpportunities",
+        "holdoutConfirmed"
+      ],
+      "holdoutVerdict": "HOLDOUT_ABSENT",
+      "uniqueSupport160": 2,
+      "verdict": "E3_NOT_MET",
+      "weakOrPriorSupportShare": 0
+    },
+    {
+      "candidateId": "GC2_reveal_to_mask",
+      "clauses": {
+        "hasMinCounterexampleOpportunities": true,
+        "hasMinUniqueSupport": false,
+        "holdoutConfirmed": false,
+        "notPriorDominated": true
+      },
+      "counterexampleOpportunities160": 35,
+      "counterexamplesFound160": 28,
+      "failedClauses": [
+        "hasMinUniqueSupport",
+        "holdoutConfirmed"
+      ],
+      "holdoutVerdict": "HOLDOUT_ABSENT",
+      "uniqueSupport160": 5,
+      "verdict": "E3_NOT_MET",
+      "weakOrPriorSupportShare": 0
+    },
+    {
+      "candidateId": "GC3_accusation_seeks_reassurance",
+      "clauses": {
+        "hasMinCounterexampleOpportunities": true,
+        "hasMinUniqueSupport": false,
+        "holdoutConfirmed": false,
+        "notPriorDominated": true
+      },
+      "counterexampleOpportunities160": 12,
+      "counterexamplesFound160": 8,
+      "failedClauses": [
+        "hasMinUniqueSupport",
+        "holdoutConfirmed"
+      ],
+      "holdoutVerdict": "HOLDOUT_REFUTED",
+      "uniqueSupport160": 4,
+      "verdict": "E3_NOT_MET",
+      "weakOrPriorSupportShare": 0.25
+    },
+    {
+      "candidateId": "GC4_exclusivity_trigger_to_unique",
+      "clauses": {
+        "hasMinCounterexampleOpportunities": true,
+        "hasMinUniqueSupport": true,
+        "holdoutConfirmed": true,
+        "notPriorDominated": true
+      },
+      "counterexampleOpportunities160": 18,
+      "counterexamplesFound160": 1,
+      "failedClauses": [],
+      "holdoutVerdict": "HOLDOUT_CONFIRMED",
+      "uniqueSupport160": 17,
+      "verdict": "E3_CANDIDATE_SURVIVES",
+      "weakOrPriorSupportShare": 0.118
+    },
+    {
+      "candidateId": "GC5_relationship_management_explicit",
+      "clauses": {
+        "hasMinCounterexampleOpportunities": true,
+        "hasMinUniqueSupport": true,
+        "holdoutConfirmed": true,
+        "notPriorDominated": true
+      },
+      "counterexampleOpportunities160": 60,
+      "counterexamplesFound160": 17,
+      "failedClauses": [],
+      "holdoutVerdict": "HOLDOUT_CONFIRMED",
+      "uniqueSupport160": 27,
+      "verdict": "E3_CANDIDATE_SURVIVES",
+      "weakOrPriorSupportShare": 0.148
+    },
+    {
+      "candidateId": "GC6_low_trigger_high_activation",
+      "clauses": {
+        "hasMinCounterexampleOpportunities": true,
+        "hasMinUniqueSupport": true,
+        "holdoutConfirmed": false,
+        "notPriorDominated": true
+      },
+      "counterexampleOpportunities160": 132,
+      "counterexamplesFound160": 45,
+      "failedClauses": [
+        "holdoutConfirmed"
+      ],
+      "holdoutVerdict": "HOLDOUT_WEAKENED",
+      "uniqueSupport160": 35,
+      "verdict": "E3_NOT_MET",
+      "weakOrPriorSupportShare": 0.086
+    },
+    {
+      "candidateId": "GC7_self_monitoring_present",
+      "clauses": {
+        "hasMinCounterexampleOpportunities": true,
+        "hasMinUniqueSupport": true,
+        "holdoutConfirmed": false,
+        "notPriorDominated": true
+      },
+      "counterexampleOpportunities160": 35,
+      "counterexamplesFound160": 19,
+      "failedClauses": [
+        "holdoutConfirmed"
+      ],
+      "holdoutVerdict": "HOLDOUT_ABSENT",
+      "uniqueSupport160": 15,
+      "verdict": "E3_NOT_MET",
+      "weakOrPriorSupportShare": 0
+    }
+  ],
+  "frozenBeforeHoldout": true,
+  "guideFreezeVersion": "P1-1C.freeze.1",
+  "holdoutResults": [
+    {
+      "candidateId": "GC1_delayed_reply_to_accuse_or_seek",
+      "holdoutCompeting": 0,
+      "holdoutCounterexampleDensity": 0,
+      "holdoutEligible": 0,
+      "holdoutSupport": 0,
+      "holdoutTrueCE": 0,
+      "verdict": "HOLDOUT_ABSENT"
+    },
+    {
+      "candidateId": "GC2_reveal_to_mask",
+      "holdoutCompeting": 1,
+      "holdoutCounterexampleDensity": 0,
+      "holdoutEligible": 1,
+      "holdoutSupport": 0,
+      "holdoutTrueCE": 0,
+      "verdict": "HOLDOUT_ABSENT"
+    },
+    {
+      "candidateId": "GC3_accusation_seeks_reassurance",
+      "holdoutCompeting": 0,
+      "holdoutCounterexampleDensity": 1,
+      "holdoutEligible": 4,
+      "holdoutSupport": 0,
+      "holdoutTrueCE": 4,
+      "verdict": "HOLDOUT_REFUTED"
+    },
+    {
+      "candidateId": "GC4_exclusivity_trigger_to_unique",
+      "holdoutCompeting": 0,
+      "holdoutCounterexampleDensity": 0,
+      "holdoutEligible": 8,
+      "holdoutSupport": 8,
+      "holdoutTrueCE": 0,
+      "verdict": "HOLDOUT_CONFIRMED"
+    },
+    {
+      "candidateId": "GC5_relationship_management_explicit",
+      "holdoutCompeting": 1,
+      "holdoutCounterexampleDensity": 0,
+      "holdoutEligible": 9,
+      "holdoutSupport": 5,
+      "holdoutTrueCE": 0,
+      "verdict": "HOLDOUT_CONFIRMED"
+    },
+    {
+      "candidateId": "GC6_low_trigger_high_activation",
+      "holdoutCompeting": 2,
+      "holdoutCounterexampleDensity": 0.206,
+      "holdoutEligible": 34,
+      "holdoutSupport": 6,
+      "holdoutTrueCE": 7,
+      "verdict": "HOLDOUT_WEAKENED"
+    },
+    {
+      "candidateId": "GC7_self_monitoring_present",
+      "holdoutCompeting": 0,
+      "holdoutCounterexampleDensity": 1,
+      "holdoutEligible": 1,
+      "holdoutSupport": 0,
+      "holdoutTrueCE": 1,
+      "verdict": "HOLDOUT_ABSENT"
+    }
+  ],
+  "holdoutRollup": {
+    "HOLDOUT_ABSENT": 3,
+    "HOLDOUT_CONFIRMED": 2,
+    "HOLDOUT_REFUTED": 1,
+    "HOLDOUT_WEAKENED": 1
+  },
+  "holdoutSize": 40,
+  "note": "Grammar verdicts on the 160 discovery set were frozen (counterexample-density.aggregate.json) BEFORE the sealed 40-record holdout was opened. E3 survival requires >=8 unique support, >=3 counterexamples examined, holdout confirmation, and no weak/prior domination. E3 = 'candidate for human review', not 'confirmed'.",
+  "stage": "P1-1C-200",
+  "status": "HOLDOUT_VALIDATED",
+  "survivors": [
+    "GC4_exclusivity_trigger_to_unique",
+    "GC5_relationship_management_explicit"
+  ],
+  "verbatimFree": true,
+  "visibility": "committed_safe"
+}
+

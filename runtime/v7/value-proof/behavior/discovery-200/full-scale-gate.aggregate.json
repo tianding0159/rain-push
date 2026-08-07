@@ -1,0 +1,35 @@
+{
+  "freezeIntact": true,
+  "fullScaleGate": {
+    "blockers": [
+      "stability is INCONCLUSIVE: the 200-stage mixes two annotation instruments (50 hand-authored, 110 heuristic; heuristic share 0.688). Single-action rate moved 0.315 and multi-function -0.232 — that is instrument sensitivity, not measured grammar drift. A 1051 pass must use ONE instrument first."
+    ],
+    "decision": "HOLD_BEFORE_FULL_SCALE",
+    "notes": [
+      "2 candidate(s) reached E3-candidate status and were holdout-confirmed: GC4_exclusivity_trigger_to_unique, GC5_relationship_management_explicit — these are the credible carry-forwards for a single-instrument re-run.",
+      "evidence is thin: weak_inference rate 0.95 > 0.6. Expected for a single-sided corpus + conservative instrument, but it caps how strongly any pattern can be asserted at 1051 — plan for cross-corpus (E3+) confirmation, not single-record commitment.",
+      "3 hypotheses were REJECTED at 160 (falsification working as intended); some rejections are partly instrument-driven and must be re-tested under one instrument."
+    ],
+    "remediation": [
+      "re-annotate the 50 carry-over records with the SAME conservative instrument used for the 110 new ones (remove the hand-vs-heuristic confound), OR hand-annotate a matched sample of the 110;",
+      "re-run stability + falsification under the single instrument; only SHIFTED verdicts that persist are real;",
+      "carry forward only the E3-survivor candidates as priors, re-tested on a fresh holdout at larger n."
+    ]
+  },
+  "guideChurn": {
+    "escapeHatchRecords": 28,
+    "fallbackRate": 0.175,
+    "reasons": [],
+    "verdict": "GUIDE_STABLE_FOR_FULL_SCALE",
+    "weakInferenceIsGuideDefect": false,
+    "weakInferenceNote": "high weak_inference reflects a single-sided corpus + a deliberately conservative instrument; it is NOT a guide-vocabulary defect. It feeds the §20 readiness gate (evidence thinness), not the §19 guide-fit verdict.",
+    "weakInferenceRate": 0.95,
+    "weakInferenceRecords": 152
+  },
+  "guideFreezeVersion": "P1-1C.freeze.1",
+  "note": "§19 guide-churn measures how often the FROZEN guide fell back to escape-hatch tokens / weak_inference on the broader corpus. §20 HOLDS for full scale while stability is confounded by the mixed annotation instrument — the remediation is a single-instrument re-annotation, not more data.",
+  "stage": "P1-1C-200",
+  "verbatimFree": true,
+  "visibility": "committed_safe"
+}
+

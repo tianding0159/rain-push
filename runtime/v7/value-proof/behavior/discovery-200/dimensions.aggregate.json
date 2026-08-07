@@ -1,0 +1,1151 @@
+{
+  "cohortSizes": {
+    "carried_50": 50,
+    "heuristic_110": 110
+  },
+  "dimensions": {
+    "characterPriors": {
+      "byCohort": {
+        "carried_50": {
+          "conditionedByTriggerDomain": [
+            {
+              "domainRecords": 14,
+              "topForces": [
+                {
+                  "force": "need_for_attunement",
+                  "records": 4,
+                  "shareOfDomain": 0.286
+                },
+                {
+                  "force": "need_for_closeness",
+                  "records": 2,
+                  "shareOfDomain": 0.143
+                },
+                {
+                  "force": "need_for_rest",
+                  "records": 2,
+                  "shareOfDomain": 0.143
+                },
+                {
+                  "force": "need_for_control",
+                  "records": 1,
+                  "shareOfDomain": 0.071
+                }
+              ],
+              "triggerDomain": "indeterminate"
+            },
+            {
+              "domainRecords": 10,
+              "topForces": [
+                {
+                  "force": "need_for_play",
+                  "records": 3,
+                  "shareOfDomain": 0.3
+                },
+                {
+                  "force": "need_for_attention",
+                  "records": 2,
+                  "shareOfDomain": 0.2
+                },
+                {
+                  "force": "need_for_closeness",
+                  "records": 2,
+                  "shareOfDomain": 0.2
+                },
+                {
+                  "force": "need_for_admiration",
+                  "records": 1,
+                  "shareOfDomain": 0.1
+                },
+                {
+                  "force": "need_for_attunement",
+                  "records": 1,
+                  "shareOfDomain": 0.1
+                }
+              ],
+              "triggerDomain": "no_external_trigger"
+            },
+            {
+              "domainRecords": 6,
+              "topForces": [
+                {
+                  "force": "need_for_admiration",
+                  "records": 2,
+                  "shareOfDomain": 0.333
+                },
+                {
+                  "force": "need_to_avoid_humiliation",
+                  "records": 2,
+                  "shareOfDomain": 0.333
+                },
+                {
+                  "force": "need_for_attention",
+                  "records": 1,
+                  "shareOfDomain": 0.167
+                },
+                {
+                  "force": "need_for_privacy",
+                  "records": 1,
+                  "shareOfDomain": 0.167
+                },
+                {
+                  "force": "need_for_reassurance",
+                  "records": 1,
+                  "shareOfDomain": 0.167
+                }
+              ],
+              "triggerDomain": "public_evaluation"
+            },
+            {
+              "domainRecords": 5,
+              "topForces": [
+                {
+                  "force": "fear_of_abandonment",
+                  "records": 3,
+                  "shareOfDomain": 0.6
+                },
+                {
+                  "force": "need_for_reassurance",
+                  "records": 3,
+                  "shareOfDomain": 0.6
+                },
+                {
+                  "force": "need_to_preserve_self_image",
+                  "records": 1,
+                  "shareOfDomain": 0.2
+                }
+              ],
+              "triggerDomain": "perceived_rejection"
+            },
+            {
+              "domainRecords": 3,
+              "topForces": [
+                {
+                  "force": "need_for_recognition",
+                  "records": 2,
+                  "shareOfDomain": 0.667
+                },
+                {
+                  "force": "need_to_preserve_self_image",
+                  "records": 2,
+                  "shareOfDomain": 0.667
+                }
+              ],
+              "triggerDomain": "audience_metrics"
+            },
+            {
+              "domainRecords": 3,
+              "topForces": [
+                {
+                  "force": "fear_of_abandonment",
+                  "records": 2,
+                  "shareOfDomain": 0.667
+                },
+                {
+                  "force": "need_to_be_unique",
+                  "records": 2,
+                  "shareOfDomain": 0.667
+                },
+                {
+                  "force": "need_for_control",
+                  "records": 1,
+                  "shareOfDomain": 0.333
+                },
+                {
+                  "force": "sensitivity_to_ambiguous_response",
+                  "records": 1,
+                  "shareOfDomain": 0.333
+                }
+              ],
+              "triggerDomain": "exclusivity_threat"
+            },
+            {
+              "domainRecords": 3,
+              "topForces": [
+                {
+                  "force": "never_separate",
+                  "records": 2,
+                  "shareOfDomain": 0.667
+                },
+                {
+                  "force": "fear_of_abandonment",
+                  "records": 1,
+                  "shareOfDomain": 0.333
+                },
+                {
+                  "force": "need_for_closeness",
+                  "records": 1,
+                  "shareOfDomain": 0.333
+                },
+                {
+                  "force": "sensitivity_to_unavailability",
+                  "records": 1,
+                  "shareOfDomain": 0.333
+                }
+              ],
+              "triggerDomain": "isolation"
+            },
+            {
+              "domainRecords": 2,
+              "topForces": [
+                {
+                  "force": "fear_of_abandonment",
+                  "records": 1,
+                  "shareOfDomain": 0.5
+                },
+                {
+                  "force": "need_for_reassurance",
+                  "records": 1,
+                  "shareOfDomain": 0.5
+                },
+                {
+                  "force": "need_to_avoid_humiliation",
+                  "records": 1,
+                  "shareOfDomain": 0.5
+                }
+              ],
+              "triggerDomain": "ambiguous_feedback"
+            },
+            {
+              "domainRecords": 2,
+              "topForces": [
+                {
+                  "force": "fear_of_abandonment",
+                  "records": 2,
+                  "shareOfDomain": 1
+                },
+                {
+                  "force": "sensitivity_to_unavailability",
+                  "records": 2,
+                  "shareOfDomain": 1
+                },
+                {
+                  "force": "never_separate",
+                  "records": 1,
+                  "shareOfDomain": 0.5
+                }
+              ],
+              "triggerDomain": "delayed_reply"
+            },
+            {
+              "domainRecords": 1,
+              "topForces": [
+                {
+                  "force": "need_for_attention",
+                  "records": 1,
+                  "shareOfDomain": 1
+                },
+                {
+                  "force": "need_to_be_unique",
+                  "records": 1,
+                  "shareOfDomain": 1
+                }
+              ],
+              "triggerDomain": "divided_attention"
+            },
+            {
+              "domainRecords": 1,
+              "topForces": [
+                {
+                  "force": "need_for_reassurance",
+                  "records": 1,
+                  "shareOfDomain": 1
+                }
+              ],
+              "triggerDomain": "other"
+            }
+          ],
+          "flatTopForces": [
+            {
+              "force": "fear_of_abandonment",
+              "records": 9,
+              "shareOfN": 0.18
+            },
+            {
+              "force": "need_for_reassurance",
+              "records": 7,
+              "shareOfN": 0.14
+            },
+            {
+              "force": "need_for_attunement",
+              "records": 5,
+              "shareOfN": 0.1
+            },
+            {
+              "force": "need_for_closeness",
+              "records": 5,
+              "shareOfN": 0.1
+            },
+            {
+              "force": "need_for_attention",
+              "records": 4,
+              "shareOfN": 0.08
+            },
+            {
+              "force": "need_for_admiration",
+              "records": 3,
+              "shareOfN": 0.06
+            },
+            {
+              "force": "need_for_play",
+              "records": 3,
+              "shareOfN": 0.06
+            },
+            {
+              "force": "need_to_avoid_humiliation",
+              "records": 3,
+              "shareOfN": 0.06
+            }
+          ],
+          "n": 50,
+          "recordsWithForce": 44
+        },
+        "heuristic_110": {
+          "conditionedByTriggerDomain": [
+            {
+              "domainRecords": 76,
+              "topForces": [
+                {
+                  "force": "need_for_control",
+                  "records": 8,
+                  "shareOfDomain": 0.105
+                },
+                {
+                  "force": "need_for_closeness",
+                  "records": 7,
+                  "shareOfDomain": 0.092
+                },
+                {
+                  "force": "need_to_be_unique",
+                  "records": 5,
+                  "shareOfDomain": 0.066
+                }
+              ],
+              "triggerDomain": "no_external_trigger"
+            },
+            {
+              "domainRecords": 17,
+              "topForces": [
+                {
+                  "force": "need_for_recognition",
+                  "records": 16,
+                  "shareOfDomain": 0.941
+                },
+                {
+                  "force": "need_for_control",
+                  "records": 3,
+                  "shareOfDomain": 0.176
+                },
+                {
+                  "force": "need_to_be_unique",
+                  "records": 3,
+                  "shareOfDomain": 0.176
+                },
+                {
+                  "force": "need_for_closeness",
+                  "records": 1,
+                  "shareOfDomain": 0.059
+                }
+              ],
+              "triggerDomain": "public_evaluation"
+            },
+            {
+              "domainRecords": 13,
+              "topForces": [
+                {
+                  "force": "need_to_be_unique",
+                  "records": 3,
+                  "shareOfDomain": 0.231
+                },
+                {
+                  "force": "need_for_closeness",
+                  "records": 1,
+                  "shareOfDomain": 0.077
+                },
+                {
+                  "force": "need_for_control",
+                  "records": 1,
+                  "shareOfDomain": 0.077
+                }
+              ],
+              "triggerDomain": "indeterminate"
+            },
+            {
+              "domainRecords": 3,
+              "topForces": [
+                {
+                  "force": "need_for_control",
+                  "records": 3,
+                  "shareOfDomain": 1
+                },
+                {
+                  "force": "need_to_be_unique",
+                  "records": 3,
+                  "shareOfDomain": 1
+                },
+                {
+                  "force": "need_for_closeness",
+                  "records": 1,
+                  "shareOfDomain": 0.333
+                },
+                {
+                  "force": "need_for_recognition",
+                  "records": 1,
+                  "shareOfDomain": 0.333
+                }
+              ],
+              "triggerDomain": "exclusivity_threat"
+            },
+            {
+              "domainRecords": 1,
+              "topForces": [],
+              "triggerDomain": "perceived_rejection"
+            }
+          ],
+          "flatTopForces": [
+            {
+              "force": "need_for_recognition",
+              "records": 17,
+              "shareOfN": 0.155
+            },
+            {
+              "force": "need_for_control",
+              "records": 15,
+              "shareOfN": 0.136
+            },
+            {
+              "force": "need_to_be_unique",
+              "records": 14,
+              "shareOfN": 0.127
+            },
+            {
+              "force": "need_for_closeness",
+              "records": 10,
+              "shareOfN": 0.091
+            }
+          ],
+          "n": 110,
+          "recordsWithForce": 43
+        }
+      },
+      "cohortNote": "cohort divergence >= 0.25: this dimension is instrument-sensitive — the two annotation instruments disagree on it, so the 160-level number is NOT a clean character estimate.",
+      "conditionedByTriggerDomain": [
+        {
+          "domainRecords": 86,
+          "topForces": [
+            {
+              "force": "need_for_closeness",
+              "records": 9,
+              "shareOfDomain": 0.105
+            },
+            {
+              "force": "need_for_control",
+              "records": 8,
+              "shareOfDomain": 0.093
+            },
+            {
+              "force": "need_to_be_unique",
+              "records": 5,
+              "shareOfDomain": 0.058
+            },
+            {
+              "force": "need_for_play",
+              "records": 3,
+              "shareOfDomain": 0.035
+            },
+            {
+              "force": "need_for_attention",
+              "records": 2,
+              "shareOfDomain": 0.023
+            }
+          ],
+          "triggerDomain": "no_external_trigger"
+        },
+        {
+          "domainRecords": 27,
+          "topForces": [
+            {
+              "force": "need_for_attunement",
+              "records": 4,
+              "shareOfDomain": 0.148
+            },
+            {
+              "force": "need_for_closeness",
+              "records": 3,
+              "shareOfDomain": 0.111
+            },
+            {
+              "force": "need_to_be_unique",
+              "records": 3,
+              "shareOfDomain": 0.111
+            },
+            {
+              "force": "need_for_control",
+              "records": 2,
+              "shareOfDomain": 0.074
+            },
+            {
+              "force": "need_for_rest",
+              "records": 2,
+              "shareOfDomain": 0.074
+            }
+          ],
+          "triggerDomain": "indeterminate"
+        },
+        {
+          "domainRecords": 23,
+          "topForces": [
+            {
+              "force": "need_for_recognition",
+              "records": 16,
+              "shareOfDomain": 0.696
+            },
+            {
+              "force": "need_for_control",
+              "records": 3,
+              "shareOfDomain": 0.13
+            },
+            {
+              "force": "need_to_be_unique",
+              "records": 3,
+              "shareOfDomain": 0.13
+            },
+            {
+              "force": "need_for_admiration",
+              "records": 2,
+              "shareOfDomain": 0.087
+            },
+            {
+              "force": "need_to_avoid_humiliation",
+              "records": 2,
+              "shareOfDomain": 0.087
+            }
+          ],
+          "triggerDomain": "public_evaluation"
+        },
+        {
+          "domainRecords": 6,
+          "topForces": [
+            {
+              "force": "need_to_be_unique",
+              "records": 5,
+              "shareOfDomain": 0.833
+            },
+            {
+              "force": "need_for_control",
+              "records": 4,
+              "shareOfDomain": 0.667
+            },
+            {
+              "force": "fear_of_abandonment",
+              "records": 2,
+              "shareOfDomain": 0.333
+            },
+            {
+              "force": "need_for_closeness",
+              "records": 1,
+              "shareOfDomain": 0.167
+            },
+            {
+              "force": "need_for_recognition",
+              "records": 1,
+              "shareOfDomain": 0.167
+            }
+          ],
+          "triggerDomain": "exclusivity_threat"
+        },
+        {
+          "domainRecords": 6,
+          "topForces": [
+            {
+              "force": "fear_of_abandonment",
+              "records": 3,
+              "shareOfDomain": 0.5
+            },
+            {
+              "force": "need_for_reassurance",
+              "records": 3,
+              "shareOfDomain": 0.5
+            },
+            {
+              "force": "need_to_preserve_self_image",
+              "records": 1,
+              "shareOfDomain": 0.167
+            }
+          ],
+          "triggerDomain": "perceived_rejection"
+        },
+        {
+          "domainRecords": 3,
+          "topForces": [
+            {
+              "force": "need_for_recognition",
+              "records": 2,
+              "shareOfDomain": 0.667
+            },
+            {
+              "force": "need_to_preserve_self_image",
+              "records": 2,
+              "shareOfDomain": 0.667
+            }
+          ],
+          "triggerDomain": "audience_metrics"
+        },
+        {
+          "domainRecords": 3,
+          "topForces": [
+            {
+              "force": "never_separate",
+              "records": 2,
+              "shareOfDomain": 0.667
+            },
+            {
+              "force": "fear_of_abandonment",
+              "records": 1,
+              "shareOfDomain": 0.333
+            },
+            {
+              "force": "need_for_closeness",
+              "records": 1,
+              "shareOfDomain": 0.333
+            },
+            {
+              "force": "sensitivity_to_unavailability",
+              "records": 1,
+              "shareOfDomain": 0.333
+            }
+          ],
+          "triggerDomain": "isolation"
+        },
+        {
+          "domainRecords": 2,
+          "topForces": [
+            {
+              "force": "fear_of_abandonment",
+              "records": 1,
+              "shareOfDomain": 0.5
+            },
+            {
+              "force": "need_for_reassurance",
+              "records": 1,
+              "shareOfDomain": 0.5
+            },
+            {
+              "force": "need_to_avoid_humiliation",
+              "records": 1,
+              "shareOfDomain": 0.5
+            }
+          ],
+          "triggerDomain": "ambiguous_feedback"
+        },
+        {
+          "domainRecords": 2,
+          "topForces": [
+            {
+              "force": "fear_of_abandonment",
+              "records": 2,
+              "shareOfDomain": 1
+            },
+            {
+              "force": "sensitivity_to_unavailability",
+              "records": 2,
+              "shareOfDomain": 1
+            },
+            {
+              "force": "never_separate",
+              "records": 1,
+              "shareOfDomain": 0.5
+            }
+          ],
+          "triggerDomain": "delayed_reply"
+        },
+        {
+          "domainRecords": 1,
+          "topForces": [
+            {
+              "force": "need_for_attention",
+              "records": 1,
+              "shareOfDomain": 1
+            },
+            {
+              "force": "need_to_be_unique",
+              "records": 1,
+              "shareOfDomain": 1
+            }
+          ],
+          "triggerDomain": "divided_attention"
+        },
+        {
+          "domainRecords": 1,
+          "topForces": [
+            {
+              "force": "need_for_reassurance",
+              "records": 1,
+              "shareOfDomain": 1
+            }
+          ],
+          "triggerDomain": "other"
+        }
+      ],
+      "conditioning": "trigger_domain",
+      "dimension": "character_priors",
+      "flatTopForces": [
+        {
+          "force": "need_for_recognition",
+          "records": 19,
+          "shareOfN": 0.119
+        },
+        {
+          "force": "need_for_control",
+          "records": 17,
+          "shareOfN": 0.106
+        },
+        {
+          "force": "need_to_be_unique",
+          "records": 17,
+          "shareOfN": 0.106
+        },
+        {
+          "force": "need_for_closeness",
+          "records": 15,
+          "shareOfN": 0.094
+        },
+        {
+          "force": "fear_of_abandonment",
+          "records": 9,
+          "shareOfN": 0.056
+        },
+        {
+          "force": "need_for_reassurance",
+          "records": 7,
+          "shareOfN": 0.044
+        },
+        {
+          "force": "need_for_attunement",
+          "records": 5,
+          "shareOfN": 0.031
+        },
+        {
+          "force": "need_for_attention",
+          "records": 4,
+          "shareOfN": 0.025
+        }
+      ],
+      "interpretation": "Driving-force prior is reported per trigger domain, not as a flat count, so a force that only fires under one narrow domain is not mistaken for a stable character-wide prior.",
+      "n": 160,
+      "recordsWithForce": 87
+    },
+    "expectedPartnerOperations": {
+      "byCohort": {
+        "carried_50": {
+          "confidentExpectationRecords": 12,
+          "expectationRate": 1,
+          "n": 50,
+          "recordsWithExpectation": 50,
+          "topExpectedImmediateOps": [
+            {
+              "count": 32,
+              "key": "reassure"
+            },
+            {
+              "count": 24,
+              "key": "stay_present"
+            },
+            {
+              "count": 21,
+              "key": "laugh_play_along"
+            },
+            {
+              "count": 12,
+              "key": "reciprocate_affection"
+            },
+            {
+              "count": 9,
+              "key": "answer"
+            },
+            {
+              "count": 8,
+              "key": "confirm_exclusivity"
+            },
+            {
+              "count": 2,
+              "key": "explain"
+            },
+            {
+              "count": 1,
+              "key": "respect_boundary"
+            }
+          ]
+        },
+        "heuristic_110": {
+          "confidentExpectationRecords": 0,
+          "expectationRate": 0.618,
+          "n": 110,
+          "recordsWithExpectation": 68,
+          "topExpectedImmediateOps": [
+            {
+              "count": 52,
+              "key": "answer"
+            },
+            {
+              "count": 11,
+              "key": "confirm_exclusivity"
+            },
+            {
+              "count": 10,
+              "key": "reciprocate_affection"
+            },
+            {
+              "count": 9,
+              "key": "laugh_play_along"
+            },
+            {
+              "count": 2,
+              "key": "reassure"
+            }
+          ]
+        }
+      },
+      "cohortNote": "cohort divergence >= 0.25: this dimension is instrument-sensitive — the two annotation instruments disagree on it, so the 160-level number is NOT a clean character estimate.",
+      "conditioning": "confidence_gated",
+      "confidentExpectationRecords": 12,
+      "dimension": "expected_partner_operations",
+      "expectationRate": 0.738,
+      "interpretation": "Every utterance is scored for the partner operation it is engineered to elicit; confident vs speculative expectations are counted separately so thin inferences do not inflate H8.",
+      "n": 160,
+      "recordsWithExpectation": 118,
+      "topExpectedImmediateOps": [
+        {
+          "count": 61,
+          "key": "answer"
+        },
+        {
+          "count": 34,
+          "key": "reassure"
+        },
+        {
+          "count": 30,
+          "key": "laugh_play_along"
+        },
+        {
+          "count": 24,
+          "key": "stay_present"
+        },
+        {
+          "count": 22,
+          "key": "reciprocate_affection"
+        },
+        {
+          "count": 19,
+          "key": "confirm_exclusivity"
+        },
+        {
+          "count": 2,
+          "key": "explain"
+        },
+        {
+          "count": 1,
+          "key": "respect_boundary"
+        }
+      ]
+    },
+    "intraMessageMomentum": {
+      "byCohort": {
+        "carried_50": {
+          "escalationBearingRecords": 7,
+          "escalationRateAmongMultiBeat": 0.259,
+          "multiBeatRecords": 27,
+          "n": 50,
+          "shapeDistribution": [
+            {
+              "count": 19,
+              "key": "flat"
+            },
+            {
+              "count": 6,
+              "key": "escalating"
+            },
+            {
+              "count": 1,
+              "key": "mixed"
+            },
+            {
+              "count": 1,
+              "key": "repairing"
+            }
+          ]
+        },
+        "heuristic_110": {
+          "escalationBearingRecords": 9,
+          "escalationRateAmongMultiBeat": 1,
+          "multiBeatRecords": 9,
+          "n": 110,
+          "shapeDistribution": [
+            {
+              "count": 9,
+              "key": "escalating"
+            }
+          ]
+        }
+      },
+      "cohortNote": "cohort divergence >= 0.25: this dimension is instrument-sensitive — the two annotation instruments disagree on it, so the 160-level number is NOT a clean character estimate.",
+      "conditioning": "multi_beat_only",
+      "dimension": "intra_message_momentum",
+      "escalationBearingRecords": 16,
+      "escalationRateAmongMultiBeat": 0.444,
+      "interpretation": "Arc shape is distributed over multi-beat records only. escalating+mixed = escalation-bearing; repairing/flat are the counter-shapes that bound H9.",
+      "multiBeatRecords": 36,
+      "n": 160,
+      "shapeDistribution": [
+        {
+          "count": 19,
+          "key": "flat"
+        },
+        {
+          "count": 15,
+          "key": "escalating"
+        },
+        {
+          "count": 1,
+          "key": "mixed"
+        },
+        {
+          "count": 1,
+          "key": "repairing"
+        }
+      ]
+    },
+    "maskAnalysis": {
+      "byCohort": {
+        "carried_50": {
+          "functionalMaskRateAmongReveals": 0.097,
+          "functionalMaskRecords": 3,
+          "maskStrategies": [
+            {
+              "count": 2,
+              "key": "self_mockery"
+            },
+            {
+              "count": 1,
+              "key": "accusation"
+            }
+          ],
+          "n": 50,
+          "revealBearingRecords": 31,
+          "revealWithoutMaskRecords": 28
+        },
+        "heuristic_110": {
+          "functionalMaskRateAmongReveals": 0.5,
+          "functionalMaskRecords": 2,
+          "maskStrategies": [
+            {
+              "count": 1,
+              "key": "aggression"
+            },
+            {
+              "count": 1,
+              "key": "command"
+            }
+          ],
+          "n": 110,
+          "revealBearingRecords": 4,
+          "revealWithoutMaskRecords": 2
+        }
+      },
+      "cohortNote": "cohort divergence >= 0.25: this dimension is instrument-sensitive — the two annotation instruments disagree on it, so the 160-level number is NOT a clean character estimate.",
+      "conditioning": "functional_definition",
+      "definition": "mask=true requires reducing the exposure of a JUST-REVEALED vulnerability; surface conceal-token adjacency alone does NOT qualify. Denominator is reveal-bearing records only.",
+      "dimension": "mask_analysis",
+      "functionalMaskRateAmongReveals": 0.143,
+      "functionalMaskRecords": 5,
+      "instrumentWarning": "the conservative heuristic annotator UNDER-detects functional masks (it needs an explicit reveal→conceal adjacency). A low heuristic_110 mask rate is expected from the instrument and must NOT be read as the character masking less.",
+      "maskStrategies": [
+        {
+          "count": 2,
+          "key": "self_mockery"
+        },
+        {
+          "count": 1,
+          "key": "accusation"
+        },
+        {
+          "count": 1,
+          "key": "aggression"
+        },
+        {
+          "count": 1,
+          "key": "command"
+        }
+      ],
+      "n": 160,
+      "revealBearingRecords": 35,
+      "revealWithoutMaskRecords": 30
+    },
+    "performancePatterns": {
+      "byCohort": {
+        "carried_50": {
+          "dropThenRestoreRecords": 0,
+          "n": 50,
+          "performanceBearingRecords": 5,
+          "performanceRate": 0.1,
+          "privateContextPerformanceRecords": 1,
+          "privateShareOfPerformance": 0.2
+        },
+        "heuristic_110": {
+          "dropThenRestoreRecords": 0,
+          "n": 110,
+          "performanceBearingRecords": 4,
+          "performanceRate": 0.036,
+          "privateContextPerformanceRecords": 3,
+          "privateShareOfPerformance": 0.75
+        }
+      },
+      "cohortNote": null,
+      "conditioning": "audience_context",
+      "dimension": "performance_patterns",
+      "dropThenRestoreRecords": 0,
+      "interpretation": "Performance is conditioned on audience: privateContext = perform_confidence firing OUTSIDE a public/audience trigger domain — i.e. performing for a single partner, the theoretically interesting case.",
+      "n": 160,
+      "performanceBearingRecords": 9,
+      "performanceRate": 0.056,
+      "privateContextPerformanceRecords": 4,
+      "privateShareOfPerformance": 0.444
+    },
+    "triggerSensitivityMatrix": {
+      "byCohort": {
+        "carried_50": {
+          "hairTriggerCount": 9,
+          "hairTriggerRateAmongJudgeable": 0.3,
+          "lowObservedJudgeable": 30,
+          "lowObservedLowInferredCount": 10,
+          "matrix": [
+            {
+              "count": 10,
+              "inferred": "low",
+              "observed": "minimal"
+            },
+            {
+              "count": 11,
+              "inferred": "medium",
+              "observed": "low"
+            },
+            {
+              "count": 9,
+              "inferred": "high",
+              "observed": "low"
+            },
+            {
+              "count": 3,
+              "inferred": "high",
+              "observed": "medium"
+            },
+            {
+              "count": 5,
+              "inferred": "medium",
+              "observed": "unknown"
+            },
+            {
+              "count": 5,
+              "inferred": "high",
+              "observed": "unknown"
+            },
+            {
+              "count": 7,
+              "inferred": "unknown",
+              "observed": "unknown"
+            }
+          ],
+          "n": 50
+        },
+        "heuristic_110": {
+          "hairTriggerCount": 0,
+          "hairTriggerRateAmongJudgeable": null,
+          "lowObservedJudgeable": 0,
+          "lowObservedLowInferredCount": 0,
+          "matrix": [
+            {
+              "count": 6,
+              "inferred": "high",
+              "observed": "medium"
+            },
+            {
+              "count": 15,
+              "inferred": "unknown",
+              "observed": "medium"
+            },
+            {
+              "count": 21,
+              "inferred": "high",
+              "observed": "unknown"
+            },
+            {
+              "count": 68,
+              "inferred": "unknown",
+              "observed": "unknown"
+            }
+          ],
+          "n": 110
+        }
+      },
+      "caveat": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the true stimulus magnitude. The hair-trigger cell is a hypothesis, not a measurement.",
+      "cohortNote": null,
+      "conditioning": "observed_x_inferred",
+      "dimension": "trigger_sensitivity_matrix",
+      "hairTriggerCount": 9,
+      "hairTriggerRateAmongJudgeable": 0.3,
+      "lowObservedJudgeable": 30,
+      "lowObservedLowInferredCount": 10,
+      "matrix": [
+        {
+          "count": 10,
+          "inferred": "low",
+          "observed": "minimal"
+        },
+        {
+          "count": 11,
+          "inferred": "medium",
+          "observed": "low"
+        },
+        {
+          "count": 9,
+          "inferred": "high",
+          "observed": "low"
+        },
+        {
+          "count": 9,
+          "inferred": "high",
+          "observed": "medium"
+        },
+        {
+          "count": 15,
+          "inferred": "unknown",
+          "observed": "medium"
+        },
+        {
+          "count": 5,
+          "inferred": "medium",
+          "observed": "unknown"
+        },
+        {
+          "count": 26,
+          "inferred": "high",
+          "observed": "unknown"
+        },
+        {
+          "count": 75,
+          "inferred": "unknown",
+          "observed": "unknown"
+        }
+      ],
+      "n": 160
+    }
+  },
+  "formatVersion": 1,
+  "guideFreezeVersion": "P1-1C.freeze.1",
+  "n": 160,
+  "note": "Every dimension is split byCohort (carried_50 hand-authored vs heuristic_110). A cohortNote flags dimensions where the two instruments diverge by >= 0.25 — those 160-level numbers are instrument-sensitive, not clean character estimates. See summary.aggregate.json instrumentShift.",
+  "stage": "P1-1C-200",
+  "verbatimFree": true,
+  "visibility": "committed_safe"
+}
+

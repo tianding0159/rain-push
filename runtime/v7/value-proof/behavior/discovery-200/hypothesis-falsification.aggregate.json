@@ -1,0 +1,258 @@
+{
+  "guideFreezeVersion": "P1-1C.freeze.1",
+  "note": "Verdicts partly reflect the conservative heuristic annotator (see summary.aggregate.json instrumentShift). REJECTED/WEAKENED at 160 that align with pilot findings (esp. H3) are the credible ones; those newly weakened only at 160 may be instrument-driven.",
+  "results": [
+    {
+      "boundaryCondition": "Eligible = records with >=2 actions. Sparse eligibility itself is the H11 caveat.",
+      "claim": "behavior actions chain into recurring intra-message transitions (a grammar exists at all)",
+      "direction": "positive",
+      "id": "H1",
+      "rateDelta": 0,
+      "revisedFormulation": null,
+      "support160": {
+        "eligible": 36,
+        "observed": 36,
+        "rate": 1,
+        "status": "preliminary_support"
+      },
+      "support50": {
+        "eligible": 27,
+        "observed": 27,
+        "rate": 1,
+        "status": "preliminary_support"
+      },
+      "trueCounterexamples160": 0,
+      "verdict": "SURVIVES"
+    },
+    {
+      "boundaryCondition": "Eligible = records where a reveal has a following action.",
+      "claim": "reveal is frequently followed by self-devaluation within the same message",
+      "direction": "positive",
+      "id": "H2",
+      "rateDelta": 0.064,
+      "revisedFormulation": "reveal is only sometimes followed by self-devaluation; self-devaluation is one of several continuations, not the default.",
+      "support160": {
+        "eligible": 11,
+        "observed": 4,
+        "rate": 0.364,
+        "status": "weak_support"
+      },
+      "support50": {
+        "eligible": 10,
+        "observed": 3,
+        "rate": 0.3,
+        "status": "weak_support"
+      },
+      "trueCounterexamples160": 7,
+      "verdict": "WEAKENED"
+    },
+    {
+      "boundaryCondition": "Counterexamples = reveal-without-mask records, reported explicitly to block an overclaim.",
+      "claim": "a reveal is usually masked/retracted right after it (defensive concealment)",
+      "direction": "positive",
+      "id": "H3",
+      "rateDelta": 0.021,
+      "revisedFormulation": "a reveal is NOT usually masked immediately; reveal→vulnerability-management is recurring, but immediate mask is only one of several strategies (reveal-without-mask is common).",
+      "support160": {
+        "eligible": 34,
+        "observed": 4,
+        "rate": 0.118,
+        "status": "mixed"
+      },
+      "support50": {
+        "eligible": 31,
+        "observed": 3,
+        "rate": 0.097,
+        "status": "contradicted"
+      },
+      "trueCounterexamples160": 30,
+      "verdict": "REJECTED"
+    },
+    {
+      "boundaryCondition": "Eligible = records with A-grade fear_of_abandonment; tierA+tierB reassurance couplings counted.",
+      "claim": "fear-of-abandonment couples to reassurance-seeking strategies (driver→strategy grammar)",
+      "direction": "positive",
+      "id": "H4",
+      "rateDelta": 0,
+      "revisedFormulation": null,
+      "support160": {
+        "eligible": 7,
+        "observed": 5,
+        "rate": 0.714,
+        "status": "preliminary_support"
+      },
+      "support50": {
+        "eligible": 7,
+        "observed": 5,
+        "rate": 0.714,
+        "status": "preliminary_support"
+      },
+      "trueCounterexamples160": 2,
+      "verdict": "SURVIVES"
+    },
+    {
+      "boundaryCondition": "Eligible = low/minimal observed trigger; observed = those also high inferred activation.",
+      "claim": "a low observed trigger co-occurs with high inferred activation (hair-trigger sensitivity)",
+      "direction": "positive",
+      "id": "H5",
+      "rateDelta": 0,
+      "revisedFormulation": "low observed trigger co-occurs with high inferred activation in a SUBSET of records; low-trigger + low-activation cases also exist and bound the hair-trigger claim.",
+      "support160": {
+        "eligible": 30,
+        "observed": 9,
+        "rate": 0.3,
+        "status": "weak_support"
+      },
+      "support50": {
+        "eligible": 30,
+        "observed": 9,
+        "rate": 0.3,
+        "status": "weak_support"
+      },
+      "trueCounterexamples160": 21,
+      "verdict": "REJECTED"
+    },
+    {
+      "boundaryCondition": "Eligible = records with a known coexistence type; 'unknown' excluded (not evidence of rarity).",
+      "claim": "single-valence affect dominates; mixed simultaneous affect is rare",
+      "direction": "negative",
+      "id": "H6",
+      "rateDelta": -0.139,
+      "revisedFormulation": null,
+      "support160": {
+        "eligible": 23,
+        "observed": 6,
+        "rate": 0.261,
+        "status": "mixed"
+      },
+      "support50": {
+        "eligible": 15,
+        "observed": 6,
+        "rate": 0.4,
+        "status": "mixed"
+      },
+      "trueCounterexamples160": 17,
+      "verdict": "SURVIVES"
+    },
+    {
+      "boundaryCondition": "Top operation observed = seek_exclusivity. H7 asks whether test_bond leads.",
+      "claim": "test_bond is the most frequent relationship operation",
+      "direction": "positive",
+      "id": "H7",
+      "rateDelta": -0.32,
+      "revisedFormulation": "original claim not supported at 160; narrower formulation required (see counterexamples).",
+      "support160": {
+        "eligible": 50,
+        "observed": 9,
+        "rate": 0.18,
+        "status": "mixed"
+      },
+      "support50": {
+        "eligible": 18,
+        "observed": 9,
+        "rate": 0.5,
+        "status": "preliminary_support"
+      },
+      "trueCounterexamples160": 41,
+      "verdict": "REJECTED"
+    },
+    {
+      "boundaryCondition": "Eligible = all records; observed = records with a confident immediate expected-reply class.",
+      "claim": "utterances are designed to elicit a specific partner operation (expected-reply grammar)",
+      "direction": "positive",
+      "id": "H8",
+      "rateDelta": -0.249,
+      "revisedFormulation": null,
+      "support160": {
+        "eligible": 160,
+        "observed": 117,
+        "rate": 0.731,
+        "status": "preliminary_support"
+      },
+      "support50": {
+        "eligible": 50,
+        "observed": 49,
+        "rate": 0.98,
+        "status": "preliminary_support"
+      },
+      "trueCounterexamples160": 43,
+      "verdict": "SURVIVES"
+    },
+    {
+      "boundaryCondition": "Eligible = multi-beat (>=2 action) records; observed = those with an escalation step.",
+      "claim": "multi-beat messages carry an escalation arc more often than not",
+      "direction": "positive",
+      "id": "H9",
+      "rateDelta": 0.185,
+      "revisedFormulation": "multi-beat messages do not reliably escalate; arcs are heterogeneous (escalate / repair / de-escalate all occur).",
+      "support160": {
+        "eligible": 36,
+        "observed": 16,
+        "rate": 0.444,
+        "status": "weak_support"
+      },
+      "support50": {
+        "eligible": 27,
+        "observed": 7,
+        "rate": 0.259,
+        "status": "weak_support"
+      },
+      "trueCounterexamples160": 20,
+      "verdict": "WEAKENED"
+    },
+    {
+      "boundaryCondition": "Eligible = records where perform_confidence has a following action.",
+      "claim": "confident self-presentation precedes vulnerability reveal (perform→reveal)",
+      "direction": "positive",
+      "id": "H10",
+      "rateDelta": -0.167,
+      "revisedFormulation": null,
+      "support160": {
+        "eligible": 4,
+        "observed": 2,
+        "rate": 0.5,
+        "status": "insufficient_evidence"
+      },
+      "support50": {
+        "eligible": 3,
+        "observed": 2,
+        "rate": 0.667,
+        "status": "insufficient_evidence"
+      },
+      "trueCounterexamples160": 2,
+      "verdict": "INSUFFICIENT"
+    },
+    {
+      "boundaryCondition": "Sparsity is a finding: if most records are single-action, transition grammar needs more data.",
+      "claim": "most records are single-action, so cross-action grammar is sparse at this n (a limitation, stated as a hypothesis to test)",
+      "direction": "positive",
+      "id": "H11",
+      "rateDelta": 0.315,
+      "revisedFormulation": null,
+      "support160": {
+        "eligible": 160,
+        "observed": 124,
+        "rate": 0.775,
+        "status": "preliminary_support"
+      },
+      "support50": {
+        "eligible": 50,
+        "observed": 23,
+        "rate": 0.46,
+        "status": "weak_support"
+      },
+      "trueCounterexamples160": 36,
+      "verdict": "SURVIVES"
+    }
+  ],
+  "rollup": {
+    "INSUFFICIENT": 1,
+    "REJECTED": 3,
+    "SURVIVES": 5,
+    "WEAKENED": 2
+  },
+  "stage": "P1-1C-200",
+  "verbatimFree": true,
+  "visibility": "committed_safe"
+}
+

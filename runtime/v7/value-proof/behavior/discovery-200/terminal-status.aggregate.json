@@ -1,0 +1,45 @@
+{
+  "falsificationRollup": {
+    "INSUFFICIENT": 1,
+    "REJECTED": 3,
+    "SURVIVES": 5,
+    "WEAKENED": 2
+  },
+  "fullScaleDecision": "HOLD_BEFORE_FULL_SCALE",
+  "guideChurnVerdict": "GUIDE_STABLE_FOR_FULL_SCALE",
+  "guideFreezeVersion": "P1-1C.freeze.1",
+  "holdout": {
+    "e3": {
+      "E3_CANDIDATE_SURVIVES": 2,
+      "E3_NOT_MET": 5
+    },
+    "rollup": {
+      "HOLDOUT_ABSENT": 3,
+      "HOLDOUT_CONFIRMED": 2,
+      "HOLDOUT_REFUTED": 1,
+      "HOLDOUT_WEAKENED": 1
+    },
+    "survivors": [
+      "GC4_exclusivity_trigger_to_unique",
+      "GC5_relationship_management_explicit"
+    ]
+  },
+  "instrumentConfounded": true,
+  "note": "BEHAVIOR_200_READY: grammar frozen + holdout-validated; guide stable for full scale; 1051 gate HOLDS pending single-instrument re-annotation (instrument confound). Engine untouched; no generation/merge/push.",
+  "selection": {
+    "discovery": 160,
+    "holdout": 40,
+    "invariantsAllHold": true,
+    "new": 150,
+    "original": 50,
+    "total": 200
+  },
+  "stage": "P1-1C-200",
+  "terminalStatus": "BEHAVIOR_200_READY",
+  "truthfulnessLabels": [
+    "MIXED_INSTRUMENT",
+    "NOT_CHARACTER_CONCLUSIVE"
+  ],
+  "verbatimFree": true,
+  "visibility": "committed_safe"
+}
