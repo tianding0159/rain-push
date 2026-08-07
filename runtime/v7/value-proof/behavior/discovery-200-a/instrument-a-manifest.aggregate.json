@@ -1,0 +1,355 @@
+{
+  "canonicalizationRules": {
+    "idPolicy": "records keyed by presentationId (public) and linkId (private hash); text never enters committed artifacts",
+    "indent": 2,
+    "keyOrder": "recursively sorted ascending",
+    "numberPolicy": "confidences are enum tags, not floats; counts are integers",
+    "serializer": "canonicalJson (v7/corpus/lib/io.mjs): JSON.stringify(sortKeys(v), null, 2) + trailing newline",
+    "trailingNewline": true
+  },
+  "guideFingerprint": "9fad3552820361f37536e746e2a734370591244f16dfaa01d5be8d8f91b45cea",
+  "guideFreezeVersion": "P1-1C.freeze.1",
+  "instrumentADefinition": "guide-following model-assisted research annotation under the frozen annotation protocol; NOT human, NOT hand-authored, NOT gold standard.",
+  "matchClass": "INSTRUMENT_A_PROTOCOL_MATCH_MODEL_VARIANT",
+  "modelIdentity": {
+    "modelFamily": "claude",
+    "note": "identity only; no auth token / api key / user PII recorded",
+    "originalModelVersionRecorded": false,
+    "provider": "anthropic_via_roche_proxy",
+    "proxyHost": "sha256:ca7b124a6be5c349d0c1b6c584e42b6808b1f84346a6b50e48ea11d0da90b7a0"
+  },
+  "original50": {
+    "fingerprint": "4b9564a25f72961e61e09d7864b76800c614e436acda5937d1e7cae8fb614b83",
+    "n": 50,
+    "valid": true,
+    "violationCount": 0
+  },
+  "protocolDocHashes": {
+    "docs/ANNOTATION_GUIDE_REVISED.md": "7f6b82fad34cca7af31b4e6bd17335b0ce189f0a40ed24684f554c645f7f6999",
+    "docs/EVIDENCE_GRADING.md": "2cb1364ce52fee56ad85ad321bcc4e089fe2ecf704e60bcdeaceb87a6466365b",
+    "docs/EXPECTED_REPLY_GUIDE.md": "3197c1e940aa4614d4b63aa4e4a56a0db43679c665b198ab12de4db44969f022",
+    "docs/TRANSITION_GUIDE.md": "28691b29e156336224c9e378b3e787facac265eb231928bd7bca24ad23176746",
+    "policy/behavior-vocab.json": "afe0370b5ebecaed30322b338320f5cef697a55e89903e9aa31ddb3e2dbdea79",
+    "schemas/behavior-annotation-revised.schema.json": "43d3a34ea65480e0c2ddb0aa7628fbbd685a3cf28643df2aacc8d041605141bd"
+  },
+  "protocolHash": "92c9917467fec867feefa3da0e05ed2ce27547ff21f1ebb4647a39f99cd9d82f",
+  "protocolVersion": "P1-1E.instrumentA.1",
+  "resolvable": true,
+  "ruleVocabularies": {
+    "activationLevels": [
+      "low",
+      "medium",
+      "high",
+      "unknown"
+    ],
+    "affectLabels": [
+      "joy",
+      "affection",
+      "desire",
+      "shame",
+      "fear",
+      "anger",
+      "sadness",
+      "loneliness",
+      "jealousy",
+      "pride",
+      "excitement",
+      "boredom",
+      "calm",
+      "other"
+    ],
+    "behaviorActions": [
+      "reveal",
+      "conceal",
+      "mask",
+      "countermask",
+      "retract",
+      "bait",
+      "tease",
+      "accuse",
+      "demand",
+      "ask",
+      "invite",
+      "invite_pursuit",
+      "withdraw",
+      "push_away",
+      "seek_confirmation",
+      "seek_attention",
+      "seek_exclusivity",
+      "seek_proximity",
+      "reassure_partner",
+      "justify",
+      "repair",
+      "self_devalue",
+      "self_monitor",
+      "perform_confidence",
+      "drop_performance",
+      "escalate",
+      "deescalate",
+      "future_bind",
+      "threaten_symbolically",
+      "set_boundary",
+      "request_practical_action",
+      "no_clear_action"
+    ],
+    "coexistenceTypes": [
+      "simultaneous",
+      "sequential",
+      "ambiguous",
+      "unknown"
+    ],
+    "confidenceVocabulary": [
+      "explicit",
+      "strongly_supported",
+      "weak_inference",
+      "unknown"
+    ],
+    "contextDependencyLevels": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "drivingForces": [
+      "fear_of_abandonment",
+      "sensitivity_to_unavailability",
+      "sensitivity_to_ambiguous_response",
+      "need_to_be_unique",
+      "need_for_attention",
+      "need_for_attunement",
+      "need_for_reassurance",
+      "need_for_closeness",
+      "need_for_control",
+      "need_for_autonomy",
+      "need_for_recognition",
+      "need_for_admiration",
+      "need_for_predictability",
+      "need_for_privacy",
+      "need_for_rest",
+      "need_for_play",
+      "need_to_preserve_self_image",
+      "need_to_avoid_humiliation",
+      "never_separate",
+      "other",
+      "unknown"
+    ],
+    "evidenceGradeRules": {
+      "allGrades": [
+        "E0",
+        "E1",
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "note": "E3/E4 are cross-corpus/holdout-gated; a single-record Round-A pass may only assign E0-E2.",
+      "roundAGrades": [
+        "E0",
+        "E1",
+        "E2"
+      ]
+    },
+    "expectedReplyRules": {
+      "classes": [
+        "specific_reassurance",
+        "affection_reciprocation",
+        "exclusive_attention_confirmation",
+        "continued_presence",
+        "pursuit_after_withdrawal",
+        "apology",
+        "practical_answer",
+        "playful_resistance",
+        "admiration",
+        "desire_confirmation",
+        "boundary_respect",
+        "quiet_companionship",
+        "no_reply_expected",
+        "ambiguous"
+      ],
+      "immediate": [
+        "answer",
+        "reassure",
+        "apologize",
+        "explain",
+        "laugh_play_along",
+        "stay_present",
+        "respect_boundary",
+        "reciprocate_affection",
+        "confirm_exclusivity",
+        "unknown"
+      ],
+      "longerTerm": [
+        "continue_presence",
+        "future_commitment",
+        "behavioral_change",
+        "no_long_term_expectation",
+        "unknown"
+      ],
+      "relationship": [
+        "reaffirm_bond",
+        "show_special_treatment",
+        "remain_available",
+        "pursue_after_withdrawal",
+        "restore_trust",
+        "validate_identity",
+        "unknown"
+      ],
+      "unsatisfying": [
+        "generic_reassurance",
+        "literal_withdrawal",
+        "topic_change",
+        "silence",
+        "dismissive_acknowledgement",
+        "public_style_response",
+        "over_serious_response",
+        "unknown"
+      ]
+    },
+    "failureRiskRules": [
+      "missing_context",
+      "maybe_joke",
+      "maybe_public_performance",
+      "maybe_quoting",
+      "maybe_plot_event",
+      "alternative_reading"
+    ],
+    "functionRoles": [
+      "primary",
+      "secondary",
+      "supporting"
+    ],
+    "interactionFunctions": [
+      "obtain_attention",
+      "obtain_specific_reassurance",
+      "test_availability",
+      "test_exclusivity",
+      "regain_control",
+      "provoke_pursuit",
+      "demand_reciprocation",
+      "conceal_vulnerability",
+      "intensify_intimacy",
+      "reduce_distance",
+      "establish_boundary",
+      "punish_perceived_neglect",
+      "maintain_performance",
+      "discharge_overload",
+      "repair_relationship",
+      "stabilize_relationship",
+      "build_future_bond",
+      "preserve_self_image",
+      "solicit_validation",
+      "invite_playful_response",
+      "other",
+      "unknown"
+    ],
+    "maskRules": {
+      "maskStrategy": [
+        "denial",
+        "retract",
+        "humor",
+        "absurd_humor",
+        "self_mockery",
+        "aggression",
+        "accusation",
+        "command",
+        "topic_shift",
+        "performance_restore",
+        "minimization",
+        "qualification",
+        "counterattack",
+        "future_projection",
+        "other",
+        "unknown"
+      ],
+      "note": "mask=true requires the FUNCTIONAL test (reduces visibility/accountability/exposure of a just-revealed vulnerability); maskStrategy is populated ONLY when mask=true."
+    },
+    "metaSelfMonitoring": [
+      "self_observation",
+      "self_judgment",
+      "anticipation_of_backlash",
+      "awareness_of_performance",
+      "awareness_of_dependency",
+      "awareness_of_excess",
+      "awareness_of_contradiction",
+      "none",
+      "unknown"
+    ],
+    "priorRules": {
+      "inferenceSources": [
+        "explicit_text",
+        "interaction_function",
+        "action_sequence",
+        "affect_leak",
+        "cross_sentence_structure",
+        "character_prior"
+      ],
+      "note": "priorContribution and recordSpecificSupport are separated per record; a character prior may never impersonate current-record evidence (guide core stance).",
+      "priorStrengths": [
+        "none",
+        "weak",
+        "moderate",
+        "strong"
+      ]
+    },
+    "relationshipOperations": [
+      "test_bond",
+      "stabilize_bond",
+      "future_bind",
+      "seek_exclusivity",
+      "repair_bond",
+      "threaten_bond",
+      "reduce_distance",
+      "increase_distance",
+      "preserve_partner_attention"
+    ],
+    "reviewFlagRules": [
+      "context_missing_materially",
+      "persona_surface_uncertain",
+      "joke_literal_ambiguity",
+      "quote_or_reenactment_possible",
+      "plot_event_possible",
+      "public_private_ambiguity",
+      "adult_context_ambiguous",
+      "dark_context_ambiguous",
+      "drug_context_ambiguous",
+      "driving_force_uncertain",
+      "expected_reply_uncertain",
+      "multi_function_overlap",
+      "action_sequence_uncertain",
+      "translation_artifact_possible",
+      "character_prior_used",
+      "low_trigger_high_activation_candidate"
+    ],
+    "reviewPriorities": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "triggerDomains": [
+      "partner_unavailability",
+      "delayed_reply",
+      "ambiguous_feedback",
+      "divided_attention",
+      "exclusivity_threat",
+      "public_evaluation",
+      "audience_metrics",
+      "perceived_rejection",
+      "loss_of_control",
+      "humiliation",
+      "isolation",
+      "no_external_trigger",
+      "indeterminate",
+      "other"
+    ],
+    "triggerIntensities": [
+      "minimal",
+      "low",
+      "medium",
+      "high",
+      "unknown"
+    ]
+  },
+  "stage": "P1-1E",
+  "truthfulnessLabels": [
+    "UNIFIED_A_PENDING_ISOLATED_ANNOTATION"
+  ],
+  "visibility": "committed_safe"
+}

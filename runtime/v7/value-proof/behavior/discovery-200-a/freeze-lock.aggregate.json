@@ -1,0 +1,43 @@
+{
+  "freezeLockVersion": "P1-1E.freeze.1",
+  "guideFingerprint": "9fad3552820361f37536e746e2a734370591244f16dfaa01d5be8d8f91b45cea",
+  "guideFreezeVersion": "P1-1C.freeze.1",
+  "holdoutSplitCounts": {
+    "discovery": 160,
+    "holdout": 40,
+    "other": 0
+  },
+  "holdoutSplitHash": "23bc5d863528ba2530c90aa3f380897cf795fa33a3d84f5ed7cf57b489b001a6",
+  "hypothesisSourceHashes": {
+    "lib/grammar-hypotheses.mjs": "03294d6a119d1582c6a5ca6d4b369c5153a499c5792a25c0fccf6e8d3e549917",
+    "lib/hypotheses.mjs": "ad5b75ab3f6e9a92918e7e921eeeee3e66d6ea2a607c8f5aa5f920603c644866"
+  },
+  "lockHash": "4117a3a22634a97bb1d88efb67ffd7606d606d8817454cc5b9c831f80ba38b48",
+  "rawCorpus": {
+    "lines": 1051,
+    "sha256": "26355e6050bc31d44d69f5e35c3e7a82df0db5313989388387fbe805f3b70ebb"
+  },
+  "resolvable": true,
+  "seeds": {
+    "holdout": 4238823,
+    "presentation": 11642349,
+    "selection": 46168593
+  },
+  "selfVerifyOk": true,
+  "stage": "P1-1E",
+  "thresholdSourceHashes": {
+    "lib/counterexample.mjs": "faad13690ae224c304521080ba54d0214b05729a164be3a923c4fcd7414f5884",
+    "lib/derive-patterns.mjs": "fd073caa3e401ed348635e710b099462fa5ab4bcd5b5e57d67c60384b5adc091",
+    "lib/full-scale-gate.mjs": "5c7a67bfa82ca7e89f6957440f7b1d1e9aa71fd3b760561abe72becb6c859cb4",
+    "lib/grammar-candidate.mjs": "6516e032f451b84f723d7a5a3c4dcfccd66cc8f803024950c6ea88ab467961d7",
+    "lib/grammar-discovery.mjs": "8e8ea4af7742e58af05bac9e7a046d7a809811868f9bf10a8b9cd955cf054be8",
+    "lib/grammar-gate.mjs": "47931fb9854fb5b0e028fd34d232e1d2df2df7cbf4b8fc18637fe39f13b07596",
+    "lib/grammar-hypotheses.mjs": "03294d6a119d1582c6a5ca6d4b369c5153a499c5792a25c0fccf6e8d3e549917",
+    "lib/holdout-validation.mjs": "eef638ffffd04d9b9b23c9335a35aa09249ad44d78657c0638c4fbb506681df2",
+    "lib/hypothesis-falsification.mjs": "ade466883d3e0d51a1178ea14765c8bcb72502b2c15c1200c4ff6cba639dbe43"
+  },
+  "truthfulnessLabels": [
+    "UNIFIED_A_PENDING_ISOLATED_ANNOTATION"
+  ],
+  "visibility": "committed_safe"
+}
