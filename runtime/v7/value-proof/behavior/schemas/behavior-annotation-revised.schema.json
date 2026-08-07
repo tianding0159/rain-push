@@ -1,0 +1,236 @@
+{
+  "$schema": "mini-schema/v1",
+  "title": "single-sided-behavior-annotation-revised",
+  "description": "P1-1A.2 revised annotation of ONE single-sided utterance. Pipeline order (directive §1): L1 observable → behavior action sequence → interaction functions (multi) → affect structure → driving-force candidates → trigger sensitivity → relationship management → meta self-monitoring → layered expected reply → evidence grade → review flags → failure risk. Enums resolve from behavior-vocab.json via enumFrom. The schema itself is verbatim-free: `text` is OPTIONAL so the gitignored private instance may carry the utterance while synthetic test fixtures stay text-free. Count caps (primary≤1, secondary≤2, supporting≤3, driving forces≤3, actions 1..8) and prior/record separation are enforced by the validator (revised-annotation.mjs), because mini-schema has no maxItems/conditional keywords.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "recordFormatVersion",
+    "presentationId",
+    "annotator",
+    "round",
+    "l1_observable",
+    "behaviorActionSequence",
+    "interactionFunctions",
+    "affect",
+    "drivingForceCandidates",
+    "triggerSensitivity",
+    "relationshipManagement",
+    "metaSelfMonitoring",
+    "expectedReply",
+    "evidenceGrade",
+    "reviewFlags",
+    "failureRiskNotes"
+  ],
+  "properties": {
+    "recordFormatVersion": { "type": "integer", "const": 2 },
+    "presentationId": { "type": "string", "minLength": 1 },
+    "recordHash": { "type": "string", "minLength": 8 },
+    "text": { "type": "string" },
+    "annotator": { "type": "string", "minLength": 1 },
+    "round": { "type": "string", "minLength": 1 },
+    "modelSuggested": { "type": "boolean" },
+    "annotationNature": { "type": "string" },
+
+    "l1_observable": {
+      "type": "object",
+      "description": "Observable evidence only — no psychology.",
+      "additionalProperties": false,
+      "required": ["observableActs"],
+      "properties": {
+        "observableActs": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "grammaticalForm": { "type": "array", "items": { "type": "string" } },
+        "target": { "type": "string", "enumFrom": "targets" },
+        "explicitRequest": { "type": "boolean" },
+        "explicitRefusal": { "type": "boolean" },
+        "selfDisclosure": { "type": "boolean" },
+        "insultOrTease": { "type": "boolean" },
+        "personaSurfaceCandidate": { "type": "string" },
+        "punctuationRhythmNotes": { "type": "string" }
+      }
+    },
+
+    "behaviorActionSequence": {
+      "type": "array",
+      "description": "1..8 text-ordered actions. `order` reflects the intra-utterance action chain. Cap of 8 and order-contiguity enforced by validator.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action", "order", "confidence", "textualEvidence"],
+        "properties": {
+          "action": { "type": "string", "enumFrom": "behaviorActions" },
+          "order": { "type": "integer", "minimum": 1 },
+          "confidence": { "type": "string", "enumFrom": "confidenceTags" },
+          "textualEvidence": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+
+    "interactionFunctions": {
+      "type": "object",
+      "description": "Multi-function (directive §3). primary≤1, secondary≤2, supporting≤3 enforced by validator.",
+      "additionalProperties": false,
+      "required": ["functions"],
+      "properties": {
+        "functions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["function", "role", "confidence"],
+            "properties": {
+              "function": { "type": "string", "enumFrom": "interactionFunctions" },
+              "role": { "type": "string", "enumFrom": "functionRoles" },
+              "confidence": { "type": "string", "enumFrom": "confidenceTags" },
+              "textualEvidence": { "type": "string" },
+              "alternatives": { "type": "array", "items": { "type": "string", "enumFrom": "interactionFunctions" } },
+              "contextDependency": { "type": "string", "enumFrom": "contextDependencyLevels" }
+            }
+          }
+        }
+      }
+    },
+
+    "affect": {
+      "type": "object",
+      "description": "Multi-emotion structure (directive §4). Only fill a dimension when evidenced; coexistenceType distinguishes simultaneous vs sequential.",
+      "additionalProperties": false,
+      "properties": {
+        "primarySurface": { "$ref": "#/$defs/affectDim" },
+        "opposingAffect": { "$ref": "#/$defs/affectDim" },
+        "maskedAffect": { "$ref": "#/$defs/affectDim" },
+        "leakedAffect": { "$ref": "#/$defs/affectDim" },
+        "coexistenceType": { "type": "string", "enumFrom": "coexistenceTypes" }
+      }
+    },
+
+    "drivingForceCandidates": {
+      "type": "array",
+      "description": "Directional forces most likely driving the current interaction strategy (directive §5). Max 3 (validator). Each MUST separate priorContribution (cross-corpus) from recordSpecificSupport (this utterance) and MUST carry whatWouldChangeMyMind.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate", "confidence", "evidence", "alternativeExplanation", "whatWouldChangeMyMind", "contextDependency", "inferredFrom", "priorContribution", "recordSpecificSupport"],
+        "properties": {
+          "candidate": { "type": "string", "enumFrom": "drivingForces" },
+          "confidence": { "type": "string", "enumFrom": "confidenceTags" },
+          "evidence": { "type": "string", "minLength": 1 },
+          "alternativeExplanation": { "type": "string", "minLength": 1 },
+          "whatWouldChangeMyMind": { "type": "string", "minLength": 1 },
+          "contextDependency": { "type": "string", "enumFrom": "contextDependencyLevels" },
+          "inferredFrom": { "type": "array", "minItems": 1, "items": { "type": "string", "enumFrom": "inferenceSources" } },
+          "priorContribution": { "type": "string", "enumFrom": "priorStrengths" },
+          "recordSpecificSupport": { "type": "string", "enumFrom": "priorStrengths" }
+        }
+      }
+    },
+
+    "triggerSensitivity": {
+      "type": "object",
+      "description": "Directive §8. characteristically_low may ONLY be set with cross-corpus prior (requiresCrossCorpusSupport true) — enforced by validator. A single record never establishes a low threshold.",
+      "additionalProperties": false,
+      "required": ["domain", "observedTriggerIntensity", "inferredInternalActivation", "thresholdInterpretation", "confidence"],
+      "properties": {
+        "domain": { "type": "string", "enumFrom": "triggerDomains" },
+        "observedTriggerIntensity": { "type": "string", "enumFrom": "triggerIntensities" },
+        "inferredInternalActivation": { "type": "string", "enumFrom": "activationLevels" },
+        "thresholdInterpretation": { "type": "string", "enumFrom": "thresholdInterpretations" },
+        "confidence": { "type": "string", "enumFrom": "confidenceTags" },
+        "evidence": { "type": "string" },
+        "requiresCrossCorpusSupport": { "type": "boolean" }
+      }
+    },
+
+    "relationshipManagement": {
+      "type": "object",
+      "description": "Directive §12. Captures active relationship management (not mere emotion). `present` never defaults true; when false/unknown, operations stay empty.",
+      "additionalProperties": false,
+      "required": ["present"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "operations": { "type": "array", "items": { "type": "string", "enumFrom": "relationshipOperations" } },
+        "confidence": { "type": "string", "enumFrom": "confidenceTags" },
+        "evidence": { "type": "string" }
+      }
+    },
+
+    "metaSelfMonitoring": {
+      "type": "object",
+      "description": "Directive §13. Self-observation / self-judgment / anticipation-of-backlash etc. Not defaulted — tags empty or ['none'] unless evidenced.",
+      "additionalProperties": false,
+      "required": ["tags"],
+      "properties": {
+        "tags": { "type": "array", "items": { "type": "string", "enumFrom": "metaSelfMonitoring" } },
+        "confidence": { "type": "string", "enumFrom": "confidenceTags" },
+        "evidence": { "type": "string" }
+      }
+    },
+
+    "stateContext": {
+      "type": "object",
+      "description": "Directive §10. adult/dark/drug are CONTEXT/STATE amplifiers, never driving forces themselves. Listed here; the validator forbids mapping them straight to a driving force.",
+      "additionalProperties": false,
+      "properties": {
+        "domains": { "type": "array", "items": { "type": "string", "enumFrom": "stateDomains" } },
+        "notes": { "type": "string" }
+      }
+    },
+
+    "expectedReply": {
+      "type": "object",
+      "description": "Three independent layers (directive §14). Each layer may be unknown on its own.",
+      "additionalProperties": false,
+      "required": ["immediateReply", "relationshipReply", "longerTermReply"],
+      "properties": {
+        "immediateReply": { "$ref": "#/$defs/replyLayer" },
+        "relationshipReply": { "$ref": "#/$defs/replyLayer" },
+        "longerTermReply": { "$ref": "#/$defs/replyLayer" },
+        "likelyUnsatisfyingReplyClasses": { "type": "array", "items": { "type": "string", "enumFrom": "unsatisfyingReplyClasses" } }
+      }
+    },
+
+    "evidenceGrade": { "type": "string", "enumFrom": "roundAGrades" },
+
+    "reviewFlags": { "type": "array", "items": { "type": "string", "enumFrom": "reviewFlags" } },
+
+    "failureRiskNotes": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "note"],
+        "properties": {
+          "id": { "type": "string", "enumFrom": "failureRiskIds" },
+          "note": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "affectDim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "confidence"],
+      "properties": {
+        "value": { "type": "string", "enumFrom": "affectLabels" },
+        "confidence": { "type": "string", "enumFrom": "confidenceTags" }
+      }
+    },
+    "replyLayer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["classes", "confidence"],
+      "properties": {
+        "classes": { "type": "array", "items": { "type": "string" } },
+        "confidence": { "type": "string", "enumFrom": "confidenceTags" },
+        "textualEvidence": { "type": "string" },
+        "alternatives": { "type": "array", "items": { "type": "string" } },
+        "contextRequired": { "type": "string", "enumFrom": "contextDependencyLevels" }
+      }
+    }
+  }
+}
