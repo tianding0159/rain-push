@@ -1,0 +1,37 @@
+{
+  "$schema": "mini-schema/v1",
+  "title": "behavior-pattern",
+  "description": "A cross-corpus behavioral pattern (directive §4 L4 + §12). Established only when multiple independent records support it. Carries NO verbatim text — records are referenced by hash. evidenceGrade E3/E4 have extra requirements enforced by the pattern validator, not by this schema alone.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "patternId", "name", "functionalInvariant", "supportingRecordHashes",
+    "counterexampleRecordHashes", "evidenceGrade", "confidence", "reviewStatus"
+  ],
+  "properties": {
+    "patternId": { "type": "string", "minLength": 1, "pattern": "^BP-[0-9]{3,}$" },
+    "name": { "type": "string", "minLength": 1 },
+    "functionalInvariant": { "type": "string", "minLength": 1 },
+    "observableVariants": { "type": "array", "items": { "type": "string", "enumFrom": "behaviorAtoms" } },
+    "surfaceAffects": { "type": "array", "items": { "type": "string" } },
+    "maskedOrLeakedAffects": { "type": "array", "items": { "type": "string" } },
+    "latentNeedCandidates": { "type": "array", "items": { "type": "string", "enumFrom": "latentNeeds" } },
+    "interactionGoal": { "type": "string", "enumFrom": "interactionFunctions" },
+    "expectedReplyClasses": { "type": "array", "items": { "type": "string", "enumFrom": "expectedReplyClasses" } },
+    "unsatisfyingReplyClasses": { "type": "array", "items": { "type": "string", "enumFrom": "expectedReplyClasses" } },
+    "possibleEscalations": { "type": "array", "items": { "type": "string", "enumFrom": "escalationStages" } },
+    "supportingRecordHashes": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "counterexampleRecordHashes": { "type": "array", "items": { "type": "string" } },
+    "surfaceVariantCount": { "type": "integer", "minimum": 0 },
+    "affectVariantCount": { "type": "integer", "minimum": 0 },
+    "evidenceGrade": { "type": "string", "enumFrom": "evidenceGrades" },
+    "confidence": { "type": "number", "minimum": 0 },
+    "applicableContexts": { "type": "array", "items": { "type": "string" } },
+    "nonApplicableContexts": { "type": "array", "items": { "type": "string" } },
+    "knownUnknowns": { "type": "array", "items": { "type": "string" } },
+    "reviewStatus": { "type": "string", "enumFrom": "reviewStatuses" },
+    "crossClusterCount": { "type": "integer", "minimum": 0 },
+    "reReviewConsistent": { "type": "boolean" },
+    "humanReviewed": { "type": "boolean" }
+  }
+}

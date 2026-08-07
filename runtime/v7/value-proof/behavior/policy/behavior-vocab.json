@@ -1,0 +1,145 @@
+{
+  "policyFormatVersion": 1,
+  "description": "SSOT for single-sided behavioral-evidence vocabularies. Schemas reference these lists via enumFrom; do not duplicate enums inside schemas. New labels enter through extensionProposals and require >=5 real supporting samples before promotion into the core list (directive §4).",
+
+  "behaviorAtoms": [
+    "ask",
+    "demand",
+    "complain",
+    "tease",
+    "insult_playfully",
+    "accuse",
+    "test",
+    "withdraw",
+    "invite_pursuit",
+    "reveal",
+    "conceal",
+    "deny",
+    "reverse",
+    "escalate",
+    "soften",
+    "reassert_control",
+    "seek_confirmation",
+    "seek_exclusivity",
+    "seek_attention",
+    "seek_proximity",
+    "mark_hurt",
+    "threaten_symbolically",
+    "self_devalue",
+    "perform_confidence",
+    "break_performance",
+    "switch_persona",
+    "set_boundary",
+    "request_practical_action",
+    "no_clear_action"
+  ],
+
+  "interactionFunctions": [
+    "obtain_attention",
+    "obtain_specific_reassurance",
+    "test_availability",
+    "regain_control",
+    "provoke_pursuit",
+    "demand_reciprocation",
+    "conceal_vulnerability",
+    "intensify_intimacy",
+    "reduce_distance",
+    "establish_boundary",
+    "punish_perceived_neglect",
+    "maintain_performance",
+    "discharge_overload",
+    "other",
+    "unknown"
+  ],
+
+  "latentNeeds": [
+    "recognition",
+    "attunement",
+    "exclusive_attention",
+    "predictability",
+    "reassurance",
+    "autonomy",
+    "control",
+    "closeness",
+    "desire_confirmation",
+    "admiration",
+    "privacy",
+    "rest",
+    "play",
+    "other"
+  ],
+
+  "evidenceGrades": ["E0", "E1", "E2", "E3", "E4"],
+
+  "affectRoles": ["primary", "opposing", "masked", "leak"],
+  "attentionTargets": ["partner", "self", "third_party", "audience", "unknown"],
+  "affectLabels": ["joy", "affection", "desire", "shame", "fear", "anger", "sadness", "loneliness", "jealousy", "pride", "excitement", "boredom", "calm", "other"],
+
+  "concurrencyClass": ["A_explicit", "B_context_strong", "C_designed_inference", "D_undecidable"],
+
+  "expectedReplyClasses": [
+    "specific_reassurance",
+    "affection_reciprocation",
+    "exclusive_attention_confirmation",
+    "continued_presence",
+    "pursuit_after_withdrawal",
+    "apology",
+    "practical_answer",
+    "playful_resistance",
+    "admiration",
+    "desire_confirmation",
+    "boundary_respect",
+    "quiet_companionship",
+    "no_reply_expected",
+    "ambiguous"
+  ],
+
+  "expressionTransitions": [
+    "vulnerability__to__irritation",
+    "attachment_need__to__accusation",
+    "shame__to__bold_escalation",
+    "fear_of_rejection__to__control",
+    "affection__to__teasing_attack",
+    "reassurance_request__to__command",
+    "sadness__to__exaggerated_spectacle",
+    "desire__to__challenge",
+    "jealousy__to__exclusivity_demand",
+    "overload__to__absurd_humor",
+    "public_confidence__to__private_crash",
+    "self_exposure__to__immediate_masking"
+  ],
+
+  "escalationStages": [
+    "low_pressure_bid",
+    "teasing_pressure",
+    "explicit_demand",
+    "accusation",
+    "withdrawal_or_silence",
+    "dramatic_escalation"
+  ],
+
+  "speechActs": [
+    "assertion",
+    "question",
+    "request",
+    "command",
+    "refusal",
+    "exclamation",
+    "self_disclosure",
+    "taunt",
+    "endearment"
+  ],
+
+  "reviewStatuses": ["candidate", "reviewed", "rejected"],
+
+  "hypothesisResults": ["supported", "partially_supported", "unsupported", "not_evaluable"],
+
+  "extensionProposals": {
+    "description": "Staging area for proposed new labels. Each needs >=5 real supporting record hashes and human review before it may move into a core list above. Nothing here is a valid schema value until promoted.",
+    "behaviorAtoms": [],
+    "interactionFunctions": [],
+    "latentNeeds": [],
+    "expectedReplyClasses": [],
+    "expressionTransitions": []
+  }
+}

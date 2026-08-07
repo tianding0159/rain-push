@@ -1,0 +1,3212 @@
+{
+  "annotationStubs": [
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 252,
+      "recordFormatVersion": 1,
+      "recordHash": "4ba00c6ee4a8036020950dd2c09e04ef02420e2196db69b527e7d9c1badda470",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 300,
+      "recordFormatVersion": 1,
+      "recordHash": "47af34340448bf33ee60d52b008e86e3256e387c85faf96d4746f91109113702",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 786,
+      "recordFormatVersion": 1,
+      "recordHash": "383b2084ab119bb85ab281d54008e02ec9c9ea9b68a8a37a4a78ebd574cf239c",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 97,
+      "recordFormatVersion": 1,
+      "recordHash": "dca0428f57f0264f137f4b914574f7c9c51e479fe5395ad553ae021dc50e8fd8",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 808,
+      "recordFormatVersion": 1,
+      "recordHash": "c58f7d13a870d6c2ccf4a720a77c8b3fdf0577830008c9a2546d13923c244679",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 358,
+      "recordFormatVersion": 1,
+      "recordHash": "b628f44b95215a4e0e336fbeb388910a2564f3016160b84b55b9eeb64a484828",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 191,
+      "recordFormatVersion": 1,
+      "recordHash": "9f28fe54a621a73eeb2925cb732f3c2ac994c814531a712a63fc1bc895fbb3f8",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 327,
+      "recordFormatVersion": 1,
+      "recordHash": "4735a69fcef0a0bbe8dd207ef7a21f9ba649bef30bcb8ff7066b17426a76dbd4",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 378,
+      "recordFormatVersion": 1,
+      "recordHash": "49c4e5edf7d4968a55426e1dd791fd464e01a382c6b092287b5818b2a0b03bb6",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 966,
+      "recordFormatVersion": 1,
+      "recordHash": "a462f3c98240bad8a7e277c9ef95ea01bee614b295f939ce37bd382feb73e989",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 921,
+      "recordFormatVersion": 1,
+      "recordHash": "ff22982d0af9b8f62f4fddad934867b34e39e680b96cb46fbe07e05de386be72",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 26,
+      "recordFormatVersion": 1,
+      "recordHash": "651ae56a378d473792dbffc7aaf975b9ad92150cf9dcd26558dd2cdae937ea4e",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 161,
+      "recordFormatVersion": 1,
+      "recordHash": "ebbd62cf43c658a1e0c67ccf022d65bca60e74be9034c09354ff0bd442be66f7",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 925,
+      "recordFormatVersion": 1,
+      "recordHash": "9c1c7498f869738dcd4eaf9aeec6423c1b78b7a820db367d35f2a419ef69d741",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 608,
+      "recordFormatVersion": 1,
+      "recordHash": "c7d475a7cb896309730b224776f4dcadba961f5283cbbb4c1c92d429f887a5fb",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 774,
+      "recordFormatVersion": 1,
+      "recordHash": "c15c0eaa4b7ed720e783143f0de26e7c0f1b8d75e04084585434d355bd3b14ec",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 1002,
+      "recordFormatVersion": 1,
+      "recordHash": "48b31109019053d85204dffc10d2f752a42aff97f675ed244cbc49e5544d139c",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 772,
+      "recordFormatVersion": 1,
+      "recordHash": "c5ced87b22bb4d65f5371535e0048a4974eda3cdd8a7a1af0a96d0e03ce0d127",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 703,
+      "recordFormatVersion": 1,
+      "recordHash": "8d1f188ec6f58d223e62436d4cd4addf41edf2d6b89b2a58797d29f9e96aa568",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 198,
+      "recordFormatVersion": 1,
+      "recordHash": "bd2ed3675d328501a013ee9a0a51b8afa57e940ab2bbcea31c6e7e5ec4bae25d",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 469,
+      "recordFormatVersion": 1,
+      "recordHash": "767a30e6873535ca23852865528f3f170eddeab1978b709c085a536d600f888c",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 798,
+      "recordFormatVersion": 1,
+      "recordHash": "3731c38a207c878909aa2f1cae25242198681c5b771d7e08f048a19b50916328",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 453,
+      "recordFormatVersion": 1,
+      "recordHash": "628d41465635192fe4ce55673f5f6589df8bc03f0c8f904b74f9ca7832675a48",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 811,
+      "recordFormatVersion": 1,
+      "recordHash": "9566ebe3e9673a39d3a08c1d6a07fb8ad66f27e47fa1c52e93c3292e9f0067db",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 12,
+      "recordFormatVersion": 1,
+      "recordHash": "2d89aaaa326b20eda0dcb8c90547b8d60d250e544ae08ad1a7a0e39713e03069",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 690,
+      "recordFormatVersion": 1,
+      "recordHash": "ddc8a4d6b7df125f1e91a1d86b636d5d0eb0f32ca1247c5f7933aadfc0e6ba15",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 957,
+      "recordFormatVersion": 1,
+      "recordHash": "ab1b3074d106a407bb8ea389404dcba0c3f044807e982ce80f52b7a8c5fe07e6",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 305,
+      "recordFormatVersion": 1,
+      "recordHash": "592cfcec68b133ca61228d40286ea88b27008a2deadd54443bad45158954897f",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 629,
+      "recordFormatVersion": 1,
+      "recordHash": "926e5c6beece694ca6d9bc402043d90b7b371dfca2fe1eaf68351f1e14ff5282",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 435,
+      "recordFormatVersion": 1,
+      "recordHash": "436496617308db812f595f2d7b682a50e37d104913c8f4f4c378efe5198bc977",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 235,
+      "recordFormatVersion": 1,
+      "recordHash": "62d98628b92a8ff999368d2d97063cebd2af988da29eac7c6cc815c9cc4b162e",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 1045,
+      "recordFormatVersion": 1,
+      "recordHash": "acab71035dfd9cbde0e6fb906e3735ccd8590ea186abb9c746e7f16a8636b04f",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 230,
+      "recordFormatVersion": 1,
+      "recordHash": "3599d56a4a44dafc7521db1b917291f28e59b41bc8107d78d7e1d85fdb2a8d05",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 499,
+      "recordFormatVersion": 1,
+      "recordHash": "1df6f3ea6ef7939bdd136ae7376a2d44403c779067ad2b9ee3026108e438362d",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 261,
+      "recordFormatVersion": 1,
+      "recordHash": "a07ca6aa84543b0953184d655481cdfb93077779ca0d0d0056a8efbd6f3308f8",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 1046,
+      "recordFormatVersion": 1,
+      "recordHash": "9012abd583e881fdbda417a339ed8b52b0915a3bfa9ebe218c2fc33bfc1c1ecd",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 209,
+      "recordFormatVersion": 1,
+      "recordHash": "a5bf569c24f0ba655b0b5a1e2b987e058ca41ba340215da17e94e5f4aaafd502",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 504,
+      "recordFormatVersion": 1,
+      "recordHash": "98689b490d87c5b8c5fbddf5d2178122174b46b978b31397415bb56716188946",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 989,
+      "recordFormatVersion": 1,
+      "recordHash": "0ab7c6da9a05726894c774b3664164a2ef1d6298a571f38fd93436d5284c9329",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 819,
+      "recordFormatVersion": 1,
+      "recordHash": "41daa5fb5e029597b9155e1c4b18119ef7b7d4974ec1190a0cf8b7ae6818f0fd",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 738,
+      "recordFormatVersion": 1,
+      "recordHash": "74d4bd1b9ee9bef45343e4ad22a30d48620d8ef6d06adba8c9163e5611898652",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 338,
+      "recordFormatVersion": 1,
+      "recordHash": "accc17fa99614158d67015e77dfbd0e6f1a3a7f916780ed8754b67da9569b45b",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 105,
+      "recordFormatVersion": 1,
+      "recordHash": "8674394bc9197dd14a8ec53a4437c7ceba971ec20a9adc5e3139cd79a852f2ed",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 264,
+      "recordFormatVersion": 1,
+      "recordHash": "6f22d98275080f38b23de26048a70ee07d188393b38edd815c58093b95828199",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 566,
+      "recordFormatVersion": 1,
+      "recordHash": "d4222751ecea0cab8e1de70d041df25a54e5f9dfb0ccf1038e896fdcfe5c4fe8",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 530,
+      "recordFormatVersion": 1,
+      "recordHash": "977b3066afc6e68d352d800f728307e1b8d75f375f8b8b24ffee8ab91b1fd849",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 856,
+      "recordFormatVersion": 1,
+      "recordHash": "dd5b748e1cb5207d8e5e1df6b4a29ed4ee21e4bb0ebd65f3f5b8ca81c6d5ccb4",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 959,
+      "recordFormatVersion": 1,
+      "recordHash": "e62c8892e81b0eda4937d9aa05648e8a438c51d632065e7df5db16711738327d",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 1005,
+      "recordFormatVersion": 1,
+      "recordHash": "2ea50ca8532232aba5e9731c14a536a4fcb08c3b7c34da409d917b1af11d3bd7",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 259,
+      "recordFormatVersion": 1,
+      "recordHash": "cdd0d92daabf1dc4a49bc9bc6fb998aac3f65bef337d6e5e1bd4311504b40b72",
+      "round": 1
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 252,
+      "recordFormatVersion": 1,
+      "recordHash": "4ba00c6ee4a8036020950dd2c09e04ef02420e2196db69b527e7d9c1badda470",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 300,
+      "recordFormatVersion": 1,
+      "recordHash": "47af34340448bf33ee60d52b008e86e3256e387c85faf96d4746f91109113702",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 786,
+      "recordFormatVersion": 1,
+      "recordHash": "383b2084ab119bb85ab281d54008e02ec9c9ea9b68a8a37a4a78ebd574cf239c",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 97,
+      "recordFormatVersion": 1,
+      "recordHash": "dca0428f57f0264f137f4b914574f7c9c51e479fe5395ad553ae021dc50e8fd8",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 808,
+      "recordFormatVersion": 1,
+      "recordHash": "c58f7d13a870d6c2ccf4a720a77c8b3fdf0577830008c9a2546d13923c244679",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 358,
+      "recordFormatVersion": 1,
+      "recordHash": "b628f44b95215a4e0e336fbeb388910a2564f3016160b84b55b9eeb64a484828",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 191,
+      "recordFormatVersion": 1,
+      "recordHash": "9f28fe54a621a73eeb2925cb732f3c2ac994c814531a712a63fc1bc895fbb3f8",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 327,
+      "recordFormatVersion": 1,
+      "recordHash": "4735a69fcef0a0bbe8dd207ef7a21f9ba649bef30bcb8ff7066b17426a76dbd4",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 378,
+      "recordFormatVersion": 1,
+      "recordHash": "49c4e5edf7d4968a55426e1dd791fd464e01a382c6b092287b5818b2a0b03bb6",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 966,
+      "recordFormatVersion": 1,
+      "recordHash": "a462f3c98240bad8a7e277c9ef95ea01bee614b295f939ce37bd382feb73e989",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 921,
+      "recordFormatVersion": 1,
+      "recordHash": "ff22982d0af9b8f62f4fddad934867b34e39e680b96cb46fbe07e05de386be72",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 26,
+      "recordFormatVersion": 1,
+      "recordHash": "651ae56a378d473792dbffc7aaf975b9ad92150cf9dcd26558dd2cdae937ea4e",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 161,
+      "recordFormatVersion": 1,
+      "recordHash": "ebbd62cf43c658a1e0c67ccf022d65bca60e74be9034c09354ff0bd442be66f7",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 925,
+      "recordFormatVersion": 1,
+      "recordHash": "9c1c7498f869738dcd4eaf9aeec6423c1b78b7a820db367d35f2a419ef69d741",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 608,
+      "recordFormatVersion": 1,
+      "recordHash": "c7d475a7cb896309730b224776f4dcadba961f5283cbbb4c1c92d429f887a5fb",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 774,
+      "recordFormatVersion": 1,
+      "recordHash": "c15c0eaa4b7ed720e783143f0de26e7c0f1b8d75e04084585434d355bd3b14ec",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 1002,
+      "recordFormatVersion": 1,
+      "recordHash": "48b31109019053d85204dffc10d2f752a42aff97f675ed244cbc49e5544d139c",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 772,
+      "recordFormatVersion": 1,
+      "recordHash": "c5ced87b22bb4d65f5371535e0048a4974eda3cdd8a7a1af0a96d0e03ce0d127",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 703,
+      "recordFormatVersion": 1,
+      "recordHash": "8d1f188ec6f58d223e62436d4cd4addf41edf2d6b89b2a58797d29f9e96aa568",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 198,
+      "recordFormatVersion": 1,
+      "recordHash": "bd2ed3675d328501a013ee9a0a51b8afa57e940ab2bbcea31c6e7e5ec4bae25d",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 469,
+      "recordFormatVersion": 1,
+      "recordHash": "767a30e6873535ca23852865528f3f170eddeab1978b709c085a536d600f888c",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 798,
+      "recordFormatVersion": 1,
+      "recordHash": "3731c38a207c878909aa2f1cae25242198681c5b771d7e08f048a19b50916328",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 453,
+      "recordFormatVersion": 1,
+      "recordHash": "628d41465635192fe4ce55673f5f6589df8bc03f0c8f904b74f9ca7832675a48",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 811,
+      "recordFormatVersion": 1,
+      "recordHash": "9566ebe3e9673a39d3a08c1d6a07fb8ad66f27e47fa1c52e93c3292e9f0067db",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 12,
+      "recordFormatVersion": 1,
+      "recordHash": "2d89aaaa326b20eda0dcb8c90547b8d60d250e544ae08ad1a7a0e39713e03069",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 690,
+      "recordFormatVersion": 1,
+      "recordHash": "ddc8a4d6b7df125f1e91a1d86b636d5d0eb0f32ca1247c5f7933aadfc0e6ba15",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 957,
+      "recordFormatVersion": 1,
+      "recordHash": "ab1b3074d106a407bb8ea389404dcba0c3f044807e982ce80f52b7a8c5fe07e6",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 305,
+      "recordFormatVersion": 1,
+      "recordHash": "592cfcec68b133ca61228d40286ea88b27008a2deadd54443bad45158954897f",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 629,
+      "recordFormatVersion": 1,
+      "recordHash": "926e5c6beece694ca6d9bc402043d90b7b371dfca2fe1eaf68351f1e14ff5282",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 435,
+      "recordFormatVersion": 1,
+      "recordHash": "436496617308db812f595f2d7b682a50e37d104913c8f4f4c378efe5198bc977",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 235,
+      "recordFormatVersion": 1,
+      "recordHash": "62d98628b92a8ff999368d2d97063cebd2af988da29eac7c6cc815c9cc4b162e",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 1045,
+      "recordFormatVersion": 1,
+      "recordHash": "acab71035dfd9cbde0e6fb906e3735ccd8590ea186abb9c746e7f16a8636b04f",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 230,
+      "recordFormatVersion": 1,
+      "recordHash": "3599d56a4a44dafc7521db1b917291f28e59b41bc8107d78d7e1d85fdb2a8d05",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 499,
+      "recordFormatVersion": 1,
+      "recordHash": "1df6f3ea6ef7939bdd136ae7376a2d44403c779067ad2b9ee3026108e438362d",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 261,
+      "recordFormatVersion": 1,
+      "recordHash": "a07ca6aa84543b0953184d655481cdfb93077779ca0d0d0056a8efbd6f3308f8",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 1046,
+      "recordFormatVersion": 1,
+      "recordHash": "9012abd583e881fdbda417a339ed8b52b0915a3bfa9ebe218c2fc33bfc1c1ecd",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 209,
+      "recordFormatVersion": 1,
+      "recordHash": "a5bf569c24f0ba655b0b5a1e2b987e058ca41ba340215da17e94e5f4aaafd502",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 504,
+      "recordFormatVersion": 1,
+      "recordHash": "98689b490d87c5b8c5fbddf5d2178122174b46b978b31397415bb56716188946",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 989,
+      "recordFormatVersion": 1,
+      "recordHash": "0ab7c6da9a05726894c774b3664164a2ef1d6298a571f38fd93436d5284c9329",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 819,
+      "recordFormatVersion": 1,
+      "recordHash": "41daa5fb5e029597b9155e1c4b18119ef7b7d4974ec1190a0cf8b7ae6818f0fd",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 738,
+      "recordFormatVersion": 1,
+      "recordHash": "74d4bd1b9ee9bef45343e4ad22a30d48620d8ef6d06adba8c9163e5611898652",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 338,
+      "recordFormatVersion": 1,
+      "recordHash": "accc17fa99614158d67015e77dfbd0e6f1a3a7f916780ed8754b67da9569b45b",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 105,
+      "recordFormatVersion": 1,
+      "recordHash": "8674394bc9197dd14a8ec53a4437c7ceba971ec20a9adc5e3139cd79a852f2ed",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 264,
+      "recordFormatVersion": 1,
+      "recordHash": "6f22d98275080f38b23de26048a70ee07d188393b38edd815c58093b95828199",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 566,
+      "recordFormatVersion": 1,
+      "recordHash": "d4222751ecea0cab8e1de70d041df25a54e5f9dfb0ccf1038e896fdcfe5c4fe8",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 530,
+      "recordFormatVersion": 1,
+      "recordHash": "977b3066afc6e68d352d800f728307e1b8d75f375f8b8b24ffee8ab91b1fd849",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 856,
+      "recordFormatVersion": 1,
+      "recordHash": "dd5b748e1cb5207d8e5e1df6b4a29ed4ee21e4bb0ebd65f3f5b8ca81c6d5ccb4",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 959,
+      "recordFormatVersion": 1,
+      "recordHash": "e62c8892e81b0eda4937d9aa05648e8a438c51d632065e7df5db16711738327d",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 1005,
+      "recordFormatVersion": 1,
+      "recordHash": "2ea50ca8532232aba5e9731c14a536a4fcb08c3b7c34da409d917b1af11d3bd7",
+      "round": 2
+    },
+    {
+      "affect": {},
+      "annotator": "",
+      "contextDependentJudgments": [],
+      "expectedReply": {},
+      "l1": {
+        "behaviorAtoms": [],
+        "speechActs": []
+      },
+      "l2": {
+        "functions": []
+      },
+      "l3": {
+        "candidates": []
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 259,
+      "recordFormatVersion": 1,
+      "recordHash": "cdd0d92daabf1dc4a49bc9bc6fb998aac3f65bef337d6e5e1bd4311504b40b72",
+      "round": 2
+    }
+  ],
+  "packFormatVersion": 1,
+  "records": [
+    {
+      "hash": "4ba00c6ee4a8036020950dd2c09e04ef02420e2196db69b527e7d9c1badda470",
+      "order": 252,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 1,
+        "hasTilde": false,
+        "len": 33,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "47af34340448bf33ee60d52b008e86e3256e387c85faf96d4746f91109113702",
+      "order": 300,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 14,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "383b2084ab119bb85ab281d54008e02ec9c9ea9b68a8a37a4a78ebd574cf239c",
+      "order": 786,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 24,
+        "period": 2,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "dca0428f57f0264f137f4b914574f7c9c51e479fe5395ad553ae021dc50e8fd8",
+      "order": 97,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 5,
+        "hasTilde": false,
+        "len": 25,
+        "period": 1,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "c58f7d13a870d6c2ccf4a720a77c8b3fdf0577830008c9a2546d13923c244679",
+      "order": 808,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 45,
+        "period": 0,
+        "ques": 1
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "b628f44b95215a4e0e336fbeb388910a2564f3016160b84b55b9eeb64a484828",
+      "order": 358,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 9,
+        "hasTilde": false,
+        "len": 37,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "9f28fe54a621a73eeb2925cb732f3c2ac994c814531a712a63fc1bc895fbb3f8",
+      "order": 191,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 15,
+        "period": 1,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "4735a69fcef0a0bbe8dd207ef7a21f9ba649bef30bcb8ff7066b17426a76dbd4",
+      "order": 327,
+      "punct": {
+        "comma": 7,
+        "ellipsis": 2,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 71,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "49c4e5edf7d4968a55426e1dd791fd464e01a382c6b092287b5818b2a0b03bb6",
+      "order": 378,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 2,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 12,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "a462f3c98240bad8a7e277c9ef95ea01bee614b295f939ce37bd382feb73e989",
+      "order": 966,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 2,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 13,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "ff22982d0af9b8f62f4fddad934867b34e39e680b96cb46fbe07e05de386be72",
+      "order": 921,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 11,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "651ae56a378d473792dbffc7aaf975b9ad92150cf9dcd26558dd2cdae937ea4e",
+      "order": 26,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 2,
+        "excl": 1,
+        "hasTilde": false,
+        "len": 24,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "ebbd62cf43c658a1e0c67ccf022d65bca60e74be9034c09354ff0bd442be66f7",
+      "order": 161,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 46,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "9c1c7498f869738dcd4eaf9aeec6423c1b78b7a820db367d35f2a419ef69d741",
+      "order": 925,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 1,
+        "hasTilde": false,
+        "len": 13,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "c7d475a7cb896309730b224776f4dcadba961f5283cbbb4c1c92d429f887a5fb",
+      "order": 608,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 2,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 24,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "c15c0eaa4b7ed720e783143f0de26e7c0f1b8d75e04084585434d355bd3b14ec",
+      "order": 774,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 22,
+        "period": 0,
+        "ques": 1
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "48b31109019053d85204dffc10d2f752a42aff97f675ed244cbc49e5544d139c",
+      "order": 1002,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 23,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "c5ced87b22bb4d65f5371535e0048a4974eda3cdd8a7a1af0a96d0e03ce0d127",
+      "order": 772,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 26,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "8d1f188ec6f58d223e62436d4cd4addf41edf2d6b89b2a58797d29f9e96aa568",
+      "order": 703,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 24,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "bd2ed3675d328501a013ee9a0a51b8afa57e940ab2bbcea31c6e7e5ec4bae25d",
+      "order": 198,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 29,
+        "period": 0,
+        "ques": 1
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "767a30e6873535ca23852865528f3f170eddeab1978b709c085a536d600f888c",
+      "order": 469,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 1,
+        "hasTilde": false,
+        "len": 30,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "3731c38a207c878909aa2f1cae25242198681c5b771d7e08f048a19b50916328",
+      "order": 798,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 29,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "628d41465635192fe4ce55673f5f6589df8bc03f0c8f904b74f9ca7832675a48",
+      "order": 453,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 4,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 22,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "9566ebe3e9673a39d3a08c1d6a07fb8ad66f27e47fa1c52e93c3292e9f0067db",
+      "order": 811,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 43,
+        "period": 2,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "2d89aaaa326b20eda0dcb8c90547b8d60d250e544ae08ad1a7a0e39713e03069",
+      "order": 12,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 1,
+        "hasTilde": false,
+        "len": 35,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "ddc8a4d6b7df125f1e91a1d86b636d5d0eb0f32ca1247c5f7933aadfc0e6ba15",
+      "order": 690,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 2,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 32,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "ab1b3074d106a407bb8ea389404dcba0c3f044807e982ce80f52b7a8c5fe07e6",
+      "order": 957,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 17,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "592cfcec68b133ca61228d40286ea88b27008a2deadd54443bad45158954897f",
+      "order": 305,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 9,
+        "hasTilde": false,
+        "len": 34,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "926e5c6beece694ca6d9bc402043d90b7b371dfca2fe1eaf68351f1e14ff5282",
+      "order": 629,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 16,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "436496617308db812f595f2d7b682a50e37d104913c8f4f4c378efe5198bc977",
+      "order": 435,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 32,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "62d98628b92a8ff999368d2d97063cebd2af988da29eac7c6cc815c9cc4b162e",
+      "order": 235,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 26,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "acab71035dfd9cbde0e6fb906e3735ccd8590ea186abb9c746e7f16a8636b04f",
+      "order": 1045,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 13,
+        "period": 0,
+        "ques": 1
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "3599d56a4a44dafc7521db1b917291f28e59b41bc8107d78d7e1d85fdb2a8d05",
+      "order": 230,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 32,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "1df6f3ea6ef7939bdd136ae7376a2d44403c779067ad2b9ee3026108e438362d",
+      "order": 499,
+      "punct": {
+        "comma": 2,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 30,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "a07ca6aa84543b0953184d655481cdfb93077779ca0d0d0056a8efbd6f3308f8",
+      "order": 261,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 13,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "9012abd583e881fdbda417a339ed8b52b0915a3bfa9ebe218c2fc33bfc1c1ecd",
+      "order": 1046,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 14,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "a5bf569c24f0ba655b0b5a1e2b987e058ca41ba340215da17e94e5f4aaafd502",
+      "order": 209,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 39,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "98689b490d87c5b8c5fbddf5d2178122174b46b978b31397415bb56716188946",
+      "order": 504,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 23,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "0ab7c6da9a05726894c774b3664164a2ef1d6298a571f38fd93436d5284c9329",
+      "order": 989,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 1,
+        "hasTilde": false,
+        "len": 12,
+        "period": 0,
+        "ques": 1
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "41daa5fb5e029597b9155e1c4b18119ef7b7d4974ec1190a0cf8b7ae6818f0fd",
+      "order": 819,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 26,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "74d4bd1b9ee9bef45343e4ad22a30d48620d8ef6d06adba8c9163e5611898652",
+      "order": 738,
+      "punct": {
+        "comma": 1,
+        "ellipsis": 0,
+        "excl": 1,
+        "hasTilde": false,
+        "len": 16,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "accc17fa99614158d67015e77dfbd0e6f1a3a7f916780ed8754b67da9569b45b",
+      "order": 338,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 13,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "8674394bc9197dd14a8ec53a4437c7ceba971ec20a9adc5e3139cd79a852f2ed",
+      "order": 105,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 2,
+        "hasTilde": false,
+        "len": 10,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "6f22d98275080f38b23de26048a70ee07d188393b38edd815c58093b95828199",
+      "order": 264,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 4,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 47,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "d4222751ecea0cab8e1de70d041df25a54e5f9dfb0ccf1038e896fdcfe5c4fe8",
+      "order": 566,
+      "punct": {
+        "comma": 2,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 14,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "977b3066afc6e68d352d800f728307e1b8d75f375f8b8b24ffee8ab91b1fd849",
+      "order": 530,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 18,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "dd5b748e1cb5207d8e5e1df6b4a29ed4ee21e4bb0ebd65f3f5b8ca81c6d5ccb4",
+      "order": 856,
+      "punct": {
+        "comma": 4,
+        "ellipsis": 0,
+        "excl": 1,
+        "hasTilde": false,
+        "len": 60,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "e62c8892e81b0eda4937d9aa05648e8a438c51d632065e7df5db16711738327d",
+      "order": 959,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 2,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 15,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "2ea50ca8532232aba5e9731c14a536a4fcb08c3b7c34da409d917b1af11d3bd7",
+      "order": 1005,
+      "punct": {
+        "comma": 3,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 47,
+        "period": 0,
+        "ques": 5
+      },
+      "speaker": "糖糖"
+    },
+    {
+      "hash": "cdd0d92daabf1dc4a49bc9bc6fb998aac3f65bef337d6e5e1bd4311504b40b72",
+      "order": 259,
+      "punct": {
+        "comma": 0,
+        "ellipsis": 0,
+        "excl": 0,
+        "hasTilde": false,
+        "len": 12,
+        "period": 0,
+        "ques": 0
+      },
+      "speaker": "糖糖"
+    }
+  ],
+  "rounds": 2,
+  "seed": 1592594513,
+  "size": 50,
+  "visibility": "PUBLIC_NO_TEXT"
+}
+

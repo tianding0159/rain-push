@@ -1,0 +1,120 @@
+{
+  "$schema": "mini-schema/v1",
+  "title": "single-sided-behavior-annotation",
+  "description": "One human (or model-suggested, human-reviewed) annotation of ONE single-sided utterance, strictly separated into four layers (directive §2). Carries NO verbatim text — it references the utterance by recordHash only. Enums resolve from behavior-vocab.json via enumFrom.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["recordFormatVersion", "recordHash", "order", "annotator", "round", "l1", "l2", "l3", "l4Refs"],
+  "properties": {
+    "recordFormatVersion": { "type": "integer", "const": 1 },
+    "recordHash": { "type": "string", "minLength": 8 },
+    "order": { "type": "integer", "minimum": 1 },
+    "annotator": { "type": "string", "minLength": 1 },
+    "round": { "type": "integer", "minimum": 1 },
+    "modelSuggested": { "type": "boolean" },
+
+    "l1": {
+      "type": "object",
+      "description": "Observable evidence only — no psychology.",
+      "additionalProperties": false,
+      "required": ["speechActs", "behaviorAtoms"],
+      "properties": {
+        "speechActs": { "type": "array", "minItems": 1, "items": { "type": "string", "enumFrom": "speechActs" } },
+        "behaviorAtoms": { "type": "array", "minItems": 1, "items": { "type": "string", "enumFrom": "behaviorAtoms" } },
+        "attentionTarget": { "type": "string", "enumFrom": "attentionTargets" },
+        "explicitRequest": { "type": "boolean" },
+        "explicitRefusal": { "type": "boolean" },
+        "selfDisclosure": { "type": "boolean" },
+        "wordingContradiction": { "type": "boolean" }
+      }
+    },
+
+    "l2": {
+      "type": "object",
+      "description": "Interaction function — what the utterance tries to achieve.",
+      "additionalProperties": false,
+      "required": ["functions"],
+      "properties": {
+        "functions": { "type": "array", "minItems": 1, "items": { "type": "string", "enumFrom": "interactionFunctions" } },
+        "confidence": { "type": "number", "minimum": 0 }
+      }
+    },
+
+    "l3": {
+      "type": "object",
+      "description": "Latent need CANDIDATES — never asserted as fact. Each candidate carries confidence, alternatives, and an uncertainty reason.",
+      "additionalProperties": false,
+      "required": ["candidates"],
+      "properties": {
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["need", "confidence", "alternatives", "uncertaintyReason"],
+            "properties": {
+              "need": { "type": "string", "enumFrom": "latentNeeds" },
+              "confidence": { "type": "number", "minimum": 0 },
+              "evidenceRefs": { "type": "array", "items": { "type": "string" } },
+              "alternatives": { "type": "array", "items": { "type": "string", "enumFrom": "latentNeeds" } },
+              "uncertaintyReason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+
+    "affect": {
+      "type": "object",
+      "description": "Multi-emotion / contradiction structure (directive §6). concurrencyClass gates whether it counts as evidence: only A_explicit / B_context_strong feed pattern statistics.",
+      "additionalProperties": false,
+      "properties": {
+        "primary": { "type": "string", "enumFrom": "affectLabels" },
+        "opposing": { "type": "string", "enumFrom": "affectLabels" },
+        "masked": { "type": "string", "enumFrom": "affectLabels" },
+        "leak": { "type": "string", "enumFrom": "affectLabels" },
+        "concurrencyClass": { "type": "string", "enumFrom": "concurrencyClass" }
+      }
+    },
+
+    "expectedReply": {
+      "type": "object",
+      "description": "Functional expected-reply derivation (directive §7). No partner text is reconstructed. All fields may be unknown/empty.",
+      "additionalProperties": false,
+      "properties": {
+        "literalRequest": { "type": "boolean" },
+        "functionalExpectedReply": { "type": "array", "items": { "type": "string", "enumFrom": "expectedReplyClasses" } },
+        "likelyUnsatisfyingReplies": { "type": "array", "items": { "type": "string", "enumFrom": "expectedReplyClasses" } },
+        "likelyEscalationIfUnsatisfied": { "type": "array", "items": { "type": "string", "enumFrom": "escalationStages" } }
+      }
+    },
+
+    "transition": {
+      "type": "object",
+      "description": "Optional single expression-transition candidate (directive §5). Candidate only.",
+      "additionalProperties": false,
+      "properties": {
+        "transition": { "type": "string", "enumFrom": "expressionTransitions" },
+        "concurrencyClass": { "type": "string", "enumFrom": "concurrencyClass" },
+        "confidence": { "type": "number", "minimum": 0 }
+      }
+    },
+
+    "l4Refs": {
+      "type": "object",
+      "description": "Link to cross-corpus patterns this record supports/contradicts (patterns live in behavior-pattern schema). A single record NEVER defines a pattern by itself.",
+      "additionalProperties": false,
+      "required": ["supports", "counters"],
+      "properties": {
+        "supports": { "type": "array", "items": { "type": "string" } },
+        "counters": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "contextDependentJudgments": {
+      "type": "array",
+      "description": "Which judgments rely entirely on the missing partner turn / context (directive §10 Q12).",
+      "items": { "type": "string" }
+    }
+  }
+}

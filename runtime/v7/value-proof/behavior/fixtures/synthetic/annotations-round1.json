@@ -1,0 +1,1350 @@
+{
+  "annotations": [
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "exclusive_attention_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "seek_attention",
+          "tease"
+        ],
+        "speechActs": [
+          "question"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "obtain_attention"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "exclusive_attention",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 1,
+      "recordFormatVersion": 1,
+      "recordHash": "dae67da4e16569a875626fbcd81c26b389173bf687059bf27cdd67e8e1dc5081",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong",
+        "masked": "shame"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "specific_reassurance"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "insult_playfully",
+          "escalate"
+        ],
+        "speechActs": [
+          "taunt"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "conceal_vulnerability"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "reassurance",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 2,
+      "recordFormatVersion": 1,
+      "recordHash": "8a83d94d44b74afe4f81305048bf6e5b3f5f5ba22a2947652fdcf5b83290fc8c",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "affection_reciprocation"
+        ],
+        "literalRequest": false
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "demand",
+          "accuse"
+        ],
+        "speechActs": [
+          "command"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "demand_reciprocation"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "recognition",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 3,
+      "recordFormatVersion": 1,
+      "recordHash": "aa2f4fa70b74a4b8851e3247959596141665da2a6bb16b4d52db4fc81653a707",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "pursuit_after_withdrawal"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "withdraw"
+        ],
+        "speechActs": [
+          "refusal"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "provoke_pursuit"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "closeness",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 4,
+      "recordFormatVersion": 1,
+      "recordHash": "4cfd63eccc4aae3388b8705807a407d510eca5e210da3d342679870a05ed8dd1",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "boundary_respect"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reassert_control"
+        ],
+        "speechActs": [
+          "assertion"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "establish_boundary"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "autonomy",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 5,
+      "recordFormatVersion": 1,
+      "recordHash": "9bc9a4f2ff5e3b2d7f968f44e1ef7e093056a22f363741faad57b73a005378f6",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "C_designed_inference"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "desire_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reveal"
+        ],
+        "speechActs": [
+          "self_disclosure"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "intensify_intimacy"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "desire_confirmation",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 6,
+      "recordFormatVersion": 1,
+      "recordHash": "505990fb6d35e8ad9a104c6e7492d732f5e033bc86fe0f8c6eb96ba3964c30b8",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "exclusive_attention_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "seek_attention",
+          "tease"
+        ],
+        "speechActs": [
+          "question"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "obtain_attention"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "exclusive_attention",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 7,
+      "recordFormatVersion": 1,
+      "recordHash": "eb777e9ae8296357ccf25666fe1f35a79f49682b7ba5c56b127bb1c16384deee",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong",
+        "masked": "shame"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "specific_reassurance"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "insult_playfully",
+          "escalate"
+        ],
+        "speechActs": [
+          "taunt"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "conceal_vulnerability"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "reassurance",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 8,
+      "recordFormatVersion": 1,
+      "recordHash": "be57b4c0e6748b127db1e909e888b0e8acfff4c4fd7bd933ccd024cfe5a32fe8",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "affection_reciprocation"
+        ],
+        "literalRequest": false
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "demand",
+          "accuse"
+        ],
+        "speechActs": [
+          "command"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "demand_reciprocation"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "recognition",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 9,
+      "recordFormatVersion": 1,
+      "recordHash": "8b862b94412c99183f38cf5203e7597c58723112c83ebd788d934f0533ea3f58",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "pursuit_after_withdrawal"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "withdraw"
+        ],
+        "speechActs": [
+          "refusal"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "provoke_pursuit"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "closeness",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 10,
+      "recordFormatVersion": 1,
+      "recordHash": "922d65b35c33616fbab3f1061ff9734bde7ff786433a0a86b62be07d7088d816",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "boundary_respect"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reassert_control"
+        ],
+        "speechActs": [
+          "assertion"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "establish_boundary"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "autonomy",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 11,
+      "recordFormatVersion": 1,
+      "recordHash": "8f2111b1143b1162a00e824fe7bb57930747b5a8f25dc8e7d51ffaf8e4d55382",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "C_designed_inference"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "desire_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reveal"
+        ],
+        "speechActs": [
+          "self_disclosure"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "intensify_intimacy"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "desire_confirmation",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 12,
+      "recordFormatVersion": 1,
+      "recordHash": "3787a03f495763cf62d08d24d9c6522870063445e94defaa327ffe7347825455",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "exclusive_attention_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "seek_attention",
+          "tease"
+        ],
+        "speechActs": [
+          "question"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "obtain_attention"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "exclusive_attention",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 13,
+      "recordFormatVersion": 1,
+      "recordHash": "eab82a99a70c0f61cbc2ef2ec80665145f7f85946aa9432c380bfdfa57f63441",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong",
+        "masked": "shame"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "specific_reassurance"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "insult_playfully",
+          "escalate"
+        ],
+        "speechActs": [
+          "taunt"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "conceal_vulnerability"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "reassurance",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 14,
+      "recordFormatVersion": 1,
+      "recordHash": "6cc0ee8b19fecb553906f8e29bd2241e573cfa2667ef55f7ad877d1efeb602f1",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "affection_reciprocation"
+        ],
+        "literalRequest": false
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "demand",
+          "accuse"
+        ],
+        "speechActs": [
+          "command"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "demand_reciprocation"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "recognition",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 15,
+      "recordFormatVersion": 1,
+      "recordHash": "d35bd4cba8f3fe931838a234e1a5107590609715812a27620e7125fddaab4083",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "pursuit_after_withdrawal"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "withdraw"
+        ],
+        "speechActs": [
+          "refusal"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "provoke_pursuit"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "closeness",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 16,
+      "recordFormatVersion": 1,
+      "recordHash": "c00859e76198f9dcb796889b6aa76819fe985ed220f5e4a2ba42c82e8352f5fb",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "boundary_respect"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reassert_control"
+        ],
+        "speechActs": [
+          "assertion"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "establish_boundary"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "autonomy",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 17,
+      "recordFormatVersion": 1,
+      "recordHash": "fe71c54ba7a0fea3b502b35bdd6f49243183cdaf1058bdc3abc71a421b12396d",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "C_designed_inference"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "desire_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reveal"
+        ],
+        "speechActs": [
+          "self_disclosure"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "intensify_intimacy"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "desire_confirmation",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 18,
+      "recordFormatVersion": 1,
+      "recordHash": "47860669af441a1736781d130368503e133945d59e16874f0cec0d461429f6db",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "exclusive_attention_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "seek_attention",
+          "tease"
+        ],
+        "speechActs": [
+          "question"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "obtain_attention"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "exclusive_attention",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 19,
+      "recordFormatVersion": 1,
+      "recordHash": "a4b051b4b36c775202520039064c6c50aca0156b7705b4dcc816da9b1aec36ae",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong",
+        "masked": "shame"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "specific_reassurance"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "insult_playfully",
+          "escalate"
+        ],
+        "speechActs": [
+          "taunt"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "conceal_vulnerability"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "reassurance",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 20,
+      "recordFormatVersion": 1,
+      "recordHash": "83a237ff30532fa90360aad354b7b1db4bed26fb0ed7cf0ff0a85db4f5545637",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "affection_reciprocation"
+        ],
+        "literalRequest": false
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "demand",
+          "accuse"
+        ],
+        "speechActs": [
+          "command"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "demand_reciprocation"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "recognition",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 21,
+      "recordFormatVersion": 1,
+      "recordHash": "bd94e7844ddb343eac7250252777eb82c002b9076a60bb3066c6b74c33e7acfe",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "pursuit_after_withdrawal"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "withdraw"
+        ],
+        "speechActs": [
+          "refusal"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "provoke_pursuit"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "closeness",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 22,
+      "recordFormatVersion": 1,
+      "recordHash": "a2b0c5e8a7374133820a04220c8497d28a47f4cf574dd382b80e806e211f27d3",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "boundary_respect"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reassert_control"
+        ],
+        "speechActs": [
+          "assertion"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "establish_boundary"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "autonomy",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 23,
+      "recordFormatVersion": 1,
+      "recordHash": "a06a8224ff6541a524fca843a4833e6e602de5b3b424b92a65b35d1574475841",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "C_designed_inference"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "desire_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reveal"
+        ],
+        "speechActs": [
+          "self_disclosure"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "intensify_intimacy"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "desire_confirmation",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 24,
+      "recordFormatVersion": 1,
+      "recordHash": "f678be3ccaee67851fbb2b506dac5a251036edb2c4d23bbb1f18093471979d05",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "exclusive_attention_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "seek_attention",
+          "tease"
+        ],
+        "speechActs": [
+          "question"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "obtain_attention"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "exclusive_attention",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 25,
+      "recordFormatVersion": 1,
+      "recordHash": "d39ab889b8641715b6fab9f528bb4360fc92779632e503a69972fa195b9efa82",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong",
+        "masked": "shame"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "specific_reassurance"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "insult_playfully",
+          "escalate"
+        ],
+        "speechActs": [
+          "taunt"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "conceal_vulnerability"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "reassurance",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 26,
+      "recordFormatVersion": 1,
+      "recordHash": "df3f513e36ebc4a2aa31ccfcef415e2f988ad07c9a69da8c3d95355e62771f5d",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "affection_reciprocation"
+        ],
+        "literalRequest": false
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "demand",
+          "accuse"
+        ],
+        "speechActs": [
+          "command"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "demand_reciprocation"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "recognition",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 27,
+      "recordFormatVersion": 1,
+      "recordHash": "97e6c1c0549c388d59396c872ad2de38a13e6357b54b9f3eeb6888b09ef3a5bd",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "A_explicit"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "pursuit_after_withdrawal"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "withdraw"
+        ],
+        "speechActs": [
+          "refusal"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "provoke_pursuit"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "closeness",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 28,
+      "recordFormatVersion": 1,
+      "recordHash": "5a23eb147ed4aede3b086dd6f204b14d17c5fede85b9b81d69990b61f0279d56",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "B_context_strong"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "boundary_respect"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reassert_control"
+        ],
+        "speechActs": [
+          "assertion"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "establish_boundary"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "autonomy",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 29,
+      "recordFormatVersion": 1,
+      "recordHash": "525468c6eb11b2ca3028d147ff4c1af47d32b1e9ff7853090857ce587b019c17",
+      "round": 1
+    },
+    {
+      "affect": {
+        "concurrencyClass": "C_designed_inference"
+      },
+      "annotator": "synthetic",
+      "contextDependentJudgments": [],
+      "expectedReply": {
+        "functionalExpectedReply": [
+          "desire_confirmation"
+        ]
+      },
+      "l1": {
+        "behaviorAtoms": [
+          "reveal"
+        ],
+        "speechActs": [
+          "self_disclosure"
+        ]
+      },
+      "l2": {
+        "functions": [
+          "intensify_intimacy"
+        ]
+      },
+      "l3": {
+        "candidates": [
+          {
+            "alternatives": [],
+            "confidence": 0.6,
+            "need": "desire_confirmation",
+            "uncertaintyReason": "single-sided; partner turn absent"
+          }
+        ]
+      },
+      "l4Refs": {
+        "counters": [],
+        "supports": []
+      },
+      "modelSuggested": false,
+      "order": 30,
+      "recordFormatVersion": 1,
+      "recordHash": "ce694de19e5a4c3585785c40ff832a95e4a1ffdce25e713c58ba520e0fa95625",
+      "round": 1
+    }
+  ]
+}
+
