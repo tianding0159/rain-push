@@ -136,12 +136,42 @@
     "loss_of_control",
     "humiliation",
     "isolation",
+    "no_external_trigger",
+    "indeterminate",
     "other"
   ],
+  "__triggerDomains_refinement_note": "P1-1B.1: added 'no_external_trigger' (10 pilot records: low/minimal trigger + neutral affect = spontaneous sharing, no event) and 'indeterminate' (14 records: intensity unknown or context missing in a SINGLE-SIDED corpus — the partner turn that would reveal a trigger is absent). Both cleared the >=3-record admission bar. These SPLIT the former 50% 'other' bucket honestly rather than inventing external-event categories — the directive's event candidates (partner_unavailability, humiliation, loss_of_control) already existed AND were already dead at n=50. Boundaries: no_external_trigger = there IS enough context and there is NO trigger; indeterminate = we CANNOT tell because context is missing; other = residual that fits neither. 'diffuse_internal_state' (1 record) stayed candidate-only, below threshold.",
 
   "triggerIntensities": ["minimal", "low", "medium", "high", "unknown"],
   "activationLevels": ["low", "medium", "high", "unknown"],
   "thresholdInterpretations": ["ordinary", "characteristically_low", "characteristically_high", "unknown"],
+
+  "maskStrategy": [
+    "denial",
+    "retract",
+    "humor",
+    "absurd_humor",
+    "self_mockery",
+    "aggression",
+    "accusation",
+    "command",
+    "topic_shift",
+    "performance_restore",
+    "minimization",
+    "qualification",
+    "counterattack",
+    "future_projection",
+    "other",
+    "unknown"
+  ],
+  "__maskStrategy_note": "P1-1B.1 (Refinement 3). maskStrategy names HOW a mask is executed, but it is ONLY populated when mask=true, and mask=true requires the FUNCTIONAL test: an action that reduces the direct visibility / accountability / exposure-risk of a vulnerability that was just (or is being) revealed. Consequences of this definition: denial/retract/humor/aggression/command are mask strategies ONLY when they serve vulnerability-reduction — a joke that is just play is NOT a mask, aggression that is just an attack is NOT a mask, a retract that abandons a non-vulnerable claim is NOT a mask. Mask != Repair (repair fixes a damaged bond; mask hides an over-exposed need), Mask != Future_bind (only both when future projection also lowers current exposure), Mask != Performance (only both when restoring persona also reduces vulnerability visibility), Mask != Teasing (teasing can be play/provocation/affection/mask — decide by function). See TRANSITION_GUIDE / ANNOTATION_GUIDE_REVISED §mask.",
+
+  "behaviorActionCandidates": [
+    "acknowledge", "accept", "reject", "soften", "apologize", "challenge",
+    "threaten_relationship", "compare", "catastrophize", "invite_continuation",
+    "restore_performance", "mark_hurt", "minimize", "qualify", "reassure_self"
+  ],
+  "__behaviorActionCandidates_note": "P1-1B.1 (Refinement 2). These are NOT part of the formal behaviorActions enum. On the 50 pilot records the action vocabulary barely failed (fallback rate 1.1%: `other` 0×, `no_clear_action` 1×), so NONE of these candidates cleared the >=5-record admission bar. They are parked here as an extension list: promote a candidate to behaviorActions only when a future annotation pass produces >=5 real records that the existing enum cannot express losslessly. Keeping the formal enum compact is deliberate (奥卡姆剃刀).",
 
   "inferenceSources": [
     "explicit_text",

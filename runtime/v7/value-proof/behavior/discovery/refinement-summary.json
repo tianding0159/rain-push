@@ -1,0 +1,56 @@
+{
+  "visibility": "committed_safe",
+  "verbatimFree": true,
+  "task": "P1-1B.1 targeted guide refinement + controlled re-run",
+  "n": 50,
+  "sameRecordSet": true,
+  "algorithmChanged": false,
+  "grammarDiscoveryStatus": "GRAMMAR_DISCOVERY_SUCCESSFUL",
+  "annotationGuideStatus": "GUIDE_NEEDS_REFINEMENT",
+  "proceedGate": {
+    "decision": "PROCEED_TO_200",
+    "blockers": [],
+    "reasons": [],
+    "notes": [
+      "Grammar discovery status and annotation guide status are independent verdicts — a guide fix is not a discovery failure.",
+      "PROCEED_TO_200 means collect more data under the refined guide; it does NOT validate the grammar.",
+      "Churn is split into additive (fallback→enum, null→value = gap closure) and substantive (committed value flipped = instability); only the substantive fraction gates the decision."
+    ]
+  },
+  "triggerOther": {
+    "before": 25,
+    "after": 1,
+    "reductionFraction": 0.96
+  },
+  "behaviorActionGap": {
+    "fallbackUses": 1,
+    "fallbackFraction": 0.011
+  },
+  "singleAction": {
+    "original": 23,
+    "trueSingle": 19,
+    "flagged": 4
+  },
+  "revealFollowup": {
+    "revealBearing": 31,
+    "messageFinal": 21,
+    "withFollowup": 10
+  },
+  "mask": {
+    "surfaceRevealThenConcealBefore": 3,
+    "functionalMaskAfter": 3,
+    "maskStrategyDistribution": {
+      "self_mockery": 2,
+      "accusation": 1
+    },
+    "revealBearing": 31,
+    "revealMessageFinal": 21,
+    "note": "functionalMaskAfter counts masks under the FUNCTIONAL definition (exposure-reduction), not surface conceal-token adjacency. It is not engineered to exceed the surface count."
+  },
+  "hypothesisStatusChanges": [],
+  "totalChangedRecords": 26,
+  "changedRecordFraction": 0.52,
+  "additiveRecords": 26,
+  "substantiveRecords": 0,
+  "substantiveFraction": 0
+}

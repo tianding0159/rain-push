@@ -1,0 +1,137 @@
+{
+  "visibility": "committed_safe",
+  "verbatimFree": true,
+  "formatVersion": 1,
+  "status": "PILOT_ESTIMATE",
+  "n": 50,
+  "thresholds": {
+    "MIN_ELIGIBLE": 5,
+    "PRELIM_RATE": 0.5,
+    "WEAK_RATE": 0.2,
+    "CONTRA_RATE": 0.1
+  },
+  "note": "Statuses are pilot gates ('worth testing at larger n'), NOT truth claims. No 'supported' terminal exists.",
+  "hypotheses": [
+    {
+      "id": "H1",
+      "claim": "behavior actions chain into recurring intra-message transitions (a grammar exists at all)",
+      "observed_count": 27,
+      "eligible_opportunity_count": 27,
+      "counterexample_count": 0,
+      "pilot_observed_rate": 1,
+      "status": "preliminary_support",
+      "direction": "positive",
+      "note": "Eligible = records with >=2 actions. Sparse eligibility itself is the H11 caveat."
+    },
+    {
+      "id": "H2",
+      "claim": "reveal is frequently followed by self-devaluation within the same message",
+      "observed_count": 3,
+      "eligible_opportunity_count": 10,
+      "counterexample_count": 7,
+      "pilot_observed_rate": 0.3,
+      "status": "weak_support",
+      "direction": "positive",
+      "note": "Eligible = records where a reveal has a following action."
+    },
+    {
+      "id": "H3",
+      "claim": "a reveal is usually masked/retracted right after it (defensive concealment)",
+      "observed_count": 3,
+      "eligible_opportunity_count": 31,
+      "counterexample_count": 28,
+      "pilot_observed_rate": 0.097,
+      "status": "contradicted",
+      "direction": "positive",
+      "note": "Counterexamples = reveal-without-mask records, reported explicitly to block an overclaim."
+    },
+    {
+      "id": "H4",
+      "claim": "fear-of-abandonment couples to reassurance-seeking strategies (driver→strategy grammar)",
+      "observed_count": 5,
+      "eligible_opportunity_count": 7,
+      "counterexample_count": 2,
+      "pilot_observed_rate": 0.714,
+      "status": "preliminary_support",
+      "direction": "positive",
+      "note": "Eligible = records with A-grade fear_of_abandonment; tierA+tierB reassurance couplings counted."
+    },
+    {
+      "id": "H5",
+      "claim": "a low observed trigger co-occurs with high inferred activation (hair-trigger sensitivity)",
+      "observed_count": 9,
+      "eligible_opportunity_count": 30,
+      "counterexample_count": 21,
+      "pilot_observed_rate": 0.3,
+      "status": "weak_support",
+      "direction": "positive",
+      "note": "Eligible = low/minimal observed trigger; observed = those also high inferred activation."
+    },
+    {
+      "id": "H6",
+      "claim": "single-valence affect dominates; mixed simultaneous affect is rare",
+      "observed_count": 6,
+      "eligible_opportunity_count": 15,
+      "counterexample_count": 9,
+      "pilot_observed_rate": 0.4,
+      "status": "mixed",
+      "direction": "negative",
+      "note": "Eligible = records with a known coexistence type; 'unknown' excluded (not evidence of rarity)."
+    },
+    {
+      "id": "H7",
+      "claim": "test_bond is the most frequent relationship operation",
+      "observed_count": 9,
+      "eligible_opportunity_count": 18,
+      "counterexample_count": 9,
+      "pilot_observed_rate": 0.5,
+      "status": "preliminary_support",
+      "direction": "positive",
+      "note": "Top operation observed = test_bond. H7 asks whether test_bond leads."
+    },
+    {
+      "id": "H8",
+      "claim": "utterances are designed to elicit a specific partner operation (expected-reply grammar)",
+      "observed_count": 49,
+      "eligible_opportunity_count": 50,
+      "counterexample_count": 1,
+      "pilot_observed_rate": 0.98,
+      "status": "preliminary_support",
+      "direction": "positive",
+      "note": "Eligible = all records; observed = records with a confident immediate expected-reply class."
+    },
+    {
+      "id": "H9",
+      "claim": "multi-beat messages carry an escalation arc more often than not",
+      "observed_count": 7,
+      "eligible_opportunity_count": 27,
+      "counterexample_count": 20,
+      "pilot_observed_rate": 0.259,
+      "status": "weak_support",
+      "direction": "positive",
+      "note": "Eligible = multi-beat (>=2 action) records; observed = those with an escalation step."
+    },
+    {
+      "id": "H10",
+      "claim": "confident self-presentation precedes vulnerability reveal (perform→reveal)",
+      "observed_count": 2,
+      "eligible_opportunity_count": 3,
+      "counterexample_count": 1,
+      "pilot_observed_rate": 0.667,
+      "status": "insufficient_evidence",
+      "direction": "positive",
+      "note": "Eligible = records where perform_confidence has a following action."
+    },
+    {
+      "id": "H11",
+      "claim": "most records are single-action, so cross-action grammar is sparse at this n (a limitation, stated as a hypothesis to test)",
+      "observed_count": 23,
+      "eligible_opportunity_count": 50,
+      "counterexample_count": 27,
+      "pilot_observed_rate": 0.46,
+      "status": "weak_support",
+      "direction": "positive",
+      "note": "Sparsity is a finding: if most records are single-action, transition grammar needs more data."
+    }
+  ]
+}

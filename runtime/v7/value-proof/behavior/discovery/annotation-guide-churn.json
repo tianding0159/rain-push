@@ -1,0 +1,100 @@
+{
+  "visibility": "committed_safe",
+  "verbatimFree": true,
+  "churn": {
+    "formatVersion": 1,
+    "status": "PILOT_ESTIMATE",
+    "n": 50,
+    "fallbackFractionThreshold": 0.3,
+    "signalCount": 6,
+    "signals": [
+      {
+        "code": "DEAD_ENUM",
+        "dimension": "affectPrimarySurface",
+        "vocabKey": "affectLabels",
+        "unusedCount": 3,
+        "allowedCount": 14,
+        "unused": [
+          "boredom",
+          "desire",
+          "loneliness"
+        ],
+        "recommendation": "3/14 'affectLabels' values unused at n=50. Either the guide never teaches them, or they are prunable. Re-check at n=200 before pruning."
+      },
+      {
+        "code": "DEAD_ENUM",
+        "dimension": "behaviorAction",
+        "vocabKey": "behaviorActions",
+        "unusedCount": 7,
+        "allowedCount": 32,
+        "unused": [
+          "invite",
+          "push_away",
+          "repair",
+          "seek_attention",
+          "seek_proximity",
+          "set_boundary",
+          "withdraw"
+        ],
+        "recommendation": "7/32 'behaviorActions' values unused at n=50. Either the guide never teaches them, or they are prunable. Re-check at n=200 before pruning."
+      },
+      {
+        "code": "DEAD_ENUM",
+        "dimension": "relationshipOperation",
+        "vocabKey": "relationshipOperations",
+        "unusedCount": 1,
+        "allowedCount": 9,
+        "unused": [
+          "increase_distance"
+        ],
+        "recommendation": "1/9 'relationshipOperations' values unused at n=50. Either the guide never teaches them, or they are prunable. Re-check at n=200 before pruning."
+      },
+      {
+        "code": "DEAD_ENUM",
+        "dimension": "triggerDomain",
+        "vocabKey": "triggerDomains",
+        "unusedCount": 3,
+        "allowedCount": 12,
+        "unused": [
+          "humiliation",
+          "loss_of_control",
+          "partner_unavailability"
+        ],
+        "recommendation": "3/12 'triggerDomains' values unused at n=50. Either the guide never teaches them, or they are prunable. Re-check at n=200 before pruning."
+      },
+      {
+        "code": "FALLBACK_OVERUSE",
+        "dimension": "triggerDomain",
+        "vocabKey": "triggerDomains",
+        "fallbackRecords": 25,
+        "totalRecords": 50,
+        "fraction": 0.5,
+        "recommendation": "Expand 'triggerDomains' or clarify guide: 25/50 records fell back to [\"other\"]. Likely a missing long-tail category."
+      },
+      {
+        "code": "SPARSE_STRUCTURE",
+        "singleActionRecords": 23,
+        "totalRecords": 50,
+        "fraction": 0.46,
+        "recommendation": "23/50 records are single-action. Transition grammar (H1/H2/H9/H10) is data-starved; guide should encourage finer action decomposition, or defer transition claims to a larger n."
+      }
+    ],
+    "note": "Churn signals are guide-revision feedback, not annotation errors. A high 'other' rate means the enum missed a real category (AGENTS.md §10 长尾)."
+  },
+  "proceedGate": {
+    "formatVersion": 1,
+    "status": "BEHAVIOR_GRAMMAR_NEEDS_GUIDE_REVISION",
+    "decision": "REVISE_GUIDE_THEN_SCALE",
+    "evaluableHypotheses": 10,
+    "totalHypotheses": 11,
+    "blockers": [],
+    "reasons": [
+      "enum 'triggerDomains' fell back to catch-all in 50% of records — expand the enum before scaling (triggerDomain)",
+      "23/50 records are single-action — transition grammar is data-starved; decide whether to revise decomposition guidance or accept transitions stay provisional at n=200"
+    ],
+    "notes": [
+      "PILOT_READY means 'the machinery works, collect more data'; it does NOT mean the grammar is validated.",
+      "Dead-enum signals are advisory only (not blockers): unused values may simply be long-tail; re-check at n=200 before pruning."
+    ]
+  }
+}

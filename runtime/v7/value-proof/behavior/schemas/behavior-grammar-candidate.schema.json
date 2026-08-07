@@ -1,0 +1,228 @@
+{
+  "$schema": "mini-schema/v1",
+  "title": "behavior-grammar-candidate",
+  "description": "P1-1B discovery output. A CANDIDATE grammar mined from n=50 revised annotations (Layer A → B). Every quantitative claim is a PILOT_ESTIMATE: this document reports what deserves testing at larger n, it asserts NO laws and NO production readiness. The literal string 'production_ready' is forbidden anywhere in a valid instance (enforced by the validator, not by mini-schema). Each discovery section carries observed_count + eligible_opportunity_count so a reviewer can recompute every rate. Counterexamples are first-class: a pattern with support is only meaningful next to the records that break it. This schema describes the COMMITTED-SAFE aggregate shape (no linkIds, no text); the private bundle is a superset that additionally carries recordHash links.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "formatVersion",
+    "status",
+    "n",
+    "transitions",
+    "drivingForceStrategy",
+    "affectStrategy",
+    "triggerSensitivity",
+    "revealMask",
+    "relationshipOperations",
+    "partnerOperations",
+    "performancePatterns",
+    "intraMessageMomentum"
+  ],
+  "properties": {
+    "formatVersion": { "type": "integer", "const": 1 },
+    "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+    "n": { "type": "integer", "minimum": 1 },
+
+    "transitions": {
+      "type": "object",
+      "description": "§4 intra-message n-gram tallies. recordSupport (distinct records) is the primary weight; occurrenceCount is diagnostic only. confidenceWeightedSupport counts only STRONG-confidence action steps.",
+      "additionalProperties": false,
+      "required": ["status", "n", "recordsWithAnyBigram", "unigrams", "bigrams", "trigrams", "note"],
+      "properties": {
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "n": { "type": "integer", "minimum": 0 },
+        "recordsWithAnyBigram": { "type": "integer", "minimum": 0 },
+        "unigrams": { "type": "array", "items": { "$ref": "#/$defs/ngram" } },
+        "bigrams": { "type": "array", "items": { "$ref": "#/$defs/ngram" } },
+        "trigrams": { "type": "array", "items": { "$ref": "#/$defs/ngram" } },
+        "note": { "type": "string" }
+      }
+    },
+
+    "drivingForceStrategy": {
+      "type": "object",
+      "description": "§7 driving-force → strategy couplings, split by evidence tier. tierA rests on record-specific STRONG evidence; tierB is record-specific MODERATE; exploratory is prior-only or weak and MUST NOT be promoted.",
+      "additionalProperties": false,
+      "required": ["status", "tierA_recordSpecificStrong", "tierB_recordSpecificModerate", "exploratory_priorOrWeakOnly", "note"],
+      "properties": {
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "tierA_recordSpecificStrong": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "tierB_recordSpecificModerate": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "exploratory_priorOrWeakOnly": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "note": { "type": "string" }
+      }
+    },
+
+    "affectStrategy": {
+      "type": "object",
+      "description": "§8 affect-structure couplings, separated by coexistence type (simultaneous vs sequential vs other) so mixed-valence records are never averaged into single-valence ones.",
+      "additionalProperties": false,
+      "required": ["status", "simultaneous", "sequential", "other_or_single_affect", "note"],
+      "properties": {
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "simultaneous": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "sequential": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "other_or_single_affect": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "note": { "type": "string" }
+      }
+    },
+
+    "triggerSensitivity": {
+      "type": "object",
+      "description": "§9 trigger-domain sensitivity. lowTriggerHighActivation counts records where a low observed trigger intensity co-occurs with high inferred activation — a hair-trigger signal — WITHOUT assigning any numeric threshold.",
+      "additionalProperties": false,
+      "required": ["status", "domains", "note"],
+      "properties": {
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "domains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["domain", "domainRecordCount", "lowTriggerHighActivationSupport", "conflictingRecordCount", "provisional_status", "context_limitation"],
+            "properties": {
+              "domain": { "type": "string", "minLength": 1 },
+              "domainRecordCount": { "type": "integer", "minimum": 0 },
+              "lowTriggerHighActivationSupport": { "type": "integer", "minimum": 0 },
+              "conflictingRecordCount": { "type": "integer", "minimum": 0 },
+              "supportingLinks": { "type": "array", "items": { "type": "string" } },
+              "conflictingLinks": { "type": "array", "items": { "type": "string" } },
+              "provisional_status": { "type": "string", "minLength": 1 },
+              "context_limitation": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "note": { "type": "string" }
+      }
+    },
+
+    "revealMask": {
+      "type": "object",
+      "description": "§10 reveal→mask dynamic. A mask counts ONLY when a conceal/retract action directly follows a reveal in the SAME message. revealWithoutMask is the counterexample set and is reported explicitly to prevent an 'always masks vulnerability' overclaim.",
+      "additionalProperties": false,
+      "required": ["status", "revealBearingRecords", "revealThenConcealRecords", "revealWithoutMaskRecords", "maskEdges", "maskRate", "note"],
+      "properties": {
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "revealBearingRecords": { "type": "integer", "minimum": 0 },
+        "revealThenConcealRecords": { "type": "integer", "minimum": 0 },
+        "revealWithoutMaskRecords": { "type": "array", "items": { "type": "string" } },
+        "maskEdges": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "maskRate": { "$ref": "#/$defs/pilotRate" },
+        "note": { "type": "string" }
+      }
+    },
+
+    "relationshipOperations": {
+      "type": "object",
+      "description": "§11 relationship-management operations, directional and count-based only — no magnitudes, no 'intensity scores'. finalActionToOperation couples the last action of a message to the relationship operation it lands.",
+      "additionalProperties": false,
+      "required": ["status", "relationshipManagementPresentRecords", "operationFrequency", "finalActionToOperation", "note"],
+      "properties": {
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "relationshipManagementPresentRecords": { "type": "integer", "minimum": 0 },
+        "operationFrequency": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "finalActionToOperation": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "note": { "type": "string" }
+      }
+    },
+
+    "partnerOperations": {
+      "type": "object",
+      "description": "§12 EXPECTED partner operations, drawn from expectedReply — these are what the utterance is designed to elicit, NOT observed partner behavior (no partner turn exists in the evidence).",
+      "additionalProperties": false,
+      "required": ["status", "strategyToExpectedPartnerOperation", "note"],
+      "properties": {
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "strategyToExpectedPartnerOperation": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "note": { "type": "string" }
+      }
+    },
+
+    "performancePatterns": {
+      "type": "object",
+      "description": "§13 performance/self-presentation patterns derived from actions and review tags, NOT from a public/private text split. dropThenRestore and privateContextPerformance are counterexample/edge sets kept explicit.",
+      "additionalProperties": false,
+      "required": ["status", "performanceBearingRecords", "dropThenRestoreRecords", "privateContextPerformanceRecords", "performanceEdges", "note"],
+      "properties": {
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "performanceBearingRecords": { "type": "integer", "minimum": 0 },
+        "dropThenRestoreRecords": { "type": "array", "items": { "type": "string" } },
+        "privateContextPerformanceRecords": { "type": "array", "items": { "type": "string" } },
+        "performanceEdges": { "type": "array", "items": { "$ref": "#/$defs/coupling" } },
+        "note": { "type": "string" }
+      }
+    },
+
+    "intraMessageMomentum": {
+      "type": "object",
+      "description": "§13/§14 single-utterance escalation/repair/reveal arcs. Explicitly NOT cross-turn conversation grammar: no partner turn exists, so possible_next_strategy is left unknown by design.",
+      "additionalProperties": false,
+      "required": ["status", "multiBeatRecords", "arcs", "note"],
+      "properties": {
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "multiBeatRecords": { "type": "integer", "minimum": 0 },
+        "arcs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["sequenceLength", "escalationPoints", "repairPoints", "revealPoints", "arc"],
+            "properties": {
+              "link": { "type": "string" },
+              "sequenceLength": { "type": "integer", "minimum": 1 },
+              "escalationPoints": { "type": "integer", "minimum": 0 },
+              "repairPoints": { "type": "integer", "minimum": 0 },
+              "revealPoints": { "type": "integer", "minimum": 0 },
+              "finalRelationshipOperation": { "type": "array", "items": { "type": "string" } },
+              "finalExpectedPartnerOperation": { "type": "array", "items": { "type": "string" } },
+              "arc": { "type": "string" }
+            }
+          }
+        },
+        "note": { "type": "string" }
+      }
+    }
+  },
+
+  "$defs": {
+    "pilotRate": {
+      "type": "object",
+      "description": "An honest pilot rate — never a bare percentage. rate is null when there is no eligible opportunity.",
+      "additionalProperties": false,
+      "required": ["observed_count", "eligible_opportunity_count", "status", "uncertainty_note"],
+      "properties": {
+        "observed_count": { "type": "integer", "minimum": 0 },
+        "eligible_opportunity_count": { "type": "integer", "minimum": 0 },
+        "pilot_observed_rate": { "description": "number in [0,1], or null when eligible_opportunity_count is 0. Type is intentionally unconstrained because mini-schema has no nullable-union; the validator enforces the null-vs-number rule." },
+        "status": { "type": "string", "const": "PILOT_ESTIMATE" },
+        "uncertainty_note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "ngram": {
+      "type": "object",
+      "description": "A discovered pattern key with unique-record support as the primary weight.",
+      "additionalProperties": false,
+      "required": ["key", "recordSupport"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1 },
+        "recordSupport": { "type": "integer", "minimum": 0 },
+        "occurrenceCount": { "type": "integer", "minimum": 0 },
+        "confidenceWeightedSupport": { "type": "integer", "minimum": 0 },
+        "supportingLinks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "coupling": {
+      "type": "object",
+      "description": "A discovered A→B coupling (driving-force→strategy, affect→strategy, etc.) with unique-record support.",
+      "additionalProperties": false,
+      "required": ["key", "recordSupport"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1 },
+        "recordSupport": { "type": "integer", "minimum": 0 },
+        "occurrenceCount": { "type": "integer", "minimum": 0 },
+        "supportingLinks": { "type": "array", "items": { "type": "string" } },
+        "rate": { "$ref": "#/$defs/pilotRate" }
+      }
+    }
+  }
+}

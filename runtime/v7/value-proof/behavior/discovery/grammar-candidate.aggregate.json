@@ -1,0 +1,1835 @@
+{
+  "visibility": "committed_safe",
+  "verbatimFree": true,
+  "formatVersion": 1,
+  "status": "PILOT_ESTIMATE",
+  "n": 50,
+  "transitions": {
+    "status": "PILOT_ESTIMATE",
+    "n": 50,
+    "recordsWithAnyBigram": 27,
+    "unigrams": [
+      {
+        "key": "reveal",
+        "occurrenceCount": 31,
+        "recordSupport": 28,
+        "confidenceWeightedSupport": 25
+      },
+      {
+        "key": "self_devalue",
+        "occurrenceCount": 6,
+        "recordSupport": 6,
+        "confidenceWeightedSupport": 2
+      },
+      {
+        "key": "perform_confidence",
+        "occurrenceCount": 5,
+        "recordSupport": 5,
+        "confidenceWeightedSupport": 5
+      },
+      {
+        "key": "seek_confirmation",
+        "occurrenceCount": 5,
+        "recordSupport": 5,
+        "confidenceWeightedSupport": 5
+      },
+      {
+        "key": "accuse",
+        "occurrenceCount": 4,
+        "recordSupport": 4,
+        "confidenceWeightedSupport": 4
+      },
+      {
+        "key": "demand",
+        "occurrenceCount": 4,
+        "recordSupport": 4,
+        "confidenceWeightedSupport": 4
+      },
+      {
+        "key": "reassure_partner",
+        "occurrenceCount": 4,
+        "recordSupport": 4,
+        "confidenceWeightedSupport": 2
+      },
+      {
+        "key": "future_bind",
+        "occurrenceCount": 3,
+        "recordSupport": 3,
+        "confidenceWeightedSupport": 3
+      },
+      {
+        "key": "retract",
+        "occurrenceCount": 3,
+        "recordSupport": 3,
+        "confidenceWeightedSupport": 3
+      },
+      {
+        "key": "seek_exclusivity",
+        "occurrenceCount": 3,
+        "recordSupport": 3,
+        "confidenceWeightedSupport": 2
+      },
+      {
+        "key": "tease",
+        "occurrenceCount": 3,
+        "recordSupport": 3,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "escalate",
+        "occurrenceCount": 2,
+        "recordSupport": 2,
+        "confidenceWeightedSupport": 2
+      },
+      {
+        "key": "justify",
+        "occurrenceCount": 2,
+        "recordSupport": 2,
+        "confidenceWeightedSupport": 2
+      },
+      {
+        "key": "self_monitor",
+        "occurrenceCount": 2,
+        "recordSupport": 2,
+        "confidenceWeightedSupport": 2
+      },
+      {
+        "key": "bait",
+        "occurrenceCount": 2,
+        "recordSupport": 2,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "ask",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "conceal",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "deescalate",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "drop_performance",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "mask",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "threaten_symbolically",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "countermask",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "invite_pursuit",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "no_clear_action",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "request_practical_action",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      }
+    ],
+    "bigrams": [
+      {
+        "key": "reveal>self_devalue",
+        "occurrenceCount": 3,
+        "recordSupport": 3,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "demand>reveal",
+        "occurrenceCount": 2,
+        "recordSupport": 2,
+        "confidenceWeightedSupport": 2
+      },
+      {
+        "key": "reveal>reveal",
+        "occurrenceCount": 2,
+        "recordSupport": 2,
+        "confidenceWeightedSupport": 2
+      },
+      {
+        "key": "perform_confidence>reveal",
+        "occurrenceCount": 2,
+        "recordSupport": 2,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "accuse>escalate",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "accuse>retract",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "accuse>seek_confirmation",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "conceal>reveal",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "deescalate>perform_confidence",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "escalate>retract",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "future_bind>reveal",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "justify>reveal",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reassure_partner>demand",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reassure_partner>reveal",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "retract>mask",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reveal>accuse",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reveal>ask",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reveal>drop_performance",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reveal>seek_confirmation",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reveal>seek_exclusivity",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reveal>self_monitor",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "seek_confirmation>demand",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "seek_confirmation>future_bind",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "seek_exclusivity>seek_confirmation",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "self_devalue>seek_confirmation",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "accuse>self_devalue",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "ask>bait",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "demand>seek_exclusivity",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "future_bind>invite_pursuit",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "justify>reassure_partner",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "perform_confidence>bait",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "reassure_partner>request_practical_action",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "reassure_partner>seek_confirmation",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "retract>countermask",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      }
+    ],
+    "trigrams": [
+      {
+        "key": "accuse>escalate>retract",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "accuse>retract>mask",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "accuse>seek_confirmation>future_bind",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "future_bind>reveal>seek_confirmation",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "justify>reveal>reveal",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reveal>accuse>seek_confirmation",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reveal>reveal>accuse",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "reveal>seek_confirmation>demand",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "seek_confirmation>demand>reveal",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 1
+      },
+      {
+        "key": "justify>reassure_partner>seek_confirmation",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "reassure_partner>demand>seek_exclusivity",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      },
+      {
+        "key": "reveal>ask>bait",
+        "occurrenceCount": 1,
+        "recordSupport": 1,
+        "confidenceWeightedSupport": 0
+      }
+    ],
+    "note": "recordSupport (distinct records) is the primary weight; occurrenceCount is diagnostic only. A transition repeated inside one long message adds at most +1 recordSupport."
+  },
+  "drivingForceStrategy": {
+    "status": "PILOT_ESTIMATE",
+    "tierA_recordSpecificStrong": [
+      {
+        "key": "fear_of_abandonment>obtain_specific_reassurance",
+        "recordSupport": 2
+      },
+      {
+        "key": "fear_of_abandonment>build_future_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "fear_of_abandonment>repair_relationship",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_attention>demand_reciprocation",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_closeness>build_future_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_reassurance>obtain_specific_reassurance",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_reassurance>repair_relationship",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_recognition>conceal_vulnerability",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_to_avoid_humiliation>conceal_vulnerability",
+        "recordSupport": 1
+      },
+      {
+        "key": "never_separate>build_future_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "never_separate>obtain_specific_reassurance",
+        "recordSupport": 1
+      },
+      {
+        "key": "sensitivity_to_unavailability>obtain_specific_reassurance",
+        "recordSupport": 1
+      },
+      {
+        "key": "sensitivity_to_unavailability>test_exclusivity",
+        "recordSupport": 1
+      }
+    ],
+    "tierB_recordSpecificModerate": [
+      {
+        "key": "fear_of_abandonment>test_exclusivity",
+        "recordSupport": 2
+      },
+      {
+        "key": "fear_of_abandonment>obtain_specific_reassurance",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_closeness>intensify_intimacy",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_control>test_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_to_avoid_humiliation>preserve_self_image",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_to_be_unique>test_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_to_preserve_self_image>conceal_vulnerability",
+        "recordSupport": 1
+      },
+      {
+        "key": "never_separate>build_future_bond",
+        "recordSupport": 1
+      }
+    ],
+    "exploratory_priorOrWeakOnly": [
+      {
+        "key": "need_for_attunement>discharge_overload",
+        "recordSupport": 3
+      },
+      {
+        "key": "need_for_play>invite_playful_response",
+        "recordSupport": 3
+      },
+      {
+        "key": "need_for_admiration>maintain_performance",
+        "recordSupport": 2
+      },
+      {
+        "key": "need_for_attunement>reduce_distance",
+        "recordSupport": 2
+      },
+      {
+        "key": "need_for_reassurance>invite_playful_response",
+        "recordSupport": 2
+      },
+      {
+        "key": "need_for_reassurance>obtain_specific_reassurance",
+        "recordSupport": 2
+      },
+      {
+        "key": "need_for_rest>discharge_overload",
+        "recordSupport": 2
+      },
+      {
+        "key": "fear_of_abandonment>conceal_vulnerability",
+        "recordSupport": 1
+      },
+      {
+        "key": "fear_of_abandonment>test_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_admiration>invite_playful_response",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_attention>maintain_performance",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_attention>obtain_attention",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_attention>reduce_distance",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_closeness>intensify_intimacy",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_closeness>reduce_distance",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_closeness>repair_relationship",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_control>discharge_overload",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_predictability>intensify_intimacy",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_privacy>conceal_vulnerability",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_reassurance>punish_perceived_neglect",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_for_recognition>reduce_distance",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_to_avoid_humiliation>conceal_vulnerability",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_to_be_unique>demand_reciprocation",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_to_be_unique>test_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_to_preserve_self_image>conceal_vulnerability",
+        "recordSupport": 1
+      },
+      {
+        "key": "need_to_preserve_self_image>maintain_performance",
+        "recordSupport": 1
+      },
+      {
+        "key": "sensitivity_to_ambiguous_response>test_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "sensitivity_to_unavailability>obtain_specific_reassurance",
+        "recordSupport": 1
+      }
+    ],
+    "note": "Tier A/B are record-grounded couplings. exploratory is prior-only/weak and must NOT be read as validated (§6). Character prior existing is not evidence."
+  },
+  "affectStrategy": {
+    "status": "PILOT_ESTIMATE",
+    "simultaneous": [
+      {
+        "key": "surface:affection+opposing:fear+leaked:fear => build_future_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:excitement+opposing:fear => reduce_distance",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:fear+opposing:loneliness => obtain_specific_reassurance",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:fear+opposing:shame => repair_relationship",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:other+masked:sadness => maintain_performance",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:sadness+opposing:fear => obtain_specific_reassurance",
+        "recordSupport": 1
+      }
+    ],
+    "sequential": [
+      {
+        "key": "surface:anger+opposing:fear => test_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:jealousy+opposing:affection => test_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:other+leaked:fear => conceal_vulnerability",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:other+masked:affection => conceal_vulnerability",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:other+opposing:sadness+masked:sadness+leaked:sadness => conceal_vulnerability",
+        "recordSupport": 1
+      }
+    ],
+    "other_or_single_affect": [
+      {
+        "key": "surface:other => invite_playful_response",
+        "recordSupport": 5
+      },
+      {
+        "key": "surface:anger => discharge_overload",
+        "recordSupport": 3
+      },
+      {
+        "key": "surface:sadness => discharge_overload",
+        "recordSupport": 3
+      },
+      {
+        "key": "surface:affection => intensify_intimacy",
+        "recordSupport": 2
+      },
+      {
+        "key": "surface:calm => reduce_distance",
+        "recordSupport": 2
+      },
+      {
+        "key": "surface:excitement => maintain_performance",
+        "recordSupport": 2
+      },
+      {
+        "key": "surface:fear => obtain_specific_reassurance",
+        "recordSupport": 2
+      },
+      {
+        "key": "surface:joy => invite_playful_response",
+        "recordSupport": 2
+      },
+      {
+        "key": "surface:affection => demand_reciprocation",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:affection => reduce_distance",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:affection => repair_relationship",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:affection+opposing:sadness => build_future_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:anger+masked:sadness => punish_perceived_neglect",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:calm => other",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:excitement => invite_playful_response",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:fear => preserve_self_image",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:fear => test_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:fear+masked:sadness => obtain_specific_reassurance",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:jealousy+opposing:affection => test_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:joy => reduce_distance",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:other => obtain_attention",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:other => other",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:other => reduce_distance",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:pride => maintain_performance",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:sadness => obtain_specific_reassurance",
+        "recordSupport": 1
+      },
+      {
+        "key": "surface:shame => conceal_vulnerability",
+        "recordSupport": 1
+      }
+    ],
+    "note": "simultaneous and sequential blends are reported separately and never merged (§8)."
+  },
+  "triggerSensitivity": {
+    "status": "PILOT_ESTIMATE",
+    "domains": [
+      {
+        "domain": "perceived_rejection",
+        "domainRecordCount": 5,
+        "lowTriggerHighActivationSupport": 3,
+        "conflictingRecordCount": 0,
+        "provisional_status": "worth_testing_at_larger_n",
+        "context_limitation": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the actual stimulus magnitude."
+      },
+      {
+        "domain": "ambiguous_feedback",
+        "domainRecordCount": 2,
+        "lowTriggerHighActivationSupport": 2,
+        "conflictingRecordCount": 0,
+        "provisional_status": "worth_testing_at_larger_n",
+        "context_limitation": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the actual stimulus magnitude."
+      },
+      {
+        "domain": "delayed_reply",
+        "domainRecordCount": 2,
+        "lowTriggerHighActivationSupport": 2,
+        "conflictingRecordCount": 0,
+        "provisional_status": "worth_testing_at_larger_n",
+        "context_limitation": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the actual stimulus magnitude."
+      },
+      {
+        "domain": "exclusivity_threat",
+        "domainRecordCount": 3,
+        "lowTriggerHighActivationSupport": 2,
+        "conflictingRecordCount": 0,
+        "provisional_status": "worth_testing_at_larger_n",
+        "context_limitation": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the actual stimulus magnitude."
+      },
+      {
+        "domain": "audience_metrics",
+        "domainRecordCount": 3,
+        "lowTriggerHighActivationSupport": 0,
+        "conflictingRecordCount": 0,
+        "provisional_status": "anecdotal",
+        "context_limitation": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the actual stimulus magnitude."
+      },
+      {
+        "domain": "divided_attention",
+        "domainRecordCount": 1,
+        "lowTriggerHighActivationSupport": 0,
+        "conflictingRecordCount": 0,
+        "provisional_status": "anecdotal",
+        "context_limitation": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the actual stimulus magnitude."
+      },
+      {
+        "domain": "isolation",
+        "domainRecordCount": 3,
+        "lowTriggerHighActivationSupport": 0,
+        "conflictingRecordCount": 0,
+        "provisional_status": "anecdotal",
+        "context_limitation": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the actual stimulus magnitude."
+      },
+      {
+        "domain": "other",
+        "domainRecordCount": 25,
+        "lowTriggerHighActivationSupport": 0,
+        "conflictingRecordCount": 0,
+        "provisional_status": "anecdotal",
+        "context_limitation": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the actual stimulus magnitude."
+      },
+      {
+        "domain": "public_evaluation",
+        "domainRecordCount": 6,
+        "lowTriggerHighActivationSupport": 0,
+        "conflictingRecordCount": 0,
+        "provisional_status": "anecdotal",
+        "context_limitation": "single-sided corpus: observedTriggerIntensity is inferred from the utterance alone; no partner turn confirms the actual stimulus magnitude."
+      }
+    ],
+    "note": "No activation numbers or curves (§7). Low-trigger+high-activation is a candidate, not a law."
+  },
+  "revealMask": {
+    "status": "PILOT_ESTIMATE",
+    "revealBearingRecords": 31,
+    "revealThenConcealRecords": 3,
+    "revealWithoutMaskRecords": [],
+    "maskEdges": [
+      {
+        "key": "reveal>self_devalue",
+        "recordSupport": 3
+      }
+    ],
+    "maskRate": {
+      "observed_count": 3,
+      "eligible_opportunity_count": 31,
+      "pilot_observed_rate": 0.097,
+      "status": "PILOT_ESTIMATE",
+      "uncertainty_note": "n=50 pilot — rate indicates whether this deserves testing at larger n, not a law"
+    },
+    "note": "A retract is only counted as a mask when it directly follows a reveal-type move (§21.7). revealWithoutMask lists the counter-scenes — she does not always mask after exposing need."
+  },
+  "relationshipOperations": {
+    "status": "PILOT_ESTIMATE",
+    "relationshipManagementPresentRecords": 18,
+    "operationFrequency": [
+      {
+        "key": "test_bond",
+        "recordSupport": 9
+      },
+      {
+        "key": "seek_exclusivity",
+        "recordSupport": 6
+      },
+      {
+        "key": "stabilize_bond",
+        "recordSupport": 6
+      },
+      {
+        "key": "repair_bond",
+        "recordSupport": 4
+      },
+      {
+        "key": "future_bind",
+        "recordSupport": 3
+      },
+      {
+        "key": "preserve_partner_attention",
+        "recordSupport": 2
+      },
+      {
+        "key": "reduce_distance",
+        "recordSupport": 2
+      },
+      {
+        "key": "threaten_bond",
+        "recordSupport": 1
+      }
+    ],
+    "finalActionToOperation": [
+      {
+        "key": "reveal => stabilize_bond",
+        "recordSupport": 4
+      },
+      {
+        "key": "seek_confirmation => test_bond",
+        "recordSupport": 3
+      },
+      {
+        "key": "reveal => reduce_distance",
+        "recordSupport": 2
+      },
+      {
+        "key": "self_devalue => test_bond",
+        "recordSupport": 2
+      },
+      {
+        "key": "countermask => test_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "future_bind => future_bind",
+        "recordSupport": 1
+      },
+      {
+        "key": "future_bind => repair_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "future_bind => seek_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "future_bind => stabilize_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "invite_pursuit => future_bind",
+        "recordSupport": 1
+      },
+      {
+        "key": "invite_pursuit => seek_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "mask => repair_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "mask => test_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "retract => repair_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "retract => test_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "reveal => future_bind",
+        "recordSupport": 1
+      },
+      {
+        "key": "reveal => preserve_partner_attention",
+        "recordSupport": 1
+      },
+      {
+        "key": "reveal => seek_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "seek_confirmation => repair_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "seek_confirmation => seek_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "seek_exclusivity => preserve_partner_attention",
+        "recordSupport": 1
+      },
+      {
+        "key": "seek_exclusivity => seek_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "seek_exclusivity => stabilize_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "seek_exclusivity => test_bond",
+        "recordSupport": 1
+      },
+      {
+        "key": "threaten_symbolically => seek_exclusivity",
+        "recordSupport": 1
+      },
+      {
+        "key": "threaten_symbolically => threaten_bond",
+        "recordSupport": 1
+      }
+    ],
+    "note": "Directional operations only. No +/- magnitudes are produced (§10)."
+  },
+  "partnerOperations": {
+    "status": "PILOT_ESTIMATE",
+    "strategyToExpectedPartnerOperation": [
+      {
+        "key": "invite_playful_response => laugh_play_along [immediate]",
+        "recordSupport": 8
+      },
+      {
+        "key": "discharge_overload => stay_present [immediate]",
+        "recordSupport": 6
+      },
+      {
+        "key": "obtain_specific_reassurance => reassure [immediate]",
+        "recordSupport": 6
+      },
+      {
+        "key": "discharge_overload => reassure [immediate]",
+        "recordSupport": 5
+      },
+      {
+        "key": "discharge_overload => remain_available [relationship]",
+        "recordSupport": 5
+      },
+      {
+        "key": "obtain_specific_reassurance => remain_available [relationship]",
+        "recordSupport": 5
+      },
+      {
+        "key": "obtain_specific_reassurance => stay_present [immediate]",
+        "recordSupport": 5
+      },
+      {
+        "key": "invite_playful_response => no_long_term_expectation [longerTerm]",
+        "recordSupport": 4
+      },
+      {
+        "key": "maintain_performance => laugh_play_along [immediate]",
+        "recordSupport": 4
+      },
+      {
+        "key": "reduce_distance => answer [immediate]",
+        "recordSupport": 4
+      },
+      {
+        "key": "reduce_distance => laugh_play_along [immediate]",
+        "recordSupport": 4
+      },
+      {
+        "key": "test_exclusivity => confirm_exclusivity [immediate]",
+        "recordSupport": 4
+      },
+      {
+        "key": "test_exclusivity => reaffirm_bond [relationship]",
+        "recordSupport": 4
+      },
+      {
+        "key": "test_exclusivity => reassure [immediate]",
+        "recordSupport": 4
+      },
+      {
+        "key": "conceal_vulnerability => reaffirm_bond [relationship]",
+        "recordSupport": 3
+      },
+      {
+        "key": "conceal_vulnerability => reassure [immediate]",
+        "recordSupport": 3
+      },
+      {
+        "key": "conceal_vulnerability => stay_present [immediate]",
+        "recordSupport": 3
+      },
+      {
+        "key": "obtain_specific_reassurance => future_commitment [longerTerm]",
+        "recordSupport": 3
+      },
+      {
+        "key": "obtain_specific_reassurance => reaffirm_bond [relationship]",
+        "recordSupport": 3
+      },
+      {
+        "key": "obtain_specific_reassurance => reciprocate_affection [immediate]",
+        "recordSupport": 3
+      },
+      {
+        "key": "reduce_distance => no_long_term_expectation [longerTerm]",
+        "recordSupport": 3
+      },
+      {
+        "key": "reduce_distance => stay_present [immediate]",
+        "recordSupport": 3
+      },
+      {
+        "key": "test_exclusivity => continue_presence [longerTerm]",
+        "recordSupport": 3
+      },
+      {
+        "key": "build_future_bond => continue_presence [longerTerm]",
+        "recordSupport": 2
+      },
+      {
+        "key": "build_future_bond => reaffirm_bond [relationship]",
+        "recordSupport": 2
+      },
+      {
+        "key": "build_future_bond => reassure [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "build_future_bond => reciprocate_affection [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "build_future_bond => remain_available [relationship]",
+        "recordSupport": 2
+      },
+      {
+        "key": "build_future_bond => stay_present [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "conceal_vulnerability => laugh_play_along [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "intensify_intimacy => reaffirm_bond [relationship]",
+        "recordSupport": 2
+      },
+      {
+        "key": "intensify_intimacy => reassure [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "invite_playful_response => reassure [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "maintain_performance => no_long_term_expectation [longerTerm]",
+        "recordSupport": 2
+      },
+      {
+        "key": "maintain_performance => reassure [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "obtain_specific_reassurance => confirm_exclusivity [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "obtain_specific_reassurance => continue_presence [longerTerm]",
+        "recordSupport": 2
+      },
+      {
+        "key": "obtain_specific_reassurance => validate_identity [relationship]",
+        "recordSupport": 2
+      },
+      {
+        "key": "other => answer [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "reduce_distance => reassure [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "repair_relationship => reassure [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "repair_relationship => stay_present [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "test_exclusivity => reciprocate_affection [immediate]",
+        "recordSupport": 2
+      },
+      {
+        "key": "test_exclusivity => show_special_treatment [relationship]",
+        "recordSupport": 2
+      },
+      {
+        "key": "build_future_bond => confirm_exclusivity [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "build_future_bond => future_commitment [longerTerm]",
+        "recordSupport": 1
+      },
+      {
+        "key": "build_future_bond => restore_trust [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "conceal_vulnerability => continue_presence [longerTerm]",
+        "recordSupport": 1
+      },
+      {
+        "key": "conceal_vulnerability => pursue_after_withdrawal [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "conceal_vulnerability => reciprocate_affection [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "conceal_vulnerability => remain_available [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "conceal_vulnerability => restore_trust [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "conceal_vulnerability => validate_identity [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "demand_reciprocation => confirm_exclusivity [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "demand_reciprocation => continue_presence [longerTerm]",
+        "recordSupport": 1
+      },
+      {
+        "key": "demand_reciprocation => reaffirm_bond [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "demand_reciprocation => reciprocate_affection [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "demand_reciprocation => remain_available [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "demand_reciprocation => stay_present [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "discharge_overload => respect_boundary [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "intensify_intimacy => answer [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "intensify_intimacy => continue_presence [longerTerm]",
+        "recordSupport": 1
+      },
+      {
+        "key": "intensify_intimacy => reciprocate_affection [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "intensify_intimacy => remain_available [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "intensify_intimacy => restore_trust [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "intensify_intimacy => stay_present [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "invite_playful_response => answer [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "obtain_attention => answer [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "obtain_attention => laugh_play_along [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "obtain_attention => no_long_term_expectation [longerTerm]",
+        "recordSupport": 1
+      },
+      {
+        "key": "obtain_specific_reassurance => behavioral_change [longerTerm]",
+        "recordSupport": 1
+      },
+      {
+        "key": "obtain_specific_reassurance => restore_trust [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "other => stay_present [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "preserve_self_image => laugh_play_along [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "preserve_self_image => reassure [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "punish_perceived_neglect => explain [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "punish_perceived_neglect => reaffirm_bond [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "punish_perceived_neglect => reassure [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "punish_perceived_neglect => restore_trust [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "reduce_distance => reciprocate_affection [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "repair_relationship => continue_presence [longerTerm]",
+        "recordSupport": 1
+      },
+      {
+        "key": "repair_relationship => reaffirm_bond [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "repair_relationship => reciprocate_affection [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "repair_relationship => remain_available [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "repair_relationship => restore_trust [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "test_exclusivity => explain [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "test_exclusivity => future_commitment [longerTerm]",
+        "recordSupport": 1
+      },
+      {
+        "key": "test_exclusivity => laugh_play_along [immediate]",
+        "recordSupport": 1
+      },
+      {
+        "key": "test_exclusivity => remain_available [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "test_exclusivity => restore_trust [relationship]",
+        "recordSupport": 1
+      },
+      {
+        "key": "test_exclusivity => validate_identity [relationship]",
+        "recordSupport": 1
+      }
+    ],
+    "note": "These are EXPECTED partner operations declared by the annotation, NOT observed partner turns. Single-sided corpus cannot confirm the partner actually did them (§11/§14)."
+  },
+  "performancePatterns": {
+    "status": "PILOT_ESTIMATE",
+    "performanceBearingRecords": 6,
+    "dropThenRestoreRecords": [],
+    "privateContextPerformanceRecords": [],
+    "performanceEdges": [
+      {
+        "key": "perform_confidence>reveal",
+        "recordSupport": 2
+      },
+      {
+        "key": "deescalate>perform_confidence",
+        "recordSupport": 1
+      },
+      {
+        "key": "perform_confidence>bait",
+        "recordSupport": 1
+      },
+      {
+        "key": "reveal>drop_performance",
+        "recordSupport": 1
+      }
+    ],
+    "note": "Performance is detected from performance ACTIONS / awareness tags, NOT from public/private target alone (§21.14). privateContextPerformance shows performance also occurs off-stage."
+  },
+  "intraMessageMomentum": {
+    "status": "PILOT_ESTIMATE",
+    "multiBeatRecords": 27,
+    "arcs": [
+      {
+        "sequenceLength": 6,
+        "escalationPoints": 1,
+        "repairPoints": 1,
+        "revealPoints": 3,
+        "finalRelationshipOperation": [
+          "future_bind",
+          "repair_bond",
+          "seek_exclusivity",
+          "stabilize_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "confirm_exclusivity",
+          "reassure",
+          "reciprocate_affection",
+          "stay_present"
+        ],
+        "arc": "justify>reveal>reveal>accuse>seek_confirmation>future_bind"
+      },
+      {
+        "sequenceLength": 5,
+        "escalationPoints": 1,
+        "repairPoints": 0,
+        "revealPoints": 3,
+        "finalRelationshipOperation": [
+          "future_bind",
+          "seek_exclusivity",
+          "stabilize_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "confirm_exclusivity",
+          "reassure",
+          "reciprocate_affection",
+          "stay_present"
+        ],
+        "arc": "future_bind>reveal>seek_confirmation>demand>reveal"
+      },
+      {
+        "sequenceLength": 3,
+        "escalationPoints": 2,
+        "repairPoints": 1,
+        "revealPoints": 0,
+        "finalRelationshipOperation": [
+          "repair_bond",
+          "test_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "confirm_exclusivity",
+          "explain",
+          "reassure"
+        ],
+        "arc": "accuse>escalate>retract"
+      },
+      {
+        "sequenceLength": 3,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "laugh_play_along"
+        ],
+        "arc": "reveal>ask>bait"
+      },
+      {
+        "sequenceLength": 3,
+        "escalationPoints": 0,
+        "repairPoints": 2,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [
+          "repair_bond",
+          "test_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "reassure",
+          "reciprocate_affection",
+          "stay_present"
+        ],
+        "arc": "justify>reassure_partner>seek_confirmation"
+      },
+      {
+        "sequenceLength": 3,
+        "escalationPoints": 1,
+        "repairPoints": 1,
+        "revealPoints": 0,
+        "finalRelationshipOperation": [
+          "preserve_partner_attention",
+          "stabilize_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "confirm_exclusivity",
+          "reciprocate_affection",
+          "stay_present"
+        ],
+        "arc": "reassure_partner>demand>seek_exclusivity"
+      },
+      {
+        "sequenceLength": 3,
+        "escalationPoints": 1,
+        "repairPoints": 1,
+        "revealPoints": 0,
+        "finalRelationshipOperation": [
+          "repair_bond",
+          "test_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "reassure",
+          "stay_present"
+        ],
+        "arc": "accuse>retract>mask"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 1,
+        "revealPoints": 0,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "reassure",
+          "reciprocate_affection"
+        ],
+        "arc": "reassure_partner>request_practical_action"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 1,
+        "revealPoints": 0,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "laugh_play_along",
+          "reassure"
+        ],
+        "arc": "deescalate>perform_confidence"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 1,
+        "repairPoints": 1,
+        "revealPoints": 0,
+        "finalRelationshipOperation": [
+          "test_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "explain",
+          "reassure"
+        ],
+        "arc": "accuse>self_devalue"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 1,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "laugh_play_along",
+          "reassure"
+        ],
+        "arc": "reveal>self_devalue"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 1,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "answer",
+          "laugh_play_along"
+        ],
+        "arc": "reveal>self_devalue"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "reassure",
+          "stay_present"
+        ],
+        "arc": "reveal>self_monitor"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "reassure",
+          "stay_present"
+        ],
+        "arc": "reveal>drop_performance"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 0,
+        "finalRelationshipOperation": [
+          "future_bind",
+          "seek_exclusivity"
+        ],
+        "finalExpectedPartnerOperation": [
+          "reassure",
+          "reciprocate_affection",
+          "stay_present"
+        ],
+        "arc": "future_bind>invite_pursuit"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 1,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [
+          "stabilize_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "reassure",
+          "stay_present"
+        ],
+        "arc": "reassure_partner>reveal"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 1,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [
+          "test_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "reassure",
+          "reciprocate_affection",
+          "stay_present"
+        ],
+        "arc": "reveal>self_devalue"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 1,
+        "repairPoints": 0,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [
+          "preserve_partner_attention",
+          "stabilize_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "reassure",
+          "reciprocate_affection",
+          "stay_present"
+        ],
+        "arc": "demand>reveal"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 0,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "laugh_play_along"
+        ],
+        "arc": "perform_confidence>bait"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 1,
+        "revealPoints": 0,
+        "finalRelationshipOperation": [
+          "test_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "laugh_play_along",
+          "reciprocate_affection"
+        ],
+        "arc": "retract>countermask"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [
+          "seek_exclusivity",
+          "test_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "confirm_exclusivity",
+          "reassure",
+          "reciprocate_affection"
+        ],
+        "arc": "reveal>seek_exclusivity"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [
+          "test_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "confirm_exclusivity",
+          "reassure",
+          "reciprocate_affection"
+        ],
+        "arc": "seek_exclusivity>seek_confirmation"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [
+          "reduce_distance"
+        ],
+        "finalExpectedPartnerOperation": [
+          "laugh_play_along",
+          "reassure",
+          "stay_present"
+        ],
+        "arc": "conceal>reveal"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 2,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "laugh_play_along",
+          "reassure",
+          "stay_present"
+        ],
+        "arc": "reveal>reveal"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "laugh_play_along"
+        ],
+        "arc": "perform_confidence>reveal"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 1,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [
+          "seek_exclusivity",
+          "test_bond"
+        ],
+        "finalExpectedPartnerOperation": [
+          "confirm_exclusivity",
+          "reassure",
+          "reciprocate_affection"
+        ],
+        "arc": "self_devalue>seek_confirmation"
+      },
+      {
+        "sequenceLength": 2,
+        "escalationPoints": 0,
+        "repairPoints": 0,
+        "revealPoints": 1,
+        "finalRelationshipOperation": [],
+        "finalExpectedPartnerOperation": [
+          "laugh_play_along",
+          "reassure"
+        ],
+        "arc": "perform_confidence>reveal"
+      }
+    ],
+    "note": "Intra-message arcs only. No partner turn exists in evidence, so these are NOT cross-turn conversation grammar (§14). possible_next_strategy is deliberately left unknown."
+  }
+}
